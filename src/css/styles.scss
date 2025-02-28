@@ -436,7 +436,7 @@ body {
       scale: 50%;
     }
     @include media(">=s20ultra", "<=tablet") {
-      margin-left: -34vw;
+      margin-left: -29vw;
 
       scale: 50%;
     }
@@ -1080,6 +1080,12 @@ $progBgActualWidth: 100 vw-0 .5vw;
     margin-top: 126vh;
     margin-left: 52vh;
     width: 60vw;
+  }
+  @include media(">=s20ultra", "<=tablet") {
+    margin-top: 156vh;
+    margin-left: 12vh;
+    width: 60vw;
+    scale: 150%;
   }
 }
 

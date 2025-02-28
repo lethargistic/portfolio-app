@@ -39,7 +39,7 @@ function S6programmin() {
             </h2>
             <div className={"devSecContainer"}>
                 <DevSec sp={springs}/>
-                <p className={"gitPlug"}><Trans i18nKey={"dev.gitTxt"}></Trans> <a target={"_blank"} rel="noreferrer" href={"https://github.com/maksiksking"}><br/>Github #</a></p>
+                <p className={"gitPlug"}><Trans i18nKey={"dev.gitTxt"}></Trans> <a target={"_blank"} rel="noreferrer" href={"https://github.com/maksiksq"}><br/>Github #</a></p>
             </div>
         </div>
         <ProgramminBg/>
