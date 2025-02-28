@@ -31,7 +31,7 @@ function AllEmBoxes() {
             a3: 2,
             a4: 3,
             vid: futureVid,
-            link: "https://maksiksking.github.io/futureOfUkraineWebDesignCompetition2023h1/"
+            link: "https://maksiksq.github.io/futureOfUkraineWebDesignCompetition2023h1/"
         },
         {id: 2, a1: 1, a2: 3, a3: 2, a4: 6, vid: teaVid, link: "https://course-site-f.vercel.app/#"},
         {id: 3, a1: 2, a2: 1, a3: 3, a4: 3, vid: hereVid, link: "nope"},
