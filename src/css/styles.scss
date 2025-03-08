@@ -653,6 +653,9 @@ $progBgActualWidth: 100 vw-0 .5vw;
   height: 93.7%;
   margin-left: 5.5%;
 
+  // important as HELL
+  overflow-y: visible;
+
   .coverUp {
     position: absolute;
     margin-left: -7.2vw;
