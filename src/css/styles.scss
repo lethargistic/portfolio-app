@@ -218,6 +218,7 @@ body {
   //flex-wrap: wrap; // how
   @include media(">phone", "<=tablet") {
     flex-wrap: wrap;
+    overflow-x: hidden;
   }
   flex-direction: row;
 
