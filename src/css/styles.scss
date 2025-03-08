@@ -417,6 +417,7 @@ body {
 }
 
 .s4holder {
+
   background-color: white;
 
   display: flex;
@@ -474,6 +475,9 @@ body {
 }
 
 .s5webDev {
+  @include media(">phone", "<=tablet") {
+    overflow-x: hidden;
+  }
   background-image: url("../img/ContrastBg.svg");
 
   background-size: cover;
