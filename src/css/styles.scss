@@ -611,6 +611,9 @@ body {
 $progBgActualWidth: 100 vw-0 .5vw;
 
 .s6programmin {
+  // IMPORTANT AS HELL
+  overflow-y: visible;
+
   display: flex;
   margin-top: -0.1vh;
   height: 455vh;
