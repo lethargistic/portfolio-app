@@ -10,7 +10,7 @@ import {useTranslation} from "react-i18next";
 // anyways a better way to solve this as I later discovered would be to put the vids inside the public folder
 const mouseSpinVid: any = <video src={"vid/cursorRealForreal.mp4"} loop={true} muted={true} autoPlay={true} />
 const textLapserVid: any = <img className={"devVideoEven"} src={"vid/impostor.png"} alt={"impostor"}/>
-const opApVid: any = <img src={"vid/imposter2.png"} alt={"impostor2"}/>
+const opApVid: any = <img src={"vid/imposter2real.png"} alt={"impostor2"}/>
 const teaModVid: any = <video className={"devVideoEven"} src={"vid/minceraftReal.mp4"}
                               loop={true} muted={true} autoPlay={true}/>
 
