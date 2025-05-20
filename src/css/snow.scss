@@ -61,7 +61,7 @@ $breakpoints: (phone: 320px, phoneSE: 375px, tablet: 768px, desktop: 1024px);
 
       &:nth-child(#{$i}) {
         left: abs(random($left-position) - random($left-position)) + 0%;
-        rotate: abs(random($rotation-base) - random($rotation-base)) + 0deg;
+        transform: rotate(abs(random($rotation-base) - random($rotation-base)) + 0deg);
         width: $size;
         height: $size;
         animation-duration: abs(random($animate-speed-base) - random($animate-speed-base)) + $minimum-falling-speed + 0ms;
@@ -77,7 +77,7 @@ $breakpoints: (phone: 320px, phoneSE: 375px, tablet: 768px, desktop: 1024px);
 
       &:nth-child(#{$i}) {
         left: abs(random($left-position) - random($left-position)) + 0%;
-        rotate: abs(random($rotation-base) - random($rotation-base)) + 0deg;
+        transform: rotate(abs(random($rotation-base) - random($rotation-base)) + 0deg);
         width: $size;
         height: $size;
         animation-duration: abs(random($animate-speed-base) - random($animate-speed-base)) + $minimum-falling-speed + 0ms;
