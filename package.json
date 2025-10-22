@@ -41,7 +41,7 @@
     "@types/react-dom": "^18.3.5",
     "@types/recoil": "^0.0.9",
     "@vitejs/plugin-react": "^4.3.4",
-    "eslint": "^9.17.0",
+    "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
@@ -57,11 +57,10 @@
     "react-i18next": "^15.1.1",
     "react-player": "^2.16.0",
     "react-router-dom": "^6.28.2",
-    "react-scripts": "5.0.1",
     "recoil": "^0.7.7",
     "sass": "^1.83.4",
+    "typescript": "4.9.5",
     "use-sound": "^4.0.3",
-    "vite": "^6.0.5",
-    "web-vitals": "^2.1.4"
+    "vite": "^6.0.5"
   }
 }
