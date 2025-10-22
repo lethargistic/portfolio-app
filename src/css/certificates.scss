@@ -1,0 +1,69 @@
+.certOuterCont {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem 1rem;
+  display: flex;
+  justify-content: center;
+
+  background-color: #232323;
+}
+
+.certImgHolder {
+  width: 100%;
+  min-height: 100vh;
+
+  display: grid;
+  grid-auto-rows: auto;
+  // nifty as hell
+  grid-auto-flow: row dense;
+  gap: 0.5rem;
+
+  grid-template: auto / repeat(20, 1fr);
+
+  .certImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    &:hover {
+      transition: filter 0.15s;
+      cursor: pointer;
+      filter: brightness(0.7);
+    }
+  }
+
+  @for $col from 1 through 5 {
+    @for $row from 1 through 5 {
+      .certSize#{$col}x#{$row} {
+        grid-column: span #{$col};
+        grid-row: span #{$row};
+      }
+    }
+  }
+}
+
+.certLightbox {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(25, 25, 25, 0.7);
+  transition: background-color 0.2s;
+
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 1rem 1rem;
+
+  z-index: 9999;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.certHide {
+  background-color: rgba(25, 25, 25, 0.0);
+  opacity: 0;
+  pointer-events: none;
+}

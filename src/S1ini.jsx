@@ -8,7 +8,6 @@ import {animated, useSpring} from "@react-spring/web";
 import Illu from "./iniInsides/Illu.jsx";
 
 import i18n from './i18n.js';
-import {useTranslation} from "react-i18next";
 import i18next from "i18next";
 
 

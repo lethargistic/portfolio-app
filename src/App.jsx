@@ -7,6 +7,8 @@ import './i18n.js';
 import {HelmetProvider} from 'react-helmet-async';
 
 import MainPage from "./MainPage.jsx";
+import {Route, Routes} from "react-router-dom";
+import CertificatesPage from "./CerificatesPage";
 
 const helmetContext = {};
 
@@ -18,7 +20,6 @@ function App() {
     const [subName] = useState('Maksiks ')
     const [currentTimeout, setCurrentTimeout] = useState(1000)
     const [switcher, setSwitcher] = useState(false)
-
 
 
     useEffect(() => {
@@ -49,8 +50,8 @@ function App() {
                     setTitleIx(titleIx + 1);
                 }
                 if (titleIx === 0 && (titleIxOld === titleIx + 1)) {
-                    setTitleIxOld(initSubName.length-2);
-                    setTitleIx(initSubName.length-1);
+                    setTitleIxOld(initSubName.length - 2);
+                    setTitleIx(initSubName.length - 1);
                 }
             }
 
@@ -62,15 +63,18 @@ function App() {
 
     useEffect(() => {
         if (switcher === true) {
-            document.title = curTitle+"▮";
+            document.title = curTitle + "▮";
         } else {
-            document.title = curTitle+" ";
+            document.title = curTitle + " ";
         }
     }, [curTitle, switcher, titleIx]);
 
     return (
         <HelmetProvider context={helmetContext}>
-            <MainPage></MainPage>
+            <Routes>
+                <Route path={"/"} element={<MainPage/>}></Route>
+                <Route path={"/certificates"} element={<CertificatesPage/>}></Route>
+            </Routes>
         </HelmetProvider>
     )
 }

@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import {useRef} from "react";
 import '../../css/styles.scss';
 import {useInView, useSpring, animated} from "@react-spring/web";
 import {Trans} from "react-i18next";

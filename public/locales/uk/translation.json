@@ -57,12 +57,12 @@
   },
 
   "graphics": {
-    "titleLine1": "Design, 3D, art ",
-    "titleLine2": "...",
+    "titleLine1": "Design, 3D, art &",
+    "titleLine2": "miscellaneous",
     "bench": "В яку сторону лавка дивитисься?",
     "both": "Обидві",
-    "descLine1": "Це далеко не кожна маленька робота яку",
-    "descLine2": "я створив, але це самі вершини"
+    "descLine1": "",
+    "descLine2": ""
   }
 
 }

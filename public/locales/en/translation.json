@@ -54,16 +54,16 @@
       "desc": "Yup, just a Minecraft tea mod. Has a fair bit of content, even if creative only. There are lots of different teas, and some of them even have certain effects, like nausea or ... vein miner. It's unfinished, but it's pretty wild."
     },
 
-    "gitTxt": "Of course there's more on my"
+    "gitTxt": "And, there's more on my"
   },
 
   "graphics": {
-    "titleLine1": "Design, 3D, art and",
+    "titleLine1": "Design, 3D, art &",
     "titleLine2": "miscellaneous",
     "bench": "which way is the bench facing?",
     "both": "both",
-    "descLine1": "This is very far from every little tiny work of",
-    "descLine2": "mine, but these are the very highlights."
+    "descLine1": "",
+    "descLine2": ""
   }
 
 }
