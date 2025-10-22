@@ -1,4 +1,3 @@
-import React from "react";
 
 function Parmesan(props) {
     return <>

@@ -1,4 +1,4 @@
-import {useState, React, useEffect} from "react";
+import {useState, useEffect} from "react";
 
 import useCheckIfMobile from "./useCheckIfMobile.js";
 import './css/styles.scss';

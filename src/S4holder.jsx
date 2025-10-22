@@ -1,4 +1,3 @@
-import React from "react";
 import './css/styles.scss';
 
 import LiteralCard from './svgComps/s4/LiteralCard.jsx';

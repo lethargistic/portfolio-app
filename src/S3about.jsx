@@ -1,4 +1,3 @@
-import React from "react";
 import './css/styles.scss';
 
 import Card from './svgComps/s3/Card.jsx'

@@ -1,7 +1,6 @@
 import {Helmet} from "react-helmet-async";
 import {RecoilRoot} from "recoil";
 import S1ini from "./S1ini.jsx";
-import React from "react";
 import LightBox from "./LightBox.tsx";
 import S3about from "./S3about.jsx";
 import S4holder from "./S4holder.jsx";

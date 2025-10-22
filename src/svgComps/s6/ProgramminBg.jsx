@@ -1,4 +1,3 @@
-import React from "react";
 import '../../css/styles.scss';
 
 // the svg part is useless cuz svg weird, I used a bulky .webp instead cuz it works anyways

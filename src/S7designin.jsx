@@ -1,4 +1,3 @@
-import React from "react";
 import './css/styles.scss';
 
 import DesiLeft from "./desiInsides/DesiLeft.tsx";
