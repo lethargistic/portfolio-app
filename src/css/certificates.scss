@@ -6,6 +6,10 @@
   justify-content: center;
 
   background-color: #232323;
+
+  @media (max-width: 480px) {
+    padding: 3rem 3rem;
+  }
 }
 
 .certImgHolder {
@@ -19,6 +23,11 @@
   gap: 0.5rem;
 
   grid-template: auto / repeat(20, 1fr);
+
+  @media (max-width: 480px) {
+    grid-template: auto / repeat(10, 1fr);
+    gap: 1rem;
+  }
 
   .certImg {
     width: 100%;
@@ -55,6 +64,10 @@
   padding: 1rem 1rem;
 
   z-index: 9999;
+
+  @media (max-width: 480px) {
+    padding: 6rem 6rem;
+  }
 
   img {
     width: 100%;
