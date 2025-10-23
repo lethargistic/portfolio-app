@@ -89,7 +89,7 @@ function DevSec(props: DevSecProps) {
             video: mouseSpinVid,
             title: t("dev.devSec1.title"),
             text: t("dev.devSec1.desc"),
-            githublnk: "https://github.com/maksiksking/Mouse-spinner",
+            githublnk: "https://github.com/maksiksq/Mouse-spinner",
             even: false
         },
         {
@@ -97,7 +97,7 @@ function DevSec(props: DevSecProps) {
             video: textLapserVid,
             title: t("dev.devSec2.title"),
             text: t("dev.devSec2.desc"),
-            githublnk: "https://github.com/maksiksking/TextLapserBot",
+            githublnk: "https://github.com/maksiksq/TextLapserBot",
             even: true
         },
         {
@@ -105,7 +105,7 @@ function DevSec(props: DevSecProps) {
             video: amaranthVid,
             title: t("dev.devSec3.title"),
             text: t("dev.devSec3.desc"),
-            githublnk: "https://github.com/maksiksking/AI-emojify",
+            githublnk: "https://github.com/maksiksq/AI-emojify",
             even: false
         },
         {
@@ -113,7 +113,7 @@ function DevSec(props: DevSecProps) {
             video: teaModVid,
             title: t("dev.devSec4.title"),
             text: t("dev.devSec4.desc"),
-            githublnk: "https://github.com/maksiksking/tea-mod",
+            githublnk: "https://github.com/maksiksq/tea-mod",
             even: true
         }
     ]
