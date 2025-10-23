@@ -34,7 +34,7 @@ function S6programmin() {
         <div  className={"innerProgCont"}>
             <div className={"coverUp"}></div>
             <h2 className={"devTxt progCaretCont"}>
-                Dev
+                Other
                 <div className={"caret1"}></div>
             </h2>
             <div className={"devSecContainer"}>
