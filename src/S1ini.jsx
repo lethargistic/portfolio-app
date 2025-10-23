@@ -103,8 +103,6 @@ function S1ini() {
         }
     }
 
-
-
     return (
         <section className={"s1ini flex-to-mid"}>
             <Illu></Illu>

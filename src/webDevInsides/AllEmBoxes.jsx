@@ -15,7 +15,7 @@ function AllEmBoxes() {
     </video>
     const bwkittyVid = <video ref={videoRef} className={"corVid"} src={"../vid/webdvid4.webm"} loop muted autoPlay={true}>
     </video>
-    const oldfolioVid = <video ref={videoRef} className={"corVid"} src={"../vid/webdvid5.webm"} loop muted autoPlay={true}>
+    const caVid = <video ref={videoRef} className={"corVid"} src={"../vid/cavid.webm"} loop muted autoPlay={true}>
     </video>
     const aieEmojifyVid = <video ref={videoRef} className={"corVid"} src={"../vid/webdvid6.webm"} loop muted autoPlay={true}>
     </video>
@@ -33,10 +33,10 @@ function AllEmBoxes() {
             vid: futureVid,
             link: "https://maksiksq.github.io/futureOfUkraineWebDesignCompetition2023h1/"
         },
-        {id: 2, a1: 1, a2: 3, a3: 2, a4: 6, vid: teaVid, link: "https://course-site-f.vercel.app/#"},
+        {id: 2, a1: 1, a2: 3, a3: 2, a4: 6, vid: caVid, link: "https://www.chaos-abyss.com/"},
         {id: 3, a1: 2, a2: 1, a3: 3, a4: 3, vid: hereVid, link: "nope"},
         {id: 4, a1: 2, a2: 3, a3: 3, a4: 5, vid: bwkittyVid, link: "https://b-w-kitty-maksiksed.vercel.app/"},
-        {id: 5, a1: 2, a2: 5, a3: 3, a4: 6, vid: oldfolioVid, link: "nope"},
+        {id: 5, a1: 2, a2: 5, a3: 3, a4: 6, vid: teaVid, link: "https://course-site-f.vercel.app/#"},
         {id: 6, a1: 3, a2: 1, a3: 4, a4: 3, vid: aieEmojifyVid, link: "nope"},
         {id: 7, a1: 3, a2: 3, a3: 4, a4: 6, vid: clickTheCityCommisionVid, link: "nope"}
     ]

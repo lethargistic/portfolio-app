@@ -9,8 +9,8 @@ import {useTranslation} from "react-i18next";
 // react (or ts?) doesn't wanna eat my path and make a video so I have to import them separately, so weird
 // anyways a better way to solve this as I later discovered would be to put the vids inside the public folder
 const mouseSpinVid: any = <video src={"vid/cursorRealForreal.mp4"} loop={true} muted={true} autoPlay={true} />
-const textLapserVid: any = <img className={"devVideoEven"} src={"vid/impostor.png"} alt={"impostor"}/>
-const opApVid: any = <img src={"vid/imposter2real.png"} alt={"impostor2"}/>
+const textLapserVid: any = <img className={"devVideoEven"} src={"vid/impostor.png"} alt={"text lapser"}/>
+const amaranthVid: any = <img src={"vid/imposter3amaranth.webp"} alt={"amaranth"}/>
 const teaModVid: any = <video className={"devVideoEven"} src={"vid/minceraftReal.mp4"}
                               loop={true} muted={true} autoPlay={true}/>
 
@@ -102,7 +102,7 @@ function DevSec(props: DevSecProps) {
         },
         {
             id: "opAp",
-            video: opApVid,
+            video: amaranthVid,
             title: t("dev.devSec3.title"),
             text: t("dev.devSec3.desc"),
             githublnk: "https://github.com/maksiksking/AI-emojify",

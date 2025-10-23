@@ -77,9 +77,10 @@ function Card() {
             </>
             }
 
+            {/*unused, im thinking about it*/}
             {getLanguage() === "uk" ? <></> : <>
                 {/*<rect x="513" y="422" width="2" height="106" rx="1" transform="rotate(-90 513 422)" fill="white"/>*/}
-                <rect x="342" y="276" width="2" height="132" rx="1" transform="rotate(-90 342 276)" fill="white"/>
+                {/*{<rect x="342" y="276" width="2" height="132" rx="1" transform="rotate(-90 342 276)" fill="white"/>}*/}
             </>}
         </animated.svg>
         </div>

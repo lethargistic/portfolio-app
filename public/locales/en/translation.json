@@ -7,8 +7,8 @@
     "line4": "Enjoy the website! :)"
   },
   "attributes": {
-    "names": ["Occupation:", "Pronouns:", "Nationality:", "Fav. metal:", "Fav. artist:", "Fav. food:"],
-    "values": ["student", "he/him", "Ukrainian", "lead", "Mekaloton", "sushi"]
+    "names": ["Occupation:", "Pronouns:", "Nationality:", "Fav. artist:", "Fav. food:"],
+    "values": ["student", "he/him", "Ukrainian", "Mekaloton", "sushi"]
   },
   "languagesTitle": "Languages",
   "languagesDesc": {
@@ -18,7 +18,7 @@
     "learning": "",
     "level1": "Fluent",
     "level2": "Native",
-    "level3": "N3/N4~"
+    "level3": "~N3"
   },
 
   "_comment0": "removed learning to sound better, remember it's there tho",
@@ -45,8 +45,8 @@
     },
 
     "devSec3": {
-      "title": "OpenAI API implementation",
-      "desc": "A part of the back-end for AI-emojify was actually made in Python, with Pyodide to make the utilization of the ChatGPT API a little easier. Also gave me some nice experience with the API.\n"
+      "title": "Amaranth",
+      "desc": "A funky Minecraft biome mod. As most other Minecraft mods, made in Java. Still in development but already gave me lots of insight into noise-based world generation, biomes, and making something probably interesting.\n"
     },
 
     "devSec4": {
