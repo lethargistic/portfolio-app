@@ -17,7 +17,7 @@ function AllEmBoxes() {
     </video>
     const caVid = <video ref={videoRef} className={"corVid"} src={"../vid/cavid.webm"} loop muted autoPlay={true}>
     </video>
-    const aieEmojifyVid = <video ref={videoRef} className={"corVid"} src={"../vid/webdvid6.webm"} loop muted autoPlay={true}>
+    const swishVid = <video ref={videoRef} className={"corVid"} src={"../vid/swid.webm"} loop muted autoPlay={true}>
     </video>
     const clickTheCityCommisionVid = <video ref={videoRef} className={"corVid"} src={"../vid/webdvid7.webm"} loop muted autoPlay={true}>
     </video>
@@ -37,7 +37,7 @@ function AllEmBoxes() {
         {id: 3, a1: 2, a2: 1, a3: 3, a4: 3, vid: hereVid, link: "nope"},
         {id: 4, a1: 2, a2: 3, a3: 3, a4: 5, vid: bwkittyVid, link: "https://b-w-kitty-maksiksed.vercel.app/"},
         {id: 5, a1: 2, a2: 5, a3: 3, a4: 6, vid: teaVid, link: "https://course-site-f.vercel.app/#"},
-        {id: 6, a1: 3, a2: 1, a3: 4, a4: 3, vid: aieEmojifyVid, link: "nope"},
+        {id: 6, a1: 3, a2: 1, a3: 4, a4: 3, vid: swishVid, link: "https://swish-swish-swish.vercel.app/"},
         {id: 7, a1: 3, a2: 3, a3: 4, a4: 6, vid: clickTheCityCommisionVid, link: "nope"}
     ]
 
