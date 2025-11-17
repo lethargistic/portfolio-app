@@ -43,6 +43,7 @@ const imgSources = [
     {src: "/img/cert/IMG_20251022_200035.webp", size: "5x4"},
     {src: "/img/cert/IMG_20251022_200141.webp", size: "5x2"},
     {src: "/img/cert/IMG_20251022_195734.webp", size: "5x4"},
+    {src: "/img/cert/diploma171125.webp", size: "5x4"},
 ]
 
 let currentLightboxSrc = "oh";
