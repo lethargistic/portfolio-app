@@ -13,7 +13,19 @@
     <div class="floatie floatie-maksiks" role="button" aria-label="header text that runs away">
         <h1>{m.welcome_button_maksiks()}</h1>
     </div>
-    <button class="floatie floatie-lang" aria-label="language changer"></button>
+    <div class="floatie floatie-lang" role="button" aria-label="language changer">
+        <img src="/img/icon/languages.svg" alt="language icon">
+        <div class="floatie-separator"></div>
+        <div class="floatie-selectors">
+            <div class="floatie-floor-1-wrap">
+                <p>English</p>
+                <p class="jp">日本語</p>
+            </div>
+            <div class="floatie-floor-2-wrap">
+                <p>Українська</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <style>
@@ -57,12 +69,11 @@
 
             background-color: #bd00da; /* math */
             mix-blend-mode: hard-light;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px, rgb(51, 51, 51) 0 0 0 3px;
         }
 
         & .floatie-maksiks {
             & h1 {
-                mix-blend-mode: hard-light;
                 pointer-events: none;
                 user-select: none;
 
@@ -82,7 +93,58 @@
         }
 
         & .floatie-lang {
+            display: flex;
+            align-items: center;
 
+            height: 10vh;
+            box-sizing: border-box;
+            padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+
+            color: white;
+
+            & .floatie-separator {
+                width: 4px;
+                height: 93%;
+                border-radius: 64px;
+
+                margin: 0 0.8rem 0 0.8rem;
+
+                background: white;
+            }
+
+            & img {
+                height: 80%;
+            }
+
+            & .floatie-selectors {
+                --floatie-font-size: 1.8rem;
+
+                display: flex;
+                flex-direction: column;
+
+                font-size: var(--floatie-font-size);
+                font-weight: bold;
+
+                & .floatie-floor-1-wrap {
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: space-between;
+                    gap: 4rem;
+
+                    & .jp {
+                        font-size: calc(var(--floatie-font-size) - 0.2rem);
+                    }
+                }
+                & .floatie-floor-2-wrap {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    & p {
+                        margin-left: 3.3rem;
+                    }
+                }
+            }
         }
     }
 </style>
