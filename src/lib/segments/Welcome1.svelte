@@ -6,7 +6,6 @@
     import {cubicOut} from "svelte/easing";
 
     let seeLang = $state(false);
-    // TODO: animate, use Motion?
 
     const languages = ["English", "日本語", "Українська"];
     let langButton: HTMLElement | null = $state(null);
@@ -26,9 +25,10 @@
         "Українська": "uk",
     } as const;
 
+    // TODO: maybe add fonts per lang (page load speed death?)
     const mapLangFontSize = {
         "en": null,
-        "jp": "2.5rem",
+        "jp": "2rem",
         "uk": "2rem",
     } as const;
 
@@ -40,7 +40,7 @@
         setLocale(langCode);
     }
 
-    let langFontSize: string | null = $state(mapLangFontSize[getLocale()] ?? "3rem");
+    let langFontSize: string | null = $state(mapLangFontSize[getLocale()] ?? "2.5rem");
 
     //
 
@@ -57,27 +57,29 @@
 
     //
 
-    const coords = new Spring({x: 0, y: 0}, {
+    const floatieMaksiksCoords = new Spring({x: 0, y: 0}, {
         stiffness: 0.01,
         damping: 0.08
     });
+    const floatieIsCoords = new Spring({x: 0, y: 0}, {
+        stiffness: 0.01,
+        damping: 0.1
+    });
     let caught = $state(false);
-    const hold = () => {
+    const hold = (coords: Spring<{ x: number; y: number }>) => {
         caught = true;
         coords.target = coords.current;
     }
-    const runAway = () => {
+    const runAway = (coords: Spring<{ x: number; y: number }>, mult: number, base: number) => {
         if (caught) return;
         coords.target = {
-            x: (Math.floor(Math.random() * 125) + 25) * (Math.random() < 0.5 ? -1 : 1),
-            y: (Math.floor(Math.random() * 125) + 25) * (Math.random() < 0.5 ? -1 : 1)
+            x: (Math.floor(Math.random() * mult) + base) * (Math.random() < 0.5 ? -1 : 1),
+            y: (Math.floor(Math.random() * mult) + base) * (Math.random() < 0.5 ? -1 : 1)
         };
     }
     const unHold = () => {
         caught = false;
     }
-
-
 </script>
 
 <svelte:window onscroll={handleScroll} bind:scrollY={scrollY} bind:innerHeight={windowHeight}
@@ -116,15 +118,23 @@
          src="/img/illu2.webp"
          alt="cool illusion part 2">
 
-    <div style={`transform: translate(${coords.current.x}px, ${coords.current.y}px)`}
-         onmousemove={runAway}
-         class="floatie floatie-maksiks" onmousedown={hold} onmouseup={unHold} onmouseout={unHold} onblur={unHold} tabindex="0" role="button"
+    <!--TODO: maybe use grabbing cursor-->
+    <div style={`transform: translate(${floatieMaksiksCoords.current.x}px, ${floatieMaksiksCoords.current.y}px)`}
+         onmousemove={() => {runAway(floatieMaksiksCoords, 125, 25)}}
+         class="floatie floatie-maksiks" onmousedown={() => {hold(floatieMaksiksCoords)}} onmouseup={unHold}
+         onmouseout={unHold} onblur={unHold} tabindex="0" role="button"
          aria-label="header text that runs away">
         <h1>{m.welcome_button_maksiks()}</h1>
     </div>
 
-    <!--TODO: think up something better-->
-    <div class="floatie floatie-is" style={`font-size: ${langFontSize} !important;`} bind:this={floatieIs} role="button"
+    <!--TODO: maybe think up something better-->
+    <div style={`
+    transform: translate(${floatieIsCoords.current.x}px, ${floatieIsCoords.current.y}px);
+    font-size: ${langFontSize} !important;
+    `}
+         onmousemove={() => {runAway(floatieIsCoords, 10, 0)}} onmousedown={() => {hold(floatieIsCoords)}} onmouseup={unHold}
+         tabindex="0"
+         class="floatie floatie-is" bind:this={floatieIs} role="button"
          aria-label="floatie is">
         <h2>{m.welcome_button_is()}</h2>
     </div>
@@ -198,7 +208,7 @@
         --floatie-font-size: 4.5rem;
 
         width: 100vw;
-        height: 100vh;
+        height: 105vh;
         background-color: #232323;
 
         display: flex;
@@ -238,7 +248,7 @@
         }
 
         & .floatie {
-            cursor: pointer;
+            cursor: initial;
 
             background-color: #bd00da; /* math */
             mix-blend-mode: hard-light;
