@@ -1,24 +1,64 @@
-<script>
+<script lang="ts">
     import {m} from "../paraglide/messages.js"
-    import {fly, scale} from "svelte/transition"
+    import {scale} from "svelte/transition"
+    import {getLocale, setLocale} from "$lib/paraglide/runtime";
 
-    let seeLang = false;
+    let seeLang = $state(false);
     // TODO: animate
 
     const languages = ["English", "日本語", "Українська"];
+    let langButton: HTMLElement | null = $state(null);
+    let langSelectors: HTMLElement | null = $state(null);
+
+    const handleLangSettingsClose = (e: Event) => {
+            const target = e.target;
+            if (target == null) return;
+            if  (seeLang && !langButton?.contains(target as Node) && !langSelectors?.contains(target as Node)) {
+                seeLang = false;
+            }
+    }
+
+    const mapLang = {
+        "English": "en",
+        "日本語": "jp",
+        "Українська": "uk",
+    } as const;
+
+    const mapLangFontSize = {
+        "en": null,
+        "jp": "2.5rem",
+        "uk": "2rem",
+    } as const;
+
+    let floatieIs: HTMLElement | null = null;
+    const handleChangeLang = (lang: String) => {
+        seeLang = false;
+        if (floatieIs == null) return;
+        const langCode = mapLang[lang as keyof typeof mapLang];
+        setLocale(langCode);
+    }
+
+    let langFontSize: string | null = $state(mapLangFontSize[getLocale()] ?? "4rem");
 </script>
 
+<svelte:window onclick={handleLangSettingsClose}/>
+
+<noscript>
+    <p style="color: red">
+        This site is heavy on javascript, you might not get the best experience!
+    </p>
+</noscript>
 <div class="lang-settings">
-    <button class="lang-button" onclick={() => {seeLang = !seeLang}}>
+    <button class="lang-button" onclick={() => {seeLang = !seeLang}} bind:this={langButton}>
         <img src="/img/icon/lucide_languages.svg" alt="language selector">
     </button>
 
     {#if seeLang}
-        <div class="lang-selector-wrap"  transition:scale>
-            <ul class="lang-selectors">
+        <div class="lang-selector-wrap" transition:scale>
+            <ul class="lang-selectors" bind:this={langSelectors}>
                 {#each languages as lang}
                     <li>
-                        <button>{lang}</button>
+                        <button onclick={() => handleChangeLang(lang)}>{lang}</button>
                     </li>
                 {/each}
             </ul>
@@ -34,8 +74,8 @@
     </div>
 
     <!--TODO: think up something better-->
-    <div class="floatie floatie-second" role="button" aria-label="floatie 2">
-        <h2>is a dev</h2>
+    <div class="floatie floatie-is" style={`font-size: ${langFontSize} !important;`} bind:this={floatieIs} role="button" aria-label="floatie is">
+        <h2>{m.welcome_button_is()}</h2>
     </div>
 </section>
 
@@ -57,34 +97,11 @@
             top: 0.3rem;
             right: 0;
 
+            user-select: none;
+
             & img {
                 width: var(--icon-width);
             }
-        }
-
-        /* TODO: make responsive */
-
-        & .ui-trig {
-            position: absolute;
-            top: 0.8rem;
-            right: calc(var(--icon-width) + 0.2rem);
-            transform: rotate(90deg);
-
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%)
-        }
-
-        & .ui-trig-outer {
-            right: calc(var(--icon-width) + 0.05rem);
-            margin-top: -1.2px;
-            width: 30px;
-            height: 16px;
-            background: #888888;
-        }
-
-        & .ui-trig-inner {
-            width: 26px;
-            height: 14px;
-            background: #232323;
         }
 
         & .lang-selectors {
@@ -92,6 +109,8 @@
             position: relative;
             list-style: none;
             color: white;
+
+            user-select: none;
 
             display: flex;
             flex-direction: column;
@@ -124,6 +143,7 @@
     }
 
     .welcome-seg {
+        /* ref in code above ! */
         --floatie-font-size: 4.5rem;
 
         width: 100vw;
@@ -194,7 +214,7 @@
         --right-floatie-hz-shift: 67%;
         --right-floatie-vr-margin: 4rem;
 
-        & .floatie-second {
+        & .floatie-is {
             left: calc(var(--right-floatie-hz-shift) + 3.8vw);
             margin-top: var(--right-floatie-vr-margin);
 
@@ -211,7 +231,6 @@
                 padding: 0.1vw 1vw;
                 color: white;
                 z-index: 2;
-                font-size: calc(var(--floatie-font-size) - 0.5rem);
 
                 font-family: "Karla", sans-serif;
                 font-optical-sizing: auto;
