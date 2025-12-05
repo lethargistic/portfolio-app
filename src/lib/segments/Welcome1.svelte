@@ -2,20 +2,22 @@
     import {m} from "../paraglide/messages.js"
     import {scale} from "svelte/transition"
     import {getLocale, setLocale} from "$lib/paraglide/runtime";
+    import {Spring, Tween} from "svelte/motion";
+    import {cubicOut} from "svelte/easing";
 
     let seeLang = $state(false);
-    // TODO: animate
+    // TODO: animate, use Motion?
 
     const languages = ["English", "日本語", "Українська"];
     let langButton: HTMLElement | null = $state(null);
     let langSelectors: HTMLElement | null = $state(null);
 
     const handleLangSettingsClose = (e: Event) => {
-            const target = e.target;
-            if (target == null) return;
-            if  (seeLang && !langButton?.contains(target as Node) && !langSelectors?.contains(target as Node)) {
-                seeLang = false;
-            }
+        const target = e.target;
+        if (target == null) return;
+        if (seeLang && !langButton?.contains(target as Node) && !langSelectors?.contains(target as Node)) {
+            seeLang = false;
+        }
     }
 
     const mapLang = {
@@ -38,10 +40,25 @@
         setLocale(langCode);
     }
 
-    let langFontSize: string | null = $state(mapLangFontSize[getLocale()] ?? "4rem");
+    let langFontSize: string | null = $state(mapLangFontSize[getLocale()] ?? "3rem");
+
+    //
+
+    let scrollY = $state(0);
+    let windowHeight = $state(0);
+    let illuRotation = new Tween(0, {
+        duration: 400,
+        easing: cubicOut
+    });
+
+    const handleScroll = () => {
+        illuRotation.target = scrollY / (windowHeight * 0.008);
+    }
+
 </script>
 
-<svelte:window onclick={handleLangSettingsClose}/>
+<svelte:window onscroll={handleScroll} bind:scrollY={scrollY} bind:innerHeight={windowHeight}
+               onclick={handleLangSettingsClose}/>
 
 <noscript>
     <p style="color: red">
@@ -66,15 +83,20 @@
     {/if}
 </div>
 <section class="welcome-seg" id="welcome">
-    <img class="illu illu-left" src="/img/illu1.webp" alt="cool illusion part 1">
-    <img class="illu illu-right" src="/img/illu2.webp" alt="cool illusion part 2">
+    <img style={`transform: translate(-50%, -50%) rotate(${illuRotation.current}deg)`} class="illu illu-left"
+         src="/img/illu1.webp"
+         alt="cool illusion part 1">
+    <img style={`transform: translate(-50%, -50%) rotate(${illuRotation.current*2}deg)`} class="illu illu-right"
+         src="/img/illu2.webp"
+         alt="cool illusion part 2">
 
     <div class="floatie floatie-maksiks" role="button" aria-label="header text that runs away">
         <h1>{m.welcome_button_maksiks()}</h1>
     </div>
 
     <!--TODO: think up something better-->
-    <div class="floatie floatie-is" style={`font-size: ${langFontSize} !important;`} bind:this={floatieIs} role="button" aria-label="floatie is">
+    <div class="floatie floatie-is" style={`font-size: ${langFontSize} !important;`} bind:this={floatieIs} role="button"
+         aria-label="floatie is">
         <h2>{m.welcome_button_is()}</h2>
     </div>
 </section>
@@ -159,11 +181,16 @@
             zoom: 1.025;
             height: 30.425vw;
 
+            --spring-easing: linear(0, 0.0018, 0.0069 1.15%, 0.026 2.3%, 0.0637, 0.1135 5.18%, 0.2229 7.78%, 0.5977 15.84%, 0.7014, 0.7904, 0.8641, 0.9228, 0.9676 28.8%, 1.0032 31.68%, 1.0225, 1.0352 36.29%, 1.0431 38.88%, 1.046 42.05%, 1.0448 44.35%, 1.0407 47.23%, 1.0118 61.63%, 1.0025 69.41%, 0.9981 80.35%, 0.9992 99.94%);
+            --spring-duration: 0.8333s;
+
+            transition: var(--spring-duration) var(--sping-easing);
+
             user-select: none;
             pointer-events: none;
             position: absolute;
 
-            transform: translate(-50%, -50%);
+            /* centered inline because transform order */
         }
 
         & .illu-left {
@@ -199,6 +226,7 @@
                 padding: 0.1vw 1vw;
                 color: white;
                 z-index: 2;
+
                 font-size: var(--floatie-font-size);
 
                 font-family: "Karla", sans-serif;
@@ -238,7 +266,6 @@
                 font-style: normal;
 
                 box-shadow: rgba(0, 0, 0, 0.25) 0 14px 35px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
             }
         }
     }
