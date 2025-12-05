@@ -1,23 +1,29 @@
 <script>
     import {m} from "../paraglide/messages.js"
+    import {fly, scale} from "svelte/transition"
 
+    let seeLang = false;
     // TODO: animate
 
     const languages = ["English", "日本語", "Українська"];
 </script>
 
 <div class="lang-settings">
-    <button class="lang-button">
+    <button class="lang-button" onclick={() => {seeLang = !seeLang}}>
         <img src="/img/icon/lucide_languages.svg" alt="language selector">
     </button>
 
-    <div class="ui-trig ui-trig-outer"></div>
-    <div class="ui-trig ui-trig-inner"></div>
-    <ul class="lang-selector">
-        {#each languages as lang}
-            <li><button>{lang}</button></li>
-        {/each}
-    </ul>
+    {#if seeLang}
+        <div class="lang-selector-wrap"  transition:scale>
+            <ul class="lang-selectors">
+                {#each languages as lang}
+                    <li>
+                        <button>{lang}</button>
+                    </li>
+                {/each}
+            </ul>
+        </div>
+    {/if}
 </div>
 <section class="welcome-seg" id="welcome">
     <img class="illu illu-left" src="/img/illu1.webp" alt="cool illusion part 1">
@@ -45,15 +51,18 @@
         }
 
         --icon-width: 1.6rem;
+
         & .lang-button {
             position: absolute;
-            top: 0;
+            top: 0.3rem;
             right: 0;
 
             & img {
                 width: var(--icon-width);
             }
         }
+
+        /* TODO: make responsive */
 
         & .ui-trig {
             position: absolute;
@@ -66,18 +75,19 @@
 
         & .ui-trig-outer {
             right: calc(var(--icon-width) + 0.05rem);
-            margin-top: -0.6px;
+            margin-top: -1.2px;
             width: 30px;
             height: 16px;
             background: #888888;
         }
+
         & .ui-trig-inner {
             width: 26px;
             height: 14px;
             background: #232323;
         }
 
-        & .lang-selector {
+        & .lang-selectors {
             margin-right: calc(var(--icon-width) + 1vw);
             position: relative;
             list-style: none;
@@ -85,16 +95,30 @@
 
             display: flex;
             flex-direction: column;
-            gap: 1rem;
 
             background-color: #232323;
             border: #888888 1px solid;
-            padding: 0.9rem 8rem 0.9rem 0.8rem;
             border-radius: 1px;
 
             & li {
-                padding: 0.1rem 0.2rem;
+                width: 16vw;
+                height: 1.6vw;
+
+                display: flex;
+                align-items: center;
+
+                padding: 0.6rem 0 0.6rem 0;
                 font-size: 1.1rem;
+
+                & button {
+                    padding: 0.6rem 0 0.6rem 0.8rem;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            & button:hover, & button:focus {
+                background: #454545;
             }
         }
     }
