@@ -55,6 +55,29 @@
         illuRotation.target = scrollY / (windowHeight * 0.008);
     }
 
+    //
+
+    const coords = new Spring({x: 0, y: 0}, {
+        stiffness: 0.01,
+        damping: 0.08
+    });
+    let caught = $state(false);
+    const hold = () => {
+        caught = true;
+        coords.target = coords.current;
+    }
+    const runAway = () => {
+        if (caught) return;
+        coords.target = {
+            x: (Math.floor(Math.random() * 125) + 25) * (Math.random() < 0.5 ? -1 : 1),
+            y: (Math.floor(Math.random() * 125) + 25) * (Math.random() < 0.5 ? -1 : 1)
+        };
+    }
+    const unHold = () => {
+        caught = false;
+    }
+
+
 </script>
 
 <svelte:window onscroll={handleScroll} bind:scrollY={scrollY} bind:innerHeight={windowHeight}
@@ -82,15 +105,21 @@
         </div>
     {/if}
 </div>
+
 <section class="welcome-seg" id="welcome">
-    <img style={`transform: translate(-50%, -50%) rotate(${illuRotation.current}deg)`} class="illu illu-left"
+    <img style={`transform: translate(-50%, -50%) rotate(${illuRotation.current}deg)`}
+         class="illu illu-left"
          src="/img/illu1.webp"
          alt="cool illusion part 1">
-    <img style={`transform: translate(-50%, -50%) rotate(${illuRotation.current*2}deg)`} class="illu illu-right"
+    <img style={`transform: translate(-50%, -50%) rotate(${illuRotation.current*2}deg)`}
+         class="illu illu-right"
          src="/img/illu2.webp"
          alt="cool illusion part 2">
 
-    <div class="floatie floatie-maksiks" role="button" aria-label="header text that runs away">
+    <div style={`transform: translate(${coords.current.x}px, ${coords.current.y}px)`}
+         onmousemove={runAway}
+         class="floatie floatie-maksiks" onmousedown={hold} onmouseup={unHold} onmouseout={unHold} onblur={unHold} tabindex="0" role="button"
+         aria-label="header text that runs away">
         <h1>{m.welcome_button_maksiks()}</h1>
     </div>
 
@@ -181,6 +210,8 @@
             zoom: 1.025;
             height: 30.425vw;
 
+            /* youtrack says they fixed it hmm, unreleased yet maybe? */
+            /* noinspection CssInvalidFunction */
             --spring-easing: linear(0, 0.0018, 0.0069 1.15%, 0.026 2.3%, 0.0637, 0.1135 5.18%, 0.2229 7.78%, 0.5977 15.84%, 0.7014, 0.7904, 0.8641, 0.9228, 0.9676 28.8%, 1.0032 31.68%, 1.0225, 1.0352 36.29%, 1.0431 38.88%, 1.046 42.05%, 1.0448 44.35%, 1.0407 47.23%, 1.0118 61.63%, 1.0025 69.41%, 0.9981 80.35%, 0.9992 99.94%);
             --spring-duration: 0.8333s;
 
