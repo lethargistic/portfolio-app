@@ -1,3 +1,5 @@
 - [ ] fix if bork: make the language changer reload the page again if it gets janky
 - [ ] todo: responsive
 - [ ] todo pain: no time right now but more art, like i want hollow knight type decor things (yes im crazy)
+- [ ] todo: outline a shinkansen because art suffering
+- [ ] todo: particles and actual decor for about section
