@@ -9,3 +9,5 @@
 - [ ] todo maybe: ambient sounds
 - [ ] todo maybe: afterfx background for s2, trains passing by into portals or something 
 - [ ] todo maybe: maybe let the user catch the train
+- [ ] todo maybe: clicks for sounds? 
+- [ ] todo: DO NOT OVERDO IT
