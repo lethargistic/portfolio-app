@@ -132,16 +132,16 @@
 
         <div class="train-cont">
             <img loading="lazy" style={`left: ${100-trainPos.current}vw; opacity: ${frontPass ? "100" : "0"};`}
-                 class="train train-front" bind:this={trainFrontElem} src="/img/train_front.png" alt="a literal train">
+                 class="train train-front" bind:this={trainFrontElem} src="/img/train_front.webp" alt="a literal train">
             {#each Array.from({length: 2}) as _, i}
                 <img loading="lazy"
                      style={i === 0 ? `left: ${((juggler && ghostWagons < ghostWagonCap) ? 300 : 200)-trainPos.current}vw` : `left: ${((juggler && ghostWagons < ghostWagonCap) ? 200 : 300)-trainPos.current}vw`}
-                     class="train train-middle" bind:this={trainMiddleElems[i]} src="/img/train_middle.png"
+                     class="train train-middle" bind:this={trainMiddleElems[i]} src="/img/train_middle.webp"
                      alt="a literal train">
             {/each}
             <img loading="lazy" style={`left: ${400-trainPos.current}vw`}
-                 class="train train-back" bind:this={trainFrontElem} src="/img/train_front.png" alt="a literal train">
-            <img loading="lazy" class="train-tracks" src="/img/tracks.png" alt="train tracks">
+                 class="train train-back" bind:this={trainFrontElem} src="/img/train_front.webp" alt="a literal train">
+            <img loading="lazy" class="train-tracks" src="/img/tracks.webp" alt="train tracks">
         </div>
     </section>
 
@@ -159,6 +159,7 @@
                 z-index: 20;
 
                 & .train {
+                    user-select: none;
                     width: 100%;
                     height: 20vh;
                 }
@@ -183,9 +184,10 @@
                 }
 
                 & .train-tracks {
+                    user-select: none;
+                    width: 100%;
                     margin-top: -10px;
                 }
-
             }
 
             & .decor-waterfall {
