@@ -2,6 +2,8 @@
     import {currentLang} from "$lib/shared.svelte";
     import {m} from "../paraglide/messages";
     import {onMount} from "svelte";
+    import {Tween} from "svelte/motion";
+    import {cubicInOut} from "svelte/easing";
 
     const blurbs = $derived.by(() => {
         return Object.keys(m)
@@ -10,9 +12,66 @@
             .map(key => m[key as keyof typeof m]());
     })
 
-    let init = $state(false)
+    let trainFrontElem: HTMLElement | null = $state(null)
+    let trainMiddleElems: Array<HTMLElement | null> = $state([])
+    let trainMiddleElemFirst: HTMLElement | null = $derived(trainMiddleElems[0])
+    let trainMiddleElemSecond: HTMLElement | null = $derived(trainMiddleElems[1])
+
+    const getTrainTween = (start: number, duration: number) => {
+        return new Tween(start, {
+            duration: duration,
+            easing: cubicInOut
+        })
+    }
+
+    let trainPos = $state(getTrainTween(0, 1000));
+
+    let passingBy = $state(false);
+    let frontPass = $state(true);
+    let juggler = $state(false);
+    let ghostWagons = $state(0);
+    const ghostWagonCap = 256;
+    const startRandomTick = () => {
+        setInterval(() => {
+            if (passingBy) return;
+            if (!(Math.floor(Math.random() * 7) == 0)) return;
+            passingBy = true;
+
+            startTrainAnim();
+        }, 3000)
+    }
+
+    const trainPosTarget = 500;
+    const startTrainAnim = () => {
+        if (!trainFrontElem || !trainMiddleElemFirst || !trainMiddleElemSecond) return;
+        trainPos.target = trainPosTarget;
+    }
+
+    $effect(() => {
+        if (trainPos.current == trainPosTarget) {
+            passingBy = false;
+            ghostWagons = 0;
+            frontPass = true;
+            trainPos.target = 0;
+            trainPos = getTrainTween(0, 1000);
+        }
+
+        if (ghostWagons >= ghostWagonCap) {
+            return;
+        }
+
+        if (trainPos.current > 300) {
+            trainPos.target = 0;
+            frontPass = false;
+            ghostWagons++;
+            juggler != juggler;
+            trainPos = getTrainTween(200, 100);
+            startTrainAnim();
+        }
+    })
+
     onMount(() => {
-        init = true
+        startRandomTick();
     })
 </script>
 
@@ -21,25 +80,23 @@
         <div class="decor-waterfall decor-waterfall-upper"></div>
         <div class="decor-waterfall decor-waterfall-lower"></div>
         <div class="char-sheet">
-            {#if init}
-                <div class="infobloc">
-                    <div class="infobloc-inner">
-                        <p class="infobloc-chief-blurb">{@html m.about_info_upper().replace(":flag_ua:", `<img width="72" height="72" class="smol" src="/img/icon/flag_ua.webp" alt="Ukrainian flag"/>`)}</p>
-                        <ul class="infobloc-blurbs">
-                            {#each blurbs as blurb, i}
-                                <li>
-                                    <p>{@html blurb}</p>
+            <div class="infobloc">
+                <div class="infobloc-inner">
+                    <p class="infobloc-chief-blurb">{@html m.about_info_upper().replace(":flag_ua:", `<img width="72" height="72" class="smol" src="/img/icon/flag_ua.webp" alt="Ukrainian flag"/>`)}</p>
+                    <ul class="infobloc-blurbs">
+                        {#each blurbs as blurb, i}
+                            <li>
+                                <p>{@html blurb}</p>
+                            </li>
+                            {#if i % 2 === 0}
+                                <li class="infobloc-separator" aria-label="separator">
+                                    <p>|</p>
                                 </li>
-                                {#if i % 2 === 0}
-                                    <li class="infobloc-separator" aria-label="separator">
-                                        <p>|</p>
-                                    </li>
-                                {/if}
-                            {/each}
-                        </ul>
-                    </div>
+                            {/if}
+                        {/each}
+                    </ul>
                 </div>
-            {/if}
+            </div>
             <div class="pfpbloc-cont">
                 <div class="pfpbloc">
                     <img class="pfp" src="img/pfp.webp" alt="maksiks profile pic, an overloaded letter M mostly">
@@ -54,26 +111,60 @@
         </div>
 
         <div class="train-cont">
-            <img class="train train-front" src="/img/train_front.png" alt="a literal train">
-            <img class="train train-middle" src="/img/train_middle.png" alt="a literal train">
-            <img class="train-tracks" src="/img/tracks.png" alt="train tracks">
+            <img loading="lazy" style={`left: ${100-trainPos.current}vw; opacity: ${frontPass ? "100" : "0"};`}
+                 class="train train-front" bind:this={trainFrontElem} src="/img/train_front.png" alt="a literal train">
+            {#each Array.from({length: 2}) as _, i}
+                <img loading="lazy"
+                     style={i === 0 ? `left: ${((juggler && ghostWagons < ghostWagonCap) ? 300 : 200)-trainPos.current}vw` : `left: ${((juggler && ghostWagons < ghostWagonCap) ? 200 : 300)-trainPos.current}vw`}
+                     class="train train-middle" bind:this={trainMiddleElems[i]} src="/img/train_middle.png"
+                     alt="a literal train">
+            {/each}
+            <img loading="lazy" style={`left: ${400-trainPos.current}vw`}
+                 class="train train-back" bind:this={trainFrontElem} src="/img/train_front.png" alt="a literal train">
+            <img loading="lazy" class="train-tracks" src="/img/tracks.png" alt="train tracks">
         </div>
     </section>
 
     <style>
         .about-seg {
-            height: 130vh;
+            height: 140vh;
             width: 100vw;
             position: relative;
 
             background-color: white;
 
             & .train-cont {
+                margin-top: 20vh;
+                position: relative;
+                z-index: 20;
+
                 & .train {
                     width: 100%;
                     height: 20vh;
                 }
 
+                & .train-front {
+                    /* relative so it shifts the layout, do not display: none 3 am me please */
+                    position: relative;
+                    left: 100vw;
+                }
+
+                & .train-back {
+                    transform: scaleX(-1);
+                    position: absolute;
+                    top: 0;
+                    left: 400vw;
+                }
+
+                & .train-middle {
+                    position: absolute;
+                    left: 200vw;
+                    top: 0;
+                }
+
+                & .train-tracks {
+                    margin-top: -10px;
+                }
 
             }
 
@@ -82,17 +173,18 @@
 
                 position: absolute;
                 width: 44px;
-                height: 40%;
             }
 
             & .decor-waterfall-upper {
                 top: 0;
                 left: 40%;
+                height: 40%;
             }
 
             & .decor-waterfall-lower {
-                top: 60%;
+                top: 50%;
                 left: 20%;
+                height: 60%;
             }
 
             & .char-sheet {

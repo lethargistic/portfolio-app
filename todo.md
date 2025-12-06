@@ -6,3 +6,4 @@
 - [ ] cfg: lang all
 - [ ] todo maybe: status effect and mana changes based on time of day
 - [ ] todo maybe: maybe make status scale in
+- [ ] todo: ambient sounds mandatory
