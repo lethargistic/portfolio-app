@@ -26,23 +26,41 @@
 
     let trainPos = $state(getTrainTween(0, 1000));
 
+    let scrollY = $state(0);
+    let innerHeight = $state(0);
+    $effect(() => {
+        if (!partOfS2visible && scrollY > innerHeight*0.65) {
+            partOfS2visible = true;
+        }
+    })
+    let partOfS2visible = $state(false);
+
     let passingBy = $state(false);
     let frontPass = $state(true);
     let juggler = $state(false);
     let ghostWagons = $state(0);
     const ghostWagonCap = 256;
+    let passes = 0;
     const startRandomTick = () => {
         setInterval(() => {
+            if (!partOfS2visible) return;
             if (passingBy) return;
-            if (!(Math.floor(Math.random() * 7) == 0)) return;
+            const chanceMult = passes < 1 ? 2 :
+                passes < 2 ? 60
+                    : 90;
+            const roll = (Math.floor(Math.random() * chanceMult) == 0);
+            console.log(passes, chanceMult, roll)
+            if (!roll) return;
+            passes++;
             passingBy = true;
 
             startTrainAnim();
-        }, 3000)
+        }, 1000)
     }
 
     const trainPosTarget = 500;
     const startTrainAnim = () => {
+        console.log("STARTING TRAIN")
         if (!trainFrontElem || !trainMiddleElemFirst || !trainMiddleElemSecond) return;
         trainPos.target = trainPosTarget;
     }
@@ -75,12 +93,14 @@
     })
 </script>
 
+<svelte:window bind:scrollY={scrollY} bind:innerHeight={innerHeight} />
+
 {#key currentLang.lang}
     <section class="about-seg" id="about">
         <div class="decor-waterfall decor-waterfall-upper"></div>
         <div class="decor-waterfall decor-waterfall-lower"></div>
         <div class="char-sheet">
-            <div class="infobloc">
+            <div style={passingBy ? `animation: shake 0.5s infinite ease-in-out` : ``} class="infobloc">
                 <div class="infobloc-inner">
                     <p class="infobloc-chief-blurb">{@html m.about_info_upper().replace(":flag_ua:", `<img width="72" height="72" class="smol" src="/img/icon/flag_ua.webp" alt="Ukrainian flag"/>`)}</p>
                     <ul class="infobloc-blurbs">
@@ -97,7 +117,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="pfpbloc-cont">
+            <div style={passingBy ? `animation: shake 0.5s infinite ease-in-out` : ``} class="pfpbloc-cont">
                 <div class="pfpbloc">
                     <img class="pfp" src="img/pfp.webp" alt="maksiks profile pic, an overloaded letter M mostly">
                     <div class="pfp-info">
@@ -301,6 +321,42 @@
                         }
                     }
                 }
+            }
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+            10% {
+                transform: translate(-1px, -2px) rotate(-0.5deg);
+            }
+            20% {
+                transform: translate(-3px, 0px) rotate(0.5deg);
+            }
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+            40% {
+                transform: translate(1px, -1px) rotate(0.5deg);
+            }
+            50% {
+                transform: translate(-1px, 2px) rotate(-0.5deg);
+            }
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+            70% {
+                transform: translate(3px, 1px) rotate(-0.5deg);
+            }
+            80% {
+                transform: translate(-1px, -1px) rotate(0.5deg);
+            }
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+            100% {
+                transform: translate(1px, -2px) rotate(-0.5deg);
             }
         }
 
