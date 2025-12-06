@@ -1,6 +1,25 @@
 {
-	"$schema": "https://inlang.com/schema/inlang-message-format",
+  "$schema": "https://inlang.com/schema/inlang-message-format",
 
-	"welcome_button_maksiks": "Maksiks",
-	"welcome_button_is": "is a dev"
+  "#s1": "/",
+  "welcome_button_maksiks": "Maksiks",
+  "welcome_button_is": "is a dev",
+
+  "#s2": "/",
+  "about_info_upper": "I’m Maksiks, a full-stack developer and UI & UX designer from Ukraine :flag_ua:<br> I make digital stuff that doesn't fight you.",
+
+  "#about lower": "parsed by prefix ! /",
+  "about_l_info_1": "<b>Location:</b><br> Vinnytsia, Ukraine",
+  "about_l_info_2": "<b>Loves:</b><br> Difficult games",
+  "about_l_info_3": "<b>Specialty:</b><br> Fast, clean, thoughtful web-dev",
+  "about_l_info_4": "<b>Sometimes:</b><br> makes music",
+  "about_l_info_5": "<b>Background:</b><br> Self-Taught dev",
+  "about_l_info_6": "<b>Fav. Artist:</b><br> ど～ぱみん",
+  "about_l_info_7": "<b>Design philosophy:</b><br> Radically simplify",
+  "about_l_info_8": "<b>Random:</b><br>Ask me about the Gandalf incident",
+  "about_l_info_9": "<b>Lifeline:</b><br> Coffee/Tea",
+  "about_l_info_10": "<b>Spell:</b><br> I cast: - a little shadow with my hat!",
+
+  "about_pfp_hp": "maksiks | hp: 85% | mana: 15%",
+  "about_pfp_info": "<b>class:</b> wizard extraordinaire<br> <b>alignment:</b> chaotic evil<br> <b>elements:</b> glyphs, shadow, light<br><b>status effects:</b> sleepy"
 }

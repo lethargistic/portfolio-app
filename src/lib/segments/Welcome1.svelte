@@ -41,7 +41,7 @@
         if (floatieIs == null) return;
         const langCode = mapLang[lang as keyof typeof mapLang];
         setLocale(langCode, {reload: false});
-        currentLang.value = langCode;
+        currentLang.lang = langCode;
         langFontSize = mapLangFontSize[getLocale()] ?? defaultFontSize;
     }
 
@@ -95,7 +95,7 @@
         This site is quite heavy on javascript, you might not get the best experience!
     </p>
 </noscript>
-{#key currentLang.value}
+{#key currentLang.lang}
     <div class="lang-settings">
         <button class="lang-button" onclick={() => {seeLang = !seeLang}} bind:this={langButton}>
             <img src="/img/icon/lucide_languages.svg" alt="language selector">

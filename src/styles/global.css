@@ -20,6 +20,9 @@ body, html {
     overflow-x: hidden;
     color: rgb(4, 4, 4);
     scroll-behavior: smooth;
+
+    /* temp: */
+    background-color: black;
 }
 
 .sr-only {
@@ -74,4 +77,12 @@ h1, h2, h3, h4, h5, h6 {
 
 :focus {
     outline: none;
+}
+
+.smol {
+    display: inline;
+    aspect-ratio: 1;
+    width: 1.2rem;
+    height: auto;
+    vertical-align: middle;
 }

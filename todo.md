@@ -3,3 +3,6 @@
 - [ ] todo pain: no time right now but more art, like i want hollow knight type decor things (yes im crazy)
 - [ ] todo: outline a shinkansen because art suffering
 - [ ] todo: particles and actual decor for about section
+- [ ] cfg: lang all
+- [ ] todo maybe: status effect and mana changes based on time of day
+- [ ] todo maybe: maybe make status scale in
