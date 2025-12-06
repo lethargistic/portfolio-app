@@ -1,0 +1,1 @@
+export let currentLang = $state({value: "en"});

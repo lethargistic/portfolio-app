@@ -4,6 +4,7 @@
     import {getLocale, setLocale} from "$lib/paraglide/runtime";
     import {Spring, Tween} from "svelte/motion";
     import {cubicOut} from "svelte/easing";
+    import {currentLang} from "$lib/shared.svelte";
 
     let seeLang = $state(false);
 
@@ -35,13 +36,12 @@
     const defaultFontSize = "2.5rem";
 
     let floatieIs: HTMLElement | null = $state(null);
-    let updaterKey = $state(0);
     const handleChangeLang = (lang: String) => {
         seeLang = false;
         if (floatieIs == null) return;
         const langCode = mapLang[lang as keyof typeof mapLang];
         setLocale(langCode, {reload: false});
-        updaterKey++;
+        currentLang.value = langCode;
         langFontSize = mapLangFontSize[getLocale()] ?? defaultFontSize;
     }
 
@@ -92,10 +92,10 @@
 
 <noscript>
     <p style="color: red">
-        This site is heavy on javascript, you might not get the best experience!
+        This site is quite heavy on javascript, you might not get the best experience!
     </p>
 </noscript>
-{#key updaterKey}
+{#key currentLang.value}
     <div class="lang-settings">
         <button class="lang-button" onclick={() => {seeLang = !seeLang}} bind:this={langButton}>
             <img src="/img/icon/lucide_languages.svg" alt="language selector">
@@ -146,175 +146,176 @@
             <h2>{m.welcome_button_is()}</h2>
         </div>
     </section>
-<style>
-    .lang-settings {
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
 
-        & button {
-            all: unset;
-            cursor: pointer;
-        }
-
-        --icon-width: 1.6rem;
-
-        & .lang-button {
+    <style>
+        .lang-settings {
             position: absolute;
-            top: 0.3rem;
-            right: 0;
+            top: 2rem;
+            right: 2rem;
 
-            user-select: none;
-
-            & img {
-                width: var(--icon-width);
+            & button {
+                all: unset;
+                cursor: pointer;
             }
-        }
 
-        & .lang-selectors {
-            margin-right: calc(var(--icon-width) + 1vw);
-            position: relative;
-            list-style: none;
-            color: white;
+            --icon-width: 1.6rem;
 
-            user-select: none;
+            & .lang-button {
+                position: absolute;
+                top: 0.3rem;
+                right: 0;
 
-            display: flex;
-            flex-direction: column;
+                user-select: none;
 
-            background-color: #232323;
-            border: #888888 1px solid;
-            border-radius: 1px;
-
-            & li {
-                width: 16vw;
-                height: 1.6vw;
-
-                display: flex;
-                align-items: center;
-
-                padding: 0.6rem 0 0.6rem 0;
-                font-size: 1.1rem;
-
-                & button {
-                    padding: 0.6rem 0 0.6rem 0.8rem;
-                    width: 100%;
-                    height: 100%;
+                & img {
+                    width: var(--icon-width);
                 }
             }
 
-            & button:hover, & button:focus {
-                background: #454545;
-            }
-        }
-    }
+            & .lang-selectors {
+                margin-right: calc(var(--icon-width) + 1vw);
+                position: relative;
+                list-style: none;
+                color: white;
 
-    .welcome-seg {
-        /* ref in code above ! */
-        --floatie-font-size: 4.5rem;
-
-        width: 100vw;
-        height: 105vh;
-        background-color: #232323;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* super duper precise positioning ! */
-
-        & .illu {
-            zoom: 1.025;
-            height: 30.425vw;
-
-            /* youtrack says they fixed it hmm, unreleased yet maybe? */
-            /* noinspection CssInvalidFunction */
-            --spring-easing: linear(0, 0.0018, 0.0069 1.15%, 0.026 2.3%, 0.0637, 0.1135 5.18%, 0.2229 7.78%, 0.5977 15.84%, 0.7014, 0.7904, 0.8641, 0.9228, 0.9676 28.8%, 1.0032 31.68%, 1.0225, 1.0352 36.29%, 1.0431 38.88%, 1.046 42.05%, 1.0448 44.35%, 1.0407 47.23%, 1.0118 61.63%, 1.0025 69.41%, 0.9981 80.35%, 0.9992 99.94%);
-            --spring-duration: 0.8333s;
-
-            transition: var(--spring-duration) var(--sping-easing);
-
-            user-select: none;
-            pointer-events: none;
-            position: absolute;
-
-            /* centered inline because transform order */
-        }
-
-        & .illu-left {
-            width: 28.8vw;
-            left: 50.4%;
-            top: 55.2%;
-        }
-
-        & .illu-right {
-            width: 28.825vw;
-            left: 54.7%;
-            top: 49.3%;
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-        }
-
-        & .floatie {
-            cursor: initial;
-
-            background-color: #bd00da; /* math */
-            mix-blend-mode: hard-light;
-            box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px, rgb(51, 51, 51) 0 0 0 3px;
-        }
-
-        & .floatie-maksiks {
-            position: absolute;
-
-            left: 13%;
-
-            & h1 {
-                pointer-events: none;
                 user-select: none;
 
-                padding: 0.1vw 1vw;
-                color: white;
-                z-index: 2;
+                display: flex;
+                flex-direction: column;
 
-                font-size: var(--floatie-font-size);
+                background-color: #232323;
+                border: #888888 1px solid;
+                border-radius: 1px;
 
-                font-family: "Karla", sans-serif;
-                font-optical-sizing: auto;
-                font-weight: Bold;
-                font-style: normal;
+                & li {
+                    width: 16vw;
+                    height: 1.6vw;
 
-                box-shadow: rgba(0, 0, 0, 0.25) 0 14px 35px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+                    display: flex;
+                    align-items: center;
+
+                    padding: 0.6rem 0 0.6rem 0;
+                    font-size: 1.1rem;
+
+                    & button {
+                        padding: 0.6rem 0 0.6rem 0.8rem;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                & button:hover, & button:focus {
+                    background: #454545;
+                }
             }
-
         }
 
-        --right-floatie-hz-shift: 67%;
-        --right-floatie-vr-margin: 4rem;
+        .welcome-seg {
+            /* ref in code above ! */
+            --floatie-font-size: 4.5rem;
 
-        & .floatie-is {
-            left: calc(var(--right-floatie-hz-shift) + 3.8vw);
-            margin-top: var(--right-floatie-vr-margin);
+            width: 100vw;
+            height: 105vh;
+            background-color: #232323;
 
-            position: absolute;
             display: flex;
+            justify-content: center;
             align-items: center;
-            box-sizing: border-box;
-            color: white;
+            /* super duper precise positioning ! */
 
-            & h2 {
-                pointer-events: none;
+            & .illu {
+                zoom: 1.025;
+                height: 30.425vw;
+
+                /* youtrack says they fixed it hmm, unreleased yet maybe? */
+                /* noinspection CssInvalidFunction */
+                --spring-easing: linear(0, 0.0018, 0.0069 1.15%, 0.026 2.3%, 0.0637, 0.1135 5.18%, 0.2229 7.78%, 0.5977 15.84%, 0.7014, 0.7904, 0.8641, 0.9228, 0.9676 28.8%, 1.0032 31.68%, 1.0225, 1.0352 36.29%, 1.0431 38.88%, 1.046 42.05%, 1.0448 44.35%, 1.0407 47.23%, 1.0118 61.63%, 1.0025 69.41%, 0.9981 80.35%, 0.9992 99.94%);
+                --spring-duration: 0.8333s;
+
+                transition: var(--spring-duration) var(--sping-easing);
+
                 user-select: none;
+                pointer-events: none;
+                position: absolute;
 
-                padding: 0.1vw 1vw;
+                /* centered inline because transform order */
+            }
+
+            & .illu-left {
+                width: 28.8vw;
+                left: 50.4%;
+                top: 55.2%;
+            }
+
+            & .illu-right {
+                width: 28.825vw;
+                left: 54.7%;
+                top: 49.3%;
+                box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            }
+
+            & .floatie {
+                cursor: initial;
+
+                background-color: #bd00da; /* math */
+                mix-blend-mode: hard-light;
+                box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px, rgb(51, 51, 51) 0 0 0 3px;
+            }
+
+            & .floatie-maksiks {
+                position: absolute;
+
+                left: 13%;
+
+                & h1 {
+                    pointer-events: none;
+                    user-select: none;
+
+                    padding: 0.1vw 1vw;
+                    color: white;
+                    z-index: 2;
+
+                    font-size: var(--floatie-font-size);
+
+                    font-family: "Karla", sans-serif;
+                    font-optical-sizing: auto;
+                    font-weight: Bold;
+                    font-style: normal;
+
+                    box-shadow: rgba(0, 0, 0, 0.25) 0 14px 35px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+                }
+
+            }
+
+            --right-floatie-hz-shift: 67%;
+            --right-floatie-vr-margin: 4rem;
+
+            & .floatie-is {
+                left: calc(var(--right-floatie-hz-shift) + 3.8vw);
+                margin-top: var(--right-floatie-vr-margin);
+
+                position: absolute;
+                display: flex;
+                align-items: center;
+                box-sizing: border-box;
                 color: white;
-                z-index: 2;
 
-                font-family: "Karla", sans-serif;
-                font-optical-sizing: auto;
-                font-weight: Bold;
-                font-style: normal;
+                & h2 {
+                    pointer-events: none;
+                    user-select: none;
 
-                box-shadow: rgba(0, 0, 0, 0.25) 0 14px 35px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+                    padding: 0.1vw 1vw;
+                    color: white;
+                    z-index: 2;
+
+                    font-family: "Karla", sans-serif;
+                    font-optical-sizing: auto;
+                    font-weight: Bold;
+                    font-style: normal;
+
+                    box-shadow: rgba(0, 0, 0, 0.25) 0 14px 35px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+                }
             }
         }
-    }
-</style>
+    </style>
 {/key}

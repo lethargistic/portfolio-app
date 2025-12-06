@@ -1,8 +1,10 @@
 <script>
     import Welcome1 from "$lib/segments/Welcome1.svelte";
+    import About2 from "$lib/segments/About2.svelte";
 </script>
 
-<Welcome1 />
+<Welcome1/>
+<About2/>
 
 {#each Array.from({ length: 100 }) as _, i }
     <p>{i}</p>
