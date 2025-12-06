@@ -32,15 +32,20 @@
         "uk": "2rem",
     } as const;
 
-    let floatieIs: HTMLElement | null = null;
+    const defaultFontSize = "2.5rem";
+
+    let floatieIs: HTMLElement | null = $state(null);
+    let updaterKey = $state(0);
     const handleChangeLang = (lang: String) => {
         seeLang = false;
         if (floatieIs == null) return;
         const langCode = mapLang[lang as keyof typeof mapLang];
-        setLocale(langCode);
+        setLocale(langCode, {reload: false});
+        updaterKey++;
+        langFontSize = mapLangFontSize[getLocale()] ?? defaultFontSize;
     }
 
-    let langFontSize: string | null = $state(mapLangFontSize[getLocale()] ?? "2.5rem");
+    let langFontSize: string | null = $state(mapLangFontSize[getLocale()] ?? defaultFontSize);
 
     //
 
@@ -90,56 +95,57 @@
         This site is heavy on javascript, you might not get the best experience!
     </p>
 </noscript>
-<div class="lang-settings">
-    <button class="lang-button" onclick={() => {seeLang = !seeLang}} bind:this={langButton}>
-        <img src="/img/icon/lucide_languages.svg" alt="language selector">
-    </button>
+{#key updaterKey}
+    <div class="lang-settings">
+        <button class="lang-button" onclick={() => {seeLang = !seeLang}} bind:this={langButton}>
+            <img src="/img/icon/lucide_languages.svg" alt="language selector">
+        </button>
 
-    {#if seeLang}
-        <div class="lang-selector-wrap" transition:scale>
-            <ul class="lang-selectors" bind:this={langSelectors}>
-                {#each languages as lang}
-                    <li>
-                        <button onclick={() => handleChangeLang(lang)}>{lang}</button>
-                    </li>
-                {/each}
-            </ul>
-        </div>
-    {/if}
-</div>
-
-<section class="welcome-seg" id="welcome">
-    <img style={`transform: translate(-50%, -50%) rotate(${illuRotation.current}deg)`}
-         class="illu illu-left"
-         src="/img/illu1.webp"
-         alt="cool illusion part 1">
-    <img style={`transform: translate(-50%, -50%) rotate(${illuRotation.current*2}deg)`}
-         class="illu illu-right"
-         src="/img/illu2.webp"
-         alt="cool illusion part 2">
-
-    <!--TODO: maybe use grabbing cursor-->
-    <div style={`transform: translate(${floatieMaksiksCoords.current.x}px, ${floatieMaksiksCoords.current.y}px)`}
-         onmousemove={() => {runAway(floatieMaksiksCoords, 125, 25)}}
-         class="floatie floatie-maksiks" onmousedown={() => {hold(floatieMaksiksCoords)}} onmouseup={unHold}
-         onmouseout={unHold} onblur={unHold} tabindex="0" role="button"
-         aria-label="header text that runs away">
-        <h1>{m.welcome_button_maksiks()}</h1>
+        {#if seeLang}
+            <div class="lang-selector-wrap" transition:scale>
+                <ul class="lang-selectors" bind:this={langSelectors}>
+                    {#each languages as lang}
+                        <li>
+                            <button onclick={() => handleChangeLang(lang)}>{lang}</button>
+                        </li>
+                    {/each}
+                </ul>
+            </div>
+        {/if}
     </div>
 
-    <!--TODO: maybe think up something better-->
-    <div style={`
+    <section class="welcome-seg" id="welcome">
+        <img style={`transform: translate(-50%, -50%) rotate(${illuRotation.current}deg)`}
+             class="illu illu-left"
+             src="/img/illu1.webp"
+             alt="cool illusion part 1">
+        <img style={`transform: translate(-50%, -50%) rotate(${illuRotation.current*2}deg)`}
+             class="illu illu-right"
+             src="/img/illu2.webp"
+             alt="cool illusion part 2">
+
+        <!--TODO: maybe use grabbing cursor-->
+        <div style={`transform: translate(${floatieMaksiksCoords.current.x}px, ${floatieMaksiksCoords.current.y}px)`}
+             onmousemove={() => {runAway(floatieMaksiksCoords, 125, 25)}}
+             class="floatie floatie-maksiks" onmousedown={() => {hold(floatieMaksiksCoords)}} onmouseup={unHold}
+             onmouseout={unHold} onblur={unHold} tabindex="0" role="button"
+             aria-label="header text that runs away">
+            <h1>{m.welcome_button_maksiks()}</h1>
+        </div>
+
+        <!--TODO: maybe think up something better-->
+        <div style={`
     transform: translate(${floatieIsCoords.current.x}px, ${floatieIsCoords.current.y}px);
     font-size: ${langFontSize} !important;
     `}
-         onmousemove={() => {runAway(floatieIsCoords, 10, 0)}} onmousedown={() => {hold(floatieIsCoords)}} onmouseup={unHold}
-         tabindex="0"
-         class="floatie floatie-is" bind:this={floatieIs} role="button"
-         aria-label="floatie is">
-        <h2>{m.welcome_button_is()}</h2>
-    </div>
-</section>
-
+             onmousemove={() => {runAway(floatieIsCoords, 10, 0)}} onmousedown={() => {hold(floatieIsCoords)}}
+             onmouseup={unHold}
+             tabindex="0"
+             class="floatie floatie-is" bind:this={floatieIs} role="button"
+             aria-label="floatie is">
+            <h2>{m.welcome_button_is()}</h2>
+        </div>
+    </section>
 <style>
     .lang-settings {
         position: absolute;
@@ -311,3 +317,4 @@
         }
     }
 </style>
+{/key}

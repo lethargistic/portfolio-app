@@ -1,1 +1,1 @@
-greg
+- [ ] make the language changer reload the page again if it gets janky
