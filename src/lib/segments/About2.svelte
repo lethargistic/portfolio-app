@@ -49,7 +49,6 @@
                 passes < 2 ? 60
                     : 90;
             const roll = (Math.floor(Math.random() * chanceMult) == 0);
-            console.log(passes, chanceMult, roll)
             if (!roll) return;
             passes++;
             passingBy = true;
@@ -60,7 +59,6 @@
 
     const trainPosTarget = 500;
     const startTrainAnim = () => {
-        console.log("STARTING TRAIN")
         if (!trainFrontElem || !trainMiddleElemFirst || !trainMiddleElemSecond) return;
         trainPos.target = trainPosTarget;
     }
@@ -147,7 +145,7 @@
 
     <style>
         .about-seg {
-            height: 140vh;
+            height: 160vh;
             width: 100vw;
             position: relative;
 
