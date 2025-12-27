@@ -16,6 +16,7 @@
 		"@sveltejs/adapter-auto": "^7.0.0",
 		"@sveltejs/kit": "^2.48.5",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
+		"@types/three": "^0.182.0",
 		"svelte": "^5.43.8",
 		"svelte-check": "^4.3.4",
 		"typescript": "^5.9.3",
@@ -26,5 +27,8 @@
 		"onlyBuiltDependencies": [
 			"esbuild"
 		]
+	},
+	"dependencies": {
+		"three": "^0.182.0"
 	}
 }
