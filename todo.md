@@ -10,4 +10,7 @@
 - [ ] todo maybe: afterfx background for s2, trains passing by into portals or something 
 - [ ] todo maybe: maybe let the user catch the train
 - [ ] todo maybe: clicks for sounds? 
+- [ ] todo maybe: train pushes mouse?
 - [ ] todo: DO NOT OVERDO IT
+- [ ] todo: take your time
+- [ ] fix: train and track artstyle inconsistency

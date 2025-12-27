@@ -4,10 +4,11 @@
     import Skills3 from "$lib/segments/Skills3.svelte";
 </script>
 
-<Welcome1/>
-<About2/>
-<Skills3/>
-
+<main>
+    <Welcome1/>
+    <About2/>
+    <Skills3/>
+</main>
 {#each Array.from({ length: 100 }) as _, i }
     <p>{i}</p>
 {/each}
