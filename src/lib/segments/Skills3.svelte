@@ -23,7 +23,6 @@
     const near = 0.1;
     const far = 5;
 
-
     const cubeRotationSettings = {
         duration: 2000,
         easing: cubicOut,

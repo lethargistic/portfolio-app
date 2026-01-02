@@ -16,3 +16,4 @@
 - [ ] fix: train and track artstyle inconsistency
 - [ ] todo very fun: make one of the blurred hangies cover up a part of the tree because the colors just look too good
 - [ ] todo very: make the tree hangie section have #link-tree so i can link it, cause it's a literal link tree get it? (help)
+- [ ] todo high: amethyst sounds
