@@ -105,7 +105,7 @@
     })
 
     let treeRopeParticles: Particle[] = [];
-    // let separatorParticles: Particle[] = [];
+    let separatorParticles: Particle[] = [];
     let chimeRopeParticles: Particle[] = [];
     let chimeParticles: Particle[] = [];
 
@@ -118,17 +118,20 @@
         prevMouseX = mouseX;
         prevMouseY = mouseY;
         mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-        mouseX = (e.clientY / window.innerHeight) * 2 + 1;
+        mouseY = (e.clientY / window.innerHeight) * 2 - 1;
     }
 
     const treeRopeSegments = 3;
-    const treeRopeLength = 0.5;
+    const treeRopeLength = 0.2;
+
+    const separatorSegments = 2;
+    const separatorLength = 0.1;
 
     const chimeRopeSegments = 8;
-    const chimeRopeLength = 1.5;
+    const chimeRopeLength = 1;
 
     const chimeSegments = 2;
-    const chimeLength = 1;
+    const chimeLength = 0.7;
 
     onMount(() => {
         if (canvas == null) return;
@@ -147,6 +150,12 @@
             treeRopeParticles.push(new Particle(0, y, 0, 3, pinned))
         }
 
+        for (let i = 0; i < separatorSegments; i++) {
+            const y = startY - (i / separatorSegments) * separatorLength;
+            const pinned = i === 0;
+            separatorParticles.push(new Particle(0, y, 0, 10*(i+1), pinned))
+        }
+
         for (let i = 0; i < chimeRopeSegments; i++) {
             const y = startY - (i / chimeRopeSegments) * chimeRopeLength;
             const pinned = i === 0;
@@ -160,7 +169,7 @@
         }
 
         const treeRopeGeometry = new three.BufferGeometry();
-        const treeRopePositions = new Float32Array((treeRopeSegments + 1) * 3);
+        const treeRopePositions = new Float32Array(treeRopeSegments * 3);
         treeRopeGeometry.setAttribute('position', new three.BufferAttribute(treeRopePositions, 3))
         treeRope = new three.Line(
             treeRopeGeometry,
@@ -171,11 +180,10 @@
         const separatorGeometry = new three.BoxGeometry(0.5, 0.1, 0.01);
         const separatorMaterial = new three.MeshBasicMaterial({color: 0xffffff});
         separator = new three.Mesh(separatorGeometry, separatorMaterial);
-        separator.position.y = startY - treeRope.position.y;
         scene.add(separator);
 
         const chimeRopeGeometry = new three.BufferGeometry();
-        const chimeRopePositions = new Float32Array((chimeRopeSegments + 1) * 3);
+        const chimeRopePositions = new Float32Array(chimeRopeSegments * 3);
         chimeRopeGeometry.setAttribute('position', new three.BufferAttribute(chimeRopePositions, 3))
         chimeRope = new three.Line(
             chimeRopeGeometry,
@@ -197,7 +205,7 @@
     // let lastTime = Date.now();
 
     const animate = () => {
-        if (!treeRope || !chimeRope || !chime || !renderer || !camera || !scene) return;
+        if (!treeRope || !chimeRope || !chime || !renderer || !camera || !scene || !separator) return;
 
         requestAnimationFrame(animate);
 
@@ -215,6 +223,13 @@
             p.applyForce(windForce.clone().multiplyScalar(0.01));
             p.update();
         })
+
+        separatorParticles.forEach((p, i) => {
+            p.applyForce(gravity.clone().multiplyScalar(p.mass));
+            const windMult = i === 1 ? 0.01 : 0.001;
+            p.applyForce(windForce.clone().multiplyScalar(windMult));
+            p.update();
+        });
 
         chimeRopeParticles.forEach((p) => {
             p.applyForce(gravity.clone().multiplyScalar(p.mass));
@@ -245,14 +260,19 @@
                 )
             }
 
-            chimeRopeParticles[0].pos.copy(
+            separatorParticles[0].pos.copy(
                 treeRopeParticles[treeRopeParticles.length - 1].pos
+            );
+
+            chimeRopeParticles[0].pos.copy(
+                separatorParticles[separatorParticles.length - 1].pos
             );
 
             chimeParticles[0].pos.copy(
                 chimeRopeParticles[chimeRopeParticles.length - 1].pos
             );
 
+            separatorParticles[0].constrain(separatorParticles[1], separatorLength);
             chimeParticles[0].constrain(chimeParticles[1], chimeLength);
         }
 
@@ -263,6 +283,16 @@
             treeRopePos[i * 3 + 2] = p.pos.z;
         })
         treeRope.geometry.attributes.position.needsUpdate = true;
+
+        const separatorCenter = new three.Vector3()
+            .addVectors(separatorParticles[0].pos, separatorParticles[1].pos)
+            .multiplyScalar(0.5);
+        separator.position.copy(separatorCenter);
+
+        const separatorDir = new three.Vector3()
+            .subVectors(separatorParticles[1].pos, separatorParticles[0].pos)
+            .normalize();
+        separator.rotation.z = Math.atan2(separatorDir.x, -separatorDir.y);
 
         const chimeRopePos = chimeRope.geometry.attributes.position.array;
         chimeRopeParticles.forEach((p, i) => {
