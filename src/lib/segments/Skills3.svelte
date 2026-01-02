@@ -5,7 +5,8 @@
     import * as three from "three";
     import {onMount} from "svelte";
     import {cubicOut} from "svelte/easing";
-    import ChimeTest from "$lib/segments/ChimeTest.svelte";
+    import Chime from "$lib/segments/ChimeTest.svelte";
+    import Hangie4PtSvg from "$lib/hangies/Hangie4PtSVG.svelte";
 
     const socials = [
         {name: "github", link: "https://github.com/maksiksq"},
@@ -77,25 +78,42 @@
         <img class="lilac-cherry-branch" src="/img/branch2transparent.webp"
              alt="a sakura branch except flowers are lilac for some reason">
         <div class=chime-cont>
-            {#each socials as social}
-                <div class={`chime chime-${social.name}`}>
-                    <div class="chime-noodle chime-noodle-upper"></div>
-                    <div class="chime-stick"></div>
-                    <div class="chime-noodle chime-noodle-lower"></div>
-                    <div class="chime-hangie">
-                        {social.name}
-                    </div>
-                </div>
-            {/each}
+            <!--{#each socials as social}-->
+                <Chime></Chime>
+            <!--{/each}-->
         </div>
     </section>
-    <canvas bind:this={canvas} id="tst"></canvas>
+    <div class=test-chime-cont-1>
+        <div class=test-chime-1>
+            Github or something
+        </div>
+    </div>
+    <div class=test-chime-cont-1>
+        <Hangie4PtSvg/>
+    </div>
 
-    <ChimeTest></ChimeTest>
     <style>
-        #tst {
+        .test-chime-cont-1 {
             position: relative;
-            top: 3rem;
+            top: 50vh;
+            width: 100vw;
+            height: 100vh;
+            background-color: white;
+
+            background-image: url("/img/train_front.webp");
+            background-repeat: repeat;
+
+            & .test-chime-1 {
+                left: 50%;
+                width: 150px;
+                height: 400px;
+
+                /* From https://css.glass */
+                background: rgba(255, 172, 48, 0.01);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+            }
         }
 
         .skills-seg {
@@ -116,44 +134,6 @@
             & .chime-cont {
                 display: flex;
                 gap: 0.5rem;
-
-                & .chime {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-
-                    color: white;
-
-                    & .chime-noodle {
-                        width: 3px;
-                        height: 32px;
-                        background-color: #212121;
-                    }
-
-                    & .chime-stick {
-                        width: 16px;
-                        height: 256px;
-
-                        background-color: #212121;
-                    }
-
-                    & .chime-noodle-lower {
-                        height: 48px;
-                        background-color: #212121;
-                    }
-
-                    & .chime-hangie {
-                        width: 124px;
-                        height: 124px;
-                        background: #212121;
-                        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
-
-                }
             }
         }
     </style>
