@@ -1,8 +1,7 @@
 <script lang="ts">
     import {onMount} from "svelte";
     import * as three from "three";
-    import {Tween} from "svelte/motion";
-    import {cubicOut} from "svelte/easing";
+    import {CSS3DRenderer, CSS3DObject} from 'three/addons/renderers/CSS3DRenderer.js';
 
     // i'm gonna go and revisit the entire physics curriculum from 1st to 12th grade sometime after this
     // i do have 5.0/5.0 gpa but our education system is just painnn so i know like very little
@@ -54,11 +53,7 @@
     }
 
     let canvas: HTMLCanvasElement | null = $state(null);
-
-    const chimeRotationSettings = {
-        duration: 2000,
-        easing: cubicOut,
-    };
+    let cssContElem: HTMLElement | null = $state(null);
 
     const fov = 75;
     let canvasWidth = $state(0);
@@ -73,35 +68,30 @@
     let treeRope: three.Line | null = $state(null);
     let separator: three.Mesh | null = $state(null);
     let chimeRope: three.Line | null = $state(null);
-    let chime: three.Mesh | null = $state(null);
-    let chimeRotation = $state(new Tween(0, chimeRotationSettings));
+    let chimeElem: HTMLElement | null = $state(null);
+    let chimeObj: CSS3DObject | null = $state(null);
     let renderer: three.WebGLRenderer | null = $state(null);
+    let cssRenderer: CSS3DRenderer | null = $state(null);
     let scene: three.Scene | null = $state(null);
 
     let camera: three.PerspectiveCamera | null = $state(null);
 
-    $effect(() => {
-        if (!chime || !renderer || !scene || !camera) return;
-        chime.rotation.x = chimeRotation.current;
-        chime.rotation.y = chimeRotation.current;
-        renderer.render(scene, camera)
-        if (chimeRotation.current >= Math.PI * 2) {
-            chimeRotation = new Tween(-(Math.PI * 2), chimeRotationSettings);
-            chimeRotation.target = Math.PI * 2;
-        }
-    })
-
     let windowInnerWidth = $state(null);
     let windowInnerHeight = $state(null);
+
     $effect(() => {
-        if (!canvas || !windowInnerWidth || !windowInnerHeight || !camera || !renderer) return;
+        if (!canvas || !windowInnerWidth || !windowInnerHeight || !camera || !renderer || !cssRenderer || !cssContElem) return;
         canvas.width = windowInnerWidth;
         canvas.height = windowInnerHeight;
+        cssContElem.style.top = canvas.offsetTop + "px";
+        cssContElem.style.width = windowInnerWidth;
+        cssContElem.style.height = windowInnerHeight;
 
         camera.aspect = aspect;
         camera.updateProjectionMatrix();
 
-        renderer?.setSize(canvas.width, canvas.height);
+        renderer.setSize(canvas.width, canvas.height);
+        cssRenderer.setSize(canvas.width, canvas.height);
     })
 
     let treeRopeParticles: Particle[] = [];
@@ -110,15 +100,11 @@
     let chimeParticles: Particle[] = [];
 
     let mouseX = $state(0);
-    let mouseY = $state(0);
     let prevMouseX = $state(0);
-    let prevMouseY = $state(0);
 
     const handleMouseMove = (e: MouseEvent) => {
         prevMouseX = mouseX;
-        prevMouseY = mouseY;
         mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-        mouseY = (e.clientY / window.innerHeight) * 2 - 1;
     }
 
     const treeRopeSegments = 3;
@@ -134,8 +120,11 @@
     const chimeLength = 0.7;
 
     onMount(() => {
-        if (canvas == null) return;
+        if (!canvas || !cssContElem || !chimeElem) return;
         renderer = new three.WebGLRenderer({antialias: true, canvas});
+
+        cssRenderer = new CSS3DRenderer({element: cssContElem});
+
         camera = new three.PerspectiveCamera(fov, aspect, near, far);
         camera.position.z = 2;
 
@@ -143,7 +132,6 @@
 
         const startY = 1;
 
-        // TODO later: css shape
         for (let i = 0; i < treeRopeSegments; i++) {
             const y = startY - (i / treeRopeSegments) * treeRopeLength;
             const pinned = i === 0;
@@ -153,7 +141,7 @@
         for (let i = 0; i < separatorSegments; i++) {
             const y = startY - (i / separatorSegments) * separatorLength;
             const pinned = i === 0;
-            separatorParticles.push(new Particle(0, y, 0, 10*(i+1), pinned))
+            separatorParticles.push(new Particle(0, y, 0, 10 * (i + 1), pinned))
         }
 
         for (let i = 0; i < chimeRopeSegments; i++) {
@@ -165,7 +153,7 @@
         for (let i = 0; i < chimeSegments; i++) {
             const y = startY - (i / chimeSegments) * chimeLength;
             const pinned = i === 0;
-            chimeParticles.push(new Particle(0, y, 0, 5*(i+1), pinned))
+            chimeParticles.push(new Particle(0, y, 0, 5 * (i + 1), pinned))
         }
 
         const treeRopeGeometry = new three.BufferGeometry();
@@ -173,7 +161,7 @@
         treeRopeGeometry.setAttribute('position', new three.BufferAttribute(treeRopePositions, 3))
         treeRope = new three.Line(
             treeRopeGeometry,
-            new three.LineBasicMaterial({ color: 0xffffff })
+            new three.LineBasicMaterial({color: 0xffffff})
         )
         scene.add(treeRope);
 
@@ -187,16 +175,13 @@
         chimeRopeGeometry.setAttribute('position', new three.BufferAttribute(chimeRopePositions, 3))
         chimeRope = new three.Line(
             chimeRopeGeometry,
-            new three.LineBasicMaterial({ color: 0xffffff })
+            new three.LineBasicMaterial({color: 0xffffff})
         )
         scene.add(chimeRope);
 
-        const chimeShape = [0.75, 1, 0.01];
-        const chimeGeometry = new three.BoxGeometry(...chimeShape);
-        const chimeMaterial = new three.MeshBasicMaterial({color: 0xffffff});
-        chime = new three.Mesh(chimeGeometry, chimeMaterial);
-        chime.position.y = chimeRope.position.y - chimeShape[1];
-        scene.add(chime);
+        chimeObj = new CSS3DObject(chimeElem);
+        chimeObj.scale.set(0.0025, 0.0025, 0.0025);
+        scene.add(chimeObj);
 
         renderer.render(scene, camera);
         animate();
@@ -205,7 +190,7 @@
     // let lastTime = Date.now();
 
     const animate = () => {
-        if (!treeRope || !chimeRope || !chime || !renderer || !camera || !scene || !separator) return;
+        if (!treeRope || !chimeRope || !chimeObj || !renderer || !camera || !scene || !separator || !cssRenderer) return;
 
         requestAnimationFrame(animate);
 
@@ -248,14 +233,14 @@
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < treeRopeParticles.length - 1; j++) {
                 treeRopeParticles[j].constrain(
-                    treeRopeParticles[j+1],
+                    treeRopeParticles[j + 1],
                     treeRopeLength / treeRopeSegments
                 )
             }
 
             for (let j = 0; j < chimeRopeParticles.length - 1; j++) {
                 chimeRopeParticles[j].constrain(
-                    chimeRopeParticles[j+1],
+                    chimeRopeParticles[j + 1],
                     chimeRopeLength / chimeRopeSegments
                 )
             }
@@ -305,22 +290,41 @@
         const chimeCenter = new three.Vector3()
             .addVectors(chimeParticles[0].pos, chimeParticles[1].pos)
             .multiplyScalar(0.5);
-        chime.position.copy(chimeCenter);
+        chimeObj.position.copy(chimeCenter);
 
         const chimeDir = new three.Vector3()
             .subVectors(chimeParticles[1].pos, chimeParticles[0].pos)
             .normalize();
-        chime.rotation.z = Math.atan2(chimeDir.x, -chimeDir.y);
+        chimeObj.rotation.z = Math.atan2(chimeDir.x, -chimeDir.y);
 
         renderer.render(scene, camera);
+        cssRenderer.render(scene, camera);
     }
 </script>
-<svelte:window bind:innerWidth={windowInnerWidth} bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove} />
-<canvas bind:this={canvas} bind:clientWidth={canvasWidth} bind:clientHeight={canvasHeight} id="chime-tst"></canvas>
+<svelte:window bind:innerWidth={windowInnerWidth} bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove}/>
+<canvas bind:this={canvas} bind:clientWidth={canvasWidth} bind:clientHeight={canvasHeight}
+        class="chime-canvas"></canvas>
+<div bind:this={cssContElem} class="chime-css"></div>
+<div bind:this={chimeElem} class="chime">
+<button onclick={() => {console.log("hi")}}>eee</button>
+</div>
 
 <style>
-    #chime-tst {
+    .chime-canvas {
         position: relative;
         top: 8rem;
+    }
+
+    .chime-css {
+        position: absolute;
+
+        z-index: 999;
+    }
+
+    .chime {
+        width: 100px;
+        height: 400px;
+        /*scale: 0.0025;*/
+        background-color: white;
     }
 </style>
