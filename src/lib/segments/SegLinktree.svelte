@@ -9,10 +9,42 @@
     import {SeparatorShape} from "$lib/utils";
 
     const socials = [
-        {name: "github", link: "https://github.com/maksiksq"},
-    //     {name: "chaos-abyss", link: "https://www.chaos-abyss.com/"},
-    //     {name: "bluesky", link: "https://bsky.app/profile/maksiks.bsky.social"},
-    //     {name: "linkedin", link: "https://www.linkedin.com/in/maksiksq/"},
+        {
+            name: "github", link: "https://github.com/maksiksq",
+            folds: [
+                {
+                    title: "github",
+                    left: true,
+                    icon: "#",
+                    link: null,
+                    state: "greg"
+                },
+                {
+                    title: "stars",
+                    left: false,
+                    icon: "#",
+                    link: null,
+                    state: "greg"
+                },
+                {
+                    title: "commits",
+                    left: false,
+                    icon: "#",
+                    link: null,
+                    state: "greg"
+                },
+                {
+                    title: "followers",
+                    left: false,
+                    icon: "#",
+                    link: null,
+                    state: "greg"
+                }
+            ]
+        },
+        //     {name: "chaos-abyss", link: "https://www.chaos-abyss.com/"},
+        //     {name: "bluesky", link: "https://bsky.app/profile/maksiks.bsky.social"},
+        //     {name: "linkedin", link: "https://www.linkedin.com/in/maksiksq/"},
     ]
 
     //
@@ -79,7 +111,8 @@
         <div class=chime-cont>
             {#each socials as social}
                 <div class="social-chime">
-                    <Chime {social} stats={[4, 2, 4]} chimeFolds={4} chimeYOffset={0.3} chimeHeight="125vh" separatorShape={SeparatorShape.Rectangle}  ></Chime>
+                    <Chime {social} folds={social.folds} foldCount={4} chimeYOffset={0.3} chimeHeight="110vh"
+                           separatorShape={SeparatorShape.Rectangle}></Chime>
                 </div>
             {/each}
         </div>
@@ -101,6 +134,7 @@
             & .lilac-cherry-branch {
                 width: 90vw;
                 align-self: flex-end;
+                user-select: none;
             }
 
             & .chime-cont {

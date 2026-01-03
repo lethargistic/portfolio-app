@@ -21,3 +21,4 @@
 - [ ] todo high: everything must have a little pencil near it so i can change whatever i want if im logged in
 - [ ] todo maybe: rain on the stats page?
 - [ ] todo maybe: leaf particles
+- [ ] todo maybe: memorize the stat values in the db in case the enemy api dies ; enemy??? sure caffeine hallucinations

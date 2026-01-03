@@ -1,10 +1,10 @@
 <script lang="ts">
-    import {onMount, untrack} from "svelte";
+    import {onMount, tick} from "svelte";
     import * as three from "three";
     import {CSS3DRenderer, CSS3DObject} from 'three/addons/renderers/CSS3DRenderer.js';
     import {error} from "@sveltejs/kit";
 
-    let {social, stats, chimeFolds, chimeYOffset, chimeHeight = "125vh", separatorShape: SeparatorShape} = $props();
+    let {social, folds, foldCount, chimeYOffset, chimeHeight, separatorShape} = $props();
 
     // it's not really a chime it just kinda stuck
 
@@ -12,18 +12,23 @@
     const MIN_CHIME_FOLDS = 2;
 
     $effect(() => {
-        if (chimeFolds && (chimeFolds < MIN_CHIME_FOLDS || chimeFolds > MAX_CHIME_FOLDS)) {
+        if (foldCount && (foldCount < MIN_CHIME_FOLDS || foldCount > MAX_CHIME_FOLDS)) {
             error(500, "Chime has an invalid amount of folds");
         }
-        if (stats.length > chimeFolds) {
+        if (folds.length > foldCount) {
             error(500, "Chime has too many fields");
         }
     });
 
-    const WIDTH_DIVIDER = 4;
+    const WIDTH_DIVIDER = 2;
     const HEIGHT_DIVIDER = 1;
 
-    const CHIME_Y_OFFSET = 0.3;
+    // this should've been 0.1 to match the WebGL units and css3DRenderer ones (according to a thread on the forums)
+    // but I just winged it with this one
+    // and when i decided to finally find the actual factor and change it, this was apparently a good thing
+    // because 0.1 completely breaks any kinda css blur
+    const CHIME_SCALE = 0.0025;
+    const APPROX_REAL_CSS_SIZE_MULT = 0.675;
 
     const treeRopeSegments = 3;
     const treeRopeLength = 0.6;
@@ -198,9 +203,10 @@
         scene.add(chimeRope);
 
         chimeObj = new CSS3DObject(chimeElem);
-        chimeObj.scale.set(0.0025, 0.0025, 0.0025);
+        chimeObj.scale.set(CHIME_SCALE, CHIME_SCALE, CHIME_SCALE);
         scene.add(chimeObj);
 
+        adjustPathDimensionTracking();
         renderer.render(scene, camera);
         animate();
     })
@@ -274,7 +280,7 @@
             chimeParticles[0].pos.copy(
                 chimeRopeParticles[chimeRopeParticles.length - 1].pos
             );
-            chimeParticles[0].pos.y -= CHIME_Y_OFFSET;
+            chimeParticles[0].pos.y -= chimeYOffset;
 
             separatorParticles[0].constrain(separatorParticles[1], separatorLength);
             chimeParticles[0].constrain(chimeParticles[1], chimeLength);
@@ -316,16 +322,45 @@
             .normalize();
         chimeObj.rotation.z = Math.atan2(chimeDir.x, -chimeDir.y);
 
+        // technically a bad idea to do this every rerender but i have no idea where else to hook it reliably
+        adjustPathDimensionTracking();
+
         renderer.render(scene, camera);
         cssRenderer.render(scene, camera);
     }
+
+    let chimePathWidth = $state(0);
+    let chimePathHeight = $state(0);
+
+    // the bindings don't work on these so oh well
+    let trackedPath: SVGPathElement | null = $state(null);
+    const adjustPathDimensionTracking = () => {
+        if (!trackedPath) return;
+        const rect = trackedPath.getBoundingClientRect();
+        chimePathWidth = rect.width;
+        chimePathHeight = rect.height;
+    }
+
+    $inspect(chimePathWidth);
+    $inspect(chimePathHeight);
 </script>
-<svelte:window bind:innerWidth={windowInnerWidth} bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove}/>
+<svelte:window onresize={adjustPathDimensionTracking} bind:innerWidth={windowInnerWidth}
+               bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove}/>
 <canvas bind:this={canvas} bind:clientWidth={canvasWidth} bind:clientHeight={canvasHeight}
         class="chime-canvas"></canvas>
 <div bind:this={cssContElem} class="chime-css"></div>
 <div bind:this={chimeElem} class="chime-cont">
-    <svg class="chime" width="530" height="1575" viewBox="0 0 530 1575" fill="none"
+    <div class="fold-cont">
+        {#each folds as fold}
+            <!-- that 0.5 is the half-fold leftover in the svg due to the bottom part going down for half a fold more-->
+            <a href={fold.link} class="stat-fold" style={`height: ${parseInt(chimeHeight)/(foldCount+0.5)*APPROX_REAL_CSS_SIZE_MULT}vh`}>
+                <img src={fold.icon} alt={fold.name}>
+                <p>{fold.title}</p>
+                <p>{fold.state}</p>
+            </a>
+        {/each}
+    </div>
+    <svg class="chime" style={`height: ${chimeHeight}`} width="530" height="1575" viewBox="0 0 530 1575" fill="none"
          xmlns="http://www.w3.org/2000/svg">
         <mask id="path-1-inside-1_1308_72" fill="white">
             <path d="M529.191 1223.48L352.415 1400.25L352.389 1400.23L177.776 1574.84L1 1398.06L177.776 1221.29L177.801 1221.31L352.415 1046.7L529.191 1223.48Z"/>
@@ -351,7 +386,9 @@
         <mask id="path-7-inside-4_1308_72" fill="white">
             <path d="M528.552 176.777L354.502 350.826L529.152 525.478L352.376 702.255L177.726 527.604L176.776 528.554L0 351.776L176.776 175L351.775 0L528.552 176.777Z"/>
         </mask>
-        <path d="M528.552 176.777L354.502 350.826L529.152 525.478L352.376 702.255L177.726 527.604L176.776 528.554L0 351.776L176.776 175L351.775 0L528.552 176.777Z"
+        <!-- cfg to add when adding new svg sizes -->
+        <path id={`tracked-path-${social.name}`} bind:this={trackedPath}
+              d="M528.552 176.777L354.502 350.826L529.152 525.478L352.376 702.255L177.726 527.604L176.776 528.554L0 351.776L176.776 175L351.775 0L528.552 176.777Z"
               fill="#737373" fill-opacity="0.05"/>
         <path d="M528.552 176.777L530.673 178.899L532.794 176.777L530.673 174.656L528.552 176.777ZM354.502 350.826L352.381 348.705L350.259 350.826L352.381 352.947L354.502 350.826ZM529.152 525.478L531.274 527.599L533.395 525.478L531.274 523.356L529.152 525.478ZM352.376 702.255L350.255 704.376L352.376 706.498L354.497 704.376L352.376 702.255ZM177.726 527.604L179.847 525.482L177.725 523.36L175.603 525.483L177.726 527.604ZM176.776 528.554L174.655 530.675L176.777 532.797L178.899 530.674L176.776 528.554ZM0 351.776L-2.12132 349.655L-4.24263 351.776L-2.12133 353.898L0 351.776ZM176.776 175L178.898 177.121L178.898 177.121L176.776 175ZM351.775 0L353.897 -2.12131L351.775 -4.24265L349.654 -2.12131L351.775 0ZM528.552 176.777L526.43 174.656L352.381 348.705L354.502 350.826L356.623 352.947L530.673 178.899L528.552 176.777ZM354.502 350.826L352.381 352.947L527.031 527.599L529.152 525.478L531.274 523.356L356.623 348.705L354.502 350.826ZM529.152 525.478L527.031 523.356L350.255 700.134L352.376 702.255L354.497 704.376L531.274 527.599L529.152 525.478ZM352.376 702.255L354.497 700.134L179.847 525.482L177.726 527.604L175.604 529.725L350.255 704.376L352.376 702.255ZM177.726 527.604L175.603 525.483L174.654 526.433L176.776 528.554L178.899 530.674L179.848 529.724L177.726 527.604ZM176.776 528.554L178.898 526.432L2.12133 349.655L0 351.776L-2.12133 353.898L174.655 530.675L176.776 528.554ZM0 351.776L2.12132 353.898L178.898 177.121L176.776 175L174.655 172.879L-2.12132 349.655L0 351.776ZM176.776 175L178.898 177.121L353.897 2.12131L351.775 0L349.654 -2.12131L174.655 172.879L176.776 175ZM351.775 0L349.654 2.12131L526.43 178.899L528.552 176.777L530.673 174.656L353.897 -2.12131L351.775 0Z"
               fill="black" mask="url(#path-7-inside-4_1308_72)"/>
@@ -371,6 +408,8 @@
     }
 
     .chime-cont {
+        position: relative;
+
         background: rgba(255, 172, 48, 0.01);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(5px);
@@ -381,10 +420,43 @@
         mask-repeat: no-repeat;
         mask-position: center;
 
+        & .fold-cont {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+
+            background: red;
+
+            /*
+             was originally catering it to the path size in js but i realized it scales as a raster image anyway
+             since CSS3DRenderer only have 100% scale so it doesn't really have to be responsive (or perfectly centered) anyway
+            */
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+
+            & .stat-fold {
+                margin-left: auto;
+
+                padding-left: 3rem;
+                padding-top: 3.5rem;
+
+                display: flex;
+                flex-direction: column;
+                justify-items: center;
+
+                width: 50%;
+                /* height in js */
+
+                background-color: yellow;
+            }
+        }
+
         & .chime {
             position: relative;
 
-            height: 125vh;
             display: flex;
             align-items: center;
             justify-content: center;
