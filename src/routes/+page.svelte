@@ -1,13 +1,13 @@
 <script>
-    import Welcome1 from "$lib/segments/Welcome1.svelte";
-    import About2 from "$lib/segments/About2.svelte";
-    import Skills3 from "$lib/segments/Skills3.svelte";
+    import SegWelcome from "$lib/segments/SegWelcome.svelte";
+    import SegAbout from "$lib/segments/SegAbout.svelte";
+    import SegLinktree from "$lib/segments/SegLinktree.svelte";
 </script>
 
 <main>
-    <Welcome1/>
-    <About2/>
-    <Skills3/>
+    <SegWelcome/>
+    <SegAbout/>
+    <SegLinktree/>
 </main>
 {#each Array.from({ length: 100 }) as _, i }
     <p>{i}</p>

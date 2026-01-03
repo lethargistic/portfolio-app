@@ -5,14 +5,14 @@
     import * as three from "three";
     import {onMount} from "svelte";
     import {cubicOut} from "svelte/easing";
-    import Chime from "$lib/segments/ChimeTest.svelte";
-    import Hangie4PtSvg from "$lib/hangies/Hangie4PtSVG.svelte";
+    import Chime from "$lib/hangies/Chime.svelte";
+    import {SeparatorShape} from "$lib/utils";
 
     const socials = [
         {name: "github", link: "https://github.com/maksiksq"},
-        {name: "chaos-abyss", link: "https://www.chaos-abyss.com/"},
-        {name: "bluesky", link: "https://bsky.app/profile/maksiks.bsky.social"},
-        {name: "linkedin", link: "https://www.linkedin.com/in/maksiksq/"},
+    //     {name: "chaos-abyss", link: "https://www.chaos-abyss.com/"},
+    //     {name: "bluesky", link: "https://bsky.app/profile/maksiks.bsky.social"},
+    //     {name: "linkedin", link: "https://www.linkedin.com/in/maksiksq/"},
     ]
 
     //
@@ -73,50 +73,20 @@
 
 
 {#key currentLang.lang}
-    <section class="skills-seg" id="skills">
-        greg
+    <section class="linktree-seg" id="skills">
         <img class="lilac-cherry-branch" src="/img/branch2transparent.webp"
              alt="a sakura branch except flowers are lilac for some reason">
         <div class=chime-cont>
-            <!--{#each socials as social}-->
-                <Chime></Chime>
-            <!--{/each}-->
+            {#each socials as social}
+                <div class="social-chime">
+                    <Chime {social} stats={[4, 2, 4]} chimeFolds={4} chimeYOffset={0.3} chimeHeight="125vh" separatorShape={SeparatorShape.Rectangle}  ></Chime>
+                </div>
+            {/each}
         </div>
     </section>
-    <div class=test-chime-cont-1>
-        <div class=test-chime-1>
-            Github or something
-        </div>
-    </div>
-    <div class=test-chime-cont-1>
-        <Hangie4PtSvg/>
-    </div>
 
     <style>
-        .test-chime-cont-1 {
-            position: relative;
-            top: 50vh;
-            width: 100vw;
-            height: 100vh;
-            background-color: white;
-
-            background-image: url("/img/train_front.webp");
-            background-repeat: repeat;
-
-            & .test-chime-1 {
-                left: 50%;
-                width: 150px;
-                height: 400px;
-
-                /* From https://css.glass */
-                background: rgba(255, 172, 48, 0.01);
-                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-                backdrop-filter: blur(5px);
-                -webkit-backdrop-filter: blur(5px);
-            }
-        }
-
-        .skills-seg {
+        .linktree-seg {
             height: 160vh;
             width: 100vw;
             position: relative;
@@ -125,6 +95,8 @@
             flex-direction: column;
 
             background-color: white;
+            background-image: url("/img/train_front.webp");
+            background-repeat: repeat;
 
             & .lilac-cherry-branch {
                 width: 90vw;
@@ -132,8 +104,17 @@
             }
 
             & .chime-cont {
+                position: absolute;
+
                 display: flex;
                 gap: 0.5rem;
+
+                & .social-chime {
+                    position: absolute;
+                    transform: translate(-37%, 0);
+                    left: 37vw;
+                    top: 65vh;
+                }
             }
         }
     </style>
