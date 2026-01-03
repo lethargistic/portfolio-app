@@ -20,6 +20,13 @@
                     state: "greg"
                 },
                 {
+                    title: "gihub",
+                    left: true,
+                    icon: "#",
+                    link: null,
+                    state: "greg"
+                },
+                {
                     title: "stars",
                     left: false,
                     icon: "#",

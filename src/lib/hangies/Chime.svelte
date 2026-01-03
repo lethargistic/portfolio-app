@@ -1,12 +1,12 @@
 <script lang="ts">
-    import {onMount, tick} from "svelte";
+    import {onMount} from "svelte";
     import * as three from "three";
     import {CSS3DRenderer, CSS3DObject} from 'three/addons/renderers/CSS3DRenderer.js';
     import {error} from "@sveltejs/kit";
 
     let {social, folds, foldCount, chimeYOffset, chimeHeight, separatorShape} = $props();
 
-    // it's not really a chime it just kinda stuck
+    // it's not really a chime but it just kinda stuck
 
     const MAX_CHIME_FOLDS = 4;
     const MIN_CHIME_FOLDS = 2;
@@ -14,9 +14,6 @@
     $effect(() => {
         if (foldCount && (foldCount < MIN_CHIME_FOLDS || foldCount > MAX_CHIME_FOLDS)) {
             error(500, "Chime has an invalid amount of folds");
-        }
-        if (folds.length > foldCount) {
-            error(500, "Chime has too many fields");
         }
     });
 
@@ -340,9 +337,6 @@
         chimePathWidth = rect.width;
         chimePathHeight = rect.height;
     }
-
-    $inspect(chimePathWidth);
-    $inspect(chimePathHeight);
 </script>
 <svelte:window onresize={adjustPathDimensionTracking} bind:innerWidth={windowInnerWidth}
                bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove}/>
@@ -350,10 +344,16 @@
         class="chime-canvas"></canvas>
 <div bind:this={cssContElem} class="chime-css"></div>
 <div bind:this={chimeElem} class="chime-cont">
-    <div class="fold-cont">
+    <div class="fold-cont" style={`grid-template-rows: repeat(${foldCount*2+1}, 1fr)`}>
+        <!-- the spacer accounts for the 0.5 folds on the left that are missing because of the shape -->
+        <div class="stat-half-spacer-left"></div>
         {#each folds as fold}
+            {@const left = fold.left}
             <!-- that 0.5 is the half-fold leftover in the svg due to the bottom part going down for half a fold more-->
-            <a href={fold.link} class="stat-fold" style={`height: ${parseInt(chimeHeight)/(foldCount+0.5)*APPROX_REAL_CSS_SIZE_MULT}vh`}>
+            <a href={fold.link} class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
+               style={
+               `height: ${parseInt(chimeHeight)/(foldCount+0.5)*APPROX_REAL_CSS_SIZE_MULT}vh;`
+               }>
                 <img src={fold.icon} alt={fold.name}>
                 <p>{fold.title}</p>
                 <p>{fold.state}</p>
@@ -386,7 +386,7 @@
         <mask id="path-7-inside-4_1308_72" fill="white">
             <path d="M528.552 176.777L354.502 350.826L529.152 525.478L352.376 702.255L177.726 527.604L176.776 528.554L0 351.776L176.776 175L351.775 0L528.552 176.777Z"/>
         </mask>
-        <!-- cfg to add when adding new svg sizes -->
+        <!-- TODO: decide if to do tracking or not (the text scales!!) -->
         <path id={`tracked-path-${social.name}`} bind:this={trackedPath}
               d="M528.552 176.777L354.502 350.826L529.152 525.478L352.376 702.255L177.726 527.604L176.776 528.554L0 351.776L176.776 175L351.775 0L528.552 176.777Z"
               fill="#737373" fill-opacity="0.05"/>
@@ -425,8 +425,6 @@
             left: 50%;
             transform: translate(-50%, 0);
 
-            background: red;
-
             /*
              was originally catering it to the path size in js but i realized it scales as a raster image anyway
              since CSS3DRenderer only have 100% scale so it doesn't really have to be responsive (or perfectly centered) anyway
@@ -434,13 +432,17 @@
             width: 100%;
             height: 100%;
 
-            display: flex;
-            flex-direction: column;
+            display: grid;
+
+            /* most one liner problem solver thing ever invented */
+            grid-auto-flow: dense;
+
+            grid-template-columns: 1fr 1fr;
+            /* row template in js */
 
             & .stat-fold {
-                margin-left: auto;
+                grid-row: span 2;
 
-                padding-left: 3rem;
                 padding-top: 3.5rem;
 
                 display: flex;
@@ -449,8 +451,21 @@
 
                 width: 50%;
                 /* height in js */
+            }
 
-                background-color: yellow;
+            & .stat-half-spacer-left {
+                grid-column: 1;
+            }
+
+            & .stat-fold-right {
+                padding-left: 3rem;
+                grid-column: 2;
+            }
+
+            & .stat-fold-left {
+                margin-left: auto;
+                padding-left: 12rem;
+                grid-column: 1;
             }
         }
 
