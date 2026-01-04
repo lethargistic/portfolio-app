@@ -9,6 +9,7 @@
     import {SeparatorShape} from "$lib/utils";
     import {fetchGithubStats} from "$lib/socialStats";
 
+    // folds are resolved by title!
     const socials = [
         {
             name: "github", link: "https://github.com/maksiksq",

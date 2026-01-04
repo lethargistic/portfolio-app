@@ -25,7 +25,7 @@
     // and when i decided to finally find the actual factor and change it, this was apparently a good thing
     // because 0.1 completely breaks any kinda css blur
     const CHIME_SCALE = 0.0025;
-    const APPROX_REAL_CSS_SIZE_MULT = 0.52;
+    const APPROX_REAL_CSS_SIZE_MULT = 0.56;
 
     const treeRopeSegments = 3;
     const treeRopeLength = 0.6;
@@ -446,8 +446,8 @@
                 cursor: pointer;
                 z-index: 1001;
 
-                width: 50%;
                 /* real width in js */
+                width: 50%;
 
                 display: flex;
                 justify-content: center;
@@ -461,15 +461,19 @@
                     align-items: center;
 
                     font-weight: bold;
-                    font-size: 1.4rem;
+                    font-size: 1.35rem;
 
                     column-gap: 0.3rem;
                     row-gap: 0.5rem;
 
                     & img {
-                        width: 24px;
+                        width: 30px;
                         grid-row: span 2;
                         aspect-ratio: 1 / 1;
+                    }
+
+                    & .stat-fold-state {
+                        font-size: 1.2rem;
                     }
                 }
             }
@@ -480,6 +484,10 @@
 
             & .stat-fold-right {
                 grid-column: 2;
+
+                & a {
+                    margin-left: -0.5rem;
+                }
             }
 
             & .stat-fold-left {

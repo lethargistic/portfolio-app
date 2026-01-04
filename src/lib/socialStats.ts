@@ -8,9 +8,8 @@ export const fetchGithubStats = async () => {
     const commitsData = await commitsRes.json();
     const totalCommits = commitsData.contributions.length;
 
-    // resolved by title!
     return {
-        github: "Maksiks",
+        github: "maksiksq",
         commits: totalCommits,
         followed: profileData.followers,
         repos: profileData.public_repos,
