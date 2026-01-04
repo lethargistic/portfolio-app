@@ -3,6 +3,8 @@ export const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, 
 export enum SeparatorShape {
     Star,
     ThreeStars,
-    Rectangle,
-    Circle
+    Pebble,
+    Circles,
+    Ok,
+    None
 }

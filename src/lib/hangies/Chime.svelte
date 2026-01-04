@@ -3,8 +3,9 @@
     import * as three from "three";
     import {CSS3DRenderer, CSS3DObject} from 'three/addons/renderers/CSS3DRenderer.js';
     import {error} from "@sveltejs/kit";
+    import {SeparatorShape} from "$lib/utils";
 
-    let {social, folds, foldCount, chimeYOffset, chimeHeight, separatorShape} = $props();
+    let {social, folds, foldCount, chimeYOffset, chimeHeightVh, separatorShape} = $props();
 
     // it's not really a chime but it just kinda stuck
 
@@ -20,24 +21,48 @@
     const WIDTH_DIVIDER = 2;
     const HEIGHT_DIVIDER = 1;
 
+    // so you can't see the attachment point on e.g. a star
+    const CHIME_ROPE_Y_OFFSET = -0.03;
+
+    const VERLET_CONSTRAIN_COUNT = 10;
+
     // this should've been 0.1 to match the WebGL units and css3DRenderer ones (according to a thread on the forums)
     // but I just winged it with this one
     // and when i decided to finally find the actual factor and change it, this was apparently a good thing
     // because 0.1 completely breaks any kinda css blur
     const CHIME_SCALE = 0.0025;
-    const APPROX_REAL_CSS_SIZE_MULT = 0.56;
+    // just winging it basically
+    const APPROX_CHIME_CSS_SIZE_TO_UNITS_MULT = 0.61;
+    // this is also shifted to move the width a little bit
+    const CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED = 0.56;
 
     const treeRopeSegments = 3;
-    const treeRopeLength = 0.6;
+    const treeRopeParticleCount = treeRopeSegments + 1;
+    const treeRopeLength = 1.0;
 
     const separatorSegments = 2;
-    const separatorLength = 0.1;
+    const separatorParticleCount = separatorSegments + 1;
+    let separatorHeight: number | null = $state(null);
+    let separatorLength = $derived.by(() => {
+        if (!separatorHeight) return 0;
+        return separatorHeight*CHIME_SCALE*APPROX_CHIME_CSS_SIZE_TO_UNITS_MULT;
+    });
+    $inspect('hi', separatorHeight)
+    $inspect(separatorLength)
 
     const chimeRopeSegments = 8;
-    const chimeRopeLength = 0.01;
+    const chimeRopeParticleCount = chimeRopeSegments + 1;
+    const chimeRopeLength = 1.0;
 
     const chimeSegments = 2;
-    const chimeLength = 0.7;
+    const chimeParticleCount = chimeSegments + 1;
+    let chimeHeight: number | null = $state(null);
+    let chimeLength = $derived.by(() => {
+        if (!chimeHeight) return 0;
+        return chimeHeight*CHIME_SCALE*APPROX_CHIME_CSS_SIZE_TO_UNITS_MULT;
+    });
+    $inspect('hi1', chimeHeight)
+    $inspect(chimeLength)
 
     class Particle {
         pos: three.Vector3;
@@ -98,8 +123,9 @@
     const far = 5;
 
     let treeRope: three.Line | null = $state(null);
-    let separator: three.Mesh | null = $state(null);
+    let separatorObj: CSS3DObject | null = $state(null);
     let chimeRope: three.Line | null = $state(null);
+    let separatorElem: HTMLElement | null = $state(null);
     let chimeElem: HTMLElement | null = $state(null);
     let chimeObj: CSS3DObject | null = $state(null);
     let renderer: three.WebGLRenderer | null = $state(null);
@@ -112,7 +138,8 @@
     let windowInnerHeight = $state(null);
 
     $effect(() => {
-        if (!canvas || !windowInnerWidth || !windowInnerHeight || !camera || !renderer || !cssRenderer || !cssContElem) return;
+        if (!canvas || !windowInnerWidth || !windowInnerHeight
+            || !camera || !renderer || !cssRenderer || !cssContElem) return;
         canvas.width = windowInnerWidth / WIDTH_DIVIDER;
         canvas.height = windowInnerHeight / HEIGHT_DIVIDER;
         cssContElem.style.top = canvas.offsetTop + "px";
@@ -140,7 +167,7 @@
     }
 
     onMount(() => {
-        if (!canvas || !cssContElem || !chimeElem) return;
+        if (!canvas || !cssContElem || !chimeElem || !separatorElem) return;
         renderer = new three.WebGLRenderer({antialias: true, alpha: true, canvas});
 
         cssRenderer = new CSS3DRenderer({element: cssContElem});
@@ -152,32 +179,32 @@
 
         const startY = 1.55;
 
-        for (let i = 0; i < treeRopeSegments; i++) {
+        for (let i = 0; i < treeRopeParticleCount; i++) {
             const y = startY - (i / treeRopeSegments) * treeRopeLength;
             const pinned = i === 0;
             treeRopeParticles.push(new Particle(0, y, 0, 3, pinned))
         }
 
-        for (let i = 0; i < separatorSegments; i++) {
+        for (let i = 0; i < separatorParticleCount; i++) {
             const y = startY - (i / separatorSegments) * separatorLength;
             const pinned = i === 0;
             separatorParticles.push(new Particle(0, y, 0, 10 * (i + 1), pinned))
         }
 
-        for (let i = 0; i < chimeRopeSegments; i++) {
+        for (let i = 0; i < chimeRopeParticleCount; i++) {
             const y = startY - (i / chimeRopeSegments) * chimeRopeLength;
             const pinned = i === 0;
             chimeRopeParticles.push(new Particle(0, y, 0, 3, pinned))
         }
 
-        for (let i = 0; i < chimeSegments; i++) {
+        for (let i = 0; i < chimeParticleCount; i++) {
             const y = startY - (i / chimeSegments) * chimeLength;
             const pinned = i === 0;
             chimeParticles.push(new Particle(0, y, 0, 5 * (i + 1), pinned))
         }
 
         const treeRopeGeometry = new three.BufferGeometry();
-        const treeRopePositions = new Float32Array(treeRopeSegments * 3);
+        const treeRopePositions = new Float32Array(treeRopeParticleCount * 3);
         treeRopeGeometry.setAttribute('position', new three.BufferAttribute(treeRopePositions, 3))
         treeRope = new three.Line(
             treeRopeGeometry,
@@ -185,13 +212,12 @@
         )
         scene.add(treeRope);
 
-        const separatorGeometry = new three.BoxGeometry(0.5, 0.1, 0.01);
-        const separatorMaterial = new three.MeshBasicMaterial({color: 0x000000});
-        separator = new three.Mesh(separatorGeometry, separatorMaterial);
-        scene.add(separator);
+        separatorObj = new CSS3DObject(separatorElem);
+        separatorObj.scale.set(CHIME_SCALE, CHIME_SCALE, CHIME_SCALE);
+        scene.add(separatorObj);
 
         const chimeRopeGeometry = new three.BufferGeometry();
-        const chimeRopePositions = new Float32Array(chimeRopeSegments * 3);
+        const chimeRopePositions = new Float32Array(chimeRopeParticleCount * 3);
         chimeRopeGeometry.setAttribute('position', new three.BufferAttribute(chimeRopePositions, 3))
         chimeRope = new three.Line(
             chimeRopeGeometry,
@@ -203,6 +229,12 @@
         chimeObj.scale.set(CHIME_SCALE, CHIME_SCALE, CHIME_SCALE);
         scene.add(chimeObj);
 
+        const square = new three.Mesh(new three.BoxGeometry(1, 1, 1), new three.MeshBasicMaterial({color: 0x44aa88}))
+
+        square.position.y = -0.5;
+
+        // scene.add(square);
+
         adjustPathDimensionTracking();
         renderer.render(scene, camera);
         animate();
@@ -211,7 +243,7 @@
     // let lastTime = Date.now();
 
     const animate = () => {
-        if (!treeRope || !chimeRope || !chimeObj || !renderer || !camera || !scene || !separator || !cssRenderer) return;
+        if (!treeRope || !chimeRope || !chimeObj || !renderer || !camera || !scene || !separatorObj || !cssRenderer) return;
 
         requestAnimationFrame(animate);
 
@@ -251,11 +283,18 @@
         });
 
         // constraints
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < VERLET_CONSTRAIN_COUNT; i++) {
             for (let j = 0; j < treeRopeParticles.length - 1; j++) {
                 treeRopeParticles[j].constrain(
                     treeRopeParticles[j + 1],
                     treeRopeLength / treeRopeSegments
+                )
+            }
+
+            for (let j = 0; j < separatorParticles.length - 1; j++) {
+                separatorParticles[j].constrain(
+                    separatorParticles[j + 1],
+                    separatorLength / separatorSegments
                 )
             }
 
@@ -266,21 +305,23 @@
                 )
             }
 
-            separatorParticles[0].pos.copy(
-                treeRopeParticles[treeRopeParticles.length - 1].pos
-            );
-
-            chimeRopeParticles[0].pos.copy(
-                separatorParticles[separatorParticles.length - 1].pos
-            );
-
-            chimeParticles[0].pos.copy(
-                chimeRopeParticles[chimeRopeParticles.length - 1].pos
-            );
-            chimeParticles[0].pos.y -= chimeYOffset;
+            for (let j = 0; j < chimeParticles.length - 1; j++) {
+                chimeParticles[j].constrain(
+                    chimeParticles[j + 1],
+                    chimeLength / chimeSegments
+                )
+            }
 
             separatorParticles[0].constrain(separatorParticles[1], separatorLength);
             chimeParticles[0].constrain(chimeParticles[1], chimeLength);
+
+            // attachments
+            separatorParticles[0].pos.copy(treeRopeParticles[treeRopeParticles.length - 1].pos);
+            chimeRopeParticles[0].pos.copy(separatorParticles[separatorParticles.length - 1].pos);
+            chimeParticles[0].pos.copy(chimeRopeParticles[chimeRopeParticles.length - 1].pos);
+
+            chimeRopeParticles[0].pos.y -= CHIME_ROPE_Y_OFFSET;
+            chimeParticles[0].pos.y -= chimeYOffset;
         }
 
         const treeRopePos = treeRope.geometry.attributes.position.array;
@@ -294,12 +335,12 @@
         const separatorCenter = new three.Vector3()
             .addVectors(separatorParticles[0].pos, separatorParticles[1].pos)
             .multiplyScalar(0.5);
-        separator.position.copy(separatorCenter);
+        separatorObj.position.copy(separatorCenter);
 
         const separatorDir = new three.Vector3()
             .subVectors(separatorParticles[1].pos, separatorParticles[0].pos)
             .normalize();
-        separator.rotation.z = Math.atan2(separatorDir.x, -separatorDir.y);
+        separatorObj.rotation.z = Math.atan2(separatorDir.x, -separatorDir.y);
 
         const chimeRopePos = chimeRope.geometry.attributes.position.array;
         chimeRopeParticles.forEach((p, i) => {
@@ -341,14 +382,29 @@
 <canvas bind:this={canvas} bind:clientWidth={canvasWidth} bind:clientHeight={canvasHeight}
         class="chime-canvas"></canvas>
 <div bind:this={cssContElem} class="chime-css"></div>
-<div bind:this={chimeElem} class="chime-cont">
+<div bind:this={separatorElem} bind:clientHeight={separatorHeight} class="separator">
+    {#if separatorShape === SeparatorShape.Ok}
+        <!-- i was going to make it "duct tape" but i'm afraid that will
+             blow my professionalism, what a loss... -->
+        <p>ok</p>
+    {:else if separatorShape === SeparatorShape.Star}
+        <img src="/img/hangie-separators/separators/three-stars.svg" alt="three stars" />
+    {:else if separatorShape === SeparatorShape.ThreeStars}
+        <img class="three-stars" src="/img/hangie-separators/separators/three-stars.svg" alt="three stars" />
+    {:else if separatorShape === SeparatorShape.Pebble}
+        <div class="pebble"></div>
+    {:else}
+        oh no
+    {/if}
+</div>
+<div bind:this={chimeElem} class="chime-cont" bind:clientHeight={chimeHeight}>
     <div class="fold-cont" style={`grid-template-rows: repeat(${foldCount*2+1}, 1fr)`}>
         <!-- the spacer accounts for the 0.5 folds on the left that are missing because of the shape -->
         <div class="stat-half-spacer-left"></div>
         {#each folds as fold}
             {@const left = fold.left}
             <div class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
-                 style={`width: ${chimePathWidth*APPROX_REAL_CSS_SIZE_MULT}px;`}>
+                 style={`width: ${chimePathWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;`}>
 
                 <!-- that 0.5 is the half-fold leftover in the svg due to the bottom part going down for half a fold more-->
                 <a href={fold.link ?? social.link}>
@@ -359,7 +415,7 @@
             </div>
         {/each}
     </div>
-    <svg class="chime" style={`height: ${chimeHeight}`} width="530" height="1575" viewBox="0 0 530 1575" fill="none"
+    <svg class="chime" style={`height: ${chimeHeightVh}`} width="530" height="1575" viewBox="0 0 530 1575" fill="none"
          xmlns="http://www.w3.org/2000/svg">
         <mask id="path-1-inside-1_1308_72" fill="white">
             <path d="M529.191 1223.48L352.415 1400.25L352.389 1400.23L177.776 1574.84L1 1398.06L177.776 1221.29L177.801 1221.31L352.415 1046.7L529.191 1223.48Z"/>
@@ -453,6 +509,8 @@
                 justify-content: center;
                 align-items: center;
 
+                /* TODO: text color!! */
+
                 & a {
                     display: grid;
                     grid-template-columns: repeat(2, min-content);
@@ -505,4 +563,24 @@
             justify-content: center;
         }
     }
+
+    /**/
+
+    .separator {
+        & .three-stars {
+            /* putting it on the string */
+            margin-top: -10rem;
+        }
+
+        & .pebble {
+            width: 17vw;
+            height: 10vh;
+
+            margin-top: 0.7rem;
+
+            border-radius: 18% 82% 89% 11% / 12% 15% 85% 88%;
+            background-color: black;
+        }
+    }
+
 </style>

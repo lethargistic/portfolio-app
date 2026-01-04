@@ -22,3 +22,4 @@
 - [ ] todo maybe: rain on the stats page?
 - [ ] todo maybe: leaf particles
 - [ ] todo maybe: memorize the stat values in the db in case the enemy api dies ; enemy??? sure caffeine hallucinations
+- [ ] todo maybe: multiple things hanging off the base of the hangie

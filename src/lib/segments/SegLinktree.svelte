@@ -129,14 +129,14 @@
 
 
 {#key currentLang.lang}
-    <section class="linktree-seg" id="skills">
+    <section class="linktree-seg" id="linktree">
         <img class="lilac-cherry-branch" src="/img/branch2transparent.webp"
              alt="a sakura branch except flowers are lilac for some reason">
         <div class=chime-cont>
             {#each socials as social}
                 <div class="social-chime">
-                    <Chime {social} folds={social.folds} foldCount={4} chimeYOffset={0.3} chimeHeight="125vh"
-                           separatorShape={SeparatorShape.Rectangle}></Chime>
+                    <Chime {social} folds={social.folds} foldCount={4} chimeYOffset={0.36} chimeHeightVh="125vh"
+                           separatorShape={SeparatorShape.ThreeStars}></Chime>
                 </div>
             {/each}
         </div>
