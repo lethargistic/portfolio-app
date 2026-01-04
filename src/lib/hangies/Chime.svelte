@@ -24,7 +24,7 @@
     // so you can't see the attachment point on e.g. a star
     const CHIME_ROPE_Y_OFFSET = -0.03;
 
-    const VERLET_CONSTRAIN_COUNT = 10;
+    const VERLET_CONSTRAINT_COUNT = 50;
 
     // this should've been 0.1 to match the WebGL units and css3DRenderer ones (according to a thread on the forums)
     // but I just winged it with this one
@@ -50,7 +50,7 @@
     $inspect('hi', separatorHeight)
     $inspect(separatorLength)
 
-    const chimeRopeSegments = 8;
+    const chimeRopeSegments = 30;
     const chimeRopeParticleCount = chimeRopeSegments + 1;
     const chimeRopeLength = 1.0;
 
@@ -86,7 +86,7 @@
             // physicists: i fear no man
             // but that thing, that thing... air resistance
             // it scares me
-            v.multiplyScalar(0.97);
+            v.multiplyScalar(0.45);
 
             this.pos.add(v);
         }
@@ -102,7 +102,7 @@
             const dt = new three.Vector3().subVectors(other.pos, this.pos);
             const currentDist = dt.length();
             const diff = (currentDist - distance) / currentDist;
-            const offset = dt.multiplyScalar(diff * 0.5);
+            const offset = dt.multiplyScalar(diff * 0.8);
 
             if (!this.pinned) this.pos.add(offset);
             if (!other.pinned) other.pos.sub(offset);
@@ -159,16 +159,22 @@
     let chimeParticles: Particle[] = [];
 
     let mouseX = $state(0);
+    let mouseY = $state(0);
     let prevMouseX = $state(0);
+    let prevMouseY = $state(0);
+    let time = $state(0);
 
     const handleMouseMove = (e: MouseEvent) => {
         prevMouseX = mouseX;
+        prevMouseY = mouseY;
         mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+        mouseY = (e.clientY / window.innerHeight) * 2 - 1;
     }
 
     onMount(() => {
         if (!canvas || !cssContElem || !chimeElem || !separatorElem) return;
-        renderer = new three.WebGLRenderer({antialias: true, alpha: true, canvas});
+        /* TODO maybe: keep antialising false? */
+        renderer = new three.WebGLRenderer({antialias: false, alpha: true, canvas});
 
         cssRenderer = new CSS3DRenderer({element: cssContElem});
 
@@ -182,25 +188,29 @@
         for (let i = 0; i < treeRopeParticleCount; i++) {
             const y = startY - (i / treeRopeSegments) * treeRopeLength;
             const pinned = i === 0;
-            treeRopeParticles.push(new Particle(0, y, 0, 3, pinned))
+            treeRopeParticles.push(new Particle(0, y, 0, 30, pinned))
         }
 
         for (let i = 0; i < separatorParticleCount; i++) {
             const y = startY - (i / separatorSegments) * separatorLength;
             const pinned = i === 0;
-            separatorParticles.push(new Particle(0, y, 0, 10 * (i + 1), pinned))
+            separatorParticles.push(new Particle(0, y, 0, 100 * (i + 1), pinned))
         }
 
         for (let i = 0; i < chimeRopeParticleCount; i++) {
             const y = startY - (i / chimeRopeSegments) * chimeRopeLength;
             const pinned = i === 0;
-            chimeRopeParticles.push(new Particle(0, y, 0, 3, pinned))
+
+            const positionRatio = i / chimeRopeSegments;
+            const mass = 100 - positionRatio * 99;
+
+            chimeRopeParticles.push(new Particle(0, y, 0, mass, pinned))
         }
 
         for (let i = 0; i < chimeParticleCount; i++) {
             const y = startY - (i / chimeSegments) * chimeLength;
             const pinned = i === 0;
-            chimeParticles.push(new Particle(0, y, 0, 5 * (i + 1), pinned))
+            chimeParticles.push(new Particle(0, y, 0, 10 * (i === 1 ? 2 : 100), pinned))
         }
 
         const treeRopeGeometry = new three.BufferGeometry();
@@ -240,19 +250,33 @@
         animate();
     })
 
-    // let lastTime = Date.now();
-
     const animate = () => {
         if (!treeRope || !chimeRope || !chimeObj || !renderer || !camera || !scene || !separatorObj || !cssRenderer) return;
 
         requestAnimationFrame(animate);
-
-        // const currentTime = Date.now();
-        // const dt = Math.min((currentTime - lastTime) / 1000, 0.016)
-        // lastTime = currentTime;
+        time += 0.016;
 
         const mouseDx = (mouseX - prevMouseX) * 50;
-        const windForce = new three.Vector3(mouseDx * 0.8, 0, 0);
+        const mouseDy = (mouseY - prevMouseY) * 50;
+
+        const chimeScreenX = chimeObj.position.x / 2;
+        const chimeScreenY = chimeObj.position.y / 2;
+
+        const dx = mouseX - chimeScreenX;
+        const dy = mouseY - chimeScreenY;
+        const distanceFromChime = Math.sqrt(dx * dx + dy * dy);
+
+        const distanceFalloff = Math.min(distanceFromChime, 1);
+
+        const ambientWindX = Math.sin(time * 0.3) * 0.5 + Math.sin(time * 0.17) * 0.03;
+        const ambientWindY = Math.cos(time * 0.25) * 0.2;
+
+        const windForce = new three.Vector3(
+            mouseDx * 0.8 * distanceFalloff + ambientWindX,
+            -mouseDy * 0.4 * distanceFalloff + ambientWindY,
+            0
+        );
+
         const gravity = new three.Vector3(0, -0.08, 0);
 
         // forces
@@ -269,9 +293,13 @@
             p.update();
         });
 
-        chimeRopeParticles.forEach((p) => {
+        chimeRopeParticles.forEach((p, i) => {
             p.applyForce(gravity.clone().multiplyScalar(p.mass));
-            p.applyForce(windForce.clone().multiplyScalar(0.08));
+
+            const positionRatio = i / (chimeRopeParticles.length - 1);
+            const windMultiplier = 0.01 + positionRatio * positionRatio * 0.01;
+
+            p.applyForce(windForce.clone().multiplyScalar(windMultiplier));
             p.update();
         })
 
@@ -283,7 +311,7 @@
         });
 
         // constraints
-        for (let i = 0; i < VERLET_CONSTRAIN_COUNT; i++) {
+        for (let i = 0; i < VERLET_CONSTRAINT_COUNT; i++) {
             for (let j = 0; j < treeRopeParticles.length - 1; j++) {
                 treeRopeParticles[j].constrain(
                     treeRopeParticles[j + 1],

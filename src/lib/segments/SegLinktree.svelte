@@ -135,7 +135,7 @@
         <div class=chime-cont>
             {#each socials as social}
                 <div class="social-chime">
-                    <Chime {social} folds={social.folds} foldCount={4} chimeYOffset={0.36} chimeHeightVh="125vh"
+                    <Chime {social} folds={social.folds} foldCount={4} chimeYOffset={0.3} chimeHeightVh="125vh"
                            separatorShape={SeparatorShape.ThreeStars}></Chime>
                 </div>
             {/each}
