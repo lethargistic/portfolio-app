@@ -350,13 +350,13 @@
         {#each folds as fold}
             {@const left = fold.left}
             <!-- that 0.5 is the half-fold leftover in the svg due to the bottom part going down for half a fold more-->
-            <a href={fold.link} class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
+            <a href={fold.link ?? social.link} class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
                style={
                `height: ${parseInt(chimeHeight)/(foldCount+0.5)*APPROX_REAL_CSS_SIZE_MULT}vh;`
                }>
-                <img src={fold.icon} alt={fold.name}>
+                <img src={`/img/icon/${fold.icon}`} alt={fold.name}>
                 <p>{fold.title}</p>
-                <p>{fold.state}</p>
+                <p class="stat-fold-state">{fold.state}</p>
             </a>
         {/each}
     </div>
@@ -409,6 +409,7 @@
 
     .chime-cont {
         position: relative;
+        pointer-events: all;
 
         background: rgba(255, 172, 48, 0.01);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -420,15 +421,14 @@
         mask-repeat: no-repeat;
         mask-position: center;
 
+        /* TODO: cfg make it feel a bit oversized, and the branch smaller, look at the figma bit  */
         & .fold-cont {
             position: absolute;
+            z-index: 1000;
+
             left: 50%;
             transform: translate(-50%, 0);
 
-            /*
-             was originally catering it to the path size in js but i realized it scales as a raster image anyway
-             since CSS3DRenderer only have 100% scale so it doesn't really have to be responsive (or perfectly centered) anyway
-            */
             width: 100%;
             height: 100%;
 
@@ -443,14 +443,25 @@
             & .stat-fold {
                 grid-row: span 2;
 
-                padding-top: 3.5rem;
+                position: relative;
+                pointer-events: all;
+                cursor: pointer;
+                z-index: 1001;
 
-                display: flex;
-                flex-direction: column;
-                justify-items: center;
-
+                padding-top: 3.7rem;
                 width: 50%;
                 /* height in js */
+
+                display: grid;
+                grid-template-columns: repeat(2, min-content);
+                grid-template-rows: repeat(2, min-content);
+                align-items: center;
+
+                & img {
+                    width: 24px;
+                    grid-row: span 2;
+                    aspect-ratio: 1 / 1;
+                }
             }
 
             & .stat-half-spacer-left {
@@ -458,7 +469,7 @@
             }
 
             & .stat-fold-right {
-                padding-left: 3rem;
+                padding-left: 1rem;
                 grid-column: 2;
             }
 

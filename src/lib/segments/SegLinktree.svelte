@@ -15,35 +15,35 @@
                 {
                     title: "github",
                     left: true,
-                    icon: "#",
-                    link: null,
-                    state: "greg"
-                },
-                {
-                    title: "gihub",
-                    left: true,
-                    icon: "#",
+                    icon: "simple-icons-github.svg",
                     link: null,
                     state: "greg"
                 },
                 {
                     title: "stars",
-                    left: false,
-                    icon: "#",
+                    left: true,
+                    icon: "lucide-star.svg",
                     link: null,
                     state: "greg"
                 },
                 {
                     title: "commits",
                     left: false,
-                    icon: "#",
+                    icon: "lucide-git-commit-horizontal.svg",
                     link: null,
+                    state: "greg"
+                },
+                {
+                    title: "repositories",
+                    left: false,
+                    icon: "lucide-folder-git.svg",
+                    link: "https://github.com/maksiksq?tab=repositories",
                     state: "greg"
                 },
                 {
                     title: "followers",
                     left: false,
-                    icon: "#",
+                    icon: "lucide-user.svg",
                     link: null,
                     state: "greg"
                 }
