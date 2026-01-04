@@ -337,6 +337,8 @@
         chimePathWidth = rect.width;
         chimePathHeight = rect.height;
     }
+
+    $inspect(chimePathWidth, chimePathHeight);
 </script>
 <svelte:window onresize={adjustPathDimensionTracking} bind:innerWidth={windowInnerWidth}
                bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove}/>
@@ -349,15 +351,16 @@
         <div class="stat-half-spacer-left"></div>
         {#each folds as fold}
             {@const left = fold.left}
-            <!-- that 0.5 is the half-fold leftover in the svg due to the bottom part going down for half a fold more-->
-            <a href={fold.link ?? social.link} class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
-               style={
-               `height: ${parseInt(chimeHeight)/(foldCount+0.5)*APPROX_REAL_CSS_SIZE_MULT}vh;`
-               }>
-                <img src={`/img/icon/${fold.icon}`} alt={fold.name}>
-                <p>{fold.title}</p>
-                <p class="stat-fold-state">{fold.state}</p>
-            </a>
+            <div class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
+                 style={`width: ${chimePathWidth*APPROX_REAL_CSS_SIZE_MULT}px;`}>
+
+                <!-- that 0.5 is the half-fold leftover in the svg due to the bottom part going down for half a fold more-->
+                <a href={fold.link ?? social.link}>
+                    <img src={`/img/icon/${fold.icon}`} alt={fold.name}>
+                    <p>{fold.title}</p>
+                    <p class="stat-fold-state">{fold.state}</p>
+                </a>
+            </div>
         {/each}
     </div>
     <svg class="chime" style={`height: ${chimeHeight}`} width="530" height="1575" viewBox="0 0 530 1575" fill="none"
@@ -422,6 +425,7 @@
         mask-position: center;
 
         /* TODO: cfg make it feel a bit oversized, and the branch smaller, look at the figma bit  */
+
         & .fold-cont {
             position: absolute;
             z-index: 1000;
@@ -437,30 +441,35 @@
             /* most one liner problem solver thing ever invented */
             grid-auto-flow: dense;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 50% 50%;
             /* row template in js */
 
             & .stat-fold {
                 grid-row: span 2;
 
                 position: relative;
-                pointer-events: all;
                 cursor: pointer;
                 z-index: 1001;
 
-                padding-top: 3.7rem;
                 width: 50%;
-                /* height in js */
+                /* real width in js */
 
-                display: grid;
-                grid-template-columns: repeat(2, min-content);
-                grid-template-rows: repeat(2, min-content);
+                display: flex;
+                justify-content: center;
                 align-items: center;
 
-                & img {
-                    width: 24px;
-                    grid-row: span 2;
-                    aspect-ratio: 1 / 1;
+                & a {
+                    display: grid;
+                    grid-template-columns: repeat(2, min-content);
+                    grid-template-rows: repeat(2, min-content);
+                    justify-content: center;
+                    align-items: center;
+
+                    & img {
+                        width: 24px;
+                        grid-row: span 2;
+                        aspect-ratio: 1 / 1;
+                    }
                 }
             }
 
@@ -469,13 +478,12 @@
             }
 
             & .stat-fold-right {
-                padding-left: 1rem;
                 grid-column: 2;
             }
 
             & .stat-fold-left {
                 margin-left: auto;
-                padding-left: 12rem;
+                justify-self: end;
                 grid-column: 1;
             }
         }
