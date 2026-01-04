@@ -7,6 +7,7 @@
     import {cubicOut} from "svelte/easing";
     import Chime from "$lib/hangies/Chime.svelte";
     import {SeparatorShape} from "$lib/utils";
+    import {fetchGithubStats} from "$lib/socialStats";
 
     const socials = [
         {
@@ -14,45 +15,60 @@
             folds: [
                 {
                     title: "github",
-                    left: true,
+                    left: false,
                     icon: "simple-icons-github.svg",
                     link: null,
-                    state: "greg"
-                },
-                {
-                    title: "stars",
-                    left: true,
-                    icon: "lucide-star.svg",
-                    link: null,
-                    state: "greg"
+                    state: "loading...",
+                    preface: null
                 },
                 {
                     title: "commits",
-                    left: false,
+                    left: true,
                     icon: "lucide-git-commit-horizontal.svg",
                     link: null,
-                    state: "greg"
+                    state: "loading...",
+                    preface: null
                 },
                 {
-                    title: "repositories",
+                    title: "followed",
+                    left: true,
+                    icon: "lucide-user.svg",
+                    link: null,
+                    state: "loading...",
+                    preface: "by "
+                },
+                {
+                    title: "repos",
                     left: false,
                     icon: "lucide-folder-git.svg",
                     link: "https://github.com/maksiksq?tab=repositories",
-                    state: "greg"
+                    state: "loading...",
+                    preface: null
                 },
                 {
-                    title: "followers",
+                    title: "stars",
                     left: false,
-                    icon: "lucide-user.svg",
+                    icon: "lucide-star.svg",
                     link: null,
-                    state: "greg"
-                }
+                    state: "loading...",
+                    preface: null
+                },
             ]
         },
         //     {name: "chaos-abyss", link: "https://www.chaos-abyss.com/"},
         //     {name: "bluesky", link: "https://bsky.app/profile/maksiks.bsky.social"},
         //     {name: "linkedin", link: "https://www.linkedin.com/in/maksiksq/"},
     ]
+
+    onMount(async () => {
+        const githubSocial = socials.find(s => s.name = "github");
+        if (!githubSocial) return;
+        const githubStats = await fetchGithubStats();
+        githubSocial.folds.map((f) => {
+            f.state = githubStats[f.title as keyof typeof githubStats];
+            return f;
+        })
+    })
 
     //
 
@@ -118,12 +134,14 @@
         <div class=chime-cont>
             {#each socials as social}
                 <div class="social-chime">
-                    <Chime {social} folds={social.folds} foldCount={4} chimeYOffset={0.3} chimeHeight="110vh"
+                    <Chime {social} folds={social.folds} foldCount={4} chimeYOffset={0.3} chimeHeight="125vh"
                            separatorShape={SeparatorShape.Rectangle}></Chime>
                 </div>
             {/each}
         </div>
     </section>
+    <p style="color: white">stars</p>
+    <p style="color: white">gregor</p>
 
     <style>
         .linktree-seg {
@@ -135,11 +153,12 @@
             flex-direction: column;
 
             background-color: white;
-            background-image: url("/img/train_front.webp");
-            background-repeat: repeat;
+            /* bg for testing */
+            /*background-image: url("/img/train_front.webp");*/
+            /*background-repeat: repeat;*/
 
             & .lilac-cherry-branch {
-                width: 90vw;
+                width: 84vw;
                 align-self: flex-end;
                 user-select: none;
             }

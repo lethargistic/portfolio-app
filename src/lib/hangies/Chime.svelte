@@ -25,7 +25,7 @@
     // and when i decided to finally find the actual factor and change it, this was apparently a good thing
     // because 0.1 completely breaks any kinda css blur
     const CHIME_SCALE = 0.0025;
-    const APPROX_REAL_CSS_SIZE_MULT = 0.675;
+    const APPROX_REAL_CSS_SIZE_MULT = 0.52;
 
     const treeRopeSegments = 3;
     const treeRopeLength = 0.6;
@@ -327,7 +327,6 @@
     }
 
     let chimePathWidth = $state(0);
-    let chimePathHeight = $state(0);
 
     // the bindings don't work on these so oh well
     let trackedPath: SVGPathElement | null = $state(null);
@@ -335,10 +334,7 @@
         if (!trackedPath) return;
         const rect = trackedPath.getBoundingClientRect();
         chimePathWidth = rect.width;
-        chimePathHeight = rect.height;
     }
-
-    $inspect(chimePathWidth, chimePathHeight);
 </script>
 <svelte:window onresize={adjustPathDimensionTracking} bind:innerWidth={windowInnerWidth}
                bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove}/>
@@ -358,7 +354,7 @@
                 <a href={fold.link ?? social.link}>
                     <img src={`/img/icon/${fold.icon}`} alt={fold.name}>
                     <p>{fold.title}</p>
-                    <p class="stat-fold-state">{fold.state}</p>
+                    <p class="stat-fold-state">{fold.preface}{fold.state}</p>
                 </a>
             </div>
         {/each}
@@ -389,7 +385,6 @@
         <mask id="path-7-inside-4_1308_72" fill="white">
             <path d="M528.552 176.777L354.502 350.826L529.152 525.478L352.376 702.255L177.726 527.604L176.776 528.554L0 351.776L176.776 175L351.775 0L528.552 176.777Z"/>
         </mask>
-        <!-- TODO: decide if to do tracking or not (the text scales!!) -->
         <path id={`tracked-path-${social.name}`} bind:this={trackedPath}
               d="M528.552 176.777L354.502 350.826L529.152 525.478L352.376 702.255L177.726 527.604L176.776 528.554L0 351.776L176.776 175L351.775 0L528.552 176.777Z"
               fill="#737373" fill-opacity="0.05"/>
@@ -464,6 +459,12 @@
                     grid-template-rows: repeat(2, min-content);
                     justify-content: center;
                     align-items: center;
+
+                    font-weight: bold;
+                    font-size: 1.4rem;
+
+                    column-gap: 0.3rem;
+                    row-gap: 0.5rem;
 
                     & img {
                         width: 24px;
