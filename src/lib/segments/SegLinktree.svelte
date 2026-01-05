@@ -135,7 +135,7 @@
         <div class=chime-cont>
             {#each socials as social}
                 <div class="social-chime">
-                    <Chime {social} folds={social.folds} foldCount={4} chimeYOffset={0.3} chimeHeightVh="125vh"
+                    <Chime {social} folds={social.folds} foldCount={4} chimeYOffset={0.15} chimeHeightVh="82vh"
                            separatorShape={SeparatorShape.ThreeStars}></Chime>
                 </div>
             {/each}
@@ -146,7 +146,7 @@
 
     <style>
         .linktree-seg {
-            height: 160vh;
+            height: 200vh;
             width: 100vw;
             position: relative;
 
@@ -174,7 +174,7 @@
                     position: absolute;
                     transform: translate(-37%, 0);
                     left: 37vw;
-                    top: 65vh;
+                    top: 58vh;
                 }
             }
         }

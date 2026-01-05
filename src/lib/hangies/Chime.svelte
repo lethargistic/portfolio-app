@@ -8,6 +8,9 @@
     let {social, folds, foldCount, chimeYOffset, chimeHeightVh, separatorShape} = $props();
 
     // it's not really a chime but it just kinda stuck
+    //
+    // the math here on some stuff is just wrong or me misinterpreting the physics
+    // it works well, but this is not some etalonne code one thing for sure
 
     const MAX_CHIME_FOLDS = 4;
     const MIN_CHIME_FOLDS = 2;
@@ -19,10 +22,10 @@
     });
 
     const WIDTH_DIVIDER = 2;
-    const HEIGHT_DIVIDER = 1;
+    const HEIGHT_MULTIPLIER = 1.5;
 
     // so you can't see the attachment point on e.g. a star
-    const CHIME_ROPE_Y_OFFSET = -0.03;
+    const CHIME_ROPE_Y_OFFSET = -0.1;
 
     const VERLET_CONSTRAINT_COUNT = 50;
 
@@ -34,11 +37,12 @@
     // just winging it basically
     const APPROX_CHIME_CSS_SIZE_TO_UNITS_MULT = 0.61;
     // this is also shifted to move the width a little bit
-    const CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED = 0.56;
+    const CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED = 0.42;
 
     const treeRopeSegments = 3;
     const treeRopeParticleCount = treeRopeSegments + 1;
-    const treeRopeLength = 1.0;
+    const treeRopeLength = 0.7;
+
 
     const separatorSegments = 2;
     const separatorParticleCount = separatorSegments + 1;
@@ -47,12 +51,10 @@
         if (!separatorHeight) return 0;
         return separatorHeight*CHIME_SCALE*APPROX_CHIME_CSS_SIZE_TO_UNITS_MULT;
     });
-    $inspect('hi', separatorHeight)
-    $inspect(separatorLength)
 
     const chimeRopeSegments = 30;
     const chimeRopeParticleCount = chimeRopeSegments + 1;
-    const chimeRopeLength = 1.0;
+    const chimeRopeLength = 0.6;
 
     const chimeSegments = 2;
     const chimeParticleCount = chimeSegments + 1;
@@ -141,7 +143,7 @@
         if (!canvas || !windowInnerWidth || !windowInnerHeight
             || !camera || !renderer || !cssRenderer || !cssContElem) return;
         canvas.width = windowInnerWidth / WIDTH_DIVIDER;
-        canvas.height = windowInnerHeight / HEIGHT_DIVIDER;
+        canvas.height = windowInnerHeight * HEIGHT_MULTIPLIER;
         cssContElem.style.top = canvas.offsetTop + "px";
         cssContElem.style.width = windowInnerWidth;
         cssContElem.style.height = windowInnerHeight;
@@ -182,7 +184,7 @@
 
         scene = new three.Scene();
 
-        const startY = 1.55;
+        const startY = 1.6;
 
         for (let i = 0; i < treeRopeParticleCount; i++) {
             const y = startY - (i / treeRopeSegments) * treeRopeLength;
@@ -267,7 +269,7 @@
 
         const distanceFalloff = Math.min(distanceFromChime, 1);
 
-        const ambientWindX = Math.sin(time * 0.3) * 0.5 + Math.sin(time * 0.17) * 0.03;
+        const ambientWindX = Math.sin(time * 0.3) * 0.7 + Math.sin(time * 0.17) * 0.03;
         const ambientWindY = Math.cos(time * 0.25) * 0.2;
 
         const windForce = new three.Vector3(
@@ -415,7 +417,7 @@
              blow my professionalism, what a loss... -->
         <p>ok</p>
     {:else if separatorShape === SeparatorShape.Star}
-        <img src="/img/hangie-separators/separators/three-stars.svg" alt="three stars" />
+        <!-- -->
     {:else if separatorShape === SeparatorShape.ThreeStars}
         <img class="three-stars" src="/img/hangie-separators/separators/three-stars.svg" alt="three stars" />
     {:else if separatorShape === SeparatorShape.Pebble}
@@ -434,7 +436,7 @@
                  style={`width: ${chimePathWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;`}>
 
                 <!-- that 0.5 is the half-fold leftover in the svg due to the bottom part going down for half a fold more-->
-                <a href={fold.link ?? social.link}>
+                <a href={fold.link ?? social.link} target="_blank">
                     <img src={`/img/icon/${fold.icon}`} alt={fold.name}>
                     <p>{fold.title}</p>
                     <p class="stat-fold-state">{fold.preface}{fold.state}</p>
@@ -526,7 +528,6 @@
                 grid-row: span 2;
 
                 position: relative;
-                cursor: pointer;
                 z-index: 1001;
 
                 /* real width in js */
@@ -539,6 +540,8 @@
                 /* TODO: text color!! */
 
                 & a {
+                    cursor: pointer;
+
                     display: grid;
                     grid-template-columns: repeat(2, min-content);
                     grid-template-rows: repeat(2, min-content);
@@ -546,19 +549,19 @@
                     align-items: center;
 
                     font-weight: bold;
-                    font-size: 1.35rem;
+                    font-size: 0.87rem;
 
                     column-gap: 0.3rem;
                     row-gap: 0.5rem;
 
                     & img {
-                        width: 30px;
+                        width: 19.5px;
                         grid-row: span 2;
                         aspect-ratio: 1 / 1;
                     }
 
                     & .stat-fold-state {
-                        font-size: 1.2rem;
+                        font-size: 0.78rem;
                     }
                 }
             }
