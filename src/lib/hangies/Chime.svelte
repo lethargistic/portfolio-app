@@ -173,7 +173,6 @@
 
     onMount(() => {
         if (!canvas || !cssContElem || !chimeElem || !separatorElem) return;
-        /* TODO maybe: keep antialising false? */
         renderer = new three.WebGLRenderer({antialias: false, alpha: true, canvas});
 
         cssRenderer = new CSS3DRenderer({element: cssContElem});
