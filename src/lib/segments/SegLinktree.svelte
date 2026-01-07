@@ -69,18 +69,13 @@
         socials = socialProp;
         const githubSocial = socials.find((s: typeof socials[number]) => s.name = "github");
         if (!githubSocial) return;
-        // TODO: if bork fallback
-
-        githubSocial.folds.map((f: typeof githubSocial.folds[number]) => {
-            f.state = githubSocial.folds[f.title as keyof typeof githubSocial.folds];
-            return f;
-        })
 
         let freshGithubFoldsRes = await fetch("/api/v1/socials/github");
 
         const oldSocials: typeof socialProp = socials;
         oldSocials[socials.findIndex((s: typeof socials[number]) => s.name = 'github')].folds
             = await freshGithubFoldsRes.json();
+
         socials = oldSocials;
 
         console.log(socials);

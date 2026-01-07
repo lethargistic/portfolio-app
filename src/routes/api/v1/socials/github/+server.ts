@@ -19,8 +19,12 @@ export const GET: RequestHandler = async () => {
     const folds = data.folds;
 
     for (const [title, state] of Object.entries(githubFolds)) {
+        // if bork fallback to db value
+        if (!state) continue;
+
         folds[folds.findIndex((fold: typeof folds[number]) => fold.title === title)].state = state;
     }
+
 
     const {error: upderr} = await supabase
         .from('socials')

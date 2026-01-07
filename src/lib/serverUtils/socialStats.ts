@@ -27,9 +27,9 @@ export const fetchGithubFolds = async () => {
         const repos = await reposRes.json();
 
         if (!reposRes.ok || reposRes.status === 403 || reposRes.status === 429) {
-            console.error("Rate limited, rip", reposRes.ok, reposRes.status);
-            // TODO: try ask client or if that fails get latest value from db
+            console.warn("Rate limited, rip", reposRes.ok, reposRes.status);
 
+            totalStars = 0;
             break;
         }
 
