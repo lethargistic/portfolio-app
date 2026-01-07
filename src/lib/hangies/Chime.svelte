@@ -3,9 +3,15 @@
     import * as three from "three";
     import {CSS3DRenderer, CSS3DObject} from 'three/addons/renderers/CSS3DRenderer.js';
     import {error} from "@sveltejs/kit";
-    import {SeparatorShape} from "$lib/utils";
+    import {SeparatorShape} from "$lib/utils/utils";
 
-    let {social, folds, foldCount, chimeYOffset, chimeHeightVh, separatorShape} = $props();
+    let {social: socialProp, folds: foldsProp, foldCount, chimeYOffset, chimeHeightVh, separatorShape} = $props();
+
+    const social = $derived(socialProp);
+    const folds = $derived(foldsProp);
+
+    $inspect("hhahaa", social)
+    $inspect(folds)
 
     // it's not really a chime but it just kinda stuck
     //
@@ -63,8 +69,6 @@
         if (!chimeHeight) return 0;
         return chimeHeight*CHIME_SCALE*APPROX_CHIME_CSS_SIZE_TO_UNITS_MULT;
     });
-    $inspect('hi1', chimeHeight)
-    $inspect(chimeLength)
 
     class Particle {
         pos: three.Vector3;
@@ -434,6 +438,7 @@
             {@const left = fold.left}
             <div class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
                  style={`width: ${chimePathWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;`}>
+
 
                 <!-- that 0.5 is the half-fold leftover in the svg due to the bottom part going down for half a fold more-->
                 <a href={fold.link ?? social.link} target="_blank">

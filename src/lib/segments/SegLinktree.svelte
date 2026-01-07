@@ -6,70 +6,92 @@
     import {onMount} from "svelte";
     import {cubicOut} from "svelte/easing";
     import Chime from "$lib/hangies/Chime.svelte";
-    import {SeparatorShape} from "$lib/utils";
-    import {fetchGithubStats} from "$lib/socialStats";
+    import {SeparatorShape} from "$lib/utils/utils";
+
+    let { socials: socialProp } = $props();
+
+    let socials: typeof socialProp = $state();
 
     // folds are resolved by title!
-    const socials = [
-        {
-            name: "github", link: "https://github.com/maksiksq",
-            folds: [
-                {
-                    title: "github",
-                    left: false,
-                    icon: "simple-icons-github.svg",
-                    link: null,
-                    state: "loading...",
-                    preface: null
-                },
-                {
-                    title: "commits",
-                    left: true,
-                    icon: "lucide-git-commit-horizontal.svg",
-                    link: null,
-                    state: "loading...",
-                    preface: null
-                },
-                {
-                    title: "followed",
-                    left: true,
-                    icon: "lucide-user.svg",
-                    link: null,
-                    state: "loading...",
-                    preface: "by "
-                },
-                {
-                    title: "repos",
-                    left: false,
-                    icon: "lucide-folder-git.svg",
-                    link: "https://github.com/maksiksq?tab=repositories",
-                    state: "loading...",
-                    preface: null
-                },
-                {
-                    title: "stars",
-                    left: false,
-                    icon: "lucide-star.svg",
-                    link: null,
-                    state: "loading...",
-                    preface: null
-                },
-            ]
-        },
+    // const socials = [
+    //     {
+    //         name: "github", link: "https://github.com/maksiksq",
+    //         folds: [
+    //             {
+    //                 "title": "github",
+    //                 "left": false,
+    //                 "icon": "simple-icons-github.svg",
+    //                 "link": null,
+    //                 "state": "loading...",
+    //                 "preface": null
+    //             },
+    //             {
+    //                 "title": "commits",
+    //                 "left": true,
+    //                 "icon": "lucide-git-commit-horizontal.svg",
+    //                 "link": null,
+    //                 "state": "loading...",
+    //                 "preface": null
+    //             },
+    //             {
+    //                 "title": "followed",
+    //                 "left": true,
+    //                 "icon": "lucide-user.svg",
+    //                 "link": null,
+    //                 "state": "loading...",
+    //                 "preface": "by "
+    //             },
+    //             {
+    //                 "title": "repos",
+    //                 "left": false,
+    //                 "icon": "lucide-folder-git.svg",
+    //                 "link": "https://github.com/maksiksq?tab=repositories",
+    //                 "state": "loading...",
+    //                 "preface": null
+    //             },
+    //             {
+    //                 "title": "stars",
+    //                 "left": false,
+    //                 "icon": "lucide-star.svg",
+    //                 "link": null,
+    //                 "state": "loading...",
+    //                 "preface": null
+    //             },
+    //         ]
+    //     },
         //     {name: "chaos-abyss", link: "https://www.chaos-abyss.com/"},
         //     {name: "bluesky", link: "https://bsky.app/profile/maksiks.bsky.social"},
         //     {name: "linkedin", link: "https://www.linkedin.com/in/maksiksq/"},
-    ]
+    // ]
 
-    onMount(async () => {
-        const githubSocial = socials.find(s => s.name = "github");
+    const updateGithubSocial = async () => {
+        console.log("socials", socials);
+        socials = socialProp;
+        const githubSocial = socials.find((s: typeof socials[number]) => s.name = "github");
         if (!githubSocial) return;
-        const githubStats = await fetchGithubStats();
-        githubSocial.folds.map((f) => {
-            f.state = githubStats[f.title as keyof typeof githubStats];
+        // TODO: if bork fallback
+
+        githubSocial.folds.map((f: typeof githubSocial.folds[number]) => {
+            f.state = githubSocial.folds[f.title as keyof typeof githubSocial.folds];
             return f;
         })
+
+        let freshGithubFoldsRes = await fetch("/api/v1/socials/github");
+
+        const oldSocials: typeof socialProp = socials;
+        oldSocials[socials.findIndex((s: typeof socials[number]) => s.name = 'github')].folds
+            = await freshGithubFoldsRes.json();
+        socials = oldSocials;
+
+        console.log(socials);
+    }
+
+    onMount(async () => {
+        await updateGithubSocial();
     })
+
+    $inspect("hii", socials)
+
 
     //
 

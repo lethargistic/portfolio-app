@@ -234,6 +234,10 @@
                             background-color: white;
                         }
 
+                        & img::selection {
+                            background-color: transparent;
+                        }
+
                         display: flex;
                         flex-direction: column;
 
