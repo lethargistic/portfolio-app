@@ -1,8 +1,8 @@
-import {PRIVATE_GITHUB_API_TOKEN} from "$env/static/private";
+import {SECRET_GITHUB_API_TOKEN} from "$env/static/private";
 
 export const fetchGithubFolds = async () => {
     const headers = {
-        'Authorization': `Bearer ${PRIVATE_GITHUB_API_TOKEN}`,
+        'Authorization': `Bearer ${SECRET_GITHUB_API_TOKEN}`,
         'Accept': 'application/vnd.github+json',
         'X-GitHub-Api-Version': '2022-11-28'
     }
@@ -27,7 +27,7 @@ export const fetchGithubFolds = async () => {
         const repos = await reposRes.json();
 
         if (!reposRes.ok || reposRes.status === 403 || reposRes.status === 429) {
-            console.warn("Rate limited, rip", reposRes.ok, reposRes.status);
+            console.warn("Rate limited for repos, rip", reposRes.ok, reposRes.status);
 
             totalStars = 0;
             break;
@@ -45,5 +45,8 @@ export const fetchGithubFolds = async () => {
         repos: profileData.public_repos,
         stars: totalStars,
     }
+}
 
+export const fetchChaosAbyssdFolds= async () => {
+    // TODO: CA api
 }

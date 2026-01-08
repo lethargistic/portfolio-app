@@ -8,85 +8,49 @@
     import Chime from "$lib/hangies/Chime.svelte";
     import {SeparatorShape} from "$lib/utils/utils";
 
-    let { socials: socialProp } = $props();
+    let {socials: socialProp} = $props();
 
     let socials: typeof socialProp = $state();
 
-    // folds are resolved by title!
-    // const socials = [
-    //     {
-    //         name: "github", link: "https://github.com/maksiksq",
-    //         folds: [
-    //             {
-    //                 "title": "github",
-    //                 "left": false,
-    //                 "icon": "simple-icons-github.svg",
-    //                 "link": null,
-    //                 "state": "loading...",
-    //                 "preface": null
-    //             },
-    //             {
-    //                 "title": "commits",
-    //                 "left": true,
-    //                 "icon": "lucide-git-commit-horizontal.svg",
-    //                 "link": null,
-    //                 "state": "loading...",
-    //                 "preface": null
-    //             },
-    //             {
-    //                 "title": "followed",
-    //                 "left": true,
-    //                 "icon": "lucide-user.svg",
-    //                 "link": null,
-    //                 "state": "loading...",
-    //                 "preface": "by "
-    //             },
-    //             {
-    //                 "title": "repos",
-    //                 "left": false,
-    //                 "icon": "lucide-folder-git.svg",
-    //                 "link": "https://github.com/maksiksq?tab=repositories",
-    //                 "state": "loading...",
-    //                 "preface": null
-    //             },
-    //             {
-    //                 "title": "stars",
-    //                 "left": false,
-    //                 "icon": "lucide-star.svg",
-    //                 "link": null,
-    //                 "state": "loading...",
-    //                 "preface": null
-    //             },
-    //         ]
-    //     },
-        //     {name: "chaos-abyss", link: "https://www.chaos-abyss.com/"},
-        //     {name: "bluesky", link: "https://bsky.app/profile/maksiks.bsky.social"},
-        //     {name: "linkedin", link: "https://www.linkedin.com/in/maksiksq/"},
-    // ]
+    const extended = $state(false);
+    const isSocialHidden = (social: typeof socials[number]) => social.hidden || (social.extended && !extended);
 
-    const updateGithubSocial = async () => {
-        console.log("socials", socials);
+
+    const updateSocials = async () => {
         socials = socialProp;
-        const githubSocial = socials.find((s: typeof socials[number]) => s.name = "github");
-        if (!githubSocial) return;
+        if (!socials) return;
+        for (const social of socials) {
+            if (isSocialHidden(social)) continue;
 
-        let freshGithubFoldsRes = await fetch("/api/v1/socials/github");
+            let freshFoldsRes = await fetch("/api/v1/update-social", {
+                method: "POST",
+                body: JSON.stringify({
+                    social: social.name
+                }),
+                headers: {
+                    'content-type': 'application/json'
+                }
+            });
 
-        const oldSocials: typeof socialProp = socials;
-        oldSocials[socials.findIndex((s: typeof socials[number]) => s.name = 'github')].folds
-            = await freshGithubFoldsRes.json();
+            const freshFolds = await freshFoldsRes.json();
 
-        socials = oldSocials;
+            if (freshFolds.message) {
+                console.error(freshFolds.message);
+                return null;
+            }
 
-        console.log(socials);
+            // reactivity incantations
+            const oldSocials: typeof socialProp = socials;
+            oldSocials[socials.findIndex((s: typeof socials[number]) => s.name === social.name)].folds
+                = freshFolds;
+
+            socials = oldSocials;
+        }
     }
 
     onMount(async () => {
-        await updateGithubSocial();
+        await updateSocials();
     })
-
-    $inspect("hii", socials)
-
 
     //
 
@@ -151,10 +115,12 @@
              alt="a sakura branch except flowers are lilac for some reason">
         <div class=chime-cont>
             {#each socials as social}
-                <div class="social-chime">
-                    <Chime {social} folds={social.folds} foldCount={4} chimeYOffset={0.15} chimeHeightVh="82vh"
-                           separatorShape={SeparatorShape.ThreeStars}></Chime>
-                </div>
+                {#if !isSocialHidden(social)}
+                    <div class="social-chime">
+                        <Chime {social} folds={social.folds} foldCount={4} chimeYOffset={0.15} chimeHeightVh="82vh"
+                               separatorShape={SeparatorShape.ThreeStars}></Chime>
+                    </div>
+                {/if}
             {/each}
         </div>
     </section>
@@ -191,6 +157,7 @@
                     position: absolute;
                     transform: translate(-37%, 0);
                     left: 37vw;
+                    /* TODO: make dynamic */
                     top: 58vh;
                 }
             }
