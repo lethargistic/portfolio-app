@@ -16,7 +16,7 @@ const checkRateLimit = async (id: string) => {
     return requests <= 30;
 }
 
-export const POST: RequestHandler = async ({ request, getClientAddress }) => {
+export const POST: RequestHandler = async ({request, getClientAddress}) => {
     if (!await checkRateLimit(getClientAddress())) error(429, 'Touch grass.');
 
     const socialJSON = await request.json();
@@ -32,7 +32,7 @@ export const POST: RequestHandler = async ({ request, getClientAddress }) => {
 
     const validFunctions = Object.keys(fetchers);
 
-    const funcName = `fetch${pascalize(social)}Folds`;
+    const funcName = `fetch${pascalize(social)}FoldData`;
     if (!validFunctions.includes(funcName)) error(400, `The api ate a ${social} and it didn't taste good. Call an ambulance!`);
 
     const fetchFunc = (fetchers as any)[funcName]
@@ -50,11 +50,16 @@ export const POST: RequestHandler = async ({ request, getClientAddress }) => {
 
     const folds = data.folds;
 
-    for (const [title, state] of Object.entries(freshFolds)) {
+    for (const [slug, state] of Object.entries(freshFolds)) {
         // if bork fallback to db value
         if (!state) continue;
 
-        folds[folds.findIndex((fold: typeof folds[number]) => fold.title === title)].state = state;
+        try {
+            folds[folds.findIndex((fold: typeof folds[number]) => fold.slug === slug)].state = state;
+        } catch (err) {
+            console.error(`culprit: ${slug} ${state}`);
+            throw err;
+        }
     }
 
 
@@ -67,6 +72,6 @@ export const POST: RequestHandler = async ({ request, getClientAddress }) => {
     if (upderr) error(500, `Failed to update socials: ${upderr?.message}`);
 
     return new Response(JSON.stringify(folds), {
-        headers: { "Content-Type": "application/json" }
+        headers: {"Content-Type": "application/json"}
     });
 }

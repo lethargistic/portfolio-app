@@ -442,9 +442,9 @@
 
                 <!-- that 0.5 is the half-fold leftover in the svg due to the bottom part going down for half a fold more-->
                 <a href={fold.link ?? social.link} target="_blank">
-                    <img src={`/img/icon/${fold.icon}`} alt={fold.name}>
-                    <p>{fold.title}</p>
-                    <p class="stat-fold-state">{fold.preface}{fold.state}</p>
+                    <img src={`/img/icon/${fold.icon}`} alt={fold.slug}>
+                    <p>{@html fold.display_override ?? fold.slug}</p>
+                    <p class={`stat-fold-state ${fold.thick ? 'stat-fold-thick' : ''}`}>{fold.preface}{fold.state}{fold.postface}</p>
                 </a>
             </div>
         {/each}
@@ -544,6 +544,8 @@
 
                 /* TODO: text color!! */
 
+                --title-font-size: 0.87rem;
+
                 & a {
                     cursor: pointer;
 
@@ -554,7 +556,7 @@
                     align-items: center;
 
                     font-weight: bold;
-                    font-size: 0.87rem;
+                    font-size: var(--title-font-size);
 
                     column-gap: 0.3rem;
                     row-gap: 0.5rem;
@@ -567,6 +569,10 @@
 
                     & .stat-fold-state {
                         font-size: 0.78rem;
+                    }
+
+                    & .stat-fold-thick {
+                        font-size: var(--title-font-size);
                     }
                 }
             }
