@@ -505,7 +505,6 @@
 
     .chime-cont {
         position: relative;
-        pointer-events: all;
 
         background: rgba(255, 172, 48, 0.01);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -523,10 +522,11 @@
             position: absolute;
             z-index: 1000;
 
+            pointer-events: all;
+
             left: 50%;
             transform: translate(-50%, 0);
 
-            width: 100%;
             height: 100%;
 
             display: grid;

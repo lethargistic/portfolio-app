@@ -100,6 +100,8 @@
 
                 & .social-chime {
                     position: absolute;
+
+                    pointer-events: none;
                 }
             }
         }
