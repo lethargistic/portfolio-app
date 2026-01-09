@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: overflow on lower sizes + feat: wind now randomized and based on weight">
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Welcome1" />
+        <option value="About2" />
+        <option value="Shared" />
+        <option value="Skills3" />
+        <option value="ChimeTest" />
+        <option value="TypeScript File" />
+        <option value="ChimeSVG" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;maksiksq&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/maksiksq/portfolio-app.git&quot;,
+    &quot;accountId&quot;: &quot;57716451-51f8-41da-81c3-b94ff2fdc5d6&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$APPLICATION_HOME_DIR$/lib/modules/intellij.relaxng.jar!/resources/html5-schema/html5/applications.rnc" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@types+three@0.182.0/node_modules/@types/three/examples/jsm/lines/LineMaterial.d.ts" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@types+three@0.182.0/node_modules/@types/three/examples/jsm/renderers/CSS3DRenderer.d.ts" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@types+three@0.182.0/node_modules/@types/three/src/math/Vector3.d.ts" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/svelte@5.45.5/node_modules/svelte/elements.d.ts" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/svelte@5.45.5/node_modules/svelte/types/index.d.ts" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.es2020.string.d.ts" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.es5.d.ts" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="36NNsWrWFSvYYqfV471eywXERKO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "JavaScript Debug.localhost:5174.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Shell Script.Host.executor": "Run",
+    "Shell Script.やばそうなの.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/static/img/hangies/cutouts",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.smartKeys",
+    "ts.external.directory.path": "D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\cutouts" />
+      <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\original" />
+      <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\originals" />
+      <recent name="D:\Docs\webstormproj\sustenant\static\img\icon" />
+      <recent name="D:\Docs\webstormproj\sustenant\src\lib\hangies\separators" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\cutouts" />
+      <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\originals" />
+      <recent name="D:\Docs\webstormproj\sustenant\src\lib" />
+      <recent name="D:\Docs\webstormproj\sustenant\src\routes\api\v1\socials" />
+      <recent name="D:\Docs\webstormproj\sustenant\src\lib\utils" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.localhost:5174">
+    <configuration name="localhost:5174" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:5174/">
+      <method v="2" />
+    </configuration>
+    <configuration name="やばそうなの" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="pnpm run dev" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="powershell.exe" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="false" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="Host" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="pnpm run dev --host" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="powershell.exe" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="false" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.localhost:5174" />
+      <item itemvalue="Shell Script.Host" />
+      <item itemvalue="Shell Script.やばそうなの" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.localhost:5174" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-WS-252.28238.10" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="" />
+      <created>1764843275255</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764843275255</updated>
+      <workItem from="1764843276443" duration="1747000" />
+      <workItem from="1764876169129" duration="6045000" />
+      <workItem from="1764882296264" duration="1761000" />
+      <workItem from="1764929562220" duration="4885000" />
+      <workItem from="1764939171816" duration="15974000" />
+      <workItem from="1764964368383" duration="53000" />
+      <workItem from="1764964443144" duration="5736000" />
+      <workItem from="1765006966671" duration="33143000" />
+      <workItem from="1765054059210" duration="137000" />
+      <workItem from="1765123999295" duration="6903000" />
+      <workItem from="1765197285543" duration="5719000" />
+      <workItem from="1765278129528" duration="6375000" />
+      <workItem from="1765389192681" duration="1199000" />
+      <workItem from="1765441193995" duration="689000" />
+      <workItem from="1765459843671" duration="1989000" />
+      <workItem from="1765465290993" duration="610000" />
+      <workItem from="1765536614901" duration="626000" />
+      <workItem from="1765549903172" duration="625000" />
+      <workItem from="1765560813303" duration="480000" />
+      <workItem from="1765617817910" duration="1588000" />
+      <workItem from="1765747493552" duration="262000" />
+      <workItem from="1765825110372" duration="418000" />
+      <workItem from="1766846001276" duration="10589000" />
+      <workItem from="1766924694927" duration="2661000" />
+      <workItem from="1767049323542" duration="811000" />
+      <workItem from="1767104693160" duration="1990000" />
+      <workItem from="1767266183241" duration="888000" />
+      <workItem from="1767270391772" duration="2382000" />
+      <workItem from="1767352234866" duration="23982000" />
+      <workItem from="1767431271647" duration="8476000" />
+      <workItem from="1767449063992" duration="3829000" />
+      <workItem from="1767454304963" duration="15006000" />
+      <workItem from="1767469804561" duration="88000" />
+      <workItem from="1767522498822" duration="13733000" />
+      <workItem from="1767540636303" duration="17271000" />
+      <workItem from="1767563830471" duration="12000" />
+      <workItem from="1767609684747" duration="17383000" />
+      <workItem from="1767631942344" duration="630000" />
+      <workItem from="1767632998162" duration="594000" />
+      <workItem from="1767707435740" duration="307000" />
+      <workItem from="1767714854631" duration="214000" />
+      <workItem from="1767715094755" duration="2047000" />
+      <workItem from="1767802094492" duration="9350000" />
+      <workItem from="1767866936940" duration="14857000" />
+      <workItem from="1767891089380" duration="9687000" />
+      <workItem from="1767952633713" duration="10580000" />
+    </task>
+    <task id="LOCAL-00001" summary="nuke: svelte time">
+      <option name="closed" value="true" />
+      <created>1764843836415</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1764843836415</updated>
+    </task>
+    <task id="LOCAL-00002" summary="progress: illusion start">
+      <option name="closed" value="true" />
+      <created>1764879418364</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1764879418364</updated>
+    </task>
+    <task id="LOCAL-00003" summary="progress: h1">
+      <option name="closed" value="true" />
+      <created>1764883504168</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1764883504169</updated>
+    </task>
+    <task id="LOCAL-00004" summary="progress: language selector layout maybe">
+      <option name="closed" value="true" />
+      <created>1764933306204</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1764933306204</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: do you know how hard is it to make a triangle in web??">
+      <option name="closed" value="true" />
+      <created>1764950099729</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1764950099729</updated>
+    </task>
+    <task id="LOCAL-00006" summary="revert: are you kidding me - removed trig because it looks worse with the scale transition + chore: transition">
+      <option name="closed" value="true" />
+      <created>1764951578391</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1764951578391</updated>
+    </task>
+    <task id="LOCAL-00007" summary="chore: s1 layout and lang change">
+      <option name="closed" value="true" />
+      <created>1764956900850</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1764956900850</updated>
+    </task>
+    <task id="LOCAL-00008" summary="chore: god bless svelte, animated illusion">
+      <option name="closed" value="true" />
+      <created>1764966625746</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1764966625746</updated>
+    </task>
+    <task id="LOCAL-00009" summary="chore: god bless svelte, animated floatie 1">
+      <option name="closed" value="true" />
+      <created>1764968965890</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1764968965890</updated>
+    </task>
+    <task id="LOCAL-00010" summary="chore: god bless svelte, animated floatie 2">
+      <option name="closed" value="true" />
+      <created>1764970505614</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1764970505614</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix: language changer no longer reloads the page">
+      <option name="closed" value="true" />
+      <created>1765008509199</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1765008509199</updated>
+    </task>
+    <task id="LOCAL-00012" summary="progress: about segment start">
+      <option name="closed" value="true" />
+      <created>1765017929412</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1765017929412</updated>
+    </task>
+    <task id="LOCAL-00013" summary="progress: it floats">
+      <option name="closed" value="true" />
+      <created>1765027959649</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1765027959649</updated>
+    </task>
+    <task id="LOCAL-00014" summary="progress: train start">
+      <option name="closed" value="true" />
+      <created>1765041595944</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1765041595944</updated>
+    </task>
+    <task id="LOCAL-00015" summary="chore: train animated succesfully">
+      <option name="closed" value="true" />
+      <created>1765047564725</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1765047564725</updated>
+    </task>
+    <task id="LOCAL-00016" summary="chore: more train tweaks">
+      <option name="closed" value="true" />
+      <created>1765049743185</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1765049743185</updated>
+    </task>
+    <task id="LOCAL-00017" summary="chore: more train tweaks x2">
+      <option name="closed" value="true" />
+      <created>1765054079203</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1765054079203</updated>
+    </task>
+    <task id="LOCAL-00018" summary="docs: todo">
+      <option name="closed" value="true" />
+      <created>1765054090127</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1765054090127</updated>
+    </task>
+    <task id="LOCAL-00019" summary="docs: todo x2">
+      <option name="closed" value="true" />
+      <created>1765054149661</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1765054149661</updated>
+    </task>
+    <task id="LOCAL-00020" summary="chore: added cool art&#10;existential crisis also">
+      <option name="closed" value="true" />
+      <created>1765138439646</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1765138439646</updated>
+    </task>
+    <task id="LOCAL-00021" summary="chore: it's about time i learn 3js">
+      <option name="closed" value="true" />
+      <created>1766846878022</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1766846878022</updated>
+    </task>
+    <task id="LOCAL-00022" summary="chore: funsies with 3js">
+      <option name="closed" value="true" />
+      <created>1766857125008</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1766857125008</updated>
+    </task>
+    <task id="LOCAL-00023" summary="chore: it's sorta chiming time">
+      <option name="closed" value="true" />
+      <created>1767362329885</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1767362329885</updated>
+    </task>
+    <task id="LOCAL-00024" summary="chore: chime fixes&#10;i definitely messed some of the math up but it works so whatever">
+      <option name="closed" value="true" />
+      <created>1767369420977</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1767369420977</updated>
+    </task>
+    <task id="LOCAL-00025" summary="feat: rendering css">
+      <option name="closed" value="true" />
+      <created>1767374035035</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1767374035035</updated>
+    </task>
+    <task id="LOCAL-00026" summary="chore: svg blurring">
+      <option name="closed" value="true" />
+      <created>1767382114273</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1767382114273</updated>
+    </task>
+    <task id="LOCAL-00027" summary="chore: something of a chime">
+      <option name="closed" value="true" />
+      <created>1767458489236</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1767458489236</updated>
+    </task>
+    <task id="LOCAL-00028" summary="chore: some progress on chimes">
+      <option name="closed" value="true" />
+      <created>1767466386059</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1767466386059</updated>
+    </task>
+    <task id="LOCAL-00029" summary="chore: inner chime layout">
+      <option name="closed" value="true" />
+      <created>1767469666345</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1767469666345</updated>
+    </task>
+    <task id="LOCAL-00030" summary="feat: icons for github hangie">
+      <option name="closed" value="true" />
+      <created>1767525852632</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1767525852632</updated>
+    </task>
+    <task id="LOCAL-00031" summary="feat: invented wiggles, i love this">
+      <option name="closed" value="true" />
+      <created>1767527490234</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1767527490234</updated>
+    </task>
+    <task id="LOCAL-00032" summary="chore: extra positioning + feat: github api stats">
+      <option name="closed" value="true" />
+      <created>1767535826410</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1767535826410</updated>
+    </task>
+    <task id="LOCAL-00033" summary="chore: extra positioning x2">
+      <option name="closed" value="true" />
+      <created>1767541781621</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1767541781621</updated>
+    </task>
+    <task id="LOCAL-00034" summary="chore: values in 3d math actually mean something instead of me manually offsetting it every time">
+      <option name="closed" value="true" />
+      <created>1767557695789</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1767557695789</updated>
+    </task>
+    <task id="LOCAL-00035" summary="feat: a lot of math, and oscillating wind">
+      <option name="closed" value="true" />
+      <created>1767562789713</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1767562789713</updated>
+    </task>
+    <task id="LOCAL-00036" summary="feat: antialiasing is false">
+      <option name="closed" value="true" />
+      <created>1767609872477</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1767609872477</updated>
+    </task>
+    <task id="LOCAL-00037" summary="chore: chime positioning">
+      <option name="closed" value="true" />
+      <created>1767620223299</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1767620223299</updated>
+    </task>
+    <task id="LOCAL-00038" summary="feat: basic db fallback for socials">
+      <option name="closed" value="true" />
+      <created>1767811887479</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1767811887479</updated>
+    </task>
+    <task id="LOCAL-00039" summary="chore: db fallback">
+      <option name="closed" value="true" />
+      <created>1767813432871</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1767813432871</updated>
+    </task>
+    <task id="LOCAL-00040" summary="feat: made the social updates scalable + chore: rate limits">
+      <option name="closed" value="true" />
+      <created>1767877078213</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1767877078213</updated>
+    </task>
+    <task id="LOCAL-00041" summary="feat: CA chime + fix: tweaks">
+      <option name="closed" value="true" />
+      <created>1767892720809</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1767892720809</updated>
+    </task>
+    <task id="LOCAL-00042" summary="feat: dynamic mask-image cutouts">
+      <option name="closed" value="true" />
+      <created>1767957982942</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1767957982942</updated>
+    </task>
+    <task id="LOCAL-00043" summary="fix: overflow on lower sizes + feat: wind now randomized and based on weight">
+      <option name="closed" value="true" />
+      <created>1767961660678</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1767961660678</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="docs: todo x2" />
+    <MESSAGE value="chore: added cool art&#10;existential crisis also" />
+    <MESSAGE value="chore: it's about time i learn 3js" />
+    <MESSAGE value="chore: funsies with 3js" />
+    <MESSAGE value="chore: it's sorta chiming time" />
+    <MESSAGE value="chore: chime fixes&#10;i definitely messed some of the math up but it works so whatever" />
+    <MESSAGE value="feat: rendering css" />
+    <MESSAGE value="chore: svg blurring" />
+    <MESSAGE value="chore: something of a chime" />
+    <MESSAGE value="chore: some progress on chimes" />
+    <MESSAGE value="chore: inner chime layout" />
+    <MESSAGE value="feat: icons for github hangie" />
+    <MESSAGE value="feat: invented wiggles, i love this" />
+    <MESSAGE value="chore: extra positioning + feat: github api stats" />
+    <MESSAGE value="chore: extra positioning x2" />
+    <MESSAGE value="chore: values in 3d math actually mean something instead of me manually offsetting it every time" />
+    <MESSAGE value="feat: a lot of math, and oscillating wind" />
+    <MESSAGE value="feat: antialiasing is false" />
+    <MESSAGE value="chore: chime positioning" />
+    <MESSAGE value="feat: basic db fallback for socials" />
+    <MESSAGE value="chore: db fallback" />
+    <MESSAGE value="feat: made the social updates scalable + chore: rate limits" />
+    <MESSAGE value="feat: CA chime + fix: tweaks" />
+    <MESSAGE value="feat: dynamic mask-image cutouts" />
+    <MESSAGE value="fix: overflow on lower sizes + feat: wind now randomized and based on weight" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: overflow on lower sizes + feat: wind now randomized and based on weight" />
+  </component>
+</project>

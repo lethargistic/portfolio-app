@@ -48,17 +48,20 @@
     onMount(async () => {
         await updateSocials();
     })
+
+    let branchHeight = $state(1);
+    let windowHeight = $state(1);
 </script>
 
-
+<svelte:window bind:innerHeight={windowHeight}></svelte:window>
 {#key currentLang.lang}
     <section class="linktree-seg" id="linktree">
-        <img class="lilac-cherry-branch" src="/img/branch2transparent.webp"
+        <img bind:clientHeight={branchHeight} class="lilac-cherry-branch" src="/img/branch2transparent.webp"
              alt="a sakura branch except flowers are lilac for some reason">
         <div class=chime-cont>
             {#each socials as social}
                 {#if !isSocialHidden(social)}
-                    <div class={`social-chime social-chime-${social.name}`}>
+                    <div class={`social-chime social-chime-${social.name}`} style={`top: ${social.top_vh*(branchHeight/windowHeight)}vh; transform: translate(-${social.left_vw}%, 0); left: ${social.left_vw}vw`}>
                         <Chime {social} folds={social.folds} foldCount={social.fold_count} chimeYOffset={0.15} chimeMaxHeightVh={82}
                                separatorShape={social.separator_shape}></Chime>
                     </div>
@@ -97,18 +100,6 @@
 
                 & .social-chime {
                     position: absolute;
-                    /* TODO: make dynamic */
-                    top: 58vh;
-                }
-
-                & .social-chime-github {
-                    transform: translate(-37%, 0);
-                    left: 37vw;
-                }
-
-                & .social-chime-chaos-abyss {
-                    transform: translate(-67%, 0);
-                    left: 67vw;
                 }
             }
         }
