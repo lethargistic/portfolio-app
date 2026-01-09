@@ -59,8 +59,8 @@
             {#each socials as social}
                 {#if !isSocialHidden(social)}
                     <div class={`social-chime social-chime-${social.name}`}>
-                        <Chime {social} folds={social.folds} foldCount={social.fold_count} chimeYOffset={0.15} chimeHeightVh={82}
-                               separatorShape={SeparatorShape.ThreeStars}></Chime>
+                        <Chime {social} folds={social.folds} foldCount={social.fold_count} chimeYOffset={0.15} chimeMaxHeightVh={82}
+                               separatorShape={social.separator_shape}></Chime>
                     </div>
                 {/if}
             {/each}

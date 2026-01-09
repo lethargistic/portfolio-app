@@ -6,10 +6,29 @@
     import {SeparatorShape} from "$lib/utils/utils";
     import ChimeSVGFilling from "$lib/hangies/ChimeSVG.svelte";
 
-    let {social: socialProp, folds: foldsProp, foldCount, chimeYOffset, chimeHeightVh, separatorShape} = $props();
+    let {social: socialProp, folds: foldsProp, foldCount, chimeYOffset, chimeMaxHeightVh, separatorShape} = $props();
 
     const social = $derived(socialProp);
     const folds = $derived(foldsProp);
+
+    const chimeRopeYOffset = $derived.by(() => {
+        switch (separatorShape) {
+            case SeparatorShape.Star:
+                return -0.1;
+            case SeparatorShape.ThreeStars:
+                return -0.1;
+            case SeparatorShape.Pebble:
+                return 0;
+            case SeparatorShape.Circles:
+                return 0;
+            case SeparatorShape.Ok:
+                return 0.05;
+            case SeparatorShape.None:
+                return 0.0;
+            default:
+                return 0;
+        }
+    });
 
     // it's not really a chime but it just kinda stuck
     //
@@ -27,9 +46,6 @@
 
     const WIDTH_DIVIDER = 2;
     const HEIGHT_MULTIPLIER = 1.5;
-
-    // so you can't see the attachment point on e.g. a star
-    const CHIME_ROPE_Y_OFFSET = -0.1;
 
     const VERLET_CONSTRAINT_COUNT = 50;
 
@@ -53,7 +69,7 @@
     let separatorHeight: number | null = $state(null);
     let separatorLength = $derived.by(() => {
         if (!separatorHeight) return 0;
-        return separatorHeight*CHIME_SCALE*APPROX_CHIME_CSS_SIZE_TO_UNITS_MULT;
+        return separatorHeight * CHIME_SCALE * APPROX_CHIME_CSS_SIZE_TO_UNITS_MULT;
     });
 
     const chimeRopeSegments = 30;
@@ -65,7 +81,7 @@
     let chimeHeight: number | null = $state(null);
     let chimeLength = $derived.by(() => {
         if (!chimeHeight) return 0;
-        return chimeHeight*CHIME_SCALE*APPROX_CHIME_CSS_SIZE_TO_UNITS_MULT;
+        return chimeHeight * CHIME_SCALE * APPROX_CHIME_CSS_SIZE_TO_UNITS_MULT;
     });
 
     class Particle {
@@ -120,7 +136,7 @@
     let chimeSVGMaskUrl = $derived.by(() => {
         if (!chimeSVGCutoutElem) return '';
         const svgStr = new XMLSerializer().serializeToString(chimeSVGCutoutElem);
-        const blob = new Blob([svgStr], { type: 'image/svg+xml' });
+        const blob = new Blob([svgStr], {type: 'image/svg+xml'});
         return URL.createObjectURL(blob);
     })
 
@@ -174,7 +190,7 @@
     let mouseY = $state(0);
     let prevMouseX = $state(0);
     let prevMouseY = $state(0);
-    let time = $state(0);
+    let time = $state(Math.floor(Math.random() * MAX_CHIME_FOLDS));
 
     const handleMouseMove = (e: MouseEvent) => {
         prevMouseX = mouseX;
@@ -261,11 +277,12 @@
         animate();
     })
 
+    const kTime = $derived(0.016 + ((foldCount/MAX_CHIME_FOLDS)-1)*(-0.05));
     const animate = () => {
         if (!treeRope || !chimeRope || !chimeObj || !renderer || !camera || !scene || !separatorObj || !cssRenderer) return;
 
         requestAnimationFrame(animate);
-        time += 0.016;
+        time += kTime;
 
         const mouseDx = (mouseX - prevMouseX) * 50;
         const mouseDy = (mouseY - prevMouseY) * 50;
@@ -359,7 +376,7 @@
             chimeRopeParticles[0].pos.copy(separatorParticles[separatorParticles.length - 1].pos);
             chimeParticles[0].pos.copy(chimeRopeParticles[chimeRopeParticles.length - 1].pos);
 
-            chimeRopeParticles[0].pos.y -= CHIME_ROPE_Y_OFFSET;
+            chimeRopeParticles[0].pos.y -= chimeRopeYOffset;
             chimeParticles[0].pos.y -= chimeYOffset;
         }
 
@@ -425,18 +442,19 @@
     {#if separatorShape === SeparatorShape.Ok}
         <!-- i was going to make it "duct tape" but i'm afraid that will
              blow my professionalism, what a loss... -->
-        <p>ok</p>
+        <p class="ok">ok</p>
     {:else if separatorShape === SeparatorShape.Star}
         <!-- -->
     {:else if separatorShape === SeparatorShape.ThreeStars}
-        <img class="three-stars" src="/img/hangies/separators/three-stars.svg" alt="three stars" />
+        <img class="three-stars" src="/img/hangies/separators/three-stars.svg" alt="three stars"/>
     {:else if separatorShape === SeparatorShape.Pebble}
         <div class="pebble"></div>
     {:else}
         oh no
     {/if}
 </div>
-<div bind:this={chimeElem} class="chime-cont" bind:clientHeight={chimeHeight} style={`mask-image: url("${chimeSVGMaskUrl}");`}>
+<div bind:this={chimeElem} class="chime-cont" bind:clientHeight={chimeHeight}
+     style={`mask-image: url("${chimeSVGMaskUrl}");`}>
     <div class="fold-cont" style={`grid-template-rows: repeat(${foldCount*2+1}, 1fr)`}>
         <!-- the spacer accounts for the 0.5 folds on the left that are missing because of the shape -->
         <div class="stat-half-spacer-left"></div>
@@ -455,18 +473,22 @@
             </div>
         {/each}
     </div>
-    {#snippet svgWhole()}
-        {@const svgHeight = 1578/(MAX_CHIME_FOLDS/foldCount)}
-    <svg class="chime" style={`height: ${chimeHeightVh/(MAX_CHIME_FOLDS/foldCount)}vh`} width="530" height={svgHeight} viewBox={`0 0 530 ${svgHeight}`} fill="none"
-         xmlns="http://www.w3.org/2000/svg">
-        <ChimeSVGFilling {foldCount} bind:trackedGroup={trackedGroup} cutout={false}/>
-    </svg>
-    <svg bind:this={chimeSVGCutoutElem} class="chime chime-cutout" style={`height: ${chimeHeightVh/(MAX_CHIME_FOLDS/foldCount)}vh`} width="530" height={`${svgHeight}`} viewBox={`0 0 530 ${svgHeight}`} fill="none"
-         xmlns="http://www.w3.org/2000/svg">
-        <ChimeSVGFilling {foldCount} cutout={true}/>
-    </svg>
-        {/snippet}
-    {@render svgWhole()}
+    {#snippet svgAndCutout()}
+        <!-- the 0.5 accounts for the shape -->
+        {@const svgHeight = 1578 * ((foldCount+0.5) / (MAX_CHIME_FOLDS+0.5))}
+        <svg class="chime" style={`height: ${chimeMaxHeightVh/(MAX_CHIME_FOLDS/foldCount)}vh`} width="530"
+             height={svgHeight} viewBox={`0 0 530 ${svgHeight}`} fill="none"
+             xmlns="http://www.w3.org/2000/svg">
+            <ChimeSVGFilling {foldCount} bind:trackedGroup={trackedGroup} cutout={false}/>
+        </svg>
+        <svg bind:this={chimeSVGCutoutElem} class="chime chime-cutout"
+             style={`height: ${chimeMaxHeightVh/((MAX_CHIME_FOLDS+0.5)/(foldCount+0.5))}vh`} width="530" height={`${svgHeight}`}
+             viewBox={`0 0 530 ${svgHeight}`} fill="none"
+             xmlns="http://www.w3.org/2000/svg">
+            <ChimeSVGFilling {foldCount} cutout={true}/>
+        </svg>
+    {/snippet}
+    {@render svgAndCutout()}
 </div>
 
 <style>
@@ -611,6 +633,10 @@
 
             border-radius: 18% 82% 89% 11% / 12% 15% 85% 88%;
             background-color: black;
+        }
+
+        & .ok {
+            margin-top: 1rem;
         }
     }
 
