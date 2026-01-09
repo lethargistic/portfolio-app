@@ -59,6 +59,7 @@
         <EditPencil />
         <img bind:clientHeight={branchHeight} class="lilac-cherry-branch" src="/img/branch2transparent.webp"
              alt="a sakura branch except flowers are lilac for some reason">
+        <img class="mathboils" src="/img/mathboils.webp" alt="linktree background, various geometric shapes made with thin lines">
         <div class=chime-cont>
             {#each socials as social}
                 {#if !isSocialHidden(social)}
@@ -75,7 +76,7 @@
 
     <style>
         .linktree-seg {
-            height: 200vh;
+            height: 260vh;
             width: 100vw;
             position: relative;
 
@@ -84,8 +85,8 @@
 
             background-color: white;
             /* bg for testing */
-            background-image: url("/img/train_front.webp");
-            background-repeat: repeat;
+            /*background-image: url("/img/train_front.webp");*/
+            /*background-repeat: repeat;*/
 
             & .lilac-cherry-branch {
                 width: 84vw;
@@ -104,6 +105,13 @@
 
                     pointer-events: none;
                 }
+            }
+
+            /* TODO: parallax background that twitches to mouse move and maybe wind?? oh my god how had this not crossed my mind before what the hell oh my god yes yes yes yes yes yes yes yes*/
+            & .mathboils {
+                position: absolute;
+                top: 20vh;
+                width: 100vw;
             }
         }
     </style>
