@@ -1,6 +1,6 @@
 import {error, type RequestHandler} from "@sveltejs/kit";
 import {getAdminClient} from "$lib/serverUtils/getSupabaseAdminClient";
-import * as fetchers from '$lib/serverUtils/socialStats';
+import * as fetchers from '$lib/socialStats';
 import {getRedis} from "$lib/serverUtils/getRedis";
 
 const checkRateLimit = async (id: string) => {

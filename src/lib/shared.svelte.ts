@@ -1,2 +1,3 @@
 export let currentLang = $state({lang: "en"});
-export let editMode = $state({state: "true"});
+export let editorMode = $state({state: false});
+export let editing = $state({state: false});

@@ -3,7 +3,7 @@
 
     import {onMount} from "svelte";
     import Chime from "$lib/hangies/Chime.svelte";
-    import {SeparatorShape} from "$lib/utils/utils";
+    import EditPencil from "$lib/components/EditPencil.svelte";
 
     let {socials: socialProp} = $props();
 
@@ -56,6 +56,7 @@
 <svelte:window bind:innerHeight={windowHeight}></svelte:window>
 {#key currentLang.lang}
     <section class="linktree-seg" id="linktree">
+        <EditPencil />
         <img bind:clientHeight={branchHeight} class="lilac-cherry-branch" src="/img/branch2transparent.webp"
              alt="a sakura branch except flowers are lilac for some reason">
         <div class=chime-cont>

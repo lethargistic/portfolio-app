@@ -466,7 +466,7 @@
 
                 <!-- that 0.5 is the half-fold leftover in the svg due to the bottom part going down for half a fold more-->
                 <a href={fold.link ?? social.link} target="_blank">
-                    <img src={`/img/icon/${fold.icon}`} alt={fold.slug}>
+                    <img src={`/img/icons/${fold.icon}`} alt={fold.slug}>
                     <p>{@html fold.display_override ?? fold.slug}</p>
                     <p class={`stat-fold-state ${fold.thick ? 'stat-fold-thick' : ''}`}>{fold.preface}{fold.state}{fold.postface}</p>
                 </a>

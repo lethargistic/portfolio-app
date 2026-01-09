@@ -4,6 +4,7 @@
     import {onMount} from "svelte";
     import {Tween} from "svelte/motion";
     import {cubicInOut} from "svelte/easing";
+    import EditPencil from "$lib/components/EditPencil.svelte";
 
     const blurbs = $derived.by(() => {
         return Object.keys(m)
@@ -95,12 +96,13 @@
 
 {#key currentLang.lang}
     <section class="about-seg" id="about">
+        <EditPencil />
         <div class="decor-waterfall decor-waterfall-upper"></div>
         <div class="decor-waterfall decor-waterfall-lower"></div>
         <div class="char-sheet">
             <div style={passingBy ? `animation: shake 0.5s infinite ease-in-out` : ``} class="infobloc">
                 <div class="infobloc-inner">
-                    <p class="infobloc-chief-blurb">{@html m.about_info_upper().replace(":flag_ua:", `<img width="72" height="72" class="smol" src="/img/icon/flag_ua.webp" alt="Ukrainian flag"/>`)}</p>
+                    <p class="infobloc-chief-blurb">{@html m.about_info_upper().replace(":flag_ua:", `<img width="72" height="72" class="smol" src="/img/icons/flag_ua.webp" alt="Ukrainian flag"/>`)}</p>
                     <ul class="infobloc-blurbs">
                         {#each blurbs as blurb, i}
                             <li>

@@ -4,12 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: chime top offset now responsive">
-      <change afterPath="$PROJECT_DIR$/static/img/icon/ca-monocolor-smooth.svg" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: CA link was not clickable">
+      <change afterPath="$PROJECT_DIR$/src/lib/components/EditPencil.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/lucide-edit.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/serverUtils/socialStats.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/socialStats.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/api/v1/update-social/+server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api/v1/update-social/+server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icon/ca-monocolor-smooth.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/ca-monocolor-smooth.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icon/ca-monocolor.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/ca-monocolor.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icon/flag_ua.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/flag_ua.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icon/flag_ua.webp" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/flag_ua.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-anvil.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-anvil.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-coffee.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-coffee.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-folder-git.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-folder-git.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-git-commit-horizontal.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-git-commit-horizontal.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-milestone.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-milestone.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-pencil-line.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-pencil-line.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-star.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-star.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-sticky-note.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-sticky-note.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-user.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-user.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide_languages.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide_languages.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icon/simple-icons-github.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/simple-icons-github.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +46,7 @@
         <option value="ChimeTest" />
         <option value="TypeScript File" />
         <option value="ChimeSVG" />
+        <option value="editPencil" />
       </list>
     </option>
   </component>
@@ -76,7 +97,7 @@
     "Shell Script.やばそうなの.executor": "Run",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/static/img/icon",
+    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/static/img/icons",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -89,16 +110,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\static\img\icons" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\icon" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\cutouts" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\original" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\originals" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\lib\hangies\separators" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\src\lib" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\cutouts" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\originals" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\lib" />
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\api\v1\socials" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\utils" />
     </key>
@@ -207,7 +228,7 @@
       <workItem from="1767802094492" duration="9350000" />
       <workItem from="1767866936940" duration="14857000" />
       <workItem from="1767891089380" duration="9687000" />
-      <workItem from="1767952633713" duration="12391000" />
+      <workItem from="1767952633713" duration="15593000" />
     </task>
     <task id="LOCAL-00001" summary="nuke: svelte time">
       <option name="closed" value="true" />
@@ -561,14 +582,21 @@
       <option name="project" value="LOCAL" />
       <updated>1767969601939</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="fix: CA link was not clickable">
+      <option name="closed" value="true" />
+      <created>1767971174859</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1767971174859</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: added cool art&#10;existential crisis also" />
     <MESSAGE value="chore: it's about time i learn 3js" />
     <MESSAGE value="chore: funsies with 3js" />
     <MESSAGE value="chore: it's sorta chiming time" />
@@ -593,6 +621,7 @@
     <MESSAGE value="feat: dynamic mask-image cutouts" />
     <MESSAGE value="fix: overflow on lower sizes + feat: wind now randomized and based on weight" />
     <MESSAGE value="fix: chime top offset now responsive" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: chime top offset now responsive" />
+    <MESSAGE value="fix: CA link was not clickable" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: CA link was not clickable" />
   </component>
 </project>
