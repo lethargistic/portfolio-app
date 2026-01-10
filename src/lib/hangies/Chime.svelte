@@ -506,10 +506,11 @@
     .chime-cont {
         position: relative;
 
-        background: rgba(255, 172, 48, 0.01);
+        /* tint */
+        background: rgba(185, 66, 245, 0.02);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
 
         /* mask-image in js */
         mask-size: contain;

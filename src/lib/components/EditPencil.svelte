@@ -4,10 +4,10 @@
     let {left = false, light = false} = $props();
 
     // wow i just realized i like a lambda like this more than making it inline to keep the template clean
-    const startEditing = () => editing.state = true;
+    const flipEditing = () => editing.state = !editing.state;
 </script>
 
-<button style={`${left ? 'left' : 'right'}: 20px`} onclick={startEditing}>
+<button style={`${left ? 'left' : 'right'}: 20px`} onclick={flipEditing}>
     <img style={light ? 'filter: invert(1);' : ''} src="/img/icons/lucide-edit.svg" alt="edit">
 </button>
 

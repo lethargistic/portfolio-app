@@ -51,20 +51,50 @@
 
     let branchHeight = $state(1);
     let windowHeight = $state(1);
+
+    let windowScrollY = $state(0);
+    let smoothScrollY = $state(0);
+    let scrolling = $state(false);
+
+    const lerpParallaxScroll = () => {
+        smoothScrollY += (windowScrollY - smoothScrollY) * 0.05;
+        requestAnimationFrame(lerpParallaxScroll);
+    }
+
+    onMount(() => {
+        lerpParallaxScroll();
+    })
+
+    const handleScrollBool = () => scrolling = true;
+    const handleScrollEndBool = () => scrolling = false;
 </script>
 
-<svelte:window bind:innerHeight={windowHeight}></svelte:window>
+<svelte:window bind:innerHeight={windowHeight} bind:scrollY={windowScrollY} onscroll={handleScrollBool}
+               onscrollend={handleScrollEndBool}/>
 {#key currentLang.lang}
     <section class="linktree-seg" id="linktree">
-        <EditPencil />
+        <EditPencil/>
         <img bind:clientHeight={branchHeight} class="lilac-cherry-branch" src="/img/branch2transparent.webp"
              alt="a sakura branch except flowers are lilac for some reason">
-        <img class="mathboils" src="/img/mathboils.webp" alt="linktree background, various geometric shapes made with thin lines">
+        {#each [0, 1, 2] as i}
+            {@const highest = 2}
+            <img class={`mathboils mathboils-layer-${i}`} style={
+            `transform: translateY(${smoothScrollY * (0.05 + i * 0.01)}px);
+             filter: blur(${scrolling ? ((i+0.5)*0.3) : 0}px);
+             transition: filter ${i*0.01+0.6}s ease-in-out;
+             top: -${30-10*(highest-i)}vh;
+             opacity: ${0.8-i*0.15};
+             `}
+                 src={`/img/linktree-decor/mathboils-layer-${i}.webp`}
+                 alt="linktree background, various geometric shapes made with thin lines">
+        {/each}
         <div class=chime-cont>
             {#each socials as social}
                 {#if !isSocialHidden(social)}
-                    <div class={`social-chime social-chime-${social.name}`} style={`top: ${social.top_vh*(branchHeight/windowHeight)}vh; transform: translate(-${social.left_vw}%, 0); left: ${social.left_vw}vw`}>
-                        <Chime {social} folds={social.folds} foldCount={social.fold_count} chimeYOffset={0.15} chimeMaxHeightVh={82}
+                    <div class={`social-chime social-chime-${social.name}`}
+                         style={`top: ${social.top_vh*(branchHeight/windowHeight)}vh; transform: translate(-${social.left_vw}%, 0); left: ${social.left_vw}vw`}>
+                        <Chime {social} folds={social.folds} foldCount={social.fold_count} chimeYOffset={0.15}
+                               chimeMaxHeightVh={82}
                                separatorShape={social.separator_shape}></Chime>
                     </div>
                 {/if}
@@ -76,7 +106,7 @@
 
     <style>
         .linktree-seg {
-            height: 260vh;
+            height: 300vh;
             width: 100vw;
             position: relative;
 
@@ -89,6 +119,9 @@
             /*background-repeat: repeat;*/
 
             & .lilac-cherry-branch {
+                position: relative;
+                z-index: 1;
+
                 width: 84vw;
                 align-self: flex-end;
                 user-select: none;
@@ -107,11 +140,12 @@
                 }
             }
 
-            /* TODO: parallax background that twitches to mouse move and maybe wind?? oh my god how had this not crossed my mind before what the hell oh my god yes yes yes yes yes yes yes yes*/
             & .mathboils {
                 position: absolute;
+                z-index: 0;
                 top: 20vh;
                 width: 100vw;
+                will-change: transform;
             }
         }
     </style>
