@@ -12,7 +12,6 @@
     const extended = $state(false);
     const isSocialHidden = (social: typeof socials[number]) => social.hidden || (social.extended && !extended);
 
-
     const updateSocials = async () => {
         socials = socialProp;
         if (!socials) return;
@@ -61,8 +60,20 @@
         requestAnimationFrame(lerpParallaxScroll);
     }
 
+    let windBlur = $state(0);
+    let startTime = Date.now();
+
+    const animateWindBlur = () => {
+        const elapsed = (Date.now() - startTime) / 14000;
+        windBlur = Math.sin(elapsed * Math.PI * 2) * 1.1;
+        requestAnimationFrame(animateWindBlur);
+    }
+
+    $inspect(windBlur);
+
     onMount(() => {
         lerpParallaxScroll();
+        animateWindBlur();
     })
 
     const handleScrollBool = () => scrolling = true;
@@ -80,7 +91,7 @@
             {@const highest = 2}
             <img class={`mathboils mathboils-layer-${i}`} style={
             `transform: translateY(${smoothScrollY * (0.05 + i * 0.01)}px);
-             filter: blur(${scrolling ? ((i+0.5)*0.3) : 0}px);
+             filter: blur(${scrolling ? ((i+0.5)*0.3)+windBlur : windBlur}px);
              transition: filter ${i*0.01+0.6}s ease-in-out;
              top: -${30-10*(highest-i)}vh;
              opacity: ${0.8-i*0.15};
@@ -121,6 +132,7 @@
             & .lilac-cherry-branch {
                 position: relative;
                 z-index: 1;
+                pointer-events: none;
 
                 width: 84vw;
                 align-self: flex-end;

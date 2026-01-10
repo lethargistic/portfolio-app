@@ -24,3 +24,4 @@
 - [ ] todo maybe: memorize the stat values in the db in case the enemy api dies ; enemy??? sure caffeine hallucinations
 - [ ] todo maybe: multiple things hanging off the base of the hangie
 - [ ] todo maybe: make client ask for social values if fail (kinda whatever since there are definitely not 5000 people per hour visiting my lil site)
+- [x] fix very: random scroll snap in about???

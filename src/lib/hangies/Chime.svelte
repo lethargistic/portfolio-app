@@ -266,16 +266,14 @@
         chimeObj.scale.set(CHIME_SCALE, CHIME_SCALE, CHIME_SCALE);
         scene.add(chimeObj);
 
-        const square = new three.Mesh(new three.BoxGeometry(1, 1, 1), new three.MeshBasicMaterial({color: 0x44aa88}))
-
-        square.position.y = -0.5;
-
-        // scene.add(square);
-
         adjustPathDimensionTracking();
         renderer.render(scene, camera);
         animate();
     })
+
+    let sceneRotationX = 0;
+    let sceneRotationY = 0;
+    const rotationLerpFactor = 0.2;
 
     const kTime = $derived(0.016 + ((foldCount/MAX_CHIME_FOLDS)-1)*(-0.05));
     const animate = () => {
@@ -415,6 +413,17 @@
             .subVectors(chimeParticles[1].pos, chimeParticles[0].pos)
             .normalize();
         chimeObj.rotation.z = Math.atan2(chimeDir.x, -chimeDir.y);
+
+        // slight 3d rotation
+        const windStrength = Math.sqrt(windForce.x * windForce.x + windForce.y * windForce.y);
+        const targetRotationY = 0.6 + windForce.x * 0.005 * windStrength;
+        const targetRotationX = 0.2 + windForce.y * 0.005 * windStrength;
+
+        sceneRotationY += (targetRotationY - sceneRotationY) * rotationLerpFactor;
+        sceneRotationX += (targetRotationX - sceneRotationX) * rotationLerpFactor;
+
+        scene.rotation.y = sceneRotationY;
+        scene.rotation.x = sceneRotationX;
 
         // technically a bad idea to do this every rerender but i have no idea where else to hook it reliably
         adjustPathDimensionTracking();
