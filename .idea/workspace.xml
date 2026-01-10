@@ -4,32 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: CA link was not clickable">
-      <change afterPath="$PROJECT_DIR$/src/lib/components/EditPencil.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icons/lucide-edit.svg" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: extra chime look tweaks">
+      <change afterPath="$PROJECT_DIR$/src/lib/utils/getSupabaseClient.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/+layout.server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/+layout.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/admin/auth/error/+page.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/admin/login/+page.server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/admin/login/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks.server.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/serverUtils/socialStats.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/socialStats.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/api/v1/update-social/+server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api/v1/update-social/+server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon/ca-monocolor-smooth.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/ca-monocolor-smooth.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon/ca-monocolor.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/ca-monocolor.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon/flag_ua.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/flag_ua.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon/flag_ua.webp" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/flag_ua.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-anvil.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-anvil.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-coffee.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-coffee.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-folder-git.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-folder-git.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-git-commit-horizontal.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-git-commit-horizontal.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-milestone.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-milestone.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-pencil-line.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-pencil-line.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-star.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-star.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-sticky-note.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-sticky-note.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide-user.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-user.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon/lucide_languages.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide_languages.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icon/simple-icons-github.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/simple-icons-github.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/utils/supabaseClientGetters.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/utils/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +81,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "JavaScript Debug.localhost:5174.executor": "Debug",
+    "JavaScript Debug.localhost:5174.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
@@ -97,12 +92,13 @@
     "Shell Script.やばそうなの.executor": "Run",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/static/img/icons",
+    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/static/img/linktree-decor",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "editor.preferences.smartKeys",
     "ts.external.directory.path": "D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
@@ -110,21 +106,21 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\static\img\linktree-decor" />
+      <recent name="D:\Docs\webstormproj\sustenant\static\img" />
+      <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\icons" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\icon" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\cutouts" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\original" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\originals" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\src\routes\api\v1" />
+      <recent name="D:\Docs\webstormproj\sustenant\static\img" />
+      <recent name="D:\Docs\webstormproj\sustenant\src\lib\serverUtils" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\cutouts" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\originals" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\routes\api\v1\socials" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\lib\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.localhost:5174">
+  <component name="RunManager" selected="Shell Script.やばそうなの">
     <configuration name="localhost:5174" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:5174/">
       <method v="2" />
     </configuration>
@@ -228,15 +224,9 @@
       <workItem from="1767802094492" duration="9350000" />
       <workItem from="1767866936940" duration="14857000" />
       <workItem from="1767891089380" duration="9687000" />
-      <workItem from="1767952633713" duration="15593000" />
-    </task>
-    <task id="LOCAL-00001" summary="nuke: svelte time">
-      <option name="closed" value="true" />
-      <created>1764843836415</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1764843836415</updated>
+      <workItem from="1767952633713" duration="19595000" />
+      <workItem from="1767979047929" duration="9088000" />
+      <workItem from="1768041024133" duration="19199000" />
     </task>
     <task id="LOCAL-00002" summary="progress: illusion start">
       <option name="closed" value="true" />
@@ -590,18 +580,53 @@
       <option name="project" value="LOCAL" />
       <updated>1767971174859</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="feat: edit button">
+      <option name="closed" value="true" />
+      <created>1767974449115</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1767974449115</updated>
+    </task>
+    <task id="LOCAL-00047" summary="feat: started on cool bg">
+      <option name="closed" value="true" />
+      <created>1767981891007</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1767981891007</updated>
+    </task>
+    <task id="LOCAL-00048" summary="feat: made bg more sophisticated">
+      <option name="closed" value="true" />
+      <created>1768043695917</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1768043695917</updated>
+    </task>
+    <task id="LOCAL-00049" summary="chore: forgot to commit imgs">
+      <option name="closed" value="true" />
+      <created>1768044151951</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1768044151951</updated>
+    </task>
+    <task id="LOCAL-00050" summary="feat: extra chime look tweaks">
+      <option name="closed" value="true" />
+      <created>1768046812185</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1768046812186</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: it's about time i learn 3js" />
-    <MESSAGE value="chore: funsies with 3js" />
-    <MESSAGE value="chore: it's sorta chiming time" />
-    <MESSAGE value="chore: chime fixes&#10;i definitely messed some of the math up but it works so whatever" />
-    <MESSAGE value="feat: rendering css" />
     <MESSAGE value="chore: svg blurring" />
     <MESSAGE value="chore: something of a chime" />
     <MESSAGE value="chore: some progress on chimes" />
@@ -622,6 +647,11 @@
     <MESSAGE value="fix: overflow on lower sizes + feat: wind now randomized and based on weight" />
     <MESSAGE value="fix: chime top offset now responsive" />
     <MESSAGE value="fix: CA link was not clickable" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: CA link was not clickable" />
+    <MESSAGE value="feat: edit button" />
+    <MESSAGE value="feat: started on cool bg" />
+    <MESSAGE value="feat: made bg more sophisticated" />
+    <MESSAGE value="chore: forgot to commit imgs" />
+    <MESSAGE value="feat: extra chime look tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: extra chime look tweaks" />
   </component>
 </project>

@@ -23,6 +23,8 @@
                 return 0;
             case SeparatorShape.Ok:
                 return 0.05;
+            case SeparatorShape.Tilde:
+                return 0.0;
             case SeparatorShape.None:
                 return 0.0;
             default:

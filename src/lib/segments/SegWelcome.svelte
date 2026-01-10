@@ -4,7 +4,7 @@
     import {getLocale, setLocale} from "$lib/paraglide/runtime";
     import {Spring, Tween} from "svelte/motion";
     import {cubicOut} from "svelte/easing";
-    import {currentLang} from "$lib/shared.svelte";
+    import {currentLang, editorMode, fiend} from "$lib/shared.svelte";
     import EditPencil from "$lib/components/EditPencil.svelte";
 
     let seeLang = $state(false);
@@ -97,7 +97,7 @@
     </p>
 </noscript>
 {#key currentLang.lang}
-    <EditPencil left={true} light={true}/>
+    {#if editorMode.state}<EditPencil left={true} light={true}/>{/if}
     <div class="lang-settings">
         <button class="lang-button" onclick={() => {seeLang = !seeLang}} bind:this={langButton}>
             <img src="/img/icons/lucide_languages.svg" alt="language selector">

@@ -1,10 +1,38 @@
-<script>
+<script lang="ts">
     import SegWelcome from "$lib/segments/SegWelcome.svelte";
     import SegAbout from "$lib/segments/SegAbout.svelte";
     import SegLinktree from "$lib/segments/SegLinktree.svelte";
+    import {goto} from "$app/navigation";
+    import {editorMode, fiend} from "$lib/shared.svelte"
 
     let { data } = $props();
+
+    const cheatCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight'];
+    let codeIx = 0;
+    const maxDelay = 3000;
+    let past = Date.now();
+
+    const handleTravelToAuth = (e: KeyboardEvent) => {
+        const now = Date.now();
+
+        if (now - past > maxDelay) {
+            codeIx = 0;
+        }
+
+        past = now;
+
+        if (e.key === cheatCode[codeIx]) {
+            codeIx++;
+            if (codeIx === cheatCode.length) {
+                goto('/admin/login');
+                codeIx = 0;
+            }
+        } else {
+            codeIx = 0;
+        }
+    }
 </script>
+<svelte:window on:keydown={handleTravelToAuth}/>
 
 <main>
     <SegWelcome/>

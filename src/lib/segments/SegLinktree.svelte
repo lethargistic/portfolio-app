@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {currentLang} from "$lib/shared.svelte";
+    import {currentLang, editorMode, fiend} from "$lib/shared.svelte";
 
     import {onMount} from "svelte";
     import Chime from "$lib/hangies/Chime.svelte";
@@ -69,8 +69,6 @@
         requestAnimationFrame(animateWindBlur);
     }
 
-    $inspect(windBlur);
-
     onMount(() => {
         lerpParallaxScroll();
         animateWindBlur();
@@ -84,7 +82,7 @@
                onscrollend={handleScrollEndBool}/>
 {#key currentLang.lang}
     <section class="linktree-seg" id="linktree">
-        <EditPencil/>
+        {#if editorMode.state}<EditPencil/>{/if}
         <img bind:clientHeight={branchHeight} class="lilac-cherry-branch" src="/img/branch2transparent.webp"
              alt="a sakura branch except flowers are lilac for some reason">
         {#each [0, 1, 2] as i}
@@ -97,7 +95,7 @@
              opacity: ${0.8-i*0.15};
              `}
                  src={`/img/linktree-decor/mathboils-layer-${i}.webp`}
-                 alt="linktree background, various geometric shapes made with thin lines">
+                 alt="linktree background, various simple geometric shapes made with thin lines">
         {/each}
         <div class=chime-cont>
             {#each socials as social}

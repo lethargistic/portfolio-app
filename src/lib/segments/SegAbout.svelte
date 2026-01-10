@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {currentLang} from "$lib/shared.svelte";
+    import {currentLang, editorMode, fiend} from "$lib/shared.svelte";
     import {m} from "../paraglide/messages";
     import {onMount} from "svelte";
     import {Tween} from "svelte/motion";
@@ -96,7 +96,7 @@
 
 {#key currentLang.lang}
     <section class="about-seg" id="about">
-        <EditPencil />
+        {#if editorMode.state}<EditPencil/>{/if}
         <div class="decor-waterfall decor-waterfall-upper"></div>
         <div class="decor-waterfall decor-waterfall-lower"></div>
         <div class="char-sheet">

@@ -6,5 +6,6 @@ export enum SeparatorShape {
     Pebble = "Pebble",
     Circles = "Circles",
     Ok = "Ok",
+    Tilde = "Tilde",
     None = "None"
 }
