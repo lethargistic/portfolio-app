@@ -6,7 +6,13 @@
 
     let bodyElem: HTMLBodyElement | null = $state(null);
 
-    const flipEditing = () => editing.state = !editing.state;
+    const flipEditing = () =>
+    {
+        editing.state = !editing.state;
+        if (editing.state === false) {
+            activeEditor.state = '';
+        }
+    }
     const changeEditor = (s: string) => {
         editing.state = true;
         activeEditor.state = s;
@@ -32,10 +38,6 @@
 <svelte:body bind:this={bodyElem} />
 
 {#if editorMode.state}
-    {#if sidebar.open}
-        <EditorSidebar/>
-    {/if}
-
     <div class={`editor-tools ${left ? 'left' : 'right'}`}>
         <button onclick={flipEditing}>
             <img class={light ? 'light' : ''} src={editIconPath} alt="edit">

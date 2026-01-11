@@ -4,19 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: started on editing + chore: tweaks">
-      <change afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icons/lucide-modify.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icons/lucide-move.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: some editing progress">
+      <change afterPath="$PROJECT_DIR$/src/lib/editing/GlobalEditorTools.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/components/EditPencil.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +32,7 @@
         <option value="ChimeSVG" />
         <option value="editPencil" />
         <option value="EditingSidebar" />
+        <option value="GlobalEditorTools" />
       </list>
     </option>
   </component>
@@ -222,15 +220,7 @@
       <workItem from="1767979047929" duration="9088000" />
       <workItem from="1768041024133" duration="19316000" />
       <workItem from="1768075895022" duration="309000" />
-      <workItem from="1768119815909" duration="8998000" />
-    </task>
-    <task id="LOCAL-00004" summary="progress: language selector layout maybe">
-      <option name="closed" value="true" />
-      <created>1764933306204</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1764933306204</updated>
+      <workItem from="1768119815909" duration="11068000" />
     </task>
     <task id="LOCAL-00005" summary="feat: do you know how hard is it to make a triangle in web??">
       <option name="closed" value="true" />
@@ -616,14 +606,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768123761636</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="chore: some editing progress">
+      <option name="closed" value="true" />
+      <created>1768129357736</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1768129357736</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: some progress on chimes" />
     <MESSAGE value="chore: inner chime layout" />
     <MESSAGE value="feat: icons for github hangie" />
     <MESSAGE value="feat: invented wiggles, i love this" />
@@ -648,6 +645,7 @@
     <MESSAGE value="feat: extra chime look tweaks" />
     <MESSAGE value="feat: auth" />
     <MESSAGE value="feat: started on editing + chore: tweaks" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: started on editing + chore: tweaks" />
+    <MESSAGE value="chore: some editing progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: some editing progress" />
   </component>
 </project>

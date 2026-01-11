@@ -5,6 +5,7 @@
     import {error} from "@sveltejs/kit";
     import {SeparatorShape} from "$lib/utils/utils";
     import ChimeSVGFilling from "$lib/hangies/ChimeSVG.svelte";
+    import {activeEditor, sidebar} from "$lib/shared.svelte";
 
     let {social: socialProp, folds: foldsProp, foldCount, chimeYOffset, chimeMaxHeightVh, separatorShape} = $props();
 
@@ -443,6 +444,19 @@
         const rect = trackedGroup.getBoundingClientRect();
         chimePathWidth = rect.width;
     }
+
+    //
+
+    const handleChimeEdit = () => {
+        console.log('hi');
+        console.log(activeEditor.state);
+        if (activeEditor.state === 'lnkt-modifying') {
+            sidebar.open = !sidebar.open;
+            sidebar.skip = true;
+            console.log(sidebar.skip)
+            console.log(sidebar.open)
+        }
+    }
 </script>
 <svelte:window onresize={adjustPathDimensionTracking} bind:innerWidth={windowInnerWidth}
                bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove}/>
@@ -466,7 +480,7 @@
 </div>
 <div bind:this={chimeElem} class="chime-cont" bind:clientHeight={chimeHeight}
      style={`mask-image: url("${chimeSVGMaskUrl}");`}>
-    <div class="fold-cont" style={`grid-template-rows: repeat(${foldCount*2+1}, 1fr)`}>
+    <div class="fold-cont" style={`grid-template-rows: repeat(${foldCount*2+1}, 1fr)`} onclick={handleChimeEdit}>
         <!-- the spacer accounts for the 0.5 folds on the left that are missing because of the shape -->
         <div class="stat-half-spacer-left"></div>
         {#each folds as fold}

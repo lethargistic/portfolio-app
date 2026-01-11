@@ -4,6 +4,7 @@
     import SegLinktree from "$lib/segments/SegLinktree.svelte";
     import {goto} from "$app/navigation";
     import {editing, editorMode} from "$lib/shared.svelte";
+    import GlobalEditorTools from "$lib/editing/GlobalEditorTools.svelte";
 
     let { data } = $props();
 
@@ -37,6 +38,7 @@
 {#if editing.state && editorMode.state}
     <p class="editing">Editing</p>
 {/if}
+<GlobalEditorTools />
 <main>
     <SegWelcome/>
     <SegAbout/>

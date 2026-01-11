@@ -31,6 +31,8 @@
             sidebar.open = !sidebar.open;
         }
     }
+
+    $inspect('sidebar', sidebar.open);
 </script>
 
 <svelte:head>

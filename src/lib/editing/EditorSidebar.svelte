@@ -5,7 +5,15 @@
 
     const checkIfClose = (e: MouseEvent) => {
         if (!sidebarElem) return;
+        if (sidebar.open === false) return;
+        if (sidebar.skip) {
+            sidebar.skip = false;
+            console.log("skipped")
+            return;
+        }
+
         if (!(sidebarElem.contains(e.target as Node) || sidebarElem.isEqualNode(e.target as HTMLElement))) {
+            console.log("ha")
             sidebar.open = false
         }
     }
@@ -14,6 +22,7 @@
 <svelte:window onclick={checkIfClose}/>
 <aside bind:this={sidebarElem} class="sidebar">
     {#if activeEditor.state === 'lnktPositioning'}
+        <!-- -->
     {/if}
 </aside>
 
