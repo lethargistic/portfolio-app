@@ -4,7 +4,7 @@
     import {onMount} from "svelte";
     import {Tween} from "svelte/motion";
     import {cubicInOut} from "svelte/easing";
-    import EditorTools from "$lib/components/EditPencil.svelte";
+    import EditorTools from "$lib/editing/EditorTools.svelte";
 
     const blurbs = $derived.by(() => {
         return Object.keys(m)

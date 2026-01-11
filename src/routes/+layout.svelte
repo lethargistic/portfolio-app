@@ -3,7 +3,7 @@
 	import '../styles/global.css';
     import {onMount} from "svelte";
     import {invalidate} from "$app/navigation";
-    import {editing, editorMode, fiend} from "$lib/shared.svelte";
+    import {editing, editorMode, fiend, sidebar} from "$lib/shared.svelte";
 
 	let { data, children } = $props();
     let { supabase, session } = $derived(data);
@@ -26,6 +26,9 @@
         }
         if (e.key === 'Escape' && fiend.state) {
             editing.state = false;
+        }
+        if (e.key === 's' && editing.state && fiend.state) {
+            sidebar.open = !sidebar.open;
         }
     }
 </script>

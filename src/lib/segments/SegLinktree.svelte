@@ -3,7 +3,7 @@
 
     import {onMount} from "svelte";
     import Chime from "$lib/hangies/Chime.svelte";
-    import LocalEditorOverlay from "$lib/components/EditPencil.svelte";
+    import EditorTools from "$lib/editing/EditorTools.svelte";
 
     let {socials: socialProp} = $props();
 
@@ -82,7 +82,7 @@
                onscrollend={handleScrollEndBool}/>
 {#key currentLang.lang}
     <section class="linktree-seg" id="linktree">
-        <LocalEditorOverlay linktree={true}/>
+        <EditorTools linktree={true}/>
         <img bind:clientHeight={branchHeight} class="lilac-cherry-branch" src="/img/branch2transparent.webp"
              alt="a sakura branch except flowers are lilac for some reason">
         {#each [0, 1, 2] as i}

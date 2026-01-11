@@ -5,7 +5,7 @@
     import {Spring, Tween} from "svelte/motion";
     import {cubicOut} from "svelte/easing";
     import {currentLang, editorMode, fiend} from "$lib/shared.svelte";
-    import EditPencil from "$lib/components/EditPencil.svelte";
+    import EditorTools from "$lib/editing/EditorTools.svelte";
 
     let seeLang = $state(false);
 
@@ -97,7 +97,7 @@
     </p>
 </noscript>
 {#key currentLang.lang}
-    <EditPencil left={true} light={true}/>
+    <EditorTools left={true} light={true}/>
     <div class="lang-settings">
         <button class="lang-button" onclick={() => {seeLang = !seeLang}} bind:this={langButton}>
             <img src="/img/icons/lucide_languages.svg" alt="language selector">

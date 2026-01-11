@@ -54,6 +54,8 @@
         padding: 0.8rem 1.2rem;
         z-index: 9999999;
 
+        opacity: 0.5;
+
         font-size: 2rem;
         left: 28px;
         top: 100px;

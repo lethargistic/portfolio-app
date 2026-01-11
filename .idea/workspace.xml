@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: auth">
-      <change afterPath="$PROJECT_DIR$/static/img/icons/lucide-plus.svg" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: started on editing + chore: tweaks">
+      <change afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/lucide-modify.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/lucide-move.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.inlang/cache/plugins/2sy648wh9sugi" beforeDir="false" afterPath="$PROJECT_DIR$/project.inlang/cache/plugins/2sy648wh9sugi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/components/EditPencil.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/EditPencil.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/components/EditPencil.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
     </list>
@@ -31,6 +34,7 @@
         <option value="TypeScript File" />
         <option value="ChimeSVG" />
         <option value="editPencil" />
+        <option value="EditingSidebar" />
       </list>
     </option>
   </component>
@@ -51,6 +55,7 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$APPLICATION_HOME_DIR$/lib/modules/intellij.relaxng.jar!/resources/html5-schema/html5/applications.rnc" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@sveltejs+kit@2.49.1_@sveltejs+vite-plugin-svelte@6.2.1_svelte@5.45.5_vite@7.2.6_@types+node@_isg2epygngqsbhilvwtsyg5opq/node_modules/@sveltejs/kit/types/index.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@types+three@0.182.0/node_modules/@types/three/examples/jsm/lines/LineMaterial.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@types+three@0.182.0/node_modules/@types/three/examples/jsm/renderers/CSS3DRenderer.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@types+three@0.182.0/node_modules/@types/three/src/math/Vector3.d.ts" root0="SKIP_INSPECTION" />
@@ -217,15 +222,7 @@
       <workItem from="1767979047929" duration="9088000" />
       <workItem from="1768041024133" duration="19316000" />
       <workItem from="1768075895022" duration="309000" />
-      <workItem from="1768119815909" duration="3507000" />
-    </task>
-    <task id="LOCAL-00003" summary="progress: h1">
-      <option name="closed" value="true" />
-      <created>1764883504168</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1764883504169</updated>
+      <workItem from="1768119815909" duration="8998000" />
     </task>
     <task id="LOCAL-00004" summary="progress: language selector layout maybe">
       <option name="closed" value="true" />
@@ -611,14 +608,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768074039429</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="feat: started on editing + chore: tweaks">
+      <option name="closed" value="true" />
+      <created>1768123761635</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1768123761636</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: something of a chime" />
     <MESSAGE value="chore: some progress on chimes" />
     <MESSAGE value="chore: inner chime layout" />
     <MESSAGE value="feat: icons for github hangie" />
@@ -643,6 +647,7 @@
     <MESSAGE value="chore: forgot to commit imgs" />
     <MESSAGE value="feat: extra chime look tweaks" />
     <MESSAGE value="feat: auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: auth" />
+    <MESSAGE value="feat: started on editing + chore: tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: started on editing + chore: tweaks" />
   </component>
 </project>
