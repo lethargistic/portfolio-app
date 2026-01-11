@@ -1,9 +1,9 @@
 <script lang="ts">
-    import {currentLang, editorMode, fiend} from "$lib/shared.svelte";
+    import {currentLang} from "$lib/shared.svelte";
 
     import {onMount} from "svelte";
     import Chime from "$lib/hangies/Chime.svelte";
-    import EditPencil from "$lib/components/EditPencil.svelte";
+    import LocalEditorOverlay from "$lib/components/EditPencil.svelte";
 
     let {socials: socialProp} = $props();
 
@@ -82,7 +82,7 @@
                onscrollend={handleScrollEndBool}/>
 {#key currentLang.lang}
     <section class="linktree-seg" id="linktree">
-        {#if editorMode.state}<EditPencil/>{/if}
+        <LocalEditorOverlay linktree={true}/>
         <img bind:clientHeight={branchHeight} class="lilac-cherry-branch" src="/img/branch2transparent.webp"
              alt="a sakura branch except flowers are lilac for some reason">
         {#each [0, 1, 2] as i}
@@ -104,7 +104,7 @@
                          style={`top: ${social.top_vh*(branchHeight/windowHeight)}vh; transform: translate(-${social.left_vw}%, 0); left: ${social.left_vw}vw`}>
                         <Chime {social} folds={social.folds} foldCount={social.fold_count} chimeYOffset={0.15}
                                chimeMaxHeightVh={82}
-                               separatorShape={social.separator_shape}></Chime>
+                               separatorShape={social.separator_shape} />
                     </div>
                 {/if}
             {/each}

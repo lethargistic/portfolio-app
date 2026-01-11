@@ -3,7 +3,7 @@
 	import '../styles/global.css';
     import {onMount} from "svelte";
     import {invalidate} from "$app/navigation";
-    import {editorMode, fiend} from "$lib/shared.svelte";
+    import {editing, editorMode, fiend} from "$lib/shared.svelte";
 
 	let { data, children } = $props();
     let { supabase, session } = $derived(data);
@@ -23,6 +23,9 @@
     const handleEditModeSwitch = (e: KeyboardEvent) => {
         if (e.key === 'e' && fiend.state) {
             editorMode.state = !editorMode.state;
+        }
+        if (e.key === 'Escape' && fiend.state) {
+            editing.state = false;
         }
     }
 </script>

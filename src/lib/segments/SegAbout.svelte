@@ -1,10 +1,10 @@
 <script lang="ts">
-    import {currentLang, editorMode, fiend} from "$lib/shared.svelte";
+    import {currentLang, editorMode} from "$lib/shared.svelte";
     import {m} from "../paraglide/messages";
     import {onMount} from "svelte";
     import {Tween} from "svelte/motion";
     import {cubicInOut} from "svelte/easing";
-    import EditPencil from "$lib/components/EditPencil.svelte";
+    import EditorTools from "$lib/components/EditPencil.svelte";
 
     const blurbs = $derived.by(() => {
         return Object.keys(m)
@@ -96,7 +96,7 @@
 
 {#key currentLang.lang}
     <section class="about-seg" id="about">
-        {#if editorMode.state}<EditPencil/>{/if}
+        <EditorTools/>
         <div class="decor-waterfall decor-waterfall-upper"></div>
         <div class="decor-waterfall decor-waterfall-lower"></div>
         <div class="char-sheet">

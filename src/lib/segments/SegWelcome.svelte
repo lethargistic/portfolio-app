@@ -97,7 +97,7 @@
     </p>
 </noscript>
 {#key currentLang.lang}
-    {#if editorMode.state}<EditPencil left={true} light={true}/>{/if}
+    <EditPencil left={true} light={true}/>
     <div class="lang-settings">
         <button class="lang-button" onclick={() => {seeLang = !seeLang}} bind:this={langButton}>
             <img src="/img/icons/lucide_languages.svg" alt="language selector">

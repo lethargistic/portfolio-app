@@ -3,7 +3,7 @@
     import SegAbout from "$lib/segments/SegAbout.svelte";
     import SegLinktree from "$lib/segments/SegLinktree.svelte";
     import {goto} from "$app/navigation";
-    import {editorMode, fiend} from "$lib/shared.svelte"
+    import {editing, editorMode} from "$lib/shared.svelte";
 
     let { data } = $props();
 
@@ -34,6 +34,9 @@
 </script>
 <svelte:window on:keydown={handleTravelToAuth}/>
 
+{#if editing.state && editorMode.state}
+    <p class="editing">Editing</p>
+{/if}
 <main>
     <SegWelcome/>
     <SegAbout/>
@@ -42,3 +45,17 @@
 {#each Array.from({ length: 100 }) as _, i }
     <p>{i}</p>
 {/each}
+
+<style>
+    .editing {
+        position: fixed;
+        color: white;
+        background-color: black;
+        padding: 0.8rem 1.2rem;
+        z-index: 9999999;
+
+        font-size: 2rem;
+        left: 28px;
+        top: 100px;
+    }
+</style>
