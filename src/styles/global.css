@@ -79,6 +79,11 @@ h1, h2, h3, h4, h5, h6 {
     outline: none;
 }
 
+.hover-focus:hover {
+    display: none;
+    outline: 1px solid black !important;
+}
+
 .smol {
     display: inline;
     aspect-ratio: 1;

@@ -155,6 +155,7 @@
                 top: 20vh;
                 width: 100vw;
                 will-change: transform;
+                user-select: none;
             }
         }
     </style>

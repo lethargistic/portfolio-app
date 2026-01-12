@@ -480,9 +480,12 @@
         oh no
     {/if}
 </div>
-<div bind:this={chimeElem} class="chime-cont" bind:clientHeight={chimeHeight}
+<div bind:this={chimeElem} class="chime-cont"
+     bind:clientHeight={chimeHeight}
      style={`mask-image: url("${chimeSVGMaskUrl}");`}>
-    <div class="fold-cont" style={`grid-template-rows: repeat(${foldCount*2+1}, 1fr)`} role="presentation" onclick={handleChimeEdit} onkeydown={handleChimeEdit}>
+    <div class={`fold-cont ${activeEditor.state === 'lnkt-modifying' || activeEditor.state === 'lnkt-positioning' ? 'hover-focus' : ''}`}
+         style={`grid-template-rows: repeat(${foldCount*2+1}, 1fr);`}
+         role="presentation" onclick={handleChimeEdit} onkeydown={handleChimeEdit}>
         <!-- the spacer accounts for the 0.5 folds on the left that are missing because of the shape -->
         <div class="stat-half-spacer-left"></div>
         {#each folds as fold}

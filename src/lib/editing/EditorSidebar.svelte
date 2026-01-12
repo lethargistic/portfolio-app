@@ -30,12 +30,21 @@
 
 <svelte:window onclick={checkIfClose}/>
 <aside bind:this={sidebarElem} class="sidebar">
-    <p>{readOnlySocial.name}</p>
+    <h2>{readOnlySocial.name}</h2>
     <form>
         {#if activeEditor.state === 'lnkt-modifying' && !isEmptyArr(editorSocials.state)}
+            {#each Object.keys(readOnlySocial).filter((key: String) => key !== 'folds')
+                    as key (key + '_salt143')}
+                <label>
+                    {key}
+                    <input bind:value={editorSocials.state[focusedSocialIx][key]}
+                           placeholder={editorSocials.state[focusedSocialIx][key]}>
+                </label>
+            {/each}
+            <p><b>Folds:</b></p>
             {#each readOnlySocial.folds as roFold, ig (roFold.slug)}
                 {roFold.slug}
-                {#each Object.keys(roFold) as key (key)}
+                {#each Object.keys(roFold) as key (key + '_salt173')}
                     <label>
                         {key}
                         <input bind:value={editorSocials.state[focusedSocialIx].folds[ig][key]}
@@ -69,6 +78,8 @@
         & form {
             display: flex;
             flex-direction: column;
+
+            gap: 0.2rem;
 
             & label {
             }
