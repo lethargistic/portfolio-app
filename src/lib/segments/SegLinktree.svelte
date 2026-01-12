@@ -104,9 +104,8 @@
                 {#if !isSocialHidden(social)}
                     <div class={`social-chime social-chime-${social.name}`}
                          style={`top: ${social.top_vh*(branchHeight/windowHeight)}vh; transform: translate(-${social.left_vw}%, 0); left: ${social.left_vw}vw`}>
-                        <Chime {social} foldCount={social.fold_count} chimeYOffset={0.15}
-                               chimeMaxHeightVh={82}
-                               separatorShape={social.separator_shape}/>
+                        <Chime {social} chimeYOffset={0.15}
+                               chimeMaxHeightVh={82}/>
                     </div>
                 {/if}
             {/each}

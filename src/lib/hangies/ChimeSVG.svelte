@@ -2,6 +2,8 @@
     let {foldCount, trackedGroup = $bindable(null), cutout} = $props();
     const FILL_OPACITY = "0.01";
     const FILL_COLOR = "#eaeaea";
+
+    $inspect('cut', cutout, foldCount)
 </script>
 
 {#if foldCount >= 4}

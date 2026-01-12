@@ -2,16 +2,17 @@
     import {onMount} from "svelte";
     import * as three from "three";
     import {CSS3DRenderer, CSS3DObject} from 'three/addons/renderers/CSS3DRenderer.js';
-    import {error} from "@sveltejs/kit";
     import {SeparatorShape} from "$lib/utils/utils";
     import ChimeSVGFilling from "$lib/hangies/ChimeSVG.svelte";
-    import {activeEditor, fiend, sidebar} from "$lib/shared.svelte";
+    import {activeEditor, fiend, MAX_CHIME_FOLDS, MIN_CHIME_FOLDS, sidebar} from "$lib/shared.svelte";
 
     let props = $props();
-    let {social: socialProp, foldCount, chimeYOffset, chimeMaxHeightVh, separatorShape} = props;
+    let {social: socialProp, chimeYOffset, chimeMaxHeightVh} = props;
 
-    const social = $derived(socialProp);
-    const folds = $derived(social.folds);
+    let social = $derived(socialProp);
+    let folds = $derived(social.folds);
+    let foldCount = $derived(Number(social.fold_count));
+    let separatorShape = $derived(social.separator_shape);
 
     const chimeRopeYOffset = $derived.by(() => {
         switch (separatorShape) {
@@ -39,12 +40,10 @@
     // the math here on some stuff is just wrong or me misinterpreting the physics
     // it works well, but this is not some etalonne code one thing for sure
 
-    const MAX_CHIME_FOLDS = 4;
-    const MIN_CHIME_FOLDS = 1;
-
     $effect(() => {
         if (foldCount && (foldCount < MIN_CHIME_FOLDS || foldCount > MAX_CHIME_FOLDS)) {
-            error(500, "Chime has an invalid amount of folds");
+            foldCount = 1;
+            console.warn("Chime has an invalid amount of folds, setting to 1");
         }
     });
 
@@ -138,6 +137,9 @@
 
     let chimeSVGCutoutElem: Node | null = $state(null);
     let chimeSVGMaskUrl = $derived.by(() => {
+        // reactivity
+        if (foldCount) {}
+
         if (!chimeSVGCutoutElem) return '';
         const svgStr = new XMLSerializer().serializeToString(chimeSVGCutoutElem);
         const blob = new Blob([svgStr], {type: 'image/svg+xml'});
@@ -459,6 +461,9 @@
             sidebar.skip = true;
         }
     }
+
+    $inspect(1578 * ((foldCount+0.5) / (MAX_CHIME_FOLDS+0.5)));
+    $inspect(chimeMaxHeightVh/(MAX_CHIME_FOLDS/foldCount));
 </script>
 <svelte:window onresize={adjustPathDimensionTracking} bind:innerWidth={windowInnerWidth}
                bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove}/>
@@ -504,14 +509,15 @@
     {#snippet svgAndCutout()}
         <!-- the 0.5 accounts for the shape -->
         {@const svgHeight = 1578 * ((foldCount+0.5) / (MAX_CHIME_FOLDS+0.5))}
-        <svg class="chime" style={`height: ${chimeMaxHeightVh/(MAX_CHIME_FOLDS/foldCount)}vh`} width="530"
-             height={svgHeight} viewBox={`0 0 530 ${svgHeight}`} fill="none"
+        <svg class="chime"
+             style={`height: ${chimeMaxHeightVh/((MAX_CHIME_FOLDS+0.5)/(foldCount+0.5))}vh`} width="530"
+             height={`${svgHeight}`} viewBox={`0 0 530 ${svgHeight}`} fill="none"
              xmlns="http://www.w3.org/2000/svg">
             <ChimeSVGFilling {foldCount} bind:trackedGroup={trackedGroup} cutout={false}/>
         </svg>
         <svg bind:this={chimeSVGCutoutElem} class="chime chime-cutout"
-             style={`height: ${chimeMaxHeightVh/((MAX_CHIME_FOLDS+0.5)/(foldCount+0.5))}vh`} width="530" height={`${svgHeight}`}
-             viewBox={`0 0 530 ${svgHeight}`} fill="none"
+             style={`height: ${chimeMaxHeightVh/((MAX_CHIME_FOLDS+0.5)/(foldCount+0.5))}vh`} width="530"
+             height={`${svgHeight}`} viewBox={`0 0 530 ${svgHeight}`} fill="none"
              xmlns="http://www.w3.org/2000/svg">
             <ChimeSVGFilling {foldCount} cutout={true}/>
         </svg>
