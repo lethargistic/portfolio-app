@@ -5,12 +5,13 @@
     import {error} from "@sveltejs/kit";
     import {SeparatorShape} from "$lib/utils/utils";
     import ChimeSVGFilling from "$lib/hangies/ChimeSVG.svelte";
-    import {activeEditor, sidebar} from "$lib/shared.svelte";
+    import {activeEditor, fiend, sidebar} from "$lib/shared.svelte";
 
-    let {social: socialProp, folds: foldsProp, foldCount, chimeYOffset, chimeMaxHeightVh, separatorShape} = $props();
+    let props = $props();
+    let {social: socialProp, foldCount, chimeYOffset, chimeMaxHeightVh, separatorShape} = props;
 
     const social = $derived(socialProp);
-    const folds = $derived(foldsProp);
+    const folds = $derived(social.folds);
 
     const chimeRopeYOffset = $derived.by(() => {
         switch (separatorShape) {
@@ -447,14 +448,15 @@
 
     //
 
-    const handleChimeEdit = () => {
-        console.log('hi');
-        console.log(activeEditor.state);
+    const handleChimeEdit = (e: Event) => {
+        if (!fiend.state) return;
+        if (e instanceof KeyboardEvent && e.key !== ' ') return;
+
         if (activeEditor.state === 'lnkt-modifying') {
             sidebar.open = !sidebar.open;
+            sidebar.focused = social.name;
+
             sidebar.skip = true;
-            console.log(sidebar.skip)
-            console.log(sidebar.open)
         }
     }
 </script>
@@ -480,7 +482,7 @@
 </div>
 <div bind:this={chimeElem} class="chime-cont" bind:clientHeight={chimeHeight}
      style={`mask-image: url("${chimeSVGMaskUrl}");`}>
-    <div class="fold-cont" style={`grid-template-rows: repeat(${foldCount*2+1}, 1fr)`} onclick={handleChimeEdit}>
+    <div class="fold-cont" style={`grid-template-rows: repeat(${foldCount*2+1}, 1fr)`} role="presentation" onclick={handleChimeEdit} onkeydown={handleChimeEdit}>
         <!-- the spacer accounts for the 0.5 folds on the left that are missing because of the shape -->
         <div class="stat-half-spacer-left"></div>
         {#each folds as fold}
@@ -488,8 +490,6 @@
             <div class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
                  style={`width: ${chimePathWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;`}>
 
-
-                <!-- that 0.5 is the half-fold leftover in the svg due to the bottom part going down for half a fold more-->
                 <a href={fold.link ?? social.link} target="_blank">
                     <img src={`/img/icons/${fold.icon}`} alt={fold.slug}>
                     <p>{@html fold.display_override ?? fold.slug}</p>

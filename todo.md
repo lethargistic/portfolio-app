@@ -26,3 +26,4 @@
 - [ ] todo maybe: make client ask for social values if fail (kinda whatever since there are definitely not 5000 people per hour visiting my lil site)
 - [x] fix very: random scroll snap in about???
 - [x] todo maybe: flip icon color on selection in chimes
+- [x] todo maybe: occasionally stronger wind

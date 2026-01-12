@@ -1,19 +1,20 @@
 <script lang="ts">
-    import {currentLang} from "$lib/shared.svelte";
+    import {currentLang, editorSocials} from "$lib/shared.svelte";
 
     import {onMount} from "svelte";
     import Chime from "$lib/hangies/Chime.svelte";
     import EditorTools from "$lib/editing/EditorTools.svelte";
 
-    let {socials: socialProp} = $props();
+    let {socials: socialsProp} = $props();
 
-    let socials: typeof socialProp = $state();
+    let socials: typeof socialsProp = $derived(editorSocials.state);
 
     const extended = $state(false);
     const isSocialHidden = (social: typeof socials[number]) => social.hidden || (social.extended && !extended);
 
     const updateSocials = async () => {
-        socials = socialProp;
+        editorSocials.state = socialsProp;
+
         if (!socials) return;
         for (const social of socials) {
             if (isSocialHidden(social)) continue;
@@ -36,11 +37,12 @@
             }
 
             // reactivity incantations
-            const oldSocials: typeof socialProp = socials;
-            oldSocials[socials.findIndex((s: typeof socials[number]) => s.name === social.name)].folds
+            const _socials: typeof socialsProp = socials;
+            _socials[socials.findIndex((s: typeof socials[number]) => s.name === social.name)].folds
                 = freshFolds;
 
-            socials = oldSocials;
+            editorSocials.state = _socials;
+            socials = _socials;
         }
     }
 
@@ -102,9 +104,9 @@
                 {#if !isSocialHidden(social)}
                     <div class={`social-chime social-chime-${social.name}`}
                          style={`top: ${social.top_vh*(branchHeight/windowHeight)}vh; transform: translate(-${social.left_vw}%, 0); left: ${social.left_vw}vw`}>
-                        <Chime {social} folds={social.folds} foldCount={social.fold_count} chimeYOffset={0.15}
+                        <Chime {social} foldCount={social.fold_count} chimeYOffset={0.15}
                                chimeMaxHeightVh={82}
-                               separatorShape={social.separator_shape} />
+                               separatorShape={social.separator_shape}/>
                     </div>
                 {/if}
             {/each}
@@ -123,9 +125,6 @@
             flex-direction: column;
 
             background-color: white;
-            /* bg for testing */
-            /*background-image: url("/img/train_front.webp");*/
-            /*background-repeat: repeat;*/
 
             & .lilac-cherry-branch {
                 position: relative;

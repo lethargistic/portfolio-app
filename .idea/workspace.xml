@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: some editing progress">
-      <change afterPath="$PROJECT_DIR$/src/lib/editing/GlobalEditorTools.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: some editing progress x2">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/utils/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils/utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/admin/login/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/admin/login/+page.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,32 +73,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "JavaScript Debug.localhost:5174.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Shell Script.Host.executor": "Run",
-    "Shell Script.やばそうなの.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/static/img/icons",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "editor.preferences.smartKeys",
-    "ts.external.directory.path": "D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;JavaScript Debug.localhost:5174.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Shell Script.Host.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.やばそうなの.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Docs/webstormproj/sustenant/static/img/icons&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.smartKeys&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Docs\webstormproj\sustenant\static\img\icons" />
@@ -220,15 +223,8 @@
       <workItem from="1767979047929" duration="9088000" />
       <workItem from="1768041024133" duration="19316000" />
       <workItem from="1768075895022" duration="309000" />
-      <workItem from="1768119815909" duration="11068000" />
-    </task>
-    <task id="LOCAL-00005" summary="feat: do you know how hard is it to make a triangle in web??">
-      <option name="closed" value="true" />
-      <created>1764950099729</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1764950099729</updated>
+      <workItem from="1768119815909" duration="20114000" />
+      <workItem from="1768211552281" duration="5547000" />
     </task>
     <task id="LOCAL-00006" summary="revert: are you kidding me - removed trig because it looks worse with the scale transition + chore: transition">
       <option name="closed" value="true" />
@@ -614,14 +610,32 @@
       <option name="project" value="LOCAL" />
       <updated>1768129357736</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="chore: some editing progress x2">
+      <option name="closed" value="true" />
+      <created>1768131613330</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1768131613330</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: inner chime layout" />
     <MESSAGE value="feat: icons for github hangie" />
     <MESSAGE value="feat: invented wiggles, i love this" />
     <MESSAGE value="chore: extra positioning + feat: github api stats" />
@@ -646,6 +660,7 @@
     <MESSAGE value="feat: auth" />
     <MESSAGE value="feat: started on editing + chore: tweaks" />
     <MESSAGE value="chore: some editing progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: some editing progress" />
+    <MESSAGE value="chore: some editing progress x2" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: some editing progress x2" />
   </component>
 </project>

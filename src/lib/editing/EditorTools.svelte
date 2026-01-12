@@ -1,13 +1,11 @@
 <script lang="ts">
-    import {activeEditor, editing, editorMode, sidebar} from "$lib/shared.svelte";
-    import EditorSidebar from "$lib/editing/EditorSidebar.svelte";
+    import {activeEditor, editing, editorMode} from "$lib/shared.svelte";
 
     let {left = false, light = false, linktree = false} = $props();
 
     let bodyElem: HTMLBodyElement | null = $state(null);
 
-    const flipEditing = () =>
-    {
+    const flipEditing = () => {
         editing.state = !editing.state;
         if (editing.state === false) {
             activeEditor.state = '';
@@ -26,9 +24,7 @@
         if (!bodyElem) return;
 
         if (editorMode.state && editing.state && activeEditor.state.endsWith('positioning')) {
-            bodyElem.style.cursor = `url("${moveIconPath}"), auto`;
-        } else if (editorMode.state && editing.state && activeEditor.state.endsWith('modifying')) {
-            bodyElem.style.cursor = `url("${modifyIconPath}"), auto`;
+            bodyElem.style.cursor = `move`;
         } else {
             bodyElem.style.cursor = "default";
         }

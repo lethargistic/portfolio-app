@@ -1,7 +1,7 @@
 <script lang="ts">
     import { enhance } from "$app/forms";
     import type {SubmitFunction} from "@sveltejs/kit";
-    let { session, form } = $props();
+    let { data, form } = $props();
 
     let loading = $state(false);
     const handleSubmit: SubmitFunction = () => {
@@ -21,7 +21,7 @@
         <em>*the geese stare at you with violence in their eyes*</em>
     </pre>
     <br>
-    <p class="logged">Log status: {@html session ? '<span style="color: #3de68c">Logged in</span>' : '<span style="color: #e64a3d">Logged off</span>' } </p>
+    <p class="logged">Log status: {@html data.session ? '<span style="color: #3de68c">Logged in</span>' : '<span style="color: #e64a3d">Logged off</span>' } </p>
     <br>
     <form method="POST" use:enhance={handleSubmit}>
         <label>
@@ -30,7 +30,7 @@
         </label>
         <label>
             Password:
-            <input name="password" type="password" placeholder="eggbiscuiT64_" value={form?.password ?? ''}/>
+            <input name="password" type="password" placeholder="eggbiscuiT64_" value=''/>
         </label>
         <button>
             { loading ? 'loading...' : 'Login' }
