@@ -461,9 +461,6 @@
             sidebar.skip = true;
         }
     }
-
-    $inspect(1578 * ((foldCount+0.5) / (MAX_CHIME_FOLDS+0.5)));
-    $inspect(chimeMaxHeightVh/(MAX_CHIME_FOLDS/foldCount));
 </script>
 <svelte:window onresize={adjustPathDimensionTracking} bind:innerWidth={windowInnerWidth}
                bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove}/>

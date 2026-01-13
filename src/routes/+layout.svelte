@@ -19,7 +19,7 @@
     })
 
     $effect(() => {
-        fiend.state = !!session;
+        fiend.state = true;
     })
 
     const handleEditModeSwitch = (e: KeyboardEvent) => {
