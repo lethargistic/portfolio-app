@@ -49,6 +49,10 @@
         formData.delete('*');
 
         for (const [key, value] of Object.entries(realSocialData)) {
+            if (key === 'folds') {
+                formData.append(key, JSON.stringify(value));
+                continue;
+            }
             formData.append(key, String(value));
         }
 

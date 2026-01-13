@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: extra chime editing tweaks + db posting">
-      <change afterPath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/admin/edits/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/editing/GlobalEditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/GlobalEditorTools.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hangies/ChimeSVG.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/ChimeSVG.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: extra chime editing tweaks + almost db posting">
       <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,23 +226,7 @@
       <workItem from="1768211552281" duration="8324000" />
       <workItem from="1768223881636" duration="5770000" />
       <workItem from="1768243263814" duration="4932000" />
-      <workItem from="1768293409711" duration="11740000" />
-    </task>
-    <task id="LOCAL-00009" summary="chore: god bless svelte, animated floatie 1">
-      <option name="closed" value="true" />
-      <created>1764968965890</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1764968965890</updated>
-    </task>
-    <task id="LOCAL-00010" summary="chore: god bless svelte, animated floatie 2">
-      <option name="closed" value="true" />
-      <created>1764970505614</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1764970505614</updated>
+      <workItem from="1768293409711" duration="12336000" />
     </task>
     <task id="LOCAL-00011" summary="fix: language changer no longer reloads the page">
       <option name="closed" value="true" />
@@ -627,7 +604,23 @@
       <option name="project" value="LOCAL" />
       <updated>1768243727719</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="chore: extra chime editing tweaks + almost db posting">
+      <option name="closed" value="true" />
+      <created>1768310279661</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1768310279661</updated>
+    </task>
+    <task id="LOCAL-00059" summary="chore: extra chime editing tweaks + almost db posting">
+      <option name="closed" value="true" />
+      <created>1768310333089</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1768310333090</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -645,8 +638,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: extra positioning x2" />
-    <MESSAGE value="chore: values in 3d math actually mean something instead of me manually offsetting it every time" />
     <MESSAGE value="feat: a lot of math, and oscillating wind" />
     <MESSAGE value="feat: antialiasing is false" />
     <MESSAGE value="chore: chime positioning" />
@@ -670,6 +661,8 @@
     <MESSAGE value="chore: some more editing progress" />
     <MESSAGE value="chore: editing sidebar progress x2" />
     <MESSAGE value="chore: editing sidebar progress x3, failproofed main settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: editing sidebar progress x3, failproofed main settings" />
+    <MESSAGE value="feat: editing values to the db" />
+    <MESSAGE value="chore: extra chime editing tweaks + almost db posting" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: extra chime editing tweaks + almost db posting" />
   </component>
 </project>

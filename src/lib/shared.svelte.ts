@@ -1,5 +1,3 @@
-import type {ActionData} from "../../.svelte-kit/types/src/routes/$types";
-
 export let currentLang = $state({lang: "en"});
 
 export const MAX_CHIME_FOLDS = 4;
