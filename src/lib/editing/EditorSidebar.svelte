@@ -3,10 +3,11 @@
     import {isEmptyArr, SeparatorShape} from "$lib/utils/utils";
     import {applyAction, enhance} from "$app/forms";
     import type {SubmitFunction} from "@sveltejs/kit";
+    import {untrack} from "svelte";
 
     let sidebarElem: HTMLElement | null = $state(null);
 
-    let { form } = $props();
+    let {form} = $props();
 
     const checkIfClose = (e: MouseEvent) => {
         if (!sidebarElem) return;
@@ -21,7 +22,7 @@
         }
     }
 
-    const focusedSocialIx = $derived.by(() => {
+    let focusedSocialIx = $derived.by(() => {
         if (isEmptyArr(editorSocials.state)) return -1;
 
         const ix = editorSocials.state.findIndex((social: typeof editorSocials.state[number]) => social.name === sidebar.focused);
@@ -37,6 +38,7 @@
     let awaitingConfirmation = $state(false);
     let loading = $state(false);
     let postText = $derived(loading ? 'Loading...' : awaitingConfirmation ? 'You sure?' : 'Post');
+    let deleteText = $derived(loading ? 'Loading...' : awaitingConfirmation ? 'You sure?' : 'Delete (oh no)');
 
     const handleSubmit: SubmitFunction = ({formData, cancel}) => {
         if (!awaitingConfirmation) {
@@ -56,67 +58,105 @@
             formData.append(key, String(value));
         }
 
-        return async ({ result }) => {
-            console.log('result', result)
+        return async ({result}) => {
             loading = false;
             awaitingConfirmation = false;
             await applyAction(result);
         }
     }
+
+    $effect(() => {
+        if (form?.toDelete !== undefined) {
+            untrack(() => {
+                const ix = editorSocials.state.findIndex((social: typeof editorSocials.state[number]) => {
+                    social.name === form?.toDelete
+                });
+                sidebar.focused = '';
+                editorSocials.state.splice(ix, 1);
+                form.toDelete = undefined;
+            })
+        }
+    })
+
+    const assignInputBindingsWithExceptions = (v: any, key: string) => {
+        if (key === 'fold_count' && isNaN(v)) return null;
+        if (key === 'name') {
+            if (v === '') {
+                v = 'none';
+            }
+
+            editorSocials.state[focusedSocialIx][key] = v;
+            sidebar.focused = v;
+            return;
+        }
+        editorSocials.state[focusedSocialIx][key] = v;
+    }
 </script>
 
 <svelte:window onclick={checkIfClose}/>
 <aside bind:this={sidebarElem} class="sidebar">
-    <h2>{readOnlySocial.name}</h2>
-    <form method="POST" use:enhance={handleSubmit} action="admin/edits?/postSocial">
-        {#if activeEditor.state === 'lnkt-modifying' && !isEmptyArr(editorSocials.state)}
-            {#each Object.keys(readOnlySocial).filter((key: String) => key !== 'folds')
-                    as key (key + '_salt143')}
-                {@const readOnlyVal = editorSocials.state[focusedSocialIx][key]}
-                {@const isInvalidFoldCount = isNumberInvalid(key, 'fold_count', readOnlyVal, MAX_CHIME_FOLDS)}
-                <label>
-                    {key}
-                    <input bind:value={() => editorSocials.state[focusedSocialIx][key],
-                    (v) => {if (key === 'fold_count' && isNaN(v)) return null;
-                        editorSocials.state[focusedSocialIx][key] = v}}
-                           placeholder={editorSocials.state[focusedSocialIx][key]}
-                           class={`${isInvalidFoldCount ? 'invalid-bg' : ''}`}>
-                </label>
-                {#if key === 'separator_shape'}
-                    <small>Out of:
-                        {#each Object.keys(SeparatorShape) as shape (shape + "_salt243")}{`${shape}, `}{/each}
-                    </small>
-                {/if}
-            {/each}
-            <p><b>Folds:</b></p>
-            {#each readOnlySocial.folds as roFold, ig (roFold.slug)}
-                <p><b>{roFold.slug}</b></p>
-                {#each Object.keys(roFold) as key (key + '_salt173')}
+    {#if sidebar.focused !== ''}
+        <h2>{readOnlySocial.name}</h2>
+        <form method="POST" use:enhance={handleSubmit}>
+            {#if activeEditor.state === 'lnkt-modifying' && !isEmptyArr(editorSocials.state)}
+                {#each Object.keys(readOnlySocial).filter((key: String) => key !== 'folds')
+                        as key (key + '_salt143')}
+                    {@const readOnlyVal = editorSocials.state[focusedSocialIx][key]}
+                    {@const isInvalidFoldCount = isNumberInvalid(key, 'fold_count', readOnlyVal, MAX_CHIME_FOLDS)}
                     <label>
                         {key}
-                        <input bind:value={editorSocials.state[focusedSocialIx].folds[ig][key]}
-                               placeholder={roFold[key]}>
+                        <input bind:value={() => editorSocials.state[focusedSocialIx][key], (v) => {assignInputBindingsWithExceptions(v, key)}}
+                               placeholder={editorSocials.state[focusedSocialIx][key]}
+                               class={`${isInvalidFoldCount ? 'invalid-bg' : ''}`}>
                     </label>
+                    {#if key === 'separator_shape'}
+                        <small>Out of:
+                            {#each Object.keys(SeparatorShape) as shape (shape + "_salt243")}{`${shape}, `}{/each}
+                        </small>
+                    {/if}
                 {/each}
-            {/each}
-            <button>
-                {postText}
-            </button>
-            {#if form?.message !== undefined}
-                <p class={form?.success === false ? 'invalid-txt' : 'valid-txt'}>{form?.message}</p>
+                <p><b>Folds:</b></p>
+                {#each readOnlySocial.folds as roFold, ig (roFold.slug)}
+                    <p><b>{roFold.slug}</b></p>
+                    {#each Object.keys(roFold) as key (key + '_salt173')}
+                        <label>
+                            {key}
+                            <input bind:value={editorSocials.state[focusedSocialIx].folds[ig][key]}
+                                   placeholder={roFold[key]}>
+                        </label>
+                    {/each}
+                {/each}
+                <button formaction="admin/edits?/postSocial">
+                    {postText}
+                </button>
+                {#if form?.message !== undefined}
+                    <p class={form?.success === false ? 'invalid-txt' : 'valid-txt'}>{form?.message}</p>
+                {/if}
+                <details>
+                    <summary>Delete</summary>
+                    <button class="delete-button" formaction="admin/edits?/deleteSocial">
+                        {deleteText}
+                    </button>
+                </details>
             {/if}
-        {/if}
-    </form>
+        </form>
+    {/if}
 </aside>
 
 <style>
+    .delete-button {
+        margin-top: 20rem;
+    }
+
     .invalid-bg {
         background-color: #e64a3d;
     }
+
     .invalid-txt {
         font-weight: bold;
         color: #e64a3d;
     }
+
     .valid-txt {
         font-weight: bold;
         color: #3de68c;

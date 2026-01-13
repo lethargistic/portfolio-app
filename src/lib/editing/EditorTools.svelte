@@ -1,7 +1,8 @@
 <script lang="ts">
-    import {activeEditor, editing, editorMode} from "$lib/shared.svelte";
+    import {activeEditor, editing, editorMode, editorSocials, MAX_CHIME_FOLDS} from "$lib/shared.svelte";
+    import {Editable} from "$lib/utils/utils";
 
-    let {left = false, light = false, linktree = false} = $props();
+    let {left = false, light = false, seg} = $props();
 
     let bodyElem: HTMLBodyElement | null = $state(null);
 
@@ -16,6 +17,39 @@
         activeEditor.state = s;
     }
 
+    // lazy-ish (not really) but this admin-only so I don't see why not
+    const trackPreprocessLnktAdding = () => {
+        if (activeEditor.state === 'lnkt-adding') {
+            const socialSchem = Object.entries(editorSocials.state[0])
+            const defaultSocial = Object.fromEntries(socialSchem.map(([key, value]) => {
+                // exceptions
+                if (key === 'fold_count') {
+                    value = MAX_CHIME_FOLDS;
+                    return [key, value];
+                }
+                if (key === 'folds') {
+                    const valueArr: Array<Record<string, any>> = value as Array<Record<string, any>>;
+                    for (let i = MAX_CHIME_FOLDS - valueArr.length; i > 0; i -= 1) {
+                        valueArr.push(valueArr[0]);
+                    }
+                    return [key, valueArr];
+                }
+
+                // defaulting
+                if (typeof value === "string") {
+                    value = 'non';
+                }
+                if (typeof value === "number") {
+                    value = 1;
+                }
+                return [key, value];
+            }));
+            editorSocials.state.push(defaultSocial);
+            activeEditor.state = '';
+        }
+    }
+    $effect(trackPreprocessLnktAdding);
+
     const editIconPath = '/img/icons/lucide-edit.svg';
     const modifyIconPath = '/img/icons/lucide-modify.svg';
     const plusIconPath = '/img/icons/lucide-plus.svg';
@@ -24,21 +58,23 @@
         if (!bodyElem) return;
 
         if (editorMode.state && editing.state && activeEditor.state.endsWith('positioning')) {
-            bodyElem.style.cursor = `move`;
+            bodyElem.style.cursor = 'move';
         } else {
             bodyElem.style.cursor = "default";
         }
     })
 </script>
 
-<svelte:body bind:this={bodyElem} />
+<svelte:body bind:this={bodyElem}/>
 
 {#if editorMode.state}
     <div class={`editor-tools ${left ? 'left' : 'right'}`}>
-        <button onclick={flipEditing}>
-            <img class={light ? 'light' : ''} src={editIconPath} alt="edit">
-        </button>
-        {#if linktree}
+        {#if Object.values(Editable).includes(seg) }
+            <button onclick={flipEditing}>
+                <img class={light ? 'light' : ''} src={editIconPath} alt="edit">
+            </button>
+        {/if}
+        {#if seg === 'linktree'}
             <button onclick={() => {changeEditor('lnkt-adding')}}>
                 <img class={light ? 'light' : ''} src={plusIconPath} alt="add">
             </button>

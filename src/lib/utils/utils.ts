@@ -23,3 +23,11 @@ export enum SeparatorShape {
     Tilde = "Tilde",
     None = "None"
 }
+
+export enum Editable {
+    About = "about",
+    Linktree = "linktree",
+    Web = "web",
+    Other = "other",
+    Art = "art"
+}
