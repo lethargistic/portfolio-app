@@ -3,10 +3,10 @@
     import SegAbout from "$lib/segments/SegAbout.svelte";
     import SegLinktree from "$lib/segments/SegLinktree.svelte";
     import {goto} from "$app/navigation";
-    import {activeEditor, editing, editorMode, sidebar} from "$lib/shared.svelte";
+    import {activeEditor, editing, editorMode} from "$lib/shared.svelte";
     import GlobalEditorTools from "$lib/editing/GlobalEditorTools.svelte";
 
-    let {data} = $props();
+    let {form, data} = $props();
 
     const cheatCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight'];
     let codeIx = 0;
@@ -41,7 +41,7 @@
         <small>{activeEditor.state}</small>
     </div>
 {/if}
-<GlobalEditorTools/>
+<GlobalEditorTools {form}/>
 <main>
     <SegWelcome/>
     <SegAbout/>
