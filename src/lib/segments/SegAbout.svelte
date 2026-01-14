@@ -96,7 +96,7 @@
 
 {#key currentLang.lang}
     <section class="about-seg" id="about">
-        <EditorTools/>
+        <EditorTools seg='about'/>
         <div class="decor-waterfall decor-waterfall-upper"></div>
         <div class="decor-waterfall decor-waterfall-lower"></div>
         <div class="char-sheet">

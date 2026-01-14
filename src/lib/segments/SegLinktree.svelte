@@ -152,6 +152,7 @@
                 width: 84vw;
                 align-self: flex-end;
                 user-select: none;
+                user-drag: none;
             }
 
             & .chime-cont {

@@ -60,7 +60,7 @@
     // just winging it basically
     const APPROX_CHIME_CSS_SIZE_TO_UNITS_MULT = 0.61;
     // this is also shifted to move the width a little bit
-    const CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED = 0.52;
+    const CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED = 0.5;
 
     const treeRopeSegments = 3;
     const treeRopeParticleCount = treeRopeSegments + 1;
@@ -253,7 +253,7 @@
         treeRopeGeometry.setAttribute('position', new three.BufferAttribute(treeRopePositions, 3))
         treeRope = new three.Line(
             treeRopeGeometry,
-            new three.LineBasicMaterial({color: 0x000000})
+            new three.LineBasicMaterial({color: 0x111111})
         )
         scene.add(treeRope);
 
@@ -266,7 +266,7 @@
         chimeRopeGeometry.setAttribute('position', new three.BufferAttribute(chimeRopePositions, 3))
         chimeRope = new three.Line(
             chimeRopeGeometry,
-            new three.LineBasicMaterial({color: 0x000000})
+            new three.LineBasicMaterial({color: 0x111111})
         )
         scene.add(chimeRope);
 
@@ -587,6 +587,7 @@
 
     .chime-cont {
         position: relative;
+        color: #202020;
 
         /* tint */
         background: rgba(185, 66, 245, 0.02);
@@ -598,8 +599,6 @@
         mask-size: contain;
         mask-repeat: no-repeat;
         mask-position: center;
-
-        /* TODO: cfg make it feel a bit oversized, and the branch smaller, look at the figma bit  */
 
         & .fold-cont {
             position: absolute;
@@ -633,8 +632,6 @@
                 justify-content: center;
                 align-items: center;
 
-                /* TODO: text color and glass color!! */
-
                 --title-font-size: 0.87rem;
 
                 & a {
@@ -652,10 +649,23 @@
                     column-gap: 0.3rem;
                     row-gap: 0.5rem;
 
+
+                    &:hover {
+                        color: #000000;
+
+                        transition: all 0.1s;
+                        transform: scale(1.03);
+                    }
+
                     & img {
+                        filter: invert(5%);
                         width: 19.5px;
                         grid-row: span 2;
                         aspect-ratio: 1 / 1;
+                    }
+
+                    & img::selection {
+                        background: rgb(201, 192, 211);
                     }
 
                     & .stat-fold-state {
@@ -693,6 +703,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
+            user-select: none;
+            -webkit-user-drag: none;
         }
 
         & .chime-cutout {
@@ -703,6 +716,8 @@
     /**/
 
     .separator {
+        color: #111111;
+
         & .three-stars {
             /* putting it on the string */
             margin-top: -10rem;
@@ -715,7 +730,7 @@
             margin-top: 0.7rem;
 
             border-radius: 18% 82% 89% 11% / 12% 15% 85% 88%;
-            background-color: black;
+            background-color: #111111;
         }
 
         & .ok {

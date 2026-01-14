@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: positioning, that's editor done except furnishing and a few settings basically?">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: chime colors and selection">
       <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icons/ca-monocolor.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/ca-monocolor.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,15 +228,7 @@
       <workItem from="1768329432981" duration="1730000" />
       <workItem from="1768331505704" duration="6441000" />
       <workItem from="1768338451647" duration="6000" />
-      <workItem from="1768384848924" duration="14405000" />
-    </task>
-    <task id="LOCAL-00015" summary="chore: train animated succesfully">
-      <option name="closed" value="true" />
-      <created>1765047564725</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1765047564725</updated>
+      <workItem from="1768384848924" duration="15290000" />
     </task>
     <task id="LOCAL-00016" summary="chore: more train tweaks">
       <option name="closed" value="true" />
@@ -626,7 +614,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768396053262</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="chore: added a few more settings to chimes">
+      <option name="closed" value="true" />
+      <created>1768400405616</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1768400405616</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -644,7 +640,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: db fallback" />
     <MESSAGE value="feat: made the social updates scalable + chore: rate limits" />
     <MESSAGE value="feat: CA chime + fix: tweaks" />
     <MESSAGE value="feat: dynamic mask-image cutouts" />
@@ -669,6 +664,7 @@
     <MESSAGE value="feat: adding and deleting new chimes in the ui" />
     <MESSAGE value="chore: positioning progress" />
     <MESSAGE value="feat: positioning, that's editor done except furnishing and a few settings basically?" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: positioning, that's editor done except furnishing and a few settings basically?" />
+    <MESSAGE value="chore: added a few more settings to chimes" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: added a few more settings to chimes" />
   </component>
 </project>
