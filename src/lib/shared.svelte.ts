@@ -7,9 +7,11 @@ export let fiend = $state({state: false});
 export let editorMode = $state({state: false});
 export let editing = $state({state: false});
 export let editorSocials: {state: Array<any>} = $state({state: []});
-export let sidebar = $state({
+export let editbar = $state({
     open: false,
     skip: false,
-    focused: ''
+    focused: '',
+    focusedIx: 0,
+    holding: false
 });
 export let activeEditor = $state({state: ''})

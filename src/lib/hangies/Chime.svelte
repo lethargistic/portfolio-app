@@ -2,9 +2,9 @@
     import {onMount} from "svelte";
     import * as three from "three";
     import {CSS3DRenderer, CSS3DObject} from 'three/addons/renderers/CSS3DRenderer.js';
-    import {SeparatorShape} from "$lib/utils/utils";
+    import {isEmptyArr, SeparatorShape} from "$lib/utils/utils";
     import ChimeSVGFilling from "$lib/hangies/ChimeSVG.svelte";
-    import {activeEditor, fiend, MAX_CHIME_FOLDS, MIN_CHIME_FOLDS, sidebar} from "$lib/shared.svelte";
+    import {activeEditor, editorSocials, fiend, MAX_CHIME_FOLDS, MIN_CHIME_FOLDS, editbar} from "$lib/shared.svelte";
 
     let props = $props();
     let {social: socialProp, chimeYOffset, chimeMaxHeightVh} = props;
@@ -138,7 +138,8 @@
     let chimeSVGCutoutElem: Node | null = $state(null);
     let chimeSVGMaskUrl = $derived.by(() => {
         // reactivity
-        if (foldCount) {}
+        if (foldCount) {
+        }
 
         if (!chimeSVGCutoutElem) return '';
         const svgStr = new XMLSerializer().serializeToString(chimeSVGCutoutElem);
@@ -199,10 +200,11 @@
     let time = $state(Math.floor(Math.random() * MAX_CHIME_FOLDS));
 
     const handleMouseMove = (e: MouseEvent) => {
+        if (!windowInnerWidth || !windowInnerHeight) return;
         prevMouseX = mouseX;
         prevMouseY = mouseY;
-        mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-        mouseY = (e.clientY / window.innerHeight) * 2 - 1;
+        mouseX = (e.clientX / windowInnerWidth) * 2 - 1;
+        mouseY = (e.clientY / windowInnerHeight) * 2 - 1;
     }
 
     onMount(() => {
@@ -281,7 +283,7 @@
     let sceneRotationY = 0;
     const rotationLerpFactor = 0.2;
 
-    const kTime = $derived(0.016 + ((foldCount/MAX_CHIME_FOLDS)-1)*(-0.05));
+    const kTime = $derived(0.016 + ((foldCount / MAX_CHIME_FOLDS) - 1) * (-0.05));
     const animate = () => {
         if (!treeRope || !chimeRope || !chimeObj || !renderer || !camera || !scene || !separatorObj || !cssRenderer) return;
 
@@ -454,12 +456,37 @@
         if (!fiend.state) return;
         if (e instanceof KeyboardEvent && e.key !== ' ') return;
 
+        editbar.focused = social.name;
         if (activeEditor.state === 'lnkt-modifying') {
-            sidebar.open = !sidebar.open;
-            sidebar.focused = social.name;
+            editbar.open = !editbar.open;
 
-            sidebar.skip = true;
+            editbar.skip = true;
         }
+    }
+
+    let foldContWidth: number | null = $state(null);
+    let foldContHeight: number | null = $state(null);
+    const handleChimeMoving = (e: PointerEvent) => {
+        if (editbar.holding && social.name === editbar.focused) {
+            e.preventDefault();
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            if (editbar.focusedIx === -1 || !windowInnerWidth || !windowInnerHeight || !foldContWidth || !foldContHeight) return;
+
+            editorSocials.state[editbar.focusedIx].left_vw = ((mouseX + (foldContWidth/2)) / windowInnerWidth) * 100;
+            editorSocials.state[editbar.focusedIx].top_vh = ((mouseY + (foldContHeight/2)) / windowInnerHeight) * 100;
+        }
+    }
+
+    const handleChimeHolding = () => {
+        if (activeEditor.state === 'lnkt-positioning') {
+
+            editbar.holding = true;
+        }
+    }
+    const handleChimeLeaving = () => {
+        editbar.holding = false;
     }
 </script>
 <svelte:window onresize={adjustPathDimensionTracking} bind:innerWidth={windowInnerWidth}
@@ -482,12 +509,14 @@
         oh no
     {/if}
 </div>
-<div bind:this={chimeElem} class="chime-cont"
+<div bind:this={chimeElem} class={`chime-cont ${editbar.holding ? 'prevent-select' : ''}`}
      bind:clientHeight={chimeHeight}
      style={`mask-image: url("${chimeSVGMaskUrl}");`}>
     <div class={`fold-cont ${activeEditor.state === 'lnkt-modifying' || activeEditor.state === 'lnkt-positioning' ? 'hover-focus' : ''}`}
+    bind:clientHeight={foldContHeight} bind:clientWidth={foldContWidth}
          style={`grid-template-rows: repeat(${foldCount*2+1}, 1fr);`}
-         role="presentation" onclick={handleChimeEdit} onkeydown={handleChimeEdit}>
+         role="presentation" onclick={handleChimeEdit} onkeydown={handleChimeEdit} onpointerdown={handleChimeHolding}
+         onpointerup={handleChimeLeaving} onpointerleave={handleChimeLeaving} onpointermove={handleChimeMoving}>
         <!-- the spacer accounts for the 0.5 folds on the left that are missing because of the shape -->
         <div class="stat-half-spacer-left"></div>
         {#each folds as fold}
@@ -505,7 +534,7 @@
     </div>
     {#snippet svgAndCutout()}
         <!-- the 0.5 accounts for the shape -->
-        {@const svgHeight = 1578 * ((foldCount+0.5) / (MAX_CHIME_FOLDS+0.5))}
+        {@const svgHeight = 1578 * ((foldCount + 0.5) / (MAX_CHIME_FOLDS + 0.5))}
         <svg class="chime"
              style={`height: ${chimeMaxHeightVh/((MAX_CHIME_FOLDS+0.5)/(foldCount+0.5))}vh`} width="530"
              height={`${svgHeight}`} viewBox={`0 0 530 ${svgHeight}`} fill="none"
@@ -523,6 +552,11 @@
 </div>
 
 <style>
+    .prevent-select {
+        user-select: none;
+        user-drag: none;
+    }
+
     .chime-canvas {
         position: relative;
         top: 0;

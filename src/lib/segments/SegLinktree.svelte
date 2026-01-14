@@ -1,9 +1,10 @@
 <script lang="ts">
-    import {currentLang, editorSocials} from "$lib/shared.svelte";
+    import {currentLang, editbar, editorSocials} from "$lib/shared.svelte";
 
     import {onMount} from "svelte";
     import Chime from "$lib/hangies/Chime.svelte";
     import EditorTools from "$lib/editing/EditorTools.svelte";
+    import {isEmptyArr} from "$lib/utils/utils";
 
     let {socials: socialsProp} = $props();
 
@@ -78,6 +79,20 @@
 
     const handleScrollBool = () => scrolling = true;
     const handleScrollEndBool = () => scrolling = false;
+
+    $effect(() => {
+        if (isEmptyArr(editorSocials.state)) {
+            editbar.focusedIx = -1;
+            return;
+        }
+
+        const ix = editorSocials.state.findIndex((social: typeof editorSocials.state[number]) => social.name === editbar.focused);
+        if (ix === null) {
+            editbar.focusedIx = -1;
+            return;
+        }
+        editbar.focusedIx = ix;
+    })
 </script>
 
 <svelte:window bind:innerHeight={windowHeight} bind:scrollY={windowScrollY} onscroll={handleScrollBool}

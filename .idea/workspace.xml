@@ -9,9 +9,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/editing/GlobalEditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/GlobalEditorTools.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/utils/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,15 +234,9 @@
       <workItem from="1768243263814" duration="4932000" />
       <workItem from="1768293409711" duration="25323000" />
       <workItem from="1768329432981" duration="1730000" />
-      <workItem from="1768331505704" duration="2723000" />
-    </task>
-    <task id="LOCAL-00012" summary="progress: about segment start">
-      <option name="closed" value="true" />
-      <created>1765017929412</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1765017929412</updated>
+      <workItem from="1768331505704" duration="6441000" />
+      <workItem from="1768338451647" duration="6000" />
+      <workItem from="1768384848924" duration="4888000" />
     </task>
     <task id="LOCAL-00013" summary="progress: it floats">
       <option name="closed" value="true" />
@@ -625,7 +622,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768316231733</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="feat: adding and deleting new chimes in the ui">
+      <option name="closed" value="true" />
+      <created>1768334497614</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1768334497614</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -643,7 +648,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: antialiasing is false" />
     <MESSAGE value="chore: chime positioning" />
     <MESSAGE value="feat: basic db fallback for socials" />
     <MESSAGE value="chore: db fallback" />
@@ -668,6 +672,7 @@
     <MESSAGE value="feat: editing values to the db" />
     <MESSAGE value="chore: extra chime editing tweaks + almost db posting" />
     <MESSAGE value="chore: db posting + very professionally changed the variable back from testing after 3 skill issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: db posting + very professionally changed the variable back from testing after 3 skill issues" />
+    <MESSAGE value="feat: adding and deleting new chimes in the ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: adding and deleting new chimes in the ui" />
   </component>
 </project>

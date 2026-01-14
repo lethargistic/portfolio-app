@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {activeEditor, editorSocials, MAX_CHIME_FOLDS, sidebar} from "$lib/shared.svelte";
+    import {activeEditor, editorSocials, MAX_CHIME_FOLDS, editbar} from "$lib/shared.svelte";
     import {isEmptyArr, SeparatorShape} from "$lib/utils/utils";
     import {applyAction, enhance} from "$app/forms";
     import type {SubmitFunction} from "@sveltejs/kit";
@@ -11,26 +11,22 @@
 
     const checkIfClose = (e: MouseEvent) => {
         if (!sidebarElem) return;
-        if (sidebar.open === false) return;
-        if (sidebar.skip) {
-            sidebar.skip = false;
+        if (editbar.open === false) return;
+        if (editbar.skip) {
+            editbar.skip = false;
             return;
         }
 
         if (!(sidebarElem.contains(e.target as Node) || sidebarElem.isEqualNode(e.target as HTMLElement))) {
-            sidebar.open = false
+            editbar.open = false
         }
     }
 
-    let focusedSocialIx = $derived.by(() => {
-        if (isEmptyArr(editorSocials.state)) return -1;
-
-        const ix = editorSocials.state.findIndex((social: typeof editorSocials.state[number]) => social.name === sidebar.focused);
-        if (ix == null) return -1;
-        return ix;
-    });
-
-    const readOnlySocial = $derived(editorSocials.state[focusedSocialIx]);
+    $inspect(editorSocials.state)
+    $inspect(editbar.focused)
+    $inspect(editbar.focusedIx)
+    const readOnlySocial = $derived(editorSocials.state[editbar.focusedIx]);
+    $inspect(readOnlySocial)
     const isNumberInvalid = (key: string, trueKey: string, value: number, upperBound: number) => {
         return key === trueKey && (value > upperBound || isNaN(value))
     }
@@ -47,7 +43,7 @@
         }
         loading = true
 
-        const realSocialData = editorSocials.state[focusedSocialIx];
+        const realSocialData = editorSocials.state[editbar.focusedIx];
         formData.delete('*');
 
         for (const [key, value] of Object.entries(realSocialData)) {
@@ -71,7 +67,7 @@
                 const ix = editorSocials.state.findIndex((social: typeof editorSocials.state[number]) => {
                     social.name === form?.toDelete
                 });
-                sidebar.focused = '';
+                editbar.focused = '';
                 editorSocials.state.splice(ix, 1);
                 form.toDelete = undefined;
             })
@@ -85,28 +81,28 @@
                 v = 'none';
             }
 
-            editorSocials.state[focusedSocialIx][key] = v;
-            sidebar.focused = v;
+            editorSocials.state[editbar.focusedIx][key] = v;
+            editbar.focused = v;
             return;
         }
-        editorSocials.state[focusedSocialIx][key] = v;
+        editorSocials.state[editbar.focusedIx][key] = v;
     }
 </script>
 
 <svelte:window onclick={checkIfClose}/>
 <aside bind:this={sidebarElem} class="sidebar">
-    {#if sidebar.focused !== ''}
+    {#if editbar.focused !== '' && editbar.focusedIx !== -1}
         <h2>{readOnlySocial.name}</h2>
         <form method="POST" use:enhance={handleSubmit}>
             {#if activeEditor.state === 'lnkt-modifying' && !isEmptyArr(editorSocials.state)}
                 {#each Object.keys(readOnlySocial).filter((key: String) => key !== 'folds')
                         as key (key + '_salt143')}
-                    {@const readOnlyVal = editorSocials.state[focusedSocialIx][key]}
+                    {@const readOnlyVal = editorSocials.state[editbar.focusedIx][key]}
                     {@const isInvalidFoldCount = isNumberInvalid(key, 'fold_count', readOnlyVal, MAX_CHIME_FOLDS)}
                     <label>
                         {key}
-                        <input bind:value={() => editorSocials.state[focusedSocialIx][key], (v) => {assignInputBindingsWithExceptions(v, key)}}
-                               placeholder={editorSocials.state[focusedSocialIx][key]}
+                        <input bind:value={() => editorSocials.state[editbar.focusedIx][key], (v) => {assignInputBindingsWithExceptions(v, key)}}
+                               placeholder={editorSocials.state[editbar.focusedIx][key]}
                                class={`${isInvalidFoldCount ? 'invalid-bg' : ''}`}>
                     </label>
                     {#if key === 'separator_shape'}
@@ -121,7 +117,7 @@
                     {#each Object.keys(roFold) as key (key + '_salt173')}
                         <label>
                             {key}
-                            <input bind:value={editorSocials.state[focusedSocialIx].folds[ig][key]}
+                            <input bind:value={editorSocials.state[editbar.focusedIx].folds[ig][key]}
                                    placeholder={roFold[key]}>
                         </label>
                     {/each}

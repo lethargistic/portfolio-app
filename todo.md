@@ -28,3 +28,4 @@
 - [x] todo maybe: flip icon color on selection in chimes
 - [x] todo maybe: occasionally stronger wind
 - [ ] todo high: db backups cron (supabase provides storage, how nice of it)
+- [ ] todo high: you have unposted changes!

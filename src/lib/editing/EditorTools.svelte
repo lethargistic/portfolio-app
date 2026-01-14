@@ -49,23 +49,18 @@
         }
     }
     $effect(trackPreprocessLnktAdding);
+    const trackHolding = () => {
+        if (activeEditor.state === 'lnkt-positioning') {
+
+        }
+    }
+    $effect(trackHolding);
 
     const editIconPath = '/img/icons/lucide-edit.svg';
     const modifyIconPath = '/img/icons/lucide-modify.svg';
     const plusIconPath = '/img/icons/lucide-plus.svg';
     const moveIconPath = 'img/icons/lucide-move.svg';
-    $effect(() => {
-        if (!bodyElem) return;
-
-        if (editorMode.state && editing.state && activeEditor.state.endsWith('positioning')) {
-            bodyElem.style.cursor = 'move';
-        } else {
-            bodyElem.style.cursor = "default";
-        }
-    })
 </script>
-
-<svelte:body bind:this={bodyElem}/>
 
 {#if editorMode.state}
     <div class={`editor-tools ${left ? 'left' : 'right'}`}>
