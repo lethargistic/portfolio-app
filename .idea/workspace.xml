@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: chime colors and selection">
-      <change afterPath="$PROJECT_DIR$/static/img/icons/lucide-settings.svg" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: settings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide_languages.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-languages.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,15 +235,7 @@
       <workItem from="1768331505704" duration="6441000" />
       <workItem from="1768338451647" duration="6000" />
       <workItem from="1768384848924" duration="22843000" />
-      <workItem from="1768409789349" duration="1981000" />
-    </task>
-    <task id="LOCAL-00017" summary="chore: more train tweaks x2">
-      <option name="closed" value="true" />
-      <created>1765054079203</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1765054079203</updated>
+      <workItem from="1768409789349" duration="2972000" />
     </task>
     <task id="LOCAL-00018" summary="docs: todo">
       <option name="closed" value="true" />
@@ -630,7 +621,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768401939267</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="feat: settings">
+      <option name="closed" value="true" />
+      <created>1768411995461</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1768411995462</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -648,7 +647,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: CA chime + fix: tweaks" />
     <MESSAGE value="feat: dynamic mask-image cutouts" />
     <MESSAGE value="fix: overflow on lower sizes + feat: wind now randomized and based on weight" />
     <MESSAGE value="fix: chime top offset now responsive" />
@@ -673,6 +671,7 @@
     <MESSAGE value="feat: positioning, that's editor done except furnishing and a few settings basically?" />
     <MESSAGE value="chore: added a few more settings to chimes" />
     <MESSAGE value="chore: chime colors and selection" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: chime colors and selection" />
+    <MESSAGE value="feat: settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: settings" />
   </component>
 </project>

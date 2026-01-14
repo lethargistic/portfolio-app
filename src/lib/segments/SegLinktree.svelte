@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {currentLang, editbar, editorSocials} from "$lib/shared.svelte";
+    import {currentLang, editbar, editorSocials, settings} from "$lib/shared.svelte";
 
     import {onMount} from "svelte";
     import Chime from "$lib/hangies/Chime.svelte";
@@ -10,8 +10,7 @@
 
     let socials: typeof socialsProp = $derived(editorSocials.state);
 
-    const extended = $state(false);
-    const isSocialHidden = (social: typeof socials[number]) => social.hidden || (social.extended && !extended);
+    const isSocialHidden = (social: typeof socials[number]) => social.hidden || (social.extended && !settings.extendedLinktree.state);
 
     const updateSocials = async () => {
         editorSocials.state = socialsProp;
@@ -152,7 +151,7 @@
                 width: 84vw;
                 align-self: flex-end;
                 user-select: none;
-                user-drag: none;
+                -webkit-user-drag: none;
             }
 
             & .chime-cont {

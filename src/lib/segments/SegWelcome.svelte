@@ -264,7 +264,7 @@
                 & .settings-selectors {
                     position: relative;
                     width: 28vw;
-                    gap: 0.5rem;
+                    gap: 0.3rem;
                     padding: 0.6rem 0;
 
                     & li {
@@ -275,6 +275,8 @@
                         display: grid;
                         grid-template-columns: 4% auto;
                         grid-template-rows: auto auto;
+
+                        cursor: pointer;
 
                         gap: 0.5rem;
 
@@ -289,13 +291,13 @@
                             width: 100%;
 
                             & input {
-
                                 accent-color: #a712dc;
                             }
                         }
 
                         & small {
                             grid-column: span 2;
+                            line-height: 1.6rem;
                             color: #bfbfbf;
                         }
                     }

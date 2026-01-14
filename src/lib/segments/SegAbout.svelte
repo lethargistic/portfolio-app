@@ -219,7 +219,7 @@
 
                 & .infobloc {
                     width: 60%;
-                    height: 67vh;
+                    height: 69vh;
 
                     position: relative;
                     z-index: 10;
@@ -265,6 +265,7 @@
                             grid-template-rows: repeat(5, 1fr);
 
                             row-gap: 0.3rem;
+                            line-height: 1.7rem;
 
                             & .infobloc-separator {
                                 user-select: none;
@@ -323,6 +324,7 @@
                             & .status-info {
                                 text-align: center;
                                 padding-top: 1.5rem;
+                                line-height: 1.6rem;
                             }
                         }
                     }
