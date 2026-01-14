@@ -193,18 +193,18 @@
     let chimeRopeParticles: Particle[] = [];
     let chimeParticles: Particle[] = [];
 
-    let mouseX = $state(0);
-    let mouseY = $state(0);
-    let prevMouseX = $state(0);
-    let prevMouseY = $state(0);
+    let mouseXDoubled = $state(0);
+    let mouseYDoubled = $state(0);
+    let prevMouseXDoubled = $state(0);
+    let prevMouseYDoubled = $state(0);
     let time = $state(Math.floor(Math.random() * MAX_CHIME_FOLDS));
 
     const handleMouseMove = (e: MouseEvent) => {
         if (!windowInnerWidth || !windowInnerHeight) return;
-        prevMouseX = mouseX;
-        prevMouseY = mouseY;
-        mouseX = (e.clientX / windowInnerWidth) * 2 - 1;
-        mouseY = (e.clientY / windowInnerHeight) * 2 - 1;
+        prevMouseXDoubled = mouseXDoubled;
+        prevMouseYDoubled = mouseYDoubled;
+        mouseXDoubled = (e.clientX / windowInnerWidth) * 2 - 1;
+        mouseYDoubled = (e.clientY / windowInnerHeight) * 2 - 1;
     }
 
     onMount(() => {
@@ -290,14 +290,14 @@
         requestAnimationFrame(animate);
         time += kTime;
 
-        const mouseDx = (mouseX - prevMouseX) * 50;
-        const mouseDy = (mouseY - prevMouseY) * 50;
+        const mouseDx = (mouseXDoubled - prevMouseXDoubled) * 50;
+        const mouseDy = (mouseYDoubled - prevMouseYDoubled) * 50;
 
         const chimeScreenX = chimeObj.position.x / 2;
         const chimeScreenY = chimeObj.position.y / 2;
 
-        const dx = mouseX - chimeScreenX;
-        const dy = mouseY - chimeScreenY;
+        const dx = mouseXDoubled - chimeScreenX;
+        const dy = mouseYDoubled - chimeScreenY;
         const distanceFromChime = Math.sqrt(dx * dx + dy * dy);
 
         const distanceFalloff = Math.min(distanceFromChime, 1);
@@ -466,26 +466,43 @@
 
     let foldContWidth: number | null = $state(null);
     let foldContHeight: number | null = $state(null);
+    let prevMouseX = $state(0);
+    let prevMouseY = $state(0);
     const handleChimeMoving = (e: PointerEvent) => {
         if (editbar.holding && social.name === editbar.focused) {
             e.preventDefault();
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
+            // should ideally be adjusted for the size of what im moving being bigger
+            // but i couldn't get that to works so pointer capture go brrr
+            const dx = e.clientX - prevMouseX;
+            const dy = e.clientY - prevMouseY;
 
             if (editbar.focusedIx === -1 || !windowInnerWidth || !windowInnerHeight || !foldContWidth || !foldContHeight) return;
 
-            editorSocials.state[editbar.focusedIx].left_vw = ((mouseX + (foldContWidth/2)) / windowInnerWidth) * 100;
-            editorSocials.state[editbar.focusedIx].top_vh = ((mouseY + (foldContHeight/2)) / windowInnerHeight) * 100;
+            const leftVw = dx / windowInnerWidth * 100;
+            const topVh = dy / windowInnerHeight * 100;
+
+            editorSocials.state[editbar.focusedIx].left_vw += leftVw;
+            editorSocials.state[editbar.focusedIx].top_vh += topVh;
+
+            // rounding
+            editorSocials.state[editbar.focusedIx].left_vw = parseFloat(editorSocials.state[editbar.focusedIx].left_vw.toFixed(2));
+            editorSocials.state[editbar.focusedIx].top_vh = parseFloat(editorSocials.state[editbar.focusedIx].top_vh.toFixed(2));
+            prevMouseX = e.clientX;
+            prevMouseY = e.clientY;
         }
     }
 
-    const handleChimeHolding = () => {
+    const handleChimeHolding = (e: PointerEvent) => {
         if (activeEditor.state === 'lnkt-positioning') {
+            (e.target as HTMLElement).setPointerCapture(e.pointerId);
+            prevMouseX = e.clientX;
+            prevMouseY = e.clientY;
 
             editbar.holding = true;
         }
     }
-    const handleChimeLeaving = () => {
+    const handleChimeLeaving = (e: PointerEvent) => {
+        (e.target as HTMLElement).releasePointerCapture(e.pointerId);
         editbar.holding = false;
     }
 </script>
