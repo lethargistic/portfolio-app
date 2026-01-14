@@ -2,7 +2,7 @@
     import {onMount} from "svelte";
     import * as three from "three";
     import {CSS3DRenderer, CSS3DObject} from 'three/addons/renderers/CSS3DRenderer.js';
-    import {isEmptyArr, SeparatorShape} from "$lib/utils/utils";
+    import {SeparatorShape} from "$lib/utils/utils";
     import ChimeSVGFilling from "$lib/hangies/ChimeSVG.svelte";
     import {activeEditor, editorSocials, fiend, MAX_CHIME_FOLDS, MIN_CHIME_FOLDS, editbar} from "$lib/shared.svelte";
 
@@ -60,11 +60,11 @@
     // just winging it basically
     const APPROX_CHIME_CSS_SIZE_TO_UNITS_MULT = 0.61;
     // this is also shifted to move the width a little bit
-    const CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED = 0.42;
+    const CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED = 0.52;
 
     const treeRopeSegments = 3;
     const treeRopeParticleCount = treeRopeSegments + 1;
-    const treeRopeLength = 0.7;
+    const treeRopeLength = $derived(social.tree_rope_length);
 
 
     const separatorSegments = 2;
@@ -77,7 +77,7 @@
 
     const chimeRopeSegments = 30;
     const chimeRopeParticleCount = chimeRopeSegments + 1;
-    const chimeRopeLength = 0.6;
+    const chimeRopeLength = $derived(social.chime_rope_length);
 
     const chimeSegments = 2;
     const chimeParticleCount = chimeSegments + 1;

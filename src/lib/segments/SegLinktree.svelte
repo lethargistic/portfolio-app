@@ -114,11 +114,15 @@
                  src={`/img/linktree-decor/mathboils-layer-${i}.webp`}
                  alt="linktree background, various simple geometric shapes made with thin lines">
         {/each}
-        <div class=chime-cont>
+        <div class="chime-cont">
             {#each socials as social}
                 {#if !isSocialHidden(social)}
                     <div class={`social-chime social-chime-${social.name}`}
-                         style={`top: ${social.top_vh*(branchHeight/windowHeight)}vh; transform: translate(-${social.left_vw}%, 0); left: ${social.left_vw}vw`}>
+                         style={`top: ${social.top_vh*(branchHeight/windowHeight)}vh;
+                         transform: translate(-${social.left_vw}%, 0);
+                         left: ${social.left_vw}vw;
+                         z-index: ${social.above ? '999' : '0'};
+                         `}>
                         <Chime {social} chimeYOffset={0.15}
                                chimeMaxHeightVh={82}/>
                     </div>

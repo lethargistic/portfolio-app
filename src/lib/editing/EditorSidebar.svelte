@@ -22,11 +22,7 @@
         }
     }
 
-    $inspect(editorSocials.state)
-    $inspect(editbar.focused)
-    $inspect(editbar.focusedIx)
     const readOnlySocial = $derived(editorSocials.state[editbar.focusedIx]);
-    $inspect(readOnlySocial)
     const isNumberInvalid = (key: string, trueKey: string, value: number, upperBound: number) => {
         return key === trueKey && (value > upperBound || isNaN(value))
     }

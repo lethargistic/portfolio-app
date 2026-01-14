@@ -1,10 +1,14 @@
 <script lang="ts">
-    import {activeEditor, editing, editorMode, editorSocials, MAX_CHIME_FOLDS} from "$lib/shared.svelte";
+    import {
+        activeEditor,
+        editing,
+        editorMode,
+        editorSocials,
+        MAX_CHIME_FOLDS
+    } from "$lib/shared.svelte";
     import {Editable} from "$lib/utils/utils";
 
     let {left = false, light = false, seg} = $props();
-
-    let bodyElem: HTMLBodyElement | null = $state(null);
 
     const flipEditing = () => {
         editing.state = !editing.state;
@@ -49,12 +53,6 @@
         }
     }
     $effect(trackPreprocessLnktAdding);
-    const trackHolding = () => {
-        if (activeEditor.state === 'lnkt-positioning') {
-
-        }
-    }
-    $effect(trackHolding);
 
     const editIconPath = '/img/icons/lucide-edit.svg';
     const modifyIconPath = '/img/icons/lucide-modify.svg';
