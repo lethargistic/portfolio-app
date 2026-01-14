@@ -29,3 +29,4 @@
 - [ ] todo maybe: occasionally stronger wind
 - [ ] todo high: db backups cron (supabase provides storage, how nice of it)
 - [ ] todo high: you have unposted changes!
+- [ ] todo high: implement all the settings

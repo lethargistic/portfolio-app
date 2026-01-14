@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: chime colors and selection">
-      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icons/ca-monocolor.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/ca-monocolor.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/lucide-settings.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide_languages.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-languages.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +58,10 @@
     <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/svelte@5.45.5/node_modules/svelte/types/index.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.es2020.string.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.es5.d.ts" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="groupByToolId" value="true" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -228,15 +235,8 @@
       <workItem from="1768329432981" duration="1730000" />
       <workItem from="1768331505704" duration="6441000" />
       <workItem from="1768338451647" duration="6000" />
-      <workItem from="1768384848924" duration="15290000" />
-    </task>
-    <task id="LOCAL-00016" summary="chore: more train tweaks">
-      <option name="closed" value="true" />
-      <created>1765049743185</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1765049743185</updated>
+      <workItem from="1768384848924" duration="22843000" />
+      <workItem from="1768409789349" duration="1981000" />
     </task>
     <task id="LOCAL-00017" summary="chore: more train tweaks x2">
       <option name="closed" value="true" />
@@ -622,7 +622,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768400405616</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="chore: chime colors and selection">
+      <option name="closed" value="true" />
+      <created>1768401939267</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1768401939267</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -640,7 +648,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: made the social updates scalable + chore: rate limits" />
     <MESSAGE value="feat: CA chime + fix: tweaks" />
     <MESSAGE value="feat: dynamic mask-image cutouts" />
     <MESSAGE value="fix: overflow on lower sizes + feat: wind now randomized and based on weight" />
@@ -665,6 +672,7 @@
     <MESSAGE value="chore: positioning progress" />
     <MESSAGE value="feat: positioning, that's editor done except furnishing and a few settings basically?" />
     <MESSAGE value="chore: added a few more settings to chimes" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: added a few more settings to chimes" />
+    <MESSAGE value="chore: chime colors and selection" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: chime colors and selection" />
   </component>
 </project>

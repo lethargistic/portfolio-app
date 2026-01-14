@@ -4,21 +4,35 @@
     import {getLocale, setLocale} from "$lib/paraglide/runtime";
     import {Spring, Tween} from "svelte/motion";
     import {cubicOut} from "svelte/easing";
-    import {currentLang, editorMode, fiend} from "$lib/shared.svelte";
-    import EditorTools from "$lib/editing/EditorTools.svelte";
+    import {currentLang, settings} from "$lib/shared.svelte";
 
     let seeLang = $state(false);
+    let seeSettings = $state(false);
 
     const languages = ["English", "日本語", "Українська"];
     let langButton: HTMLElement | null = $state(null);
+    let settingsButton: HTMLElement | null = $state(null);
     let langSelectors: HTMLElement | null = $state(null);
+    let settingsSelectors: HTMLElement | null = $state(null);
 
-    const handleLangSettingsClose = (e: Event) => {
+    const handleSettingsClose = (e: Event) => {
         const target = e.target;
         if (target == null) return;
         if (seeLang && !langButton?.contains(target as Node) && !langSelectors?.contains(target as Node)) {
             seeLang = false;
         }
+        if (seeSettings && !settingsButton?.contains(target as Node) && !settingsSelectors?.contains(target as Node)) {
+            seeSettings = false;
+        }
+    }
+
+    const flipSettings = () => {
+        if (seeLang) seeLang = false;
+        seeSettings = !seeSettings;
+    }
+    const flipLang = () => {
+        if (seeSettings) seeSettings = false;
+        seeLang = !seeLang;
     }
 
     const mapLang = {
@@ -89,28 +103,53 @@
 </script>
 
 <svelte:window onscroll={handleScroll} bind:scrollY={scrollY} bind:innerHeight={windowHeight}
-               onclick={handleLangSettingsClose}/>
+               onclick={handleSettingsClose}/>
 
 <noscript>
     <p style="color: red">
         This site is quite heavy on javascript, you might not get the best experience!
+        Most of my user-centered sides are no-js compatible though of course :)
     </p>
 </noscript>
 {#key currentLang.lang}
-    <div class="lang-settings">
-        <button class="lang-button" onclick={() => {seeLang = !seeLang}} bind:this={langButton}>
-            <img src="/img/icons/lucide_languages.svg" alt="language selector">
-        </button>
-
-        {#if seeLang}
-            <div class="lang-selector-wrap" transition:scale>
-                <ul class="lang-selectors" bind:this={langSelectors}>
-                    {#each languages as lang}
-                        <li>
-                            <button onclick={() => handleChangeLang(lang)}>{lang}</button>
-                        </li>
-                    {/each}
-                </ul>
+    <div class="settings-cont">
+        <div class="main-settings opener-settings">
+            <button class="settings-button opener-button" onclick={flipSettings} bind:this={settingsButton}>
+                <img class="settings-icon" src="/img/icons/lucide-settings.svg" alt="settings">
+            </button>
+        </div>
+        <div class="lang-settings opener-settings">
+            <button class="lang-button opener-button" onclick={flipLang} bind:this={langButton}>
+                <img class="lang-icon" src="/img/icons/lucide-languages.svg" alt="language selector">
+            </button>
+        </div>
+        {#if seeLang || seeSettings}
+            <div class="opener-selector-wrap" transition:scale>
+                {#if seeSettings}
+                    <ul class="settings-selectors opener-selectors" bind:this={settingsSelectors}>
+                        {#each Object.entries(settings) as [key, value] (key + '_salt932')}
+                            <li>
+                                <label for={key}>
+                                    <!-- seo unimportant here, so whatever -->
+                                    <div class="checkbox-cont">
+                                        <input id={key} name={key} type="checkbox" bind:checked={settings[key].state}/>
+                                    </div>
+                                    <p>{value.display}</p>
+                                    <small>{@html value.desc}</small>
+                                </label>
+                            </li>
+                        {/each}
+                    </ul>
+                {/if}
+                {#if seeLang}
+                    <ul class="lang-selectors opener-selectors" bind:this={langSelectors}>
+                        {#each languages as lang}
+                            <li>
+                                <button onclick={() => handleChangeLang(lang)}>{lang}</button>
+                            </li>
+                        {/each}
+                    </ul>
+                {/if}
             </div>
         {/if}
     </div>
@@ -149,67 +188,138 @@
     </section>
 
     <style>
-        .lang-settings {
+        .settings-cont {
             position: absolute;
-            top: 2rem;
-            right: 2rem;
+
+            --lang-icon-width: 1.6rem;
+            --settings-icon-width: calc(var(--lang-icon-width) - 0.1rem);
+            --openers-top: 2rem;
+            --openers-right: 2rem;
+            right: var(--openers-right);
+            top: var(--openers-top);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            gap: 2rem;
 
             & button {
                 all: unset;
                 cursor: pointer;
             }
 
-            --icon-width: 1.6rem;
-
-            & .lang-button {
-                position: absolute;
-                top: 0.3rem;
-                right: 0;
-
-                user-select: none;
-
-                & img {
-                    width: var(--icon-width);
-                }
-            }
-
-            & .lang-selectors {
-                margin-right: calc(var(--icon-width) + 1vw);
-                position: relative;
-                list-style: none;
-                color: white;
-
-                user-select: none;
-
+            & .opener-settings {
                 display: flex;
                 flex-direction: column;
 
-                background-color: #232323;
-                border: #888888 1px solid;
-                border-radius: 1px;
+                & .opener-button {
+                    user-select: none;
+                    margin-left: auto;
 
-                & li {
-                    width: 16vw;
-                    height: 1.6vw;
+                    & .settings-icon {
+                        width: var(--settings-icon-width)
+                    }
+
+                    & .lang-icon {
+                        width: var(--lang-icon-width);
+                    }
+                }
+            }
+
+
+            & .opener-selector-wrap {
+                position: absolute;
+                z-index: 999;
+
+                top: 0;
+                right: var(--openers-right);
+
+                & .opener-selectors {
+                    margin-right: calc(var(--lang-icon-width) + 1vw);
+                    list-style: none;
+                    color: white;
+
+                    user-select: none;
 
                     display: flex;
-                    align-items: center;
+                    flex-direction: column;
 
-                    padding: 0.6rem 0 0.6rem 0;
-                    font-size: 1.1rem;
+                    background-color: #232323;
+                    border: #888888 1px solid;
+                    border-radius: 1px;
+
+                    & li, li > label {
+                        width: 16vw;
+                        min-height: 1.6vw;
+
+                        display: flex;
+                        align-items: center;
+
+                        font-size: 1.1rem;
+                    }
+                }
+
+                & .settings-selectors {
+                    position: relative;
+                    width: 28vw;
+                    gap: 0.5rem;
+                    padding: 0.6rem 0;
+
+                    & li {
+                        width: 100%;
+                    }
+
+                    & li > label {
+                        display: grid;
+                        grid-template-columns: 4% auto;
+                        grid-template-rows: auto auto;
+
+                        gap: 0.5rem;
+
+                        width: 100%;
+                        padding: 0.6rem 0.6rem 0.6rem 1.2rem;
+                        box-sizing: border-box;
+
+                        & .checkbox-cont {
+                            display: flex;
+                            align-items: center;
+
+                            width: 100%;
+
+                            & input {
+
+                                accent-color: #a712dc;
+                            }
+                        }
+
+                        & small {
+                            grid-column: span 2;
+                            color: #bfbfbf;
+                        }
+                    }
+                }
+
+                & .lang-selectors {
+                    & li {
+                        height: 1.6vw;
+                        padding: 0.6rem 0 0.6rem 0;
+                    }
 
                     & button {
                         padding: 0.6rem 0 0.6rem 0.8rem;
                         width: 100%;
                         height: 100%;
                     }
-                }
 
-                & button:hover, & button:focus {
-                    background: #454545;
+                    & button:hover, & button:focus {
+                        background: #454545;
+                    }
                 }
             }
         }
+
 
         .welcome-seg {
             /* ref in code above ! */
@@ -252,7 +362,7 @@
                 width: 28.825vw;
                 left: 54.7%;
                 top: 49.3%;
-                box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+                box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
             }
 
             & .floatie {
@@ -283,7 +393,7 @@
                     font-weight: Bold;
                     font-style: normal;
 
-                    box-shadow: rgba(0, 0, 0, 0.25) 0 14px 35px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+                    box-shadow: rgba(0, 0, 0, 0.25) 0 14px 35px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
                 }
 
             }
@@ -314,7 +424,7 @@
                     font-weight: Bold;
                     font-style: normal;
 
-                    box-shadow: rgba(0, 0, 0, 0.25) 0 14px 35px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+                    box-shadow: rgba(0, 0, 0, 0.25) 0 14px 35px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
                 }
             }
         }
