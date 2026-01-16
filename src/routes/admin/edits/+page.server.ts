@@ -2,37 +2,7 @@ import type {Actions} from "./$types";
 import {fail} from "@sveltejs/kit";
 import {PUBLIC_DEV} from "$env/static/public";
 import {getAdminClient} from "$lib/serverUtils/getSupabaseAdminClient";
-
-const isValidNumber = (val: any) => {
-    if (typeof val === 'boolean' || val === null || val === '') return false;
-    return Number.isFinite(Number(val));
-}
-
-
-const convertSimpleObjTypesImplicitly = (obj: Record<string, any>) => {
-    for (let [key, value] of Object.entries(obj)) {
-        if (key.startsWith("type_") || typeof value !== 'string') continue;
-
-        if (value === 'null') {
-            obj[key] = null;
-            continue;
-        }
-        if (value === 'undefined') {
-            obj[key] = undefined;
-            continue;
-        }
-
-        if (value === 'true' || value === 'false') {
-            obj[key] = value === 'true'
-            continue;
-        }
-
-        if (isValidNumber(value)) {
-            obj[key] = Number(value);
-        }
-    }
-    return obj;
-}
+import {convertSimpleDataTypesImplicitly} from '$lib/utils/utils';
 
 export const actions = {
     postSocial: async ({locals: {safeGetSession}, request}) => {
@@ -45,7 +15,18 @@ export const actions = {
 
         const data = await request.formData();
         const social = Object.fromEntries(data.entries());
-        const folds = JSON.parse(social.folds as string).map((obj: Record<string, any>) => convertSimpleObjTypesImplicitly(obj));
+        const foldsJSON = JSON.parse(social.folds as string)
+
+        const folds: Array<typeof foldsJSON[any]> = [];
+
+        // should come pre-converted anyway
+        for (const obj of foldsJSON) {
+            const newObj: Record<string, any> = {};
+            for (let [key, value] of obj) {
+                newObj[key] = key.startsWith('type_') ? value : convertSimpleDataTypesImplicitly(value);
+            }
+            folds.push(newObj);
+        }
 
         delete social.folds;
         const supabase = getAdminClient();

@@ -484,6 +484,7 @@
             editorSocials.state[editbar.focusedIx].left_vw += leftVw;
             editorSocials.state[editbar.focusedIx].top_vh += topVh;
 
+
             // rounding
             editorSocials.state[editbar.focusedIx].left_vw = parseFloat(editorSocials.state[editbar.focusedIx].left_vw.toFixed(2));
             editorSocials.state[editbar.focusedIx].top_vh = parseFloat(editorSocials.state[editbar.focusedIx].top_vh.toFixed(2));

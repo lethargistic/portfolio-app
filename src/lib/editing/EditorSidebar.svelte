@@ -1,6 +1,6 @@
 <script lang="ts">
     import {activeEditor, editorSocials, MAX_CHIME_FOLDS, editbar} from "$lib/shared.svelte";
-    import {isEmptyArr, SeparatorShape} from "$lib/utils/utils";
+    import {convertSimpleDataTypesImplicitly, isEmptyArr, SeparatorShape} from "$lib/utils/utils";
     import {applyAction, enhance} from "$app/forms";
     import type {SubmitFunction} from "@sveltejs/kit";
     import {untrack} from "svelte";
@@ -81,7 +81,7 @@
             editbar.focused = v;
             return;
         }
-        editorSocials.state[editbar.focusedIx][key] = v;
+        editorSocials.state[editbar.focusedIx][key] = key.startsWith('type_') ? v : convertSimpleDataTypesImplicitly(v);
     }
 </script>
 

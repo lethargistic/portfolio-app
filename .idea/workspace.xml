@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: settings now save between sessions + feat: cool moon thing for no-flashing mode">
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: wrong rope length no longer invalidates itself more or less">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/utils/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,15 +239,7 @@
       <workItem from="1768338451647" duration="6000" />
       <workItem from="1768384848924" duration="22843000" />
       <workItem from="1768409789349" duration="3824000" />
-      <workItem from="1768554202853" duration="10399000" />
-    </task>
-    <task id="LOCAL-00020" summary="chore: added cool art&#10;existential crisis also">
-      <option name="closed" value="true" />
-      <created>1765138439646</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1765138439646</updated>
+      <workItem from="1768554202853" duration="13128000" />
     </task>
     <task id="LOCAL-00021" summary="chore: it's about time i learn 3js">
       <option name="closed" value="true" />
@@ -629,7 +625,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768566011938</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="fix: wrong rope length no longer invalidates itself more or less">
+      <option name="closed" value="true" />
+      <created>1768566893707</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1768566893707</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -647,7 +651,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: chime top offset now responsive" />
     <MESSAGE value="fix: CA link was not clickable" />
     <MESSAGE value="feat: edit button" />
     <MESSAGE value="feat: started on cool bg" />
@@ -672,6 +675,7 @@
     <MESSAGE value="feat: settings" />
     <MESSAGE value="chore: made all text more breathable, and extra settings tweaks + chore: extended chimes now rely on setting" />
     <MESSAGE value="feat: settings now save between sessions + feat: cool moon thing for no-flashing mode" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: settings now save between sessions + feat: cool moon thing for no-flashing mode" />
+    <MESSAGE value="fix: wrong rope length no longer invalidates itself more or less" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: wrong rope length no longer invalidates itself more or less" />
   </component>
 </project>

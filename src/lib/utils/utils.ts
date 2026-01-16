@@ -31,3 +31,27 @@ export enum Editable {
     Other = "other",
     Art = "art"
 }
+
+const isValidDataNumber = (val: any) => {
+    if (typeof val === 'boolean' || val === null || val === '') return false;
+    return Number.isFinite(Number(val));
+}
+
+export const convertSimpleDataTypesImplicitly = (value: any) => {
+    if (value === 'null') {
+        return null;
+    }
+    if (value === 'undefined') {
+        return undefined;
+    }
+
+    if (value === 'true' || value === 'false') {
+        return value === 'true'
+    }
+
+    if (isValidDataNumber(value)) {
+        return Number(value);
+    }
+
+    return value;
+}
