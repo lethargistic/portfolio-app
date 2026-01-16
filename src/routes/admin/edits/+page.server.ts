@@ -19,10 +19,10 @@ export const actions = {
 
         const folds: Array<typeof foldsJSON[any]> = [];
 
-        // should come pre-converted anyway
+        // should come pre-converted from inputs anyway
         for (const obj of foldsJSON) {
             const newObj: Record<string, any> = {};
-            for (let [key, value] of obj) {
+            for (let [key, value] of Object.entries(obj)) {
                 newObj[key] = key.startsWith('type_') ? value : convertSimpleDataTypesImplicitly(value);
             }
             folds.push(newObj);
