@@ -30,3 +30,4 @@
 - [ ] todo high: db backups cron (supabase provides storage, how nice of it)
 - [ ] todo high: you have unposted changes!
 - [ ] todo high: implement all the settings
+- [ ] todo high: sounds off toast due to chrome policy if you relog

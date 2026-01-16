@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {currentLang, editorMode} from "$lib/shared.svelte";
+    import {currentLang} from "$lib/shared.svelte";
     import {m} from "../paraglide/messages";
     import {onMount} from "svelte";
     import {Tween} from "svelte/motion";

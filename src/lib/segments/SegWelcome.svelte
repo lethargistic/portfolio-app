@@ -1,10 +1,10 @@
 <script lang="ts">
     import {m} from "../paraglide/messages.js"
-    import {scale} from "svelte/transition"
     import {getLocale, setLocale} from "$lib/paraglide/runtime";
     import {Spring, Tween} from "svelte/motion";
-    import {cubicOut} from "svelte/easing";
-    import {currentLang, settings} from "$lib/shared.svelte";
+    import {cubicOut, cubicInOut, cubicIn} from "svelte/easing";
+    import {currentLang, fiend, settings} from "$lib/shared.svelte";
+    import {scale} from "svelte/transition"
 
     let seeLang = $state(false);
     let seeSettings = $state(false);
@@ -124,20 +124,23 @@
             </button>
         </div>
         {#if seeLang || seeSettings}
-            <div class="opener-selector-wrap" transition:scale>
+            <div class="opener-selector-wrap" transition:scale={{easing: cubicInOut}}>
                 {#if seeSettings}
                     <ul class="settings-selectors opener-selectors" bind:this={settingsSelectors}>
                         {#each Object.entries(settings) as [key, value] (key + '_salt932')}
-                            <li>
-                                <label for={key}>
-                                    <!-- seo unimportant here, so whatever -->
-                                    <div class="checkbox-cont">
-                                        <input id={key} name={key} type="checkbox" bind:checked={settings[key].state}/>
-                                    </div>
-                                    <p>{value.display}</p>
-                                    <small>{@html value.desc}</small>
-                                </label>
-                            </li>
+                            {#if !value.admin || (value.admin && fiend.state)}
+                                <li>
+                                    <label for={key}>
+                                        <!-- seo unimportant here, so whatever -->
+                                        <div class="checkbox-cont">
+                                            <input id={key} name={key} type="checkbox"
+                                                   bind:checked={settings[key].state}/>
+                                        </div>
+                                        <p>{value.display}</p>
+                                        <small>{@html value.desc}</small>
+                                    </label>
+                                </li>
+                            {/if}
                         {/each}
                     </ul>
                 {/if}
@@ -154,15 +157,23 @@
         {/if}
     </div>
 
-    <section class="welcome-seg" id="welcome">
-        <img style={`transform: translate(-50%, -50%) rotate(${illuRotation.current}deg)`}
-             class="illu illu-left"
-             src="/img/illu1.webp"
-             alt="cool illusion part 1">
-        <img style={`transform: translate(-50%, -50%) rotate(${illuRotation.current*2}deg)`}
-             class="illu illu-right"
-             src="/img/illu2.webp"
-             alt="cool illusion part 2">
+    <section class='welcome-seg' id="welcome">
+        {#if settings.noFlashing.state}
+            <img transition:scale={{duration: 800, easing: settings.noFlashing.state ? cubicIn : cubicOut}} class="no-flashing"
+                 src="/img/moon-sticker-i-once-drew-on-a-whim.webp"
+                 alt="a moon with a forest on it">
+        {:else}
+            <img transition:scale={{duration: 1200, easing: settings.noFlashing.state ? cubicOut : cubicIn}}
+                 style={`transform: translate(-50%, -50%) rotate(${illuRotation.current}deg)`}
+                 class="illu illu-left"
+                 src='/img/illu1.webp'
+                 alt="cool illusion part 1">
+            <img transition:scale={{duration: 1200, easing: settings.noFlashing.state ? cubicOut : cubicIn}}
+                 style={`transform: translate(-50%, -50%) rotate(${illuRotation.current*2}deg)`}
+                 class="illu illu-right"
+                 src='/img/illu2.webp'
+                 alt="cool illusion part 2">
+        {/if}
 
         <!--TODO: maybe use grabbing cursor-->
         <div style={`transform: translate(${floatieMaksiksCoords.current.x}px, ${floatieMaksiksCoords.current.y}px)`}
@@ -273,7 +284,7 @@
 
                     & li > label {
                         display: grid;
-                        grid-template-columns: 4% auto;
+                        grid-template-columns: 1rem auto;
                         grid-template-rows: auto auto;
 
                         cursor: pointer;
@@ -288,10 +299,38 @@
                             display: flex;
                             align-items: center;
 
-                            width: 100%;
+                            width: 1rem;
 
                             & input {
-                                accent-color: #a712dc;
+                                -webkit-appearance: none;
+                                appearance: none;
+                                background-color: #fff;
+                                margin: 0;
+
+                                width: 1rem;
+                                height: 1rem;
+                                border-radius: 1px;
+                                border: 2px solid black;
+
+                                display: grid;
+                                place-content: center;
+
+                                &::before {
+                                    content: "";
+                                    width: 0.6rem;
+                                    height: 0.6rem;
+                                    transform: scale(0);
+                                    transition: transform 0.12s ease-in-out;
+                                    background-color: #a712dc;
+                                    transform-origin: bottom left;
+
+
+                                    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+                                }
+
+                                &:checked::before {
+                                    transform: scale(1);
+                                }
                             }
                         }
 
@@ -429,6 +468,14 @@
                     box-shadow: rgba(0, 0, 0, 0.25) 0 14px 35px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
                 }
             }
+        }
+
+        & .no-flashing {
+            box-shadow: none;
+            margin-left: 24rem;
+            width: 37vw;
+            height: 37.5vw;
+            aspect-ratio: 1/1;
         }
     </style>
 {/key}

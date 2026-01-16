@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: settings">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: made all text more breathable, and extra settings tweaks + chore: extended chimes now rely on setting">
+      <change afterPath="$PROJECT_DIR$/static/img/moon-sticker-i-once-drew-on-a-whim.webp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/editing/GlobalEditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/GlobalEditorTools.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,12 +56,14 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$APPLICATION_HOME_DIR$/lib/modules/intellij.relaxng.jar!/resources/html5-schema/html5/applications.rnc" root0="SKIP_INSPECTION" />
+    <setting file="jar://$APPLICATION_HOME_DIR$/lib/modules/intellij.relaxng.jar!/resources/html5-schema/html5/web-forms.rnc" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@sveltejs+kit@2.49.1_@sveltejs+vite-plugin-svelte@6.2.1_svelte@5.45.5_vite@7.2.6_@types+node@_isg2epygngqsbhilvwtsyg5opq/node_modules/@sveltejs/kit/types/index.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@types+three@0.182.0/node_modules/@types/three/examples/jsm/lines/LineMaterial.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@types+three@0.182.0/node_modules/@types/three/examples/jsm/renderers/CSS3DRenderer.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@types+three@0.182.0/node_modules/@types/three/src/math/Vector3.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/svelte@5.45.5/node_modules/svelte/elements.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/svelte@5.45.5/node_modules/svelte/types/index.d.ts" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.dom.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.es2020.string.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.es5.d.ts" root0="SKIP_INSPECTION" />
   </component>
@@ -70,38 +79,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;JavaScript Debug.localhost:5173.executor&quot;: &quot;Debug&quot;,
-    &quot;JavaScript Debug.localhost:5174.executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Shell Script.Host.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.やばそうなの.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Docs/webstormproj/sustenant/static/img/icons&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.smartKeys&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "JavaScript Debug.localhost:5173.executor": "Debug",
+    "JavaScript Debug.localhost:5174.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Shell Script.Host.executor": "Run",
+    "Shell Script.やばそうなの.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/static/img",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "editor.preferences.smartKeys",
+    "ts.external.directory.path": "D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\static\img" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\icons" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\linktree-decor" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\icon" />
     </key>
@@ -235,15 +244,8 @@
       <workItem from="1768331505704" duration="6441000" />
       <workItem from="1768338451647" duration="6000" />
       <workItem from="1768384848924" duration="22843000" />
-      <workItem from="1768409789349" duration="2972000" />
-    </task>
-    <task id="LOCAL-00018" summary="docs: todo">
-      <option name="closed" value="true" />
-      <created>1765054090127</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1765054090127</updated>
+      <workItem from="1768409789349" duration="3824000" />
+      <workItem from="1768554202853" duration="9740000" />
     </task>
     <task id="LOCAL-00019" summary="docs: todo x2">
       <option name="closed" value="true" />
@@ -629,7 +631,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768411995462</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="chore: made all text more breathable, and extra settings tweaks + chore: extended chimes now rely on setting">
+      <option name="closed" value="true" />
+      <created>1768412798820</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1768412798820</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -647,7 +657,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: dynamic mask-image cutouts" />
     <MESSAGE value="fix: overflow on lower sizes + feat: wind now randomized and based on weight" />
     <MESSAGE value="fix: chime top offset now responsive" />
     <MESSAGE value="fix: CA link was not clickable" />
@@ -672,6 +681,7 @@
     <MESSAGE value="chore: added a few more settings to chimes" />
     <MESSAGE value="chore: chime colors and selection" />
     <MESSAGE value="feat: settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: settings" />
+    <MESSAGE value="chore: made all text more breathable, and extra settings tweaks + chore: extended chimes now rely on setting" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: made all text more breathable, and extra settings tweaks + chore: extended chimes now rely on setting" />
   </component>
 </project>

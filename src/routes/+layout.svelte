@@ -3,7 +3,7 @@
     import '../styles/global.css';
     import {onMount} from "svelte";
     import {invalidate} from "$app/navigation";
-    import {editing, editorMode, fiend, editbar} from "$lib/shared.svelte";
+    import {editing, fiend, editbar, settings} from "$lib/shared.svelte";
 
     let {data, children} = $props();
     let {supabase, session} = $derived(data);
@@ -32,7 +32,7 @@
         if (isTyping) return;
 
         if (e.key === 'e' && fiend.state) {
-            editorMode.state = !editorMode.state;
+            settings.editor.state = !settings.editor.state;
         }
         if (e.key === 'Escape' && fiend.state) {
             editing.state = false;

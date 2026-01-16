@@ -3,8 +3,9 @@
     import SegAbout from "$lib/segments/SegAbout.svelte";
     import SegLinktree from "$lib/segments/SegLinktree.svelte";
     import {goto} from "$app/navigation";
-    import {activeEditor, editing, editorMode} from "$lib/shared.svelte";
+    import {activeEditor, editing, settings} from "$lib/shared.svelte";
     import GlobalEditorTools from "$lib/editing/GlobalEditorTools.svelte";
+    import {onMount} from "svelte";
 
     let {form, data} = $props();
 
@@ -32,10 +33,35 @@
             codeIx = 0;
         }
     }
+
+    //
+
+    let pulledSettings = $state(false);
+    const manageSettings = () => {
+        if (pulledSettings) {
+            localStorage.setItem('settings', JSON.stringify(settings));
+        } else {
+            const oldSettings = localStorage.getItem('settings');
+
+            if (!oldSettings) {
+                manageSettings();
+                return;
+            }
+            const oldSettingsJSON = JSON.parse(oldSettings);
+
+            for (const [key, value] of Object.entries(oldSettingsJSON as typeof settings)) {
+                settings[key].state = value.state;
+            }
+
+            pulledSettings = true;
+        }
+
+    }
+    $effect(manageSettings);
 </script>
 <svelte:window on:keydown={handleTravelToAuth}/>
 
-{#if editing.state && editorMode.state}
+{#if editing.state && settings.editor.state}
     <div class="editing">
         <p>Editing</p>
         <small>{activeEditor.state}</small>

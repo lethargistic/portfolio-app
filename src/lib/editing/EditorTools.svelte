@@ -2,9 +2,8 @@
     import {
         activeEditor,
         editing,
-        editorMode,
         editorSocials,
-        MAX_CHIME_FOLDS
+        MAX_CHIME_FOLDS, settings
     } from "$lib/shared.svelte";
     import {Editable} from "$lib/utils/utils";
 
@@ -60,7 +59,7 @@
     const moveIconPath = 'img/icons/lucide-move.svg';
 </script>
 
-{#if editorMode.state}
+{#if settings.editor.state}
     <div class={`editor-tools ${left ? 'left' : 'right'}`}>
         {#if Object.values(Editable).includes(seg) }
             <button onclick={flipEditing}>
