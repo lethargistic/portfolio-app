@@ -7,7 +7,7 @@
     import {activeEditor, editorSocials, fiend, MAX_CHIME_FOLDS, MIN_CHIME_FOLDS, editbar} from "$lib/shared.svelte";
 
     let props = $props();
-    let {social: socialProp, chimeYOffset, chimeMaxHeightVh} = props;
+    let {social: socialProp} = props;
 
     let social = $derived(socialProp);
     let folds = $derived(social.folds);
@@ -383,7 +383,7 @@
             chimeParticles[0].pos.copy(chimeRopeParticles[chimeRopeParticles.length - 1].pos);
 
             chimeRopeParticles[0].pos.y -= chimeRopeYOffset;
-            chimeParticles[0].pos.y -= chimeYOffset;
+            chimeParticles[0].pos.y -= social.chime_y_offset;
         }
 
         const treeRopePos = treeRope.geometry.attributes.position.array;
@@ -554,13 +554,13 @@
         <!-- the 0.5 accounts for the shape -->
         {@const svgHeight = 1578 * ((foldCount + 0.5) / (MAX_CHIME_FOLDS + 0.5))}
         <svg class="chime"
-             style={`height: ${chimeMaxHeightVh/((MAX_CHIME_FOLDS+0.5)/(foldCount+0.5))}vh`} width="530"
+             style={`height: ${social.chime_max_height_vh/((MAX_CHIME_FOLDS+0.5)/(foldCount+0.5))}vh`} width="530"
              height={`${svgHeight}`} viewBox={`0 0 530 ${svgHeight}`} fill="none"
              xmlns="http://www.w3.org/2000/svg">
             <ChimeSVGFilling {foldCount} bind:trackedGroup={trackedGroup} cutout={false}/>
         </svg>
         <svg bind:this={chimeSVGCutoutElem} class="chime chime-cutout"
-             style={`height: ${chimeMaxHeightVh/((MAX_CHIME_FOLDS+0.5)/(foldCount+0.5))}vh`} width="530"
+             style={`height: ${social.chime_max_height_vh/((MAX_CHIME_FOLDS+0.5)/(foldCount+0.5))}vh`} width="530"
              height={`${svgHeight}`} viewBox={`0 0 530 ${svgHeight}`} fill="none"
              xmlns="http://www.w3.org/2000/svg">
             <ChimeSVGFilling {foldCount} cutout={true}/>

@@ -122,8 +122,7 @@
                          left: ${social.left_vw}vw;
                          z-index: ${social.above ? '999' : '0'};
                          `}>
-                        <Chime {social} chimeYOffset={0.15}
-                               chimeMaxHeightVh={82}/>
+                        <Chime {social}/>
                     </div>
                 {/if}
             {/each}
