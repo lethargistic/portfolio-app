@@ -21,6 +21,10 @@ export enum SeparatorShape {
     Circles = "Circles",
     Ok = "Ok",
     Tilde = "Tilde",
+    Rectangle = "Rectangle",
+    Bar = "Bar",
+    Barer = "Barer",
+    Lantern = "Lantern",
     None = "None"
 }
 
@@ -34,6 +38,7 @@ export enum Editable {
 
 const isValidDataNumber = (val: any) => {
     if (typeof val === 'boolean' || val === null || val === '') return false;
+    if (typeof val === 'string' && val.trim().endsWith('.')) return false;
     return Number.isFinite(Number(val));
 }
 
@@ -50,7 +55,7 @@ export const convertSimpleDataTypesImplicitly = (value: any) => {
     }
 
     if (isValidDataNumber(value)) {
-        return Number(value);
+        return parseFloat(value);
     }
 
     return value;

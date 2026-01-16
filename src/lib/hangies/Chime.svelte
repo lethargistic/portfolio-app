@@ -5,6 +5,10 @@
     import {SeparatorShape} from "$lib/utils/utils";
     import ChimeSVGFilling from "$lib/hangies/ChimeSVG.svelte";
     import {activeEditor, editorSocials, fiend, MAX_CHIME_FOLDS, MIN_CHIME_FOLDS, editbar} from "$lib/shared.svelte";
+    import SVGThreeStars from "$lib/hangies/separators/separators/SVGThreeStars.svelte";
+    import SVGStar from "$lib/hangies/separators/separators/SVGStar.svelte";
+    import SVGCircles from "$lib/hangies/separators/separators/SVGCircles.svelte";
+    import SVGLantern from "$lib/hangies/separators/separators/SVGLantern.svelte";
 
     let props = $props();
     let {social: socialProp} = props;
@@ -16,20 +20,16 @@
 
     const chimeRopeYOffset = $derived.by(() => {
         switch (separatorShape) {
-            case SeparatorShape.Star:
-                return -0.1;
             case SeparatorShape.ThreeStars:
                 return -0.1;
-            case SeparatorShape.Pebble:
-                return 0;
-            case SeparatorShape.Circles:
-                return 0;
             case SeparatorShape.Ok:
                 return 0.05;
             case SeparatorShape.Tilde:
-                return 0.0;
-            case SeparatorShape.None:
-                return 0.0;
+                return -0.2;
+            case SeparatorShape.Lantern:
+                return 0.02;
+            case SeparatorShape.Barer:
+                return 0;
             default:
                 return 0;
         }
@@ -440,14 +440,14 @@
         cssRenderer.render(scene, camera);
     }
 
-    let chimePathWidth = $state(0);
+    let chimeGroupWidth = $state(0);
 
     // the bindings don't work on these so oh well
     let trackedGroup: SVGPathElement | null = $state(null);
     const adjustPathDimensionTracking = () => {
         if (!trackedGroup) return;
         const rect = trackedGroup.getBoundingClientRect();
-        chimePathWidth = rect.width;
+        chimeGroupWidth = rect.width;
     }
 
     //
@@ -513,16 +513,44 @@
         class="chime-canvas"></canvas>
 <div bind:this={cssContElem} class="chime-css"></div>
 <div bind:this={separatorElem} bind:clientHeight={separatorHeight} class="separator">
-    {#if separatorShape === SeparatorShape.Ok}
+    {#if separatorShape === SeparatorShape.Star}
+        <svg class="star" width="142" height="142" viewBox="0 0 142 142" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <SVGStar/>
+        </svg>
+    {:else if separatorShape === SeparatorShape.ThreeStars}
+        <svg class="three-stars" width="119" height="262" viewBox="0 0 119 262" fill="none"
+             xmlns="http://www.w3.org/2000/svg">
+            <SVGThreeStars/>
+        </svg>
+    {:else if separatorShape === SeparatorShape.Pebble}
+        <div class="pebble"></div>
+    {:else if separatorShape === SeparatorShape.Circles}
+        <svg class="circles" width="78" height="142" viewBox="0 0 78 142" fill="none"
+             xmlns="http://www.w3.org/2000/svg">
+            <SVGCircles/>
+        </svg>
+    {:else if separatorShape === SeparatorShape.Ok}
         <!-- i was going to make it "duct tape" but i'm afraid that will
              blow my professionalism, what a loss... -->
         <p class="ok">ok</p>
-    {:else if separatorShape === SeparatorShape.Star}
-        <!-- -->
-    {:else if separatorShape === SeparatorShape.ThreeStars}
-        <img class="three-stars" src="/img/hangies/separators/three-stars.svg" alt="three stars"/>
-    {:else if separatorShape === SeparatorShape.Pebble}
-        <div class="pebble"></div>
+    {:else if separatorShape === SeparatorShape.Tilde}
+        <p class="tilde">~</p>
+    {:else if separatorShape === SeparatorShape.Rectangle}
+        <div class="rectangle" style={`width: ${chimeGroupWidth}px;`}></div>
+    {:else if separatorShape === SeparatorShape.Bar}
+        <div class="bar"></div>
+    {:else if separatorShape === SeparatorShape.Barer}
+        <!-- TODO maybe: rmake it add a separator on top instead of being lame  -->
+        <div class="barer-cont">
+            <div class="barer"></div>
+            <div class="bar"></div>
+        </div>
+    {:else if separatorShape === SeparatorShape.Lantern}
+        <svg class="lantern" width="361" viewBox="0 0 361 619" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <SVGLantern/>
+        </svg>
+    {:else if separatorShape === SeparatorShape.None}
+        <!-- literally nothing -->
     {:else}
         oh no
     {/if}
@@ -531,7 +559,7 @@
      bind:clientHeight={chimeHeight}
      style={`mask-image: url("${chimeSVGMaskUrl}");`}>
     <div class={`fold-cont ${activeEditor.state === 'lnkt-modifying' || activeEditor.state === 'lnkt-positioning' ? 'hover-focus' : ''}`}
-    bind:clientHeight={foldContHeight} bind:clientWidth={foldContWidth}
+         bind:clientHeight={foldContHeight} bind:clientWidth={foldContWidth}
          style={`grid-template-rows: repeat(${foldCount*2+1}, 1fr);`}
          role="presentation" onclick={handleChimeEdit} onkeydown={handleChimeEdit} onpointerdown={handleChimeHolding}
          onpointerup={handleChimeLeaving} onpointerleave={handleChimeLeaving} onpointermove={handleChimeMoving}>
@@ -540,7 +568,7 @@
         {#each folds as fold}
             {@const left = fold.left}
             <div class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
-                 style={`width: ${chimePathWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;`}>
+                 style={`width: ${chimeGroupWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;`}>
 
                 <a href={fold.link ?? social.link} target="_blank">
                     <img src={`/img/icons/${fold.icon}`} alt={fold.slug}>
@@ -720,6 +748,12 @@
     .separator {
         color: #111111;
 
+        & .star {
+            width: 4vw;
+            height: 4vw;
+            aspect-ratio: 1/1;
+        }
+
         & .three-stars {
             /* putting it on the string */
             margin-top: -10rem;
@@ -735,8 +769,51 @@
             background-color: #111111;
         }
 
+        & .circles {
+            margin-top: -3rem;
+        }
+
         & .ok {
             margin-top: 1rem;
+        }
+
+        & .tilde {
+            color: #111111;
+            font-weight: 100;
+            font-size: 10rem;
+            margin-top: -3rem;
+        }
+
+        & .rectangle {
+            /* width in js */
+            height: 3vh;
+            background: #111111;
+        }
+
+        --bar-high: 20vh;
+
+        & .bar {
+            width: 1.5vw;
+            height: var(--bar-high);
+            background: #111111;
+        }
+
+        & .barer-cont {
+            display: grid;
+            place-items: center;
+            margin-top: -12rem;
+
+            & .barer {
+                width: 1vw;
+                height: 13vh;
+                margin-bottom: 2vh;
+                background: #111111;
+            }
+        }
+
+        & .lantern {
+            width: 3vw;
+            margin-top: 1.1rem;
         }
     }
 

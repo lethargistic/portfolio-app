@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: max height and chime offset settings" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: borked server posting logic by accident">
+      <change afterPath="$PROJECT_DIR$/src/lib/hangies/separators/separators/SVGAmethyst.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/hangies/separators/separators/SVGCircles.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/hangies/separators/separators/SVGLantern.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/hangies/separators/separators/SVGStar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/utils/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/hangies/separators/three-stars.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/separators/separators/SVGThreeStars.svelte" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,7 +91,7 @@
     "Shell Script.やばそうなの.executor": "Run",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/static/img",
+    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/src/lib/hangies/separators/separators",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,18 +105,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\src\lib\hangies\separators\separators" />
+      <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\separators" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\icons" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\linktree-decor" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img\icon" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\src\lib\hangies\separators" />
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\admin\workaround" />
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\admin" />
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\api\v1" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\lib\serverUtils" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.localhost:5174">
@@ -233,15 +242,7 @@
       <workItem from="1768338451647" duration="6000" />
       <workItem from="1768384848924" duration="22843000" />
       <workItem from="1768409789349" duration="3824000" />
-      <workItem from="1768554202853" duration="15789000" />
-    </task>
-    <task id="LOCAL-00023" summary="chore: it's sorta chiming time">
-      <option name="closed" value="true" />
-      <created>1767362329885</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1767362329885</updated>
+      <workItem from="1768554202853" duration="20721000" />
     </task>
     <task id="LOCAL-00024" summary="chore: chime fixes&#10;i definitely messed some of the math up but it works so whatever">
       <option name="closed" value="true" />
@@ -627,7 +628,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768582161771</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="fix: borked server posting logic by accident">
+      <option name="closed" value="true" />
+      <created>1768582437812</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1768582437812</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -645,7 +654,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: started on cool bg" />
     <MESSAGE value="feat: made bg more sophisticated" />
     <MESSAGE value="chore: forgot to commit imgs" />
     <MESSAGE value="feat: extra chime look tweaks" />
@@ -670,18 +678,7 @@
     <MESSAGE value="fix: wrong rope length no longer invalidates itself more or less" />
     <MESSAGE value="fix: edited positons and others no longer bork themselves if string or 0" />
     <MESSAGE value="chore: max height and chime offset settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: max height and chime offset settings" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts</url>
-          <line>28</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="fix: borked server posting logic by accident" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: borked server posting logic by accident" />
   </component>
 </project>
