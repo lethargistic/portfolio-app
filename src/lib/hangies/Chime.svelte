@@ -77,7 +77,7 @@
 
     const chimeRopeSegments = 30;
     const chimeRopeParticleCount = chimeRopeSegments + 1;
-    const chimeRopeLength = $derived(social.chime_rope_length);
+    const chimeRopeLength = $derived(isNaN(social.chime_rope_length) ? 1 : social.chime_rope_length);
 
     const chimeSegments = 2;
     const chimeParticleCount = chimeSegments + 1;
@@ -571,6 +571,7 @@
 <style>
     .prevent-select {
         user-select: none;
+        -webkit-user-drag: none;
         user-drag: none;
     }
 

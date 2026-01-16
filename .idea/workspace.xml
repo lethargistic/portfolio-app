@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: made all text more breathable, and extra settings tweaks + chore: extended chimes now rely on setting">
-      <change afterPath="$PROJECT_DIR$/static/img/moon-sticker-i-once-drew-on-a-whim.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/editing/GlobalEditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/GlobalEditorTools.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: settings now save between sessions + feat: cool moon thing for no-flashing mode">
       <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -245,15 +235,7 @@
       <workItem from="1768338451647" duration="6000" />
       <workItem from="1768384848924" duration="22843000" />
       <workItem from="1768409789349" duration="3824000" />
-      <workItem from="1768554202853" duration="9740000" />
-    </task>
-    <task id="LOCAL-00019" summary="docs: todo x2">
-      <option name="closed" value="true" />
-      <created>1765054149661</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1765054149661</updated>
+      <workItem from="1768554202853" duration="10399000" />
     </task>
     <task id="LOCAL-00020" summary="chore: added cool art&#10;existential crisis also">
       <option name="closed" value="true" />
@@ -639,7 +621,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768412798820</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="feat: settings now save between sessions + feat: cool moon thing for no-flashing mode">
+      <option name="closed" value="true" />
+      <created>1768566011937</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1768566011938</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -657,7 +647,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: overflow on lower sizes + feat: wind now randomized and based on weight" />
     <MESSAGE value="fix: chime top offset now responsive" />
     <MESSAGE value="fix: CA link was not clickable" />
     <MESSAGE value="feat: edit button" />
@@ -682,6 +671,7 @@
     <MESSAGE value="chore: chime colors and selection" />
     <MESSAGE value="feat: settings" />
     <MESSAGE value="chore: made all text more breathable, and extra settings tweaks + chore: extended chimes now rely on setting" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: made all text more breathable, and extra settings tweaks + chore: extended chimes now rely on setting" />
+    <MESSAGE value="feat: settings now save between sessions + feat: cool moon thing for no-flashing mode" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: settings now save between sessions + feat: cool moon thing for no-flashing mode" />
   </component>
 </project>

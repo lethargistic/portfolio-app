@@ -18,7 +18,7 @@
 - [ ] todo very fun: make one of the blurred hangies cover up a part of the tree because the colors just look too good
 - [ ] todo very: make the tree hangie section have #link-tree so i can link it, cause it's a literal link tree get it? (help)
 - [ ] todo high: amethyst sounds
-- [ ] todo high: everything must have a little pencil near it so i can change whatever i want if im logged in
+- [x] todo high: everything must have a little pencil near it so i can change whatever i want if im logged in
 - [ ] todo maybe: rain on the stats page?
 - [ ] todo maybe: leaf particles
 - [ ] todo maybe: memorize the stat values in the db in case the enemy api dies ; enemy??? sure caffeine hallucinations
