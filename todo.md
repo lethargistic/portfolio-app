@@ -32,3 +32,4 @@
 - [ ] todo high: implement all the settings
 - [ ] todo high: sounds off toast due to chrome policy if you relog
 - [ ] todo: replace moon thing with a less intrusive version of illusion (accessibility option should not provide new content)
+- [ ] todo high: svg sprite sheet for icons, there's way too many

@@ -9,6 +9,7 @@
     import SVGStar from "$lib/hangies/separators/separators/SVGStar.svelte";
     import SVGCircles from "$lib/hangies/separators/separators/SVGCircles.svelte";
     import SVGLantern from "$lib/hangies/separators/separators/SVGLantern.svelte";
+    import Icon from "$lib/Icon.svelte";
 
     let props = $props();
     let {social: socialProp} = props;
@@ -571,7 +572,11 @@
                  style={`width: ${chimeGroupWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;`}>
 
                 <a href={fold.link ?? social.link} target="_blank">
-                    <img src={`/img/icons/${fold.icon}`} alt={fold.slug}>
+                    {#if fold.icon === 'hackatime-icon'}
+                        <img src={`/img/icons/${fold.icon}`} alt={fold.slug}>
+                    {:else}
+                        <Icon name={fold.icon} currentColor={'#111111'}/>
+                    {/if}
                     <p>{@html fold.display_override ?? fold.slug}</p>
                     <p class={`stat-fold-state ${fold.thick ? 'stat-fold-thick' : ''}`}>{fold.preface}{fold.state}{fold.postface}</p>
                 </a>
@@ -598,6 +603,19 @@
 </div>
 
 <style>
+    :global(.factory-icon) {
+        width: min-content;
+        height: min-content;
+        grid-row: span 2;
+    }
+
+    :global(.factory-icon > svg) {
+        width: 19.5px;
+        height: 19.5px;
+        grid-row: span 2;
+        aspect-ratio: 1 / 1;
+    }
+
     .prevent-select {
         user-select: none;
         -webkit-user-drag: none;
@@ -679,19 +697,11 @@
                     column-gap: 0.3rem;
                     row-gap: 0.5rem;
 
-
                     &:hover {
                         color: #000000;
 
                         transition: all 0.1s;
                         transform: scale(1.03);
-                    }
-
-                    & img {
-                        filter: invert(5%);
-                        width: 19.5px;
-                        grid-row: span 2;
-                        aspect-ratio: 1 / 1;
                     }
 
                     & img::selection {

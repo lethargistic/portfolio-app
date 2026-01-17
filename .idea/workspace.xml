@@ -4,15 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: borked server posting logic by accident">
-      <change afterPath="$PROJECT_DIR$/src/lib/hangies/separators/separators/SVGAmethyst.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/hangies/separators/separators/SVGCircles.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/hangies/separators/separators/SVGLantern.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/hangies/separators/separators/SVGStar.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: more separators + fix: int values could not be floatified">
+      <change afterPath="$PROJECT_DIR$/src/lib/Icon.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/hackatime-icon.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/utils/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/hangies/separators/three-stars.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/separators/separators/SVGThreeStars.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icons/ca-monocolor.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/ca-monocolor.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide-anvil.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide-folder-git.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide-git-commit-horizontal.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide-milestone.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide-pencil-line.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide-star.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide-user.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-mail.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icons/simple-icons-github.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +40,7 @@
         <option value="EditingSidebar" />
         <option value="GlobalEditorTools" />
         <option value="+page.svelte" />
+        <option value="Icon" />
       </list>
     </option>
   </component>
@@ -91,7 +99,7 @@
     "Shell Script.やばそうなの.executor": "Run",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/src/lib/hangies/separators/separators",
+    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/static/img/icons",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -105,10 +113,10 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\static\img\icons" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\hangies\separators\separators" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\separators" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img\icons" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\linktree-decor" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -242,15 +250,8 @@
       <workItem from="1768338451647" duration="6000" />
       <workItem from="1768384848924" duration="22843000" />
       <workItem from="1768409789349" duration="3824000" />
-      <workItem from="1768554202853" duration="20721000" />
-    </task>
-    <task id="LOCAL-00024" summary="chore: chime fixes&#10;i definitely messed some of the math up but it works so whatever">
-      <option name="closed" value="true" />
-      <created>1767369420977</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1767369420977</updated>
+      <workItem from="1768554202853" duration="21179000" />
+      <workItem from="1768640934290" duration="8055000" />
     </task>
     <task id="LOCAL-00025" summary="feat: rendering css">
       <option name="closed" value="true" />
@@ -636,7 +637,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768582437812</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="chore: more separators + fix: int values could not be floatified">
+      <option name="closed" value="true" />
+      <created>1768587247740</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1768587247741</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -654,7 +663,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: made bg more sophisticated" />
     <MESSAGE value="chore: forgot to commit imgs" />
     <MESSAGE value="feat: extra chime look tweaks" />
     <MESSAGE value="feat: auth" />
@@ -679,6 +687,7 @@
     <MESSAGE value="fix: edited positons and others no longer bork themselves if string or 0" />
     <MESSAGE value="chore: max height and chime offset settings" />
     <MESSAGE value="fix: borked server posting logic by accident" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: borked server posting logic by accident" />
+    <MESSAGE value="chore: more separators + fix: int values could not be floatified" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: more separators + fix: int values could not be floatified" />
   </component>
 </project>
