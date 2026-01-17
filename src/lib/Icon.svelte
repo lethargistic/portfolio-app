@@ -3,10 +3,11 @@
     // brand icons form https://simpleicons.org/,
     // https://icons.getbootstrap.com/ for microsoft icons.
 
-    let {name, currentColor} = $props();
+    // in px
+    let {name, width = 24, height = 24, currentColor = "#111111"} = $props();
 </script>
 
-<div class="factory-icon" style={`& svg: {fill: ${currentColor ?? '#111111'}}`}>
+<div class="factory-icon" style={`--current-color: ${currentColor}; --factory-width: ${width}px; --factory-height: ${height}px;`}>
     <!-- brands -->
     <!--  -->
     <!-- removed titles from these for practical reasons but each one has a label near it in the UI
@@ -175,7 +176,11 @@
             <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/>
         </svg>
     {:else if name === 'heart'}
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             class="lucide lucide-heart-icon lucide-heart">
+            <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/>
+        </svg>
     {:else if name === 'play'}
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -186,3 +191,18 @@
         oh no
     {/if}
 </div>
+
+<style>
+    .factory-icon {
+        /* changed in js */
+        --current-color: '#111111';
+        --factory-width: 24px;
+        --factory-height: 24px;
+
+        & svg {
+            color: var(--current-color);
+            width: var(--factory-width);
+            height: var(--factory-height);
+        }
+    }
+</style>
