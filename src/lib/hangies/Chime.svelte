@@ -573,23 +573,25 @@
         <!-- the spacer accounts for the 0.5 folds on the left that are missing because of the shape -->
         <div class="stat-half-spacer-left"></div>
         {#each folds as fold (social.name + fold.id + fold.slug)}
-            {@const left = fold.left}
-            {@const iconSize = social.chime_max_height_vh/(DEFAULT_CHIME_SIZE_VH/BASE_ICON_SIZE_PX)}
-            <div class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
-                 style={`width: ${chimeGroupWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;
+            {#if !fold.slug.startsWith('hide_')}
+                {@const left = fold.left}
+                {@const iconSize = social.chime_max_height_vh / (DEFAULT_CHIME_SIZE_VH / BASE_ICON_SIZE_PX)}
+                <div class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
+                     style={`width: ${chimeGroupWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;
                         --title-font-size: ${social.chime_max_height_vh/(DEFAULT_CHIME_SIZE_VH/BASE_FONT_SIZE_REM)}rem`}>
 
-                <a href={fold.link ?? social.link} target="_blank" title={fold.hover ? fold.hover : ''}>
-                    {#if fold.icon === 'hackatime-icon'}
-                        <img src={`/img/icons/${fold.icon}`} alt={fold.slug}>
-                    {:else}
-                        <Icon name={fold.icon} width={iconSize}
-                              height={iconSize} currentColor={'#111111'}/>
-                    {/if}
-                    <p class={`${fold.centered ? 'stat-fold-display-centered' : ''}`}>{@html fold.display_override ?? fold.slug}</p>
-                    <p class={`stat-fold-state ${fold.centered ? 'stat-fold-state-centered' : ''} ${fold.thick ? 'stat-fold-thick' : ''}`}>{fold.preface}{fold.state}{fold.postface}</p>
-                </a>
-            </div>
+                    <a href={fold.link ?? social.link} target="_blank" title={fold.hover ? fold.hover : ''}>
+                        {#if fold.icon === 'hackatime-icon'}
+                            <img src={`/img/icons/${fold.icon}`} alt={fold.slug}>
+                        {:else}
+                            <Icon name={fold.icon} width={iconSize}
+                                  height={iconSize} currentColor={'#111111'}/>
+                        {/if}
+                        <p class={`${fold.centered ? 'stat-fold-display-centered' : ''}`}>{@html fold.display_override ?? fold.slug}</p>
+                        <p class={`stat-fold-state ${fold.centered ? 'stat-fold-state-centered' : ''} ${fold.thick ? 'stat-fold-thick' : ''}`}>{fold.preface}{fold.state}{fold.postface}</p>
+                    </a>
+                </div>
+            {/if}
         {/each}
     </div>
     {#snippet svgAndCutout()}

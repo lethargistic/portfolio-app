@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: removed icon titles to not interfere with ux + fix: quantum entanglement of folds">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: decided on chime font size and icons consistent with scaling&#10;now got to not forget to make sure it's readable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Icon.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Icon.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
@@ -239,15 +239,7 @@
       <workItem from="1768384848924" duration="22843000" />
       <workItem from="1768409789349" duration="3824000" />
       <workItem from="1768554202853" duration="21179000" />
-      <workItem from="1768640934290" duration="20076000" />
-    </task>
-    <task id="LOCAL-00029" summary="chore: inner chime layout">
-      <option name="closed" value="true" />
-      <created>1767469666345</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1767469666345</updated>
+      <workItem from="1768640934290" duration="21154000" />
     </task>
     <task id="LOCAL-00030" summary="feat: icons for github hangie">
       <option name="closed" value="true" />
@@ -633,7 +625,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768665377265</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="fix: decided on chime font size and icons consistent with scaling&#10;now got to not forget to make sure it's readable">
+      <option name="closed" value="true" />
+      <created>1768669007469</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1768669007469</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -651,7 +651,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: some editing progress" />
     <MESSAGE value="chore: some editing progress x2" />
     <MESSAGE value="chore: some more editing progress" />
     <MESSAGE value="chore: editing sidebar progress x2" />
@@ -676,6 +675,7 @@
     <MESSAGE value="feat: centered option for folds + feat: auto updating fold keys" />
     <MESSAGE value="chore: social filling progress + feat: title text on folds + fix: folds were not auto converted + fix: auto fill was borken ... borken, sure it was borken" />
     <MESSAGE value="fix: removed icon titles to not interfere with ux + fix: quantum entanglement of folds" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: removed icon titles to not interfere with ux + fix: quantum entanglement of folds" />
+    <MESSAGE value="fix: decided on chime font size and icons consistent with scaling&#10;now got to not forget to make sure it's readable" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: decided on chime font size and icons consistent with scaling&#10;now got to not forget to make sure it's readable" />
   </component>
 </project>
