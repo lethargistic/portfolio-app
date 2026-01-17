@@ -42,13 +42,16 @@
         } else {
             const oldSettings = localStorage.getItem('settings');
 
+            console.log(oldSettings);
             if (!oldSettings) {
-                manageSettings();
+                pulledSettings = true;
                 return;
             }
             const oldSettingsJSON = JSON.parse(oldSettings);
+            const settingsKeys = Object.keys(settings);
 
             for (const [key, value] of Object.entries(oldSettingsJSON as typeof settings)) {
+                if (!settingsKeys.includes(key)) continue;
                 settings[key].state = value.state;
             }
 
