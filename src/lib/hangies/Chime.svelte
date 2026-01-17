@@ -577,8 +577,8 @@
                     {:else}
                         <Icon name={fold.icon} currentColor={'#111111'}/>
                     {/if}
-                    <p>{@html fold.display_override ?? fold.slug}</p>
-                    <p class={`stat-fold-state ${fold.thick ? 'stat-fold-thick' : ''}`}>{fold.preface}{fold.state}{fold.postface}</p>
+                    <p class={`${fold.centered ? 'stat-fold-display-centered' : ''}`}>{@html fold.display_override ?? fold.slug}</p>
+                    <p class={`stat-fold-state ${fold.centered ? 'stat-fold-state-centered' : ''} ${fold.thick ? 'stat-fold-thick' : ''}`}>{fold.preface}{fold.state}{fold.postface}</p>
                 </a>
             </div>
         {/each}
@@ -714,6 +714,14 @@
 
                     & .stat-fold-thick {
                         font-size: var(--title-font-size);
+                    }
+
+                    & .stat-fold-display-centered {
+                        grid-row: span 2
+                    }
+
+                    & .stat-fold-state-centered {
+                        display: none;
                     }
                 }
             }

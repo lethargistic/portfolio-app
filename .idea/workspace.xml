@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: more separators + fix: int values could not be floatified">
-      <change afterPath="$PROJECT_DIR$/src/lib/Icon.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icons/hackatime-icon.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: added more relevant icons + feat: added a dedicated component for svgs instead of img tag">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icons/ca-monocolor.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/ca-monocolor.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide-anvil.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide-folder-git.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide-git-commit-horizontal.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide-milestone.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide-pencil-line.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide-star.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide-user.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/lucide-mail.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/icons/simple-icons-github.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.server.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,15 +240,7 @@
       <workItem from="1768384848924" duration="22843000" />
       <workItem from="1768409789349" duration="3824000" />
       <workItem from="1768554202853" duration="21179000" />
-      <workItem from="1768640934290" duration="8055000" />
-    </task>
-    <task id="LOCAL-00025" summary="feat: rendering css">
-      <option name="closed" value="true" />
-      <created>1767374035035</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1767374035035</updated>
+      <workItem from="1768640934290" duration="10497000" />
     </task>
     <task id="LOCAL-00026" summary="chore: svg blurring">
       <option name="closed" value="true" />
@@ -645,7 +626,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768587247741</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="chore: added more relevant icons + feat: added a dedicated component for svgs instead of img tag">
+      <option name="closed" value="true" />
+      <created>1768651187708</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1768651187708</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -663,7 +652,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: forgot to commit imgs" />
     <MESSAGE value="feat: extra chime look tweaks" />
     <MESSAGE value="feat: auth" />
     <MESSAGE value="feat: started on editing + chore: tweaks" />
@@ -688,6 +676,7 @@
     <MESSAGE value="chore: max height and chime offset settings" />
     <MESSAGE value="fix: borked server posting logic by accident" />
     <MESSAGE value="chore: more separators + fix: int values could not be floatified" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: more separators + fix: int values could not be floatified" />
+    <MESSAGE value="chore: added more relevant icons + feat: added a dedicated component for svgs instead of img tag" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: added more relevant icons + feat: added a dedicated component for svgs instead of img tag" />
   </component>
 </project>

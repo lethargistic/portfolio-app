@@ -12,6 +12,8 @@
 
     const isSocialHidden = (social: typeof socials[number]) => social.hidden || (social.extended && !settings.extendedLinktree.state);
 
+    $inspect(socialsProp)
+
     const updateSocials = async () => {
         editorSocials.state = socialsProp;
 
