@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: centered option for folds + feat: auto updating fold keys">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: social filling progress + feat: title text on folds + fix: folds were not auto converted + fix: auto fill was borken ... borken, sure it was borken">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Icon.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Icon.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,15 +240,7 @@
       <workItem from="1768384848924" duration="22843000" />
       <workItem from="1768409789349" duration="3824000" />
       <workItem from="1768554202853" duration="21179000" />
-      <workItem from="1768640934290" duration="14345000" />
-    </task>
-    <task id="LOCAL-00027" summary="chore: something of a chime">
-      <option name="closed" value="true" />
-      <created>1767458489236</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1767458489236</updated>
+      <workItem from="1768640934290" duration="17436000" />
     </task>
     <task id="LOCAL-00028" summary="chore: some progress on chimes">
       <option name="closed" value="true" />
@@ -637,7 +626,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768653783284</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="chore: social filling progress + feat: title text on folds + fix: folds were not auto converted + fix: auto fill was borken ... borken, sure it was borken">
+      <option name="closed" value="true" />
+      <created>1768657551773</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1768657551773</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,7 +652,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: auth" />
     <MESSAGE value="feat: started on editing + chore: tweaks" />
     <MESSAGE value="chore: some editing progress" />
     <MESSAGE value="chore: some editing progress x2" />
@@ -680,6 +676,7 @@
     <MESSAGE value="chore: more separators + fix: int values could not be floatified" />
     <MESSAGE value="chore: added more relevant icons + feat: added a dedicated component for svgs instead of img tag" />
     <MESSAGE value="feat: centered option for folds + feat: auto updating fold keys" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: centered option for folds + feat: auto updating fold keys" />
+    <MESSAGE value="chore: social filling progress + feat: title text on folds + fix: folds were not auto converted + fix: auto fill was borken ... borken, sure it was borken" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: social filling progress + feat: title text on folds + fix: folds were not auto converted + fix: auto fill was borken ... borken, sure it was borken" />
   </component>
 </project>

@@ -43,11 +43,16 @@
                     value = 'non';
                 }
                 if (typeof value === "number") {
+                    // exceptions
+                    if (key === 'chime_max_height_vh') return [key, 82];
+                    if (key === 'chime_y_offset') return [key, 0.1];
+
                     value = 1;
                 }
                 return [key, value];
             }));
             editorSocials.state.push(defaultSocial);
+            // editorSocials.state.push(Object.fromEntries(socialSchem));
             activeEditor.state = '';
         }
     }

@@ -566,7 +566,7 @@
          onpointerup={handleChimeLeaving} onpointerleave={handleChimeLeaving} onpointermove={handleChimeMoving}>
         <!-- the spacer accounts for the 0.5 folds on the left that are missing because of the shape -->
         <div class="stat-half-spacer-left"></div>
-        {#each folds as fold (social.name + fold.slug)}
+        {#each folds as fold (social.name + fold.id + fold.slug)}
             {@const left = fold.left}
             <div class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
                  style={`width: ${chimeGroupWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;`}>

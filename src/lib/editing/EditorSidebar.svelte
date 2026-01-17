@@ -85,8 +85,10 @@
     }
 
     const assignFoldBindingsWithExceptions = (v: any, ig: number, key: string) => {
+        console.log('ix', editbar.focused);
+        console.log('ix', editbar.focusedIx);
+        console.log(editorSocials.state[editbar.focusedIx].folds);
         editorSocials.state[editbar.focusedIx].folds[ig][key] = convertSimpleDataTypesImplicitly(v);
-
     }
 </script>
 
