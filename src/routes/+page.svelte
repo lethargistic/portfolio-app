@@ -5,7 +5,6 @@
     import {goto} from "$app/navigation";
     import {activeEditor, editing, settings} from "$lib/shared.svelte";
     import GlobalEditorTools from "$lib/editing/GlobalEditorTools.svelte";
-    import {onMount} from "svelte";
 
     let {form, data} = $props();
 

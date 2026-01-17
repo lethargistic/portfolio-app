@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: decided on chime font size and icons consistent with scaling&#10;now got to not forget to make sure it's readable">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: empty folds">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Icon.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Icon.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icons/hackatime-icon.webp" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/icons/hackatime.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/icons/lucide-mail.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +101,11 @@
     "settings.editor.selected.configurable": "editor.preferences.smartKeys",
     "ts.external.directory.path": "D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JSON"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -108,11 +117,11 @@
       <recent name="D:\Docs\webstormproj\sustenant\static\img\linktree-decor" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\static\img\icons" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\hangies\separators" />
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\admin\workaround" />
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\admin" />
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\api\v1" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.localhost:5174">
@@ -239,15 +248,7 @@
       <workItem from="1768384848924" duration="22843000" />
       <workItem from="1768409789349" duration="3824000" />
       <workItem from="1768554202853" duration="21179000" />
-      <workItem from="1768640934290" duration="21154000" />
-    </task>
-    <task id="LOCAL-00030" summary="feat: icons for github hangie">
-      <option name="closed" value="true" />
-      <created>1767525852632</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1767525852632</updated>
+      <workItem from="1768640934290" duration="28668000" />
     </task>
     <task id="LOCAL-00031" summary="feat: invented wiggles, i love this">
       <option name="closed" value="true" />
@@ -633,7 +634,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768669007469</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="fix: empty folds">
+      <option name="closed" value="true" />
+      <created>1768670063399</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1768670063399</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -651,7 +660,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: some editing progress x2" />
     <MESSAGE value="chore: some more editing progress" />
     <MESSAGE value="chore: editing sidebar progress x2" />
     <MESSAGE value="chore: editing sidebar progress x3, failproofed main settings" />
@@ -676,6 +684,7 @@
     <MESSAGE value="chore: social filling progress + feat: title text on folds + fix: folds were not auto converted + fix: auto fill was borken ... borken, sure it was borken" />
     <MESSAGE value="fix: removed icon titles to not interfere with ux + fix: quantum entanglement of folds" />
     <MESSAGE value="fix: decided on chime font size and icons consistent with scaling&#10;now got to not forget to make sure it's readable" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: decided on chime font size and icons consistent with scaling&#10;now got to not forget to make sure it's readable" />
+    <MESSAGE value="fix: empty folds" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: empty folds" />
   </component>
 </project>

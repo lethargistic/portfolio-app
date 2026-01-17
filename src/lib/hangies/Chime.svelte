@@ -512,7 +512,21 @@
 
     const BASE_FONT_SIZE_REM = $state(0.87);
     const BASE_ICON_SIZE_PX = $state(19.5);
-    const DEFAULT_CHIME_SIZE_VH = $state(82);
+    const DEFAULT_CHIME_SIZE_VH = $state(82)
+
+    let foldTitleOverride: string | null = $state(null);
+    const handleSocialLink = (fold_link: string | null) => {
+        if (fold_link?.startsWith('copy_')) {
+            const toCopy = fold_link.replace('copy_', '');
+            navigator.clipboard.writeText(toCopy);
+            foldTitleOverride = `Copied: ${toCopy}!`;
+
+            setTimeout(() => {
+                foldTitleOverride = null;
+            }, 4000)
+        }
+    }
+
 </script>
 <svelte:window onresize={adjustPathDimensionTracking} bind:innerWidth={windowInnerWidth}
                bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove}/>
@@ -547,7 +561,7 @@
     {:else if separatorShape === SeparatorShape.Bar}
         <div class="bar"></div>
     {:else if separatorShape === SeparatorShape.Barer}
-        <!-- TODO maybe: rmake it add a separator on top instead of being lame  -->
+        <!-- TODO maybe: remake it add a separator on top instead of being lame  -->
         <div class="barer-cont">
             <div class="barer"></div>
             <div class="bar"></div>
@@ -579,10 +593,14 @@
                 <div class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
                      style={`width: ${chimeGroupWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;
                         --title-font-size: ${social.chime_max_height_vh/(DEFAULT_CHIME_SIZE_VH/BASE_FONT_SIZE_REM)}rem`}>
-
-                    <a href={fold.link ?? social.link} target="_blank" title={fold.hover ? fold.hover : ''}>
-                        {#if fold.icon === 'hackatime-icon'}
-                            <img src={`/img/icons/${fold.icon}`} alt={fold.slug}>
+                    <a href={fold.link ? (fold.link.startsWith('copy_') ? null : fold.link) : social.link === 'none' ? null : social.link} onclick={() => handleSocialLink(fold.link)}
+                       target="_blank"
+                       title={foldTitleOverride ? foldTitleOverride : (fold.hover ? fold.hover : '')}>
+                        {#if fold.icon === 'hackatime'}
+                            <img src={`/img/icons/${fold.icon}.webp`} width={iconSize} height={iconSize}
+                                 alt={fold.slug}>
+                        {:else if fold.icon === 'none'}
+                            <!-- literally nothing -->
                         {:else}
                             <Icon name={fold.icon} width={iconSize}
                                   height={iconSize} currentColor={'#111111'}/>

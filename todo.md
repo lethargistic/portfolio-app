@@ -34,3 +34,4 @@
 - [ ] todo: replace moon thing with a less intrusive version of illusion (accessibility option should not provide new content)
 - [x] todo high: svg sprite sheet for icons, there's way too many
 - [ ] todo maybe: replace title with a proper tooltip in folds
+- [ ] todo maybe: add more to hackatime section
