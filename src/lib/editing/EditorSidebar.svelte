@@ -83,6 +83,11 @@
         }
         editorSocials.state[editbar.focusedIx][key] = key.startsWith('type_') ? v : convertSimpleDataTypesImplicitly(v);
     }
+
+    const assignFoldBindingsWithExceptions = (v: any, ig: number, key: string) => {
+        editorSocials.state[editbar.focusedIx].folds[ig][key] = convertSimpleDataTypesImplicitly(v);
+
+    }
 </script>
 
 <svelte:window onclick={checkIfClose}/>
@@ -113,7 +118,7 @@
                     {#each Object.keys(roFold) as key (key + '_salt173')}
                         <label>
                             {key}
-                            <input bind:value={editorSocials.state[editbar.focusedIx].folds[ig][key]}
+                            <input bind:value={() => editorSocials.state[editbar.focusedIx].folds[ig][key], (v) => assignFoldBindingsWithExceptions(v, ig, key)}
                                    placeholder={roFold[key]}>
                         </label>
                     {/each}
