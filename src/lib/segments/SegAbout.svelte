@@ -204,9 +204,10 @@
             }
 
             & .decor-waterfall-lower {
-                top: 50%;
+                top: 10%;
                 left: 20%;
                 height: 60%;
+                rotate: 90deg;
             }
 
             & .char-sheet {

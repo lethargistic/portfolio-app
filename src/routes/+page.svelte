@@ -56,7 +56,6 @@
             }
 
             if (page.url.hash === '#linktree') {
-                console.log('haii??');
                 settings.extendedLinktree.state = true;
             }
 
