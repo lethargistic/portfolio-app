@@ -1,4 +1,4 @@
-import {SECRET_GITHUB_API_TOKEN} from "$env/static/private";
+import {SECRET_GITHUB_API_TOKEN, SECRET_INSTAGRAM_API_TOKEN, SECRET_YOUTUBE_API_KEY} from "$env/static/private";
 
 export const fetchGithubFoldData = async () => {
     const headers = {
@@ -154,6 +154,95 @@ export const fetchHackatimeFoldData = async () => {
             time: null,
             top_lang: null,
             second_top_lang: null
+        }
+    }
+}
+
+// modern twitter api is a horror, i'm skipping
+// tho the graphql one does expose follower count for free
+// you do still need to find the right headers and that needs a guest key right,
+// but, basically, no twitter
+
+export const fetchInstagramFoldData = async () => {
+    const id = "26227636330153415";
+
+    const followedRes = await fetch(
+        `https://graph.instagram.com/${id}?fields=followers_count&access_token=${SECRET_INSTAGRAM_API_TOKEN}`
+    );
+
+    if (followedRes.ok) {
+        const json = await followedRes.json();
+        return {
+            followed: json.followers_count,
+        }
+    } else {
+        console.error(`Instagram api error: ${followedRes.status}`);
+
+        return {
+            followed: null,
+        }
+    }
+}
+
+export const fetchNpmFoldData = async () => {
+    const username = 'maksiks';
+
+    const packageRes = await fetch(
+        `https://registry.npmjs.org/-/v1/search?text=author:${username}`
+    );
+
+    if (packageRes.ok) {
+        const json = await packageRes.json();
+        return {
+            packages: json.objects.length,
+        }
+    } else {
+        console.error(`Npm api error: ${packageRes.status}`);
+
+        return {
+            packages: null,
+        }
+    }
+}
+
+export const fetchStackOverflowFoldData = async () => {
+    const id = "17208613";
+
+    const reputationRes = await fetch(
+        `https://stackoverflow.com/users/flair/${id}.json`
+    );
+
+    if (reputationRes.ok) {
+        const json = await reputationRes.json();
+        return {
+            reputation: json.reputation
+        }
+    } else {
+        console.error(`Stack overflow api error: ${reputationRes.status}`);
+
+        return {
+            reputation: null,
+        }
+    }
+}
+
+export const fetchYoutubeFoldData = async () => {
+    const id = "UCtPK7NNErHRXL7pZk0VflLA";
+
+    const channelRes = await fetch(
+        `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${id}&key=${SECRET_YOUTUBE_API_KEY}`
+    );
+
+    if (channelRes.ok) {
+        const json = await channelRes.json();
+        return {
+            subscribers: json.items[0].statistics.subscriberCount
+        }
+    } else {
+        console.error(`Youtube api error: ${channelRes.status}`);
+
+        return {
+            subscribers: null,
         }
     }
 }

@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: hackatime stats">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: hackatime stats don't count the last week for whatever reason">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/socialStats.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/socialStats.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -245,15 +244,7 @@
       <workItem from="1768409789349" duration="3824000" />
       <workItem from="1768554202853" duration="21179000" />
       <workItem from="1768640934290" duration="30929000" />
-      <workItem from="1768724030611" duration="12652000" />
-    </task>
-    <task id="LOCAL-00036" summary="feat: antialiasing is false">
-      <option name="closed" value="true" />
-      <created>1767609872477</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1767609872477</updated>
+      <workItem from="1768724030611" duration="17632000" />
     </task>
     <task id="LOCAL-00037" summary="chore: chime positioning">
       <option name="closed" value="true" />
@@ -639,7 +630,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768736152985</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="fix: hackatime stats don't count the last week for whatever reason">
+      <option name="closed" value="true" />
+      <created>1768740199770</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1768740199770</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -657,7 +656,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: db posting + very professionally changed the variable back from testing after 3 skill issues" />
     <MESSAGE value="feat: adding and deleting new chimes in the ui" />
     <MESSAGE value="chore: positioning progress" />
     <MESSAGE value="feat: positioning, that's editor done except furnishing and a few settings basically?" />
@@ -682,6 +680,7 @@
     <MESSAGE value="feat: added a lot socials + extra tweaks for those" />
     <MESSAGE value="chore: i cant typ, the caffein, me rip, also added bluesky stats from the api" />
     <MESSAGE value="chore: hackatime stats" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: hackatime stats" />
+    <MESSAGE value="fix: hackatime stats don't count the last week for whatever reason" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: hackatime stats don't count the last week for whatever reason" />
   </component>
 </project>
