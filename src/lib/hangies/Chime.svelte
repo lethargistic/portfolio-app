@@ -282,7 +282,7 @@
 
     let sceneRotationX = 0;
     let sceneRotationY = 0;
-    const rotationLerpFactor = 0.2;
+    const rotationLerpFactor = 0.1;
 
     const kTime = $derived(0.016 + ((foldCount / MAX_CHIME_FOLDS) - 1) * (-0.05));
     const animate = () => {
@@ -303,7 +303,7 @@
 
         const distanceFalloff = Math.min(distanceFromChime, 1);
 
-        const ambientWindX = Math.sin(time * 0.3) * 0.7 + Math.sin(time * 0.17) * 0.03;
+        const ambientWindX = Math.sin(time * 0.3) * 0.9 + Math.sin(time * 0.17) * 0.03;
         const ambientWindY = Math.cos(time * 0.25) * 0.2;
 
         const windForce = new three.Vector3(

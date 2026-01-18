@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: rock">
-      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: destroying webgl contexts on component destroy to prevent warning of using too many">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,15 +243,7 @@
       <workItem from="1768409789349" duration="3824000" />
       <workItem from="1768554202853" duration="21179000" />
       <workItem from="1768640934290" duration="30929000" />
-      <workItem from="1768724030611" duration="20455000" />
-    </task>
-    <task id="LOCAL-00039" summary="chore: db fallback">
-      <option name="closed" value="true" />
-      <created>1767813432871</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1767813432871</updated>
+      <workItem from="1768724030611" duration="22013000" />
     </task>
     <task id="LOCAL-00040" summary="feat: made the social updates scalable + chore: rate limits">
       <option name="closed" value="true" />
@@ -637,7 +629,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768753001730</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="fix: destroying webgl contexts on component destroy to prevent warning of using too many">
+      <option name="closed" value="true" />
+      <created>1768753095185</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1768753095185</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,7 +655,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: positioning, that's editor done except furnishing and a few settings basically?" />
     <MESSAGE value="chore: added a few more settings to chimes" />
     <MESSAGE value="chore: chime colors and selection" />
     <MESSAGE value="feat: settings" />
@@ -680,6 +679,7 @@
     <MESSAGE value="fix: hackatime stats don't count the last week for whatever reason" />
     <MESSAGE value="feat: other social api stats" />
     <MESSAGE value="fix: rock" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: rock" />
+    <MESSAGE value="fix: destroying webgl contexts on component destroy to prevent warning of using too many" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: destroying webgl contexts on component destroy to prevent warning of using too many" />
   </component>
 </project>
