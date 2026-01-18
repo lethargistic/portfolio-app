@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: hackatime stats don't count the last week for whatever reason">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: other social api stats">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/socialStats.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/socialStats.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,15 +244,7 @@
       <workItem from="1768409789349" duration="3824000" />
       <workItem from="1768554202853" duration="21179000" />
       <workItem from="1768640934290" duration="30929000" />
-      <workItem from="1768724030611" duration="17632000" />
-    </task>
-    <task id="LOCAL-00037" summary="chore: chime positioning">
-      <option name="closed" value="true" />
-      <created>1767620223299</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1767620223299</updated>
+      <workItem from="1768724030611" duration="19793000" />
     </task>
     <task id="LOCAL-00038" summary="feat: basic db fallback for socials">
       <option name="closed" value="true" />
@@ -638,7 +630,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768740199770</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="feat: other social api stats">
+      <option name="closed" value="true" />
+      <created>1768747884597</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1768747884597</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -656,7 +656,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: adding and deleting new chimes in the ui" />
     <MESSAGE value="chore: positioning progress" />
     <MESSAGE value="feat: positioning, that's editor done except furnishing and a few settings basically?" />
     <MESSAGE value="chore: added a few more settings to chimes" />
@@ -681,6 +680,7 @@
     <MESSAGE value="chore: i cant typ, the caffein, me rip, also added bluesky stats from the api" />
     <MESSAGE value="chore: hackatime stats" />
     <MESSAGE value="fix: hackatime stats don't count the last week for whatever reason" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: hackatime stats don't count the last week for whatever reason" />
+    <MESSAGE value="feat: other social api stats" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: other social api stats" />
   </component>
 </project>

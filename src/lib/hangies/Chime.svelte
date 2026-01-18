@@ -805,8 +805,8 @@
         }
 
         & .pebble {
-            width: 17vw;
-            height: 10vh;
+            width: 10vw;
+            height: 5vh;
 
             margin-top: 0.7rem;
 
