@@ -99,6 +99,7 @@
         <EditorTools seg='about'/>
         <div class="decor-waterfall decor-waterfall-upper"></div>
         <div class="decor-waterfall decor-waterfall-lower"></div>
+        <div class="decor-waterfall decor-waterfall-sideways-lower"></div>
         <div class="char-sheet">
             <div style={passingBy ? `animation: shake 0.5s infinite ease-in-out` : ``} class="infobloc">
                 <div class="infobloc-inner">
@@ -204,10 +205,18 @@
             }
 
             & .decor-waterfall-lower {
-                top: 10%;
+                top: 50%;
                 left: 20%;
-                height: 60%;
-                rotate: 90deg;
+                height: 20%;
+
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 81%, 0 100%);
+            }
+
+            & .decor-waterfall-sideways-lower {
+                top: 40%;
+                left: calc(-25% - 44px);
+                width: 50%;
+                height: 44px;
             }
 
             & .char-sheet {

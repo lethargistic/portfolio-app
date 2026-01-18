@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: #linktree now puts you at the settings with extended on + fix: icon colors were not actually #111111 for brand icons">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: rotated decor waterfall that made no sense">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,15 +244,7 @@
       <workItem from="1768409789349" duration="3824000" />
       <workItem from="1768554202853" duration="21179000" />
       <workItem from="1768640934290" duration="30929000" />
-      <workItem from="1768724030611" duration="25197000" />
-    </task>
-    <task id="LOCAL-00042" summary="feat: dynamic mask-image cutouts">
-      <option name="closed" value="true" />
-      <created>1767957982942</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1767957982942</updated>
+      <workItem from="1768724030611" duration="26238000" />
     </task>
     <task id="LOCAL-00043" summary="fix: overflow on lower sizes + feat: wind now randomized and based on weight">
       <option name="closed" value="true" />
@@ -640,7 +630,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768758060848</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="fix: rotated decor waterfall that made no sense">
+      <option name="closed" value="true" />
+      <created>1768759377598</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1768759377598</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -658,7 +656,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: settings" />
     <MESSAGE value="chore: made all text more breathable, and extra settings tweaks + chore: extended chimes now rely on setting" />
     <MESSAGE value="feat: settings now save between sessions + feat: cool moon thing for no-flashing mode" />
     <MESSAGE value="fix: wrong rope length no longer invalidates itself more or less" />
@@ -683,6 +680,7 @@
     <MESSAGE value="fix: destroying webgl contexts on component destroy to prevent warning of using too many" />
     <MESSAGE value="fix: chime rotation and movement tweaks" />
     <MESSAGE value="feat: #linktree now puts you at the settings with extended on + fix: icon colors were not actually #111111 for brand icons" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: #linktree now puts you at the settings with extended on + fix: icon colors were not actually #111111 for brand icons" />
+    <MESSAGE value="fix: rotated decor waterfall that made no sense" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: rotated decor waterfall that made no sense" />
   </component>
 </project>
