@@ -72,40 +72,94 @@ export const fetchBlueskyFoldData = async () => {
     const handle = 'maksiks.bsky.social'
 
     const profileRes = await fetch(`https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor=${handle}`, {headers});
-    const { followersCount, postsCount, did: myDid } = await profileRes.json();
 
-    let totalLikes = 0;
-    let cursor;
+    if (profileRes.ok) {
+        const { followersCount, postsCount, did: myDid } = await profileRes.json();
 
-    do {
-        const url = new URLSearchParams({
-            actor: handle,
-            limit: '100'
-        });
-        if (cursor) url.set('cursor', cursor);
+        let totalLikes = 0;
+        let cursor;
 
-        const response = await fetch(
-            `https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?${url}`
-        );
+        do {
+            const url = new URLSearchParams({
+                actor: handle,
+                limit: '100'
+            });
+            if (cursor) url.set('cursor', cursor);
 
-        const data = await response.json();
+            const response = await fetch(
+                `https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?${url}`
+            );
 
-        for (const item of data.feed) {
-            // reposts
-            if (item.post.author.did !== myDid) {
-                continue;
+            const data = await response.json();
+
+            for (const item of data.feed) {
+                // reposts
+                if (item.post.author.did !== myDid) {
+                    continue;
+                }
+
+                totalLikes += item.post.likeCount || 0;
             }
 
-            totalLikes += item.post.likeCount || 0;
+            cursor = data.cursor;
+        } while (cursor);
+
+        return {
+            bluesky: 'none',
+            followed: followersCount,
+            posts: postsCount,
+            likes: totalLikes
+        }
+    } else {
+        console.error(`Bluesky api error: ${profileRes.status}`);
+
+        return {
+            bluesky: 'none',
+            followed: null,
+            posts: null,
+            likes: null
+        }
+    }
+}
+
+export const fetchHackatimeFoldData = async () => {
+    const headers = { "Content-Type": "application/json" };
+    const userId = 'U091PA9FBDG';
+
+    const profileRes = await fetch(`https://hackatime.hackclub.com/api/summary?user=${userId}`, {headers});
+
+    if (profileRes.ok) {
+        const {projects, languages} = await profileRes.json();
+
+        let time = 0;
+        for (const project of projects) {
+            time += project.total;
         }
 
-        cursor = data.cursor;
-    } while (cursor);
+        // rounding it up obviously
+        // im so lame
+        const timeHrs = Math.ceil(time / 3600);
 
-    return {
-        bluesky: 'none',
-        followed: followersCount,
-        posts: postsCount,
-        likes: totalLikes
+        // hardcoded because no one needs to know about my java knowledge, bastards
+        const svelteTime = languages.find((l: typeof languages[number]) => l.key === "Svelte")?.total;
+        const svelteTimeHrs = svelteTime ? Math.ceil(svelteTime / 3600) : null;
+        const tsTime = languages.find((l: typeof languages[number]) => l.key === "TypeScript")?.total;
+        const tsTimeHrs = tsTime ? Math.ceil(tsTime / 3600) : null;
+
+        return {
+            hackatime: 'none',
+            time: timeHrs,
+            top_lang: svelteTimeHrs,
+            second_top_lang: tsTimeHrs
+        }
+    } else {
+        console.error(`Hackatime api error: ${profileRes.status}`);
+
+        return {
+            hackatime: 'none',
+            time: null,
+            top_lang: null,
+            second_top_lang: null
+        }
     }
 }
