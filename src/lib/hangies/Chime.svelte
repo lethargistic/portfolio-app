@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {onMount} from "svelte";
+    import {onDestroy, onMount} from "svelte";
     import * as three from "three";
     import {CSS3DRenderer, CSS3DObject} from 'three/addons/renderers/CSS3DRenderer.js';
     import {SeparatorShape} from "$lib/utils/utils";
@@ -527,6 +527,12 @@
         }
     }
 
+    onDestroy(() => {
+        if (!renderer) return;
+
+        renderer.dispose()
+        renderer.forceContextLoss()
+    })
 </script>
 <svelte:window onresize={adjustPathDimensionTracking} bind:innerWidth={windowInnerWidth}
                bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove}/>
