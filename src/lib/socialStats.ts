@@ -66,3 +66,46 @@ export const fetchChaosAbyssFoldData = async () => {
         words: wordsWritten,
     }
 }
+
+export const fetchBlueskyFoldData = async () => {
+    const headers = { "Content-Type": "application/json" };
+    const handle = 'maksiks.bsky.social'
+
+    const profileRes = await fetch(`https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor=${handle}`, {headers});
+    const { followersCount, postsCount, did: myDid } = await profileRes.json();
+
+    let totalLikes = 0;
+    let cursor;
+
+    do {
+        const url = new URLSearchParams({
+            actor: handle,
+            limit: '100'
+        });
+        if (cursor) url.set('cursor', cursor);
+
+        const response = await fetch(
+            `https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?${url}`
+        );
+
+        const data = await response.json();
+
+        for (const item of data.feed) {
+            // reposts
+            if (item.post.author.did !== myDid) {
+                continue;
+            }
+
+            totalLikes += item.post.likeCount || 0;
+        }
+
+        cursor = data.cursor;
+    } while (cursor);
+
+    return {
+        bluesky: 'none',
+        followed: followersCount,
+        posts: postsCount,
+        likes: totalLikes
+    }
+}
