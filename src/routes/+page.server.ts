@@ -16,7 +16,6 @@ export const load: PageServerLoad = async () => {
     // sort of a dumb way to do it but i don't want to fiddle with the added infrastructure by
     // making an example fold in the db and having to filter out right now
     const firstFold = socials[0].folds[0];
-    console.log(firstFold)
     const firstFoldEntries = Object.entries(firstFold);
     let update = false;
     for (let social of socials) {

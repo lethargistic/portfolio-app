@@ -35,3 +35,4 @@
 - [x] todo high: svg sprite sheet for icons, there's way too many
 - [ ] todo maybe: replace title with a proper tooltip in folds
 - [ ] todo maybe: add more to hackatime section
+- [ ] todo maybe: condense socials a bit, instead of 5 chimes for music 1 is enough and etc.

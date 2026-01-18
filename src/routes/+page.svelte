@@ -42,7 +42,6 @@
         } else {
             const oldSettings = localStorage.getItem('settings');
 
-            console.log(oldSettings);
             if (!oldSettings) {
                 pulledSettings = true;
                 return;
