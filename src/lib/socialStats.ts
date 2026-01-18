@@ -124,21 +124,15 @@ export const fetchBlueskyFoldData = async () => {
 
 export const fetchHackatimeFoldData = async () => {
     const headers = { "Content-Type": "application/json" };
-    const userId = 'U091PA9FBDG';
+    const username = 'maksiks';
 
-    const profileRes = await fetch(`https://hackatime.hackclub.com/api/summary?user=${userId}`, {headers});
+    const profileRes = await fetch(`https://hackatime.hackclub.com/api/v1/users/${username}/stats`, {headers});
 
     if (profileRes.ok) {
-        const {projects, languages} = await profileRes.json();
+        const json = await profileRes.json();
+        const {total_seconds, languages} = json.data;
 
-        let time = 0;
-        for (const project of projects) {
-            time += project.total;
-        }
-
-        // rounding it up obviously
-        // im so lame
-        const timeHrs = Math.ceil(time / 3600);
+        const timeHrs = Math.floor(total_seconds / 3600);
 
         // hardcoded because no one needs to know about my java knowledge, bastards
         const svelteTime = languages.find((l: typeof languages[number]) => l.key === "Svelte")?.total;

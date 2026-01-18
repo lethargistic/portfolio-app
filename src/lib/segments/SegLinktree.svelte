@@ -19,7 +19,7 @@
         for (const social of socials) {
             if (isSocialHidden(social)) continue;
 
-            let freshFoldsRes = await fetch("/api/v1/update-social", {
+            let freshFoldsRes = social.stats ? await fetch("/api/v1/update-social", {
                 method: "POST",
                 body: JSON.stringify({
                     social: social.name
@@ -27,9 +27,9 @@
                 headers: {
                     'content-type': 'application/json'
                 }
-            });
+            }) : null;
 
-            const freshFolds = await freshFoldsRes.json();
+            const freshFolds = freshFoldsRes ? await freshFoldsRes.json() : social.folds;
 
             if (freshFolds.message) {
                 console.error(freshFolds.message);
