@@ -5,6 +5,7 @@
     import {goto} from "$app/navigation";
     import {activeEditor, editing, settings} from "$lib/shared.svelte";
     import GlobalEditorTools from "$lib/editing/GlobalEditorTools.svelte";
+    import {page} from "$app/state";
 
     let {form, data} = $props();
 
@@ -52,6 +53,11 @@
             for (const [key, value] of Object.entries(oldSettingsJSON as typeof settings)) {
                 if (!settingsKeys.includes(key)) continue;
                 settings[key].state = value.state;
+            }
+
+            if (page.url.hash === '#linktree') {
+                console.log('haii??');
+                settings.extendedLinktree.state = true;
             }
 
             pulledSettings = true;

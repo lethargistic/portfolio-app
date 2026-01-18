@@ -31,7 +31,6 @@ export const handleAuth: Handle = async ({event: e, resolve}) => {
     })
 }
 
-
 const handleParaglide: Handle = ({event, resolve}) => paraglideMiddleware(event.request, ({request, locale}) => {
     event.request = request;
 

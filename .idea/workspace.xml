@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: destroying webgl contexts on component destroy to prevent warning of using too many">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: chime rotation and movement tweaks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,15 +245,7 @@
       <workItem from="1768409789349" duration="3824000" />
       <workItem from="1768554202853" duration="21179000" />
       <workItem from="1768640934290" duration="30929000" />
-      <workItem from="1768724030611" duration="22013000" />
-    </task>
-    <task id="LOCAL-00040" summary="feat: made the social updates scalable + chore: rate limits">
-      <option name="closed" value="true" />
-      <created>1767877078213</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1767877078213</updated>
+      <workItem from="1768724030611" duration="23677000" />
     </task>
     <task id="LOCAL-00041" summary="feat: CA chime + fix: tweaks">
       <option name="closed" value="true" />
@@ -637,7 +631,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768753095185</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="fix: chime rotation and movement tweaks">
+      <option name="closed" value="true" />
+      <created>1768756194269</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1768756194269</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,7 +657,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: added a few more settings to chimes" />
     <MESSAGE value="chore: chime colors and selection" />
     <MESSAGE value="feat: settings" />
     <MESSAGE value="chore: made all text more breathable, and extra settings tweaks + chore: extended chimes now rely on setting" />
@@ -680,6 +681,7 @@
     <MESSAGE value="feat: other social api stats" />
     <MESSAGE value="fix: rock" />
     <MESSAGE value="fix: destroying webgl contexts on component destroy to prevent warning of using too many" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: destroying webgl contexts on component destroy to prevent warning of using too many" />
+    <MESSAGE value="fix: chime rotation and movement tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: chime rotation and movement tweaks" />
   </component>
 </project>
