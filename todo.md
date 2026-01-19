@@ -39,3 +39,4 @@
 - [ ] todo high: extended linktree lags way too much ; nah not really
 - [ ] todo maybe: about waterfall extends into scrollwork and it artsy and all
 - [ ] todo maybe: cta at the end?
+- [ ] todo maybe: make web dev sec change color to redder as you go? or will that not signal creativity hmm ; roses?

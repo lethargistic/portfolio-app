@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: made it look less snek + fix: lamp was wrong color">
-      <change afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: started on web dev section">
+      <change afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +32,7 @@
         <option value="+page.svelte" />
         <option value="Icon" />
         <option value="SegWeb" />
+        <option value="RotatieCard" />
       </list>
     </option>
   </component>
@@ -251,15 +250,7 @@
       <workItem from="1768554202853" duration="21179000" />
       <workItem from="1768640934290" duration="30929000" />
       <workItem from="1768724030611" duration="26400000" />
-      <workItem from="1768813010344" duration="7317000" />
-    </task>
-    <task id="LOCAL-00045" summary="fix: CA link was not clickable">
-      <option name="closed" value="true" />
-      <created>1767971174859</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1767971174859</updated>
+      <workItem from="1768813010344" duration="10084000" />
     </task>
     <task id="LOCAL-00046" summary="feat: edit button">
       <option name="closed" value="true" />
@@ -645,7 +636,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768813910404</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="feat: started on web dev section">
+      <option name="closed" value="true" />
+      <created>1768824961422</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1768824961422</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -663,7 +662,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: wrong rope length no longer invalidates itself more or less" />
     <MESSAGE value="fix: edited positons and others no longer bork themselves if string or 0" />
     <MESSAGE value="chore: max height and chime offset settings" />
     <MESSAGE value="fix: borked server posting logic by accident" />
@@ -688,6 +686,7 @@
     <MESSAGE value="fix: rotated decor waterfall that made no sense" />
     <MESSAGE value="fix: rotated decor waterfall that made no sense but better" />
     <MESSAGE value="fix: made it look less snek + fix: lamp was wrong color" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: made it look less snek + fix: lamp was wrong color" />
+    <MESSAGE value="feat: started on web dev section" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: started on web dev section" />
   </component>
 </project>

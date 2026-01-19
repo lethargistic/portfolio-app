@@ -1,5 +1,8 @@
 <script lang="ts">
     import {currentLang} from "$lib/shared.svelte";
+    import RotatieCard from "$lib/RotatieCard.svelte";
+
+    let x = $state(0)
 </script>
 
 {#key currentLang.lang}
@@ -8,6 +11,8 @@
             <h2 class="web-txt web-head-txt">Web /></h2>
             <p class="web-txt web-desc-txt">Selected web projects I've built</p>
         </div>
+        <RotatieCard/>
+
         <div class="guideline"></div>
     </section>
 
@@ -55,10 +60,10 @@
                 position: absolute;
                 right: 15%;
 
-                width: 1px;
+                width: 0.09375rem;
                 height: 100%;
 
-                background-color: #441d80;
+                background-color: #361765;
             }
         }
     </style>
