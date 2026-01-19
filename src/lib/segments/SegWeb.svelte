@@ -3,6 +3,9 @@
     import RotatieCard from "$lib/RotatieCard.svelte";
 
     const projects = [{
+        name: "example",
+        display_name: "Example",
+        img: "https://picsum.photos/1920/1080",
         link: "#",
         width_vw: 32,
         left_vw: 4,
@@ -63,7 +66,7 @@
                 & .web-desc-txt {
                     opacity: 0.7;
                     font-size: 2rem;
-                    font-family: "Fira Mono", sans-serif;
+                    font-family: "Fira Mono", monospace;
                 }
             }
 
@@ -73,7 +76,7 @@
 
                 --guideline-width: 0.09375rem;
                 --outer-height: 20vh;
-                --circle-diameter: calc(var(--guideline-width) * 8);
+                --circle-diameter: calc(var(--guideline-width) * 10);
                 width: var(--circle-diameter);
                 height: 70%;
                 display: flex;
@@ -89,7 +92,8 @@
                     aspect-ratio: 1 / 1;
                     position: relative;
 
-                    border: 0.1125rem solid #111111;
+                    box-sizing: border-box;
+                    border: 0.1rem solid #111111;
                 }
 
                 & .outer {
