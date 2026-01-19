@@ -40,3 +40,4 @@
 - [ ] todo maybe: about waterfall extends into scrollwork and it artsy and all
 - [ ] todo maybe: cta at the end?
 - [ ] todo maybe: make web dev sec change color to redder as you go? or will that not signal creativity hmm ; roses?
+- [ ] todo maybe: in the blank space between web dev sec and linktree some kinda sick 3js animation saying MY WORK

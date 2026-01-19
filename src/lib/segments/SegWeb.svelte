@@ -13,7 +13,11 @@
         </div>
         <RotatieCard/>
 
-        <div class="guideline"></div>
+        <div class="guideline">
+            <div class="circle"></div>
+            <div class="outer"></div>
+            <div class="inner"></div>
+        </div>
     </section>
 
     <style>
@@ -60,10 +64,40 @@
                 position: absolute;
                 right: 15%;
 
-                width: 0.09375rem;
-                height: 100%;
+                --guideline-width: 0.09375rem;
+                --outer-height: 20vh;
+                --circle-diameter: calc(var(--guideline-width) * 8);
+                width: var(--circle-diameter);
+                height: 70%;
+                display: flex;
+                flex-direction: column;
+                place-items: center start;
 
-                background-color: #361765;
+                margin-top: calc((var(--outer-height) * -1) - var(--circle-diameter));
+
+                & .circle {
+                    border-radius: 50%;
+                    width: 100%;
+                    height: var(--circle-diameter);
+                    aspect-ratio: 1 / 1;
+                    position: relative;
+
+                    border: 0.1125rem solid #111111;
+                }
+
+                & .outer {
+                    width: var(--guideline-width);
+                    height: var(--outer-height);
+
+                    background-color: #111111;
+                }
+
+                & .inner {
+                    width: var(--guideline-width);
+                    height: 50%;
+
+                    background-color: #361765;
+                }
             }
         }
     </style>
