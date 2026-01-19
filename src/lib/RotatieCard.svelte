@@ -1,6 +1,8 @@
 <script lang="ts">
     import {Spring} from "svelte/motion";
 
+    let {proj} = $props();
+
     let card: HTMLElement | null = $state(null);
     let cardWidth = $state(0);
     let cardHeight = $state(0);
@@ -19,8 +21,8 @@
         const pointerY = e.clientY;
 
         rotation.target = {
-            x: -(pointerY - card.offsetTop - cardHeight / 2) / 12,
-            y: (pointerX - card.offsetLeft - cardWidth / 2) / 5
+            x: (pointerY - card.offsetTop - cardHeight / 2) / 8,
+            y: -(pointerX - card.offsetLeft - cardWidth / 2) / 12
         };
         scale.target = 1.05;
     }
@@ -31,26 +33,24 @@
     }
 </script>
 
-<div class="card"
-     style={`transform: perspective(600px) rotateX(${rotation.current.x}deg) rotateY(${rotation.current.y}deg) scale(${scale.current})`}
+<a class="card" href={proj.link}
+     style={`transform: perspective(600px) rotateX(${rotation.current.x}deg) rotateY(${rotation.current.y}deg) scale(${scale.current});
+             left: ${proj.left_vw}vw; top: ${proj.top_vh}vh; width: ${proj.width_vw}vw;`}
      onpointermove={handlePointerMove} onpointerout={handlePointerLeave}
      bind:clientWidth={cardWidth}
      bind:clientHeight={cardHeight}
-     bind:this={card}
->
+     bind:this={card}>
     {act ? 'bread' : 'e'}
-</div>
+</a>
 
 <style>
     .card {
         position: absolute;
-        right: 10vw;
-        top: 20vh;
+        display: flex;
 
-        width: 15vw;
-        height: 30vw;
+        aspect-ratio: 16/9;
 
-        background-color: #f89e9e;
+        background-color: #6728b3;
 
         z-index: 2;
     }

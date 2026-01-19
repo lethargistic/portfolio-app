@@ -2,7 +2,12 @@
     import {currentLang} from "$lib/shared.svelte";
     import RotatieCard from "$lib/RotatieCard.svelte";
 
-    let x = $state(0)
+    const projects = [{
+        link: "#",
+        width_vw: 32,
+        left_vw: 4,
+        top_vh: 40
+    }]
 </script>
 
 {#key currentLang.lang}
@@ -11,7 +16,9 @@
             <h2 class="web-txt web-head-txt">Web /></h2>
             <p class="web-txt web-desc-txt">Selected web projects I've built</p>
         </div>
-        <RotatieCard/>
+        {#each projects as proj}
+            <RotatieCard {proj}/>
+        {/each}
 
         <div class="guideline">
             <div class="circle"></div>
@@ -96,7 +103,7 @@
                     width: var(--guideline-width);
                     height: 50%;
 
-                    background-color: #361765;
+                    background-color: #6728b3;
                 }
             }
         }

@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: rotatie card">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: this circle took me an awful amount of time">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,15 +248,7 @@
       <workItem from="1768554202853" duration="21179000" />
       <workItem from="1768640934290" duration="30929000" />
       <workItem from="1768724030611" duration="26400000" />
-      <workItem from="1768813010344" duration="14763000" />
-    </task>
-    <task id="LOCAL-00047" summary="feat: started on cool bg">
-      <option name="closed" value="true" />
-      <created>1767981891007</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1767981891007</updated>
+      <workItem from="1768813010344" duration="16102000" />
     </task>
     <task id="LOCAL-00048" summary="feat: made bg more sophisticated">
       <option name="closed" value="true" />
@@ -643,7 +634,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768827698482</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="chore: this circle took me an awful amount of time">
+      <option name="closed" value="true" />
+      <created>1768832579130</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1768832579131</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -661,7 +660,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: max height and chime offset settings" />
     <MESSAGE value="fix: borked server posting logic by accident" />
     <MESSAGE value="chore: more separators + fix: int values could not be floatified" />
     <MESSAGE value="chore: added more relevant icons + feat: added a dedicated component for svgs instead of img tag" />
@@ -686,6 +684,7 @@
     <MESSAGE value="fix: made it look less snek + fix: lamp was wrong color" />
     <MESSAGE value="feat: started on web dev section" />
     <MESSAGE value="feat: rotatie card" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: rotatie card" />
+    <MESSAGE value="chore: this circle took me an awful amount of time" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: this circle took me an awful amount of time" />
   </component>
 </project>
