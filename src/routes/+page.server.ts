@@ -40,8 +40,13 @@ export const load: PageServerLoad = async () => {
 
             if (sbwerr) error(500, `Failed to update socials: ${sbwerr?.message}`);
         }
-
     }
 
-    return {socials};
+    const {data: web_projects, error: wberr} = await supabase
+        .from('web_projects')
+        .select()
+        .order('id', {ascending: true})
+    if (wberr || !web_projects) error(500, `Failed to load socials ${wberr.message}`);
+
+    return {socials, web_projects};
 }

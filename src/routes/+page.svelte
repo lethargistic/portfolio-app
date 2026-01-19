@@ -79,7 +79,7 @@
     <SegWelcome/>
     <SegAbout/>
     <SegLinktree socials={data.socials}/>
-    <SegWeb/>
+    <SegWeb web_projects={data.web_projects}/>
 </main>
 {#each Array.from({length: 100}) as _, i }
     <p>{i}</p>

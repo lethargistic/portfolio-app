@@ -52,7 +52,6 @@
                 return [key, value];
             }));
             editorSocials.state.push(defaultSocial);
-            // editorSocials.state.push(Object.fromEntries(socialSchem));
             activeEditor.state = '';
         }
     }
@@ -79,6 +78,16 @@
                 <img class={light ? 'light' : ''} src={moveIconPath} alt="move">
             </button>
             <button onclick={() => {changeEditor('lnkt-modifying')}}>
+                <img class={light ? 'light' : ''} src={modifyIconPath} alt="edit">
+            </button>
+        {:else if seg === 'web'}
+            <button onclick={() => {changeEditor('web-adding')}}>
+                <img class={light ? 'light' : ''} src={plusIconPath} alt="add">
+            </button>
+            <button onclick={() => {changeEditor('web-positioning')}}>
+                <img class={light ? 'light' : ''} src={moveIconPath} alt="move">
+            </button>
+            <button onclick={() => {changeEditor('web-modifying')}}>
                 <img class={light ? 'light' : ''} src={modifyIconPath} alt="edit">
             </button>
         {/if}

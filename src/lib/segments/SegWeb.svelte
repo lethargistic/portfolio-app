@@ -1,27 +1,19 @@
 <script lang="ts">
     import {currentLang} from "$lib/shared.svelte";
     import RotatieCard from "$lib/RotatieCard.svelte";
+    import EditorTools from "$lib/editing/EditorTools.svelte";
 
-    const projects = [{
-        name: "example",
-        display_name: "Example",
-        read_num: 0,
-        img: "https://picsum.photos/1920/1080",
-        link: "#",
-        phone: false,
-        width_vw: 30,
-        left_vw: 12,
-        top_vh: 40
-    }]
+    const {web_projects} = $props();
 </script>
 
 {#key currentLang.lang}
     <section class="web-seg" id="web">
+        <EditorTools seg={'web'} light={true}/>
         <div class="web-txt-cont">
             <h2 class="web-txt web-head-txt">Web /></h2>
             <p class="web-txt web-desc-txt">Selected web projects I've built</p>
         </div>
-        {#each projects as proj}
+        {#each web_projects as proj}
             <RotatieCard {proj}/>
         {/each}
 
