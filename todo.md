@@ -36,4 +36,5 @@
 - [ ] todo maybe: replace title with a proper tooltip in folds
 - [ ] todo maybe: add more to hackatime section
 - [ ] todo maybe: condense socials a bit, instead of 5 chimes for music 1 is enough and etc.
-- [ ] todo high; extended linktree lags way too much
+- [ ] todo high: extended linktree lags way too much ; nah not really
+- [ ] todo maybe: about waterfall extends into scrollwork and it artsy and all

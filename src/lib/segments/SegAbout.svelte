@@ -207,9 +207,9 @@
             & .decor-waterfall-lower {
                 top: 50%;
                 left: 20%;
-                height: 20%;
+                height: 10%;
 
-                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 81%, 0 100%);
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 87%, 0 100%);
             }
 
             & .decor-waterfall-sideways-lower {

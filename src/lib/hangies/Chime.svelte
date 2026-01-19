@@ -864,6 +864,7 @@
 
         & .lantern {
             width: 3vw;
+            transform: scaleX(1.2);
             margin-top: 1.1rem;
         }
     }
