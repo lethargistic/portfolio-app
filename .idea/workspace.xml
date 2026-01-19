@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: more card tweaks">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: more card tweaks x2 and oh no im starting to really like ligatures">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,15 +249,7 @@
       <workItem from="1768554202853" duration="21179000" />
       <workItem from="1768640934290" duration="30929000" />
       <workItem from="1768724030611" duration="26400000" />
-      <workItem from="1768813010344" duration="22169000" />
-    </task>
-    <task id="LOCAL-00050" summary="feat: extra chime look tweaks">
-      <option name="closed" value="true" />
-      <created>1768046812185</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1768046812186</updated>
+      <workItem from="1768813010344" duration="24392000" />
     </task>
     <task id="LOCAL-00051" summary="feat: auth">
       <option name="closed" value="true" />
@@ -643,7 +635,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768836144131</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="chore: more card tweaks x2 and oh no im starting to really like ligatures">
+      <option name="closed" value="true" />
+      <created>1768839891547</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1768839891547</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -661,7 +661,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: added more relevant icons + feat: added a dedicated component for svgs instead of img tag" />
     <MESSAGE value="feat: centered option for folds + feat: auto updating fold keys" />
     <MESSAGE value="chore: social filling progress + feat: title text on folds + fix: folds were not auto converted + fix: auto fill was borken ... borken, sure it was borken" />
     <MESSAGE value="fix: removed icon titles to not interfere with ux + fix: quantum entanglement of folds" />
@@ -686,6 +685,7 @@
     <MESSAGE value="chore: this circle took me an awful amount of time" />
     <MESSAGE value="chore: card tweaks" />
     <MESSAGE value="chore: more card tweaks" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: more card tweaks" />
+    <MESSAGE value="chore: more card tweaks x2 and oh no im starting to really like ligatures" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: more card tweaks x2 and oh no im starting to really like ligatures" />
   </component>
 </project>

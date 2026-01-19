@@ -1,5 +1,6 @@
 <script lang="ts">
     import {Spring} from "svelte/motion";
+    import {blur} from "svelte/transition";
 
     let {proj} = $props();
 
@@ -47,6 +48,7 @@
     // TODO maybe: make pseudo shadow that only rotates on y
     const inactiveShadow = "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px";
     const activeShadow = "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;";
+
 </script>
 
 <a class="card" href={proj.link}
@@ -56,11 +58,14 @@
    bind:clientWidth={cardWidth}
    bind:clientHeight={cardHeight}
    bind:this={card}>
+    {#if act}
+        <p transition:blur class="arrow">-&gt;</p>
+    {/if}
     <div class="card-info">
         <h3>{proj.display_name}</h3>
-        <p class="blurb">Succint blurb no dot lorem</p>
+        <p class="blurb">Succinct blurb no dot lorem</p>
         <div class="separator"></div>
-        <p class="num">{proj.read_num.toString().padStart(2, '0')} <span class="purpel">---&gt;</span> ---- ---&gt; &lt;|</p>
+        <p class="num">{proj.read_num.toString().padStart(2, '0')}</p>
     </div>
     <div class="img-wrap">
         <img style={`box-shadow: ${act ? activeShadow : inactiveShadow};`} src={proj.img} alt={proj.name}/>
@@ -68,10 +73,6 @@
 </a>
 
 <style>
-    .purpel {
-        color: #6728b3;
-    }
-
     .card {
         position: absolute;
         z-index: 2;
@@ -80,6 +81,17 @@
         display: flex;
 
         --inner-text-opacity: 0.5;
+
+        * {
+            font-family: 'Fira Code', monospace;
+        }
+
+        & .arrow {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 3;
+        }
 
         .card-info {
             width: 50%;
@@ -90,10 +102,6 @@
             position: absolute;
             margin-left: -15%;
             z-index: 3;
-
-            * {
-                font-family: 'Fira Code', monospace;
-            }
 
             & h3 {
                 font-weight: normal;
@@ -106,19 +114,21 @@
                 opacity: var(--inner-text-opacity);
                 font-size: 1rem;
 
-                padding-bottom: 1.5rem;
+                padding-bottom: 1rem;
             }
 
             & .separator {
                 background: white;
                 width: 100%;
                 height: 2px;
-                margin-bottom: 1.5rem;
+                margin-bottom: 1rem;
                 border-radius: 4px;
             }
 
             & .num {
-                color: rgba(255, 255, 255, var(--inner-text-opacity));
+                display: flex;
+                opacity: var(--inner-text-opacity);
+                width: 100%;
                 font-size: 0.9rem;
 
                 margin-bottom: 1.5rem;

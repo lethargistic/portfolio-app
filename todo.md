@@ -41,3 +41,4 @@
 - [ ] todo maybe: cta at the end?
 - [ ] todo maybe: make web dev sec change color to redder as you go? or will that not signal creativity hmm ; roses?
 - [ ] todo maybe: in the blank space between web dev sec and linktree some kinda sick 3js animation saying MY WORK
+- [ ] todo maybe: art art art art lots of art in web dev sec
