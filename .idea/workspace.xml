@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: card tweaks">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: more card tweaks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,15 +249,7 @@
       <workItem from="1768554202853" duration="21179000" />
       <workItem from="1768640934290" duration="30929000" />
       <workItem from="1768724030611" duration="26400000" />
-      <workItem from="1768813010344" duration="18052000" />
-    </task>
-    <task id="LOCAL-00049" summary="chore: forgot to commit imgs">
-      <option name="closed" value="true" />
-      <created>1768044151951</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1768044151951</updated>
+      <workItem from="1768813010344" duration="22169000" />
     </task>
     <task id="LOCAL-00050" summary="feat: extra chime look tweaks">
       <option name="closed" value="true" />
@@ -642,7 +635,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768833960371</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="chore: more card tweaks">
+      <option name="closed" value="true" />
+      <created>1768836144131</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1768836144131</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -660,7 +661,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: more separators + fix: int values could not be floatified" />
     <MESSAGE value="chore: added more relevant icons + feat: added a dedicated component for svgs instead of img tag" />
     <MESSAGE value="feat: centered option for folds + feat: auto updating fold keys" />
     <MESSAGE value="chore: social filling progress + feat: title text on folds + fix: folds were not auto converted + fix: auto fill was borken ... borken, sure it was borken" />
@@ -685,6 +685,7 @@
     <MESSAGE value="feat: rotatie card" />
     <MESSAGE value="chore: this circle took me an awful amount of time" />
     <MESSAGE value="chore: card tweaks" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: card tweaks" />
+    <MESSAGE value="chore: more card tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: more card tweaks" />
   </component>
 </project>

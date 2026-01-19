@@ -3,6 +3,17 @@
 
     let {proj} = $props();
 
+    // when thinking what to do for this section i remembered
+    // a portfolio website that someone sent me on discord ages ago
+    // i really liked the concept of rotating project frames like this
+    // so took a look before making this.
+    // wasn't originally going to credit them as i use lots of sites
+    // for inspiration, particularly on creative projects like this,
+    // but making it rn, it seems so eerily similar that it kinda feels like
+    // i'm stealing which doesn't feel right
+    // albeit it's probably just natural UX choices and me overthinking it
+    // but consider this my inspiration for the section: https://yasio.dev/
+
     let act = $state(false)
     let card: HTMLElement | null = $state(null);
     let cardWidth = $state(0);
@@ -21,8 +32,8 @@
         const pointerY = e.clientY;
 
         rotation.target = {
-            x: (pointerY - card.offsetTop - cardHeight / 2) / 8,
-            y: -(pointerX - card.offsetLeft - cardWidth / 2) / 12
+            x: (pointerY - card.offsetTop - cardHeight / 2) / 16,
+            y: -(pointerX - card.offsetLeft - cardWidth / 2) / 24
         };
         scale.target = 1.05;
     }
@@ -47,6 +58,9 @@
    bind:this={card}>
     <div class="card-info">
         <h3>{proj.display_name}</h3>
+        <p class="blurb">Succint blurb no dot lorem</p>
+        <div class="separator"></div>
+        <p class="num">{proj.read_num.toString().padStart(2, '0')} <span class="purpel">---&gt;</span> ---- ---&gt; &lt;|</p>
     </div>
     <div class="img-wrap">
         <img style={`box-shadow: ${act ? activeShadow : inactiveShadow};`} src={proj.img} alt={proj.name}/>
@@ -54,20 +68,66 @@
 </a>
 
 <style>
+    .purpel {
+        color: #6728b3;
+    }
+
     .card {
         position: absolute;
         z-index: 2;
-        display: grid;
+        cursor: pointer;
+
+        display: flex;
+
+        --inner-text-opacity: 0.5;
 
         .card-info {
+            width: 50%;
+
+            display: grid;
+            align-self: end;
+
+            position: absolute;
+            margin-left: -15%;
+            z-index: 3;
+
+            * {
+                font-family: 'Fira Code', monospace;
+            }
+
             & h3 {
-                font-family: 'Fira Mono', monospace;
                 font-weight: normal;
+                font-size: 2rem;
+
+                padding-bottom: 0.5rem;
+            }
+
+            & .blurb {
+                opacity: var(--inner-text-opacity);
+                font-size: 1rem;
+
+                padding-bottom: 1.5rem;
+            }
+
+            & .separator {
+                background: white;
+                width: 100%;
+                height: 2px;
+                margin-bottom: 1.5rem;
+                border-radius: 4px;
+            }
+
+            & .num {
+                color: rgba(255, 255, 255, var(--inner-text-opacity));
+                font-size: 0.9rem;
+
+                margin-bottom: 1.5rem;
             }
         }
 
         & .img-wrap {
             position: relative;
+
             & img {
                 width: 100%;
                 aspect-ratio: 16/9;

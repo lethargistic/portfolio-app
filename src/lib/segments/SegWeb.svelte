@@ -5,10 +5,12 @@
     const projects = [{
         name: "example",
         display_name: "Example",
+        read_num: 0,
         img: "https://picsum.photos/1920/1080",
         link: "#",
-        width_vw: 32,
-        left_vw: 4,
+        phone: false,
+        width_vw: 30,
+        left_vw: 12,
         top_vh: 40
     }]
 </script>
