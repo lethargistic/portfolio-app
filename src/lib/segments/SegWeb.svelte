@@ -1,9 +1,14 @@
 <script lang="ts">
-    import {currentLang} from "$lib/shared.svelte";
+    import {currentLang, editorProj, editorSocials} from "$lib/shared.svelte";
     import RotatieCard from "$lib/RotatieCard.svelte";
     import EditorTools from "$lib/editing/EditorTools.svelte";
+    import {onMount} from "svelte";
 
     const {web_projects} = $props();
+
+    onMount(() => {
+        editorProj.state = web_projects;
+    })
 </script>
 
 {#key currentLang.lang}

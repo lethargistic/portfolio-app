@@ -4,7 +4,15 @@
     import {CSS3DRenderer, CSS3DObject} from 'three/addons/renderers/CSS3DRenderer.js';
     import {SeparatorShape} from "$lib/utils/utils";
     import ChimeSVGFilling from "$lib/hangies/ChimeSVG.svelte";
-    import {activeEditor, editorSocials, fiend, MAX_CHIME_FOLDS, MIN_CHIME_FOLDS, editbar} from "$lib/shared.svelte";
+    import {
+        activeEditor,
+        editorSocials,
+        fiend,
+        MAX_CHIME_FOLDS,
+        MIN_CHIME_FOLDS,
+        editbar,
+        handleEdit
+    } from "$lib/shared.svelte";
     import SVGThreeStars from "$lib/hangies/separators/separators/SVGThreeStars.svelte";
     import SVGStar from "$lib/hangies/separators/separators/SVGStar.svelte";
     import SVGCircles from "$lib/hangies/separators/separators/SVGCircles.svelte";
@@ -454,15 +462,7 @@
     //
 
     const handleChimeEdit = (e: Event) => {
-        if (!fiend.state) return;
-        if (e instanceof KeyboardEvent && e.key !== ' ') return;
-
-        editbar.focused = social.name;
-        if (activeEditor.state === 'lnkt-modifying') {
-            editbar.open = !editbar.open;
-
-            editbar.skip = true;
-        }
+        handleEdit(e, social.name, 'lnkt-modifying');
     }
 
     let foldContWidth: number | null = $state(null);
@@ -585,7 +585,8 @@
 <div bind:this={chimeElem} class={`chime-cont ${editbar.holding ? 'prevent-select' : ''}`}
      bind:clientHeight={chimeHeight}
      style={`mask-image: url("${chimeSVGMaskUrl}");`}>
-    <div class={`fold-cont ${activeEditor.state === 'lnkt-modifying' || activeEditor.state === 'lnkt-positioning' ? 'hover-focus' : ''}`}
+    <div class={`fold-cont
+         ${activeEditor.state === 'lnkt-modifying' || activeEditor.state === 'lnkt-positioning' ? 'hover-focus' : ''}`}
          bind:clientHeight={foldContHeight} bind:clientWidth={foldContWidth}
          style={`grid-template-rows: repeat(${foldCount*2+1}, 1fr);`}
          role="presentation" onclick={handleChimeEdit} onkeydown={handleChimeEdit} onpointerdown={handleChimeHolding}
@@ -599,7 +600,8 @@
                 <div class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
                      style={`width: ${chimeGroupWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;
                         --title-font-size: ${social.chime_max_height_vh/(DEFAULT_CHIME_SIZE_VH/BASE_FONT_SIZE_REM)}rem`}>
-                    <a href={fold.link ? (fold.link.startsWith('copy_') ? null : fold.link) : social.link === 'none' ? null : social.link} onclick={() => handleSocialLink(fold.link)}
+                    <a href={fold.link ? (fold.link.startsWith('copy_') ? null : fold.link) : social.link === 'none' ? null : social.link}
+                       onclick={() => handleSocialLink(fold.link)}
                        target="_blank"
                        title={foldTitleOverride ? foldTitleOverride : (fold.hover ? fold.hover : '')}>
                         {#if fold.icon === 'hackatime'}

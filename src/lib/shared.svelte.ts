@@ -13,7 +13,8 @@ export let settings: Record<string, {display: string, desc: string, state: boole
 
 export let fiend = $state({state: false});
 export let editing = $state({state: false});
-export let editorSocials: {state: Array<any>} = $state({state: []});
+export let editorSocials: {state: Array<Record<string, any>>} = $state({state: []});
+export let editorProj: {state: Array<Record<string, any>>} = $state({state: []});
 export let editbar = $state({
     open: false,
     skip: false,
@@ -21,4 +22,16 @@ export let editbar = $state({
     focusedIx: 0,
     holding: false
 });
-export let activeEditor = $state({state: ''})
+export let activeEditor = $state({state: ''});
+
+export const handleEdit = (e: Event, name: string, editor: string) => {
+    if (!fiend.state) return;
+    if (e instanceof KeyboardEvent && e.key !== ' ') return;
+
+    editbar.focused = name;
+    if (activeEditor.state === editor) {
+        editbar.open = !editbar.open;
+
+        editbar.skip = true;
+    }
+}

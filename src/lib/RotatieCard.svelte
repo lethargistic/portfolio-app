@@ -1,6 +1,7 @@
 <script lang="ts">
     import {Spring} from "svelte/motion";
     import {blur} from "svelte/transition";
+    import {activeEditor, editbar, handleEdit} from "$lib/shared.svelte";
 
     let {proj} = $props();
 
@@ -49,12 +50,23 @@
     const inactiveShadow = "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px";
     const activeShadow = "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;";
 
+    //
+
+    let shouldLink = $state(true)
+    const handleProjectEdit = (e: Event) => {
+        shouldLink = !activeEditor.state.startsWith('web');
+        handleEdit(e, proj.name, 'web-modifying');
+    }
 </script>
 
-<a class="card" href={proj.link}
+<a class={`card
+            ${activeEditor.state === 'web-modifying'
+            || activeEditor.state === 'web-positioning' ? 'hover-focus-light' : ''}`}
+         href={shouldLink ? proj.link : null}
    style={`transform: perspective(600px) rotateX(${rotation.current.x}deg) rotateY(${rotation.current.y}deg) scale(${scale.current});
              left: ${proj.left_vw}vw; top: ${proj.top_vh}vh; width: ${proj.width_vw}vw;`}
    onpointermove={handlePointerMove} onpointerout={handlePointerLeave}
+   onclick={handleProjectEdit} onkeydown={handleProjectEdit}
    bind:clientWidth={cardWidth}
    bind:clientHeight={cardHeight}
    bind:this={card}>
@@ -63,7 +75,7 @@
     {/if}
     <div class="card-info">
         <h3>{proj.display_name}</h3>
-        <p class="blurb">Succinct blurb no dot lorem</p>
+        <p class="blurb">{proj.blurb}</p>
         <div class="separator"></div>
         <p class="num">{proj.read_num.toString().padStart(2, '0')}</p>
     </div>

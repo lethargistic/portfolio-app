@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {activeEditor, editorSocials, MAX_CHIME_FOLDS, editbar} from "$lib/shared.svelte";
+    import {activeEditor, editorSocials, MAX_CHIME_FOLDS, editbar, editorProj} from "$lib/shared.svelte";
     import {convertSimpleDataTypesImplicitly, isEmptyArr, SeparatorShape} from "$lib/utils/utils";
     import {applyAction, enhance} from "$app/forms";
     import type {SubmitFunction} from "@sveltejs/kit";
@@ -22,8 +22,8 @@
         }
     }
 
-    const readOnlySocial = $derived(editorSocials.state[editbar.focusedIx]);
-    const isNumberInvalid = (key: string, trueKey: string, value: number, upperBound: number) => {
+    const socialInQuestion = $derived(editorSocials.state[editbar.focusedIx]);
+    const isNumberInvalid = (key: string, trueKey: string, value: any, upperBound: number) => {
         return key === trueKey && (value > upperBound || isNaN(value))
     }
 
@@ -87,22 +87,25 @@
     const assignFoldBindingsWithExceptions = (v: any, ig: number, key: string) => {
         editorSocials.state[editbar.focusedIx].folds[ig][key] = convertSimpleDataTypesImplicitly(v);
     }
+
+    // TODO: refactor all me dumb reassignment &&&* the java got into my brain help
+    const projInQuestion = $derived(editorProj.state[editbar.focusedIx]);
 </script>
 
 <svelte:window onclick={checkIfClose}/>
 <aside bind:this={sidebarElem} class="sidebar">
     {#if editbar.focused !== '' && editbar.focusedIx !== -1}
-        <h2>{readOnlySocial.name}</h2>
+        <h2>{socialInQuestion.name}</h2>
+        <!-- TODO: simplify -->
         <form method="POST" use:enhance={handleSubmit}>
             {#if activeEditor.state === 'lnkt-modifying' && !isEmptyArr(editorSocials.state)}
-                {#each Object.keys(readOnlySocial).filter((key: String) => key !== 'folds')
-                        as key (key + '_salt143')}
-                    {@const readOnlyVal = editorSocials.state[editbar.focusedIx][key]}
-                    {@const isInvalidFoldCount = isNumberInvalid(key, 'fold_count', readOnlyVal, MAX_CHIME_FOLDS)}
+                {@const currentSocial = socialInQuestion}
+                {#each Object.entries(socialInQuestion).filter(([key, _v]) => key !== 'folds') as [key, value] (key + '_salt143')}
+                    {@const isInvalidFoldCount = isNumberInvalid(key, 'fold_count', value, MAX_CHIME_FOLDS)}
                     <label>
                         {key}
-                        <input bind:value={() => editorSocials.state[editbar.focusedIx][key], (v) => {assignInputBindingsWithExceptions(v, key)}}
-                               placeholder={editorSocials.state[editbar.focusedIx][key]}
+                        <input bind:value={currentSocial[key]}
+                               placeholder={currentSocial[key]}
                                class={`${isInvalidFoldCount ? 'invalid-bg' : ''}`}>
                     </label>
                     {#if key === 'separator_shape'}
@@ -112,13 +115,13 @@
                     {/if}
                 {/each}
                 <p><b>Folds:</b></p>
-                {#each readOnlySocial.folds as roFold, ig (roFold.slug)}
-                    <p><b>{roFold.slug}</b></p>
-                    {#each Object.keys(roFold) as key (key + '_salt173')}
+                {#each socialInQuestion.folds as fold, ig (fold.slug)}
+                    <p><b>{fold.slug}</b></p>
+                    {#each Object.keys(fold) as key (key + '_salt173')}
                         <label>
                             {key}
-                            <input bind:value={() => editorSocials.state[editbar.focusedIx].folds[ig][key], (v) => assignFoldBindingsWithExceptions(v, ig, key)}
-                                   placeholder={roFold[key]}>
+                            <input bind:value={() => fold[key], (v) => assignFoldBindingsWithExceptions(v, ig, key)}
+                                   placeholder={fold[key]}>
                         </label>
                     {/each}
                 {/each}
@@ -128,9 +131,23 @@
                 {#if form?.message !== undefined}
                     <p class={form?.success === false ? 'invalid-txt' : 'valid-txt'}>{form?.message}</p>
                 {/if}
+            {:else if activeEditor.state === 'web-modifying' && !isEmptyArr(editorProj.state)}
+                <!-- TODO: foreign key for insides instead of column array because ahh... eto bleh -->
+                <!-- TODO: also actually check if each keys are scoped per each or not-->
+                {#each Object.entries(projInQuestion) as [key, value] (key + '_salt153')}
+                    <label>
+                        {key}
+                        <input bind:value={projInQuestion[key]}
+                               placeholder={value}>
+                    </label>
+                {/each}
+            {/if}
+            {#if activeEditor.state.endsWith('modifying')}
+                {@const action = activeEditor.state.startsWith('lnkt') ? 'Social' :
+                             activeEditor.state.startsWith('web') ? 'Project' : 'oh no'}
                 <details>
                     <summary>Delete</summary>
-                    <button class="delete-button" formaction="admin/edits?/deleteSocial">
+                    <button class="delete-button" formaction={`admin/edits?/delete${action}`}>
                         {deleteText}
                     </button>
                 </details>

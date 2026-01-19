@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {currentLang, editbar, editorSocials, settings} from "$lib/shared.svelte";
+    import {activeEditor, currentLang, editbar, editorProj, editorSocials, settings} from "$lib/shared.svelte";
 
     import {onMount} from "svelte";
     import Chime from "$lib/hangies/Chime.svelte";
@@ -79,13 +79,31 @@
     const handleScrollBool = () => scrolling = true;
     const handleScrollEndBool = () => scrolling = false;
 
+    // TODO: refactor
     $effect(() => {
+        if (!activeEditor.state.startsWith('lnkt')) return;
+
         if (isEmptyArr(editorSocials.state)) {
             editbar.focusedIx = -1;
             return;
         }
 
         const ix = editorSocials.state.findIndex((social: typeof editorSocials.state[number]) => social.name === editbar.focused);
+        if (ix === null) {
+            editbar.focusedIx = -1;
+            return;
+        }
+        editbar.focusedIx = ix;
+    })
+    $effect(() => {
+        if (!activeEditor.state.startsWith('web')) return;
+
+        if (isEmptyArr(editorProj.state)) {
+            editbar.focusedIx = -1;
+            return;
+        }
+
+        const ix = editorProj.state.findIndex((project: typeof editorProj.state[number]) => project.name === editbar.focused);
         if (ix === null) {
             editbar.focusedIx = -1;
             return;

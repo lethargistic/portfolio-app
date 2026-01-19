@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: more card tweaks x3">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: project cards in the db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,15 +253,7 @@
       <workItem from="1768554202853" duration="21179000" />
       <workItem from="1768640934290" duration="30929000" />
       <workItem from="1768724030611" duration="26400000" />
-      <workItem from="1768813010344" duration="25948000" />
-    </task>
-    <task id="LOCAL-00052" summary="feat: started on editing + chore: tweaks">
-      <option name="closed" value="true" />
-      <created>1768123761635</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1768123761636</updated>
+      <workItem from="1768813010344" duration="30913000" />
     </task>
     <task id="LOCAL-00053" summary="chore: some editing progress">
       <option name="closed" value="true" />
@@ -644,7 +639,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768842851753</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="chore: project cards in the db">
+      <option name="closed" value="true" />
+      <created>1768844675182</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1768844675182</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -662,7 +665,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: social filling progress + feat: title text on folds + fix: folds were not auto converted + fix: auto fill was borken ... borken, sure it was borken" />
     <MESSAGE value="fix: removed icon titles to not interfere with ux + fix: quantum entanglement of folds" />
     <MESSAGE value="fix: decided on chime font size and icons consistent with scaling&#10;now got to not forget to make sure it's readable" />
     <MESSAGE value="fix: empty folds" />
@@ -687,6 +689,7 @@
     <MESSAGE value="chore: more card tweaks" />
     <MESSAGE value="chore: more card tweaks x2 and oh no im starting to really like ligatures" />
     <MESSAGE value="chore: more card tweaks x3" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: more card tweaks x3" />
+    <MESSAGE value="chore: project cards in the db" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: project cards in the db" />
   </component>
 </project>
