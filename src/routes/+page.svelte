@@ -6,6 +6,7 @@
     import {activeEditor, editing, settings} from "$lib/shared.svelte";
     import GlobalEditorTools from "$lib/editing/GlobalEditorTools.svelte";
     import {page} from "$app/state";
+    import SegWeb from "$lib/segments/SegWeb.svelte";
 
     let {form, data} = $props();
 
@@ -78,6 +79,7 @@
     <SegWelcome/>
     <SegAbout/>
     <SegLinktree socials={data.socials}/>
+    <SegWeb/>
 </main>
 {#each Array.from({length: 100}) as _, i }
     <p>{i}</p>

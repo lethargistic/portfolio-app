@@ -38,3 +38,4 @@
 - [ ] todo maybe: condense socials a bit, instead of 5 chimes for music 1 is enough and etc.
 - [ ] todo high: extended linktree lags way too much ; nah not really
 - [ ] todo maybe: about waterfall extends into scrollwork and it artsy and all
+- [ ] todo maybe: cta at the end?

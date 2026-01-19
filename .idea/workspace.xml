@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: rotated decor waterfall that made no sense but better">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: made it look less snek + fix: lamp was wrong color">
+      <change afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hangies/separators/separators/SVGLantern.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/separators/separators/SVGLantern.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +33,7 @@
         <option value="GlobalEditorTools" />
         <option value="+page.svelte" />
         <option value="Icon" />
+        <option value="SegWeb" />
       </list>
     </option>
   </component>
@@ -248,15 +251,7 @@
       <workItem from="1768554202853" duration="21179000" />
       <workItem from="1768640934290" duration="30929000" />
       <workItem from="1768724030611" duration="26400000" />
-      <workItem from="1768813010344" duration="880000" />
-    </task>
-    <task id="LOCAL-00044" summary="fix: chime top offset now responsive">
-      <option name="closed" value="true" />
-      <created>1767969601939</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1767969601939</updated>
+      <workItem from="1768813010344" duration="7317000" />
     </task>
     <task id="LOCAL-00045" summary="fix: CA link was not clickable">
       <option name="closed" value="true" />
@@ -642,7 +637,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768760410853</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="fix: made it look less snek + fix: lamp was wrong color">
+      <option name="closed" value="true" />
+      <created>1768813910403</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1768813910404</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -660,7 +663,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: settings now save between sessions + feat: cool moon thing for no-flashing mode" />
     <MESSAGE value="fix: wrong rope length no longer invalidates itself more or less" />
     <MESSAGE value="fix: edited positons and others no longer bork themselves if string or 0" />
     <MESSAGE value="chore: max height and chime offset settings" />
@@ -685,6 +687,7 @@
     <MESSAGE value="feat: #linktree now puts you at the settings with extended on + fix: icon colors were not actually #111111 for brand icons" />
     <MESSAGE value="fix: rotated decor waterfall that made no sense" />
     <MESSAGE value="fix: rotated decor waterfall that made no sense but better" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: rotated decor waterfall that made no sense but better" />
+    <MESSAGE value="fix: made it look less snek + fix: lamp was wrong color" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: made it look less snek + fix: lamp was wrong color" />
   </component>
 </project>

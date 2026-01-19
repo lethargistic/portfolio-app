@@ -128,8 +128,6 @@
             {/each}
         </div>
     </section>
-    <p style="color: white">stars</p>
-    <p style="color: white">gregor</p>
 
     <style>
         .linktree-seg {
