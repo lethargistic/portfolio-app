@@ -9,7 +9,7 @@
         MAX_CHIME_FOLDS,
         MIN_CHIME_FOLDS,
         editbar,
-        handleEdit
+        handleItemEdit, handleItemHolding, handleItemLeaving, handlePositioning, windowGlobals
     } from "$lib/shared.svelte";
     import SVGThreeStars from "$lib/hangies/separators/separators/SVGThreeStars.svelte";
     import SVGStar from "$lib/hangies/separators/separators/SVGStar.svelte";
@@ -460,52 +460,14 @@
     //
 
     const handleChimeEdit = (e: Event) => {
-        handleEdit(e, social.name, 'lnkt-modifying');
+        console.log('trigg')
+        handleItemEdit(e, social.name, 'lnkt-modifying');
     }
 
     const socialInQuestion = $derived(editbar.social_data[editbar.focusedIx]);
 
-    let foldContWidth: number | null = $state(null);
-    let foldContHeight: number | null = $state(null);
-    let prevMouseX = $state(0);
-    let prevMouseY = $state(0);
     const handleChimeMoving = (e: PointerEvent) => {
-        if (editbar.holding && social.name === editbar.focused) {
-            e.preventDefault();
-            // should ideally be adjusted for the size of what im moving being bigger
-            // but i couldn't get that to works so pointer capture go brrr
-            const dx = e.clientX - prevMouseX;
-            const dy = e.clientY - prevMouseY;
-
-            if (editbar.focusedIx === -1 || !windowInnerWidth || !windowInnerHeight || !foldContWidth || !foldContHeight) return;
-
-            const leftVw = dx / windowInnerWidth * 100;
-            const topVh = dy / windowInnerHeight * 100;
-
-            socialInQuestion.left_vw += leftVw;
-            socialInQuestion.top_vh += topVh;
-
-
-            // rounding
-            socialInQuestion.left_vw = parseFloat(socialInQuestion.left_vw.toFixed(2));
-            socialInQuestion.top_vh = parseFloat(socialInQuestion.top_vh.toFixed(2));
-            prevMouseX = e.clientX;
-            prevMouseY = e.clientY;
-        }
-    }
-
-    const handleChimeHolding = (e: PointerEvent) => {
-        if (activeEditor.state === 'lnkt-positioning') {
-            (e.target as HTMLElement).setPointerCapture(e.pointerId);
-            prevMouseX = e.clientX;
-            prevMouseY = e.clientY;
-
-            editbar.holding = true;
-        }
-    }
-    const handleChimeLeaving = (e: PointerEvent) => {
-        (e.target as HTMLElement).releasePointerCapture(e.pointerId);
-        editbar.holding = false;
+        handlePositioning(e, socialInQuestion, social.name, 'lnkt');
     }
 
     //
@@ -587,10 +549,9 @@
      style={`mask-image: url("${chimeSVGMaskUrl}");`}>
     <div class={`fold-cont
          ${activeEditor.state === 'lnkt-modifying' || activeEditor.state === 'lnkt-positioning' ? 'hover-focus' : ''}`}
-         bind:clientHeight={foldContHeight} bind:clientWidth={foldContWidth}
          style={`grid-template-rows: repeat(${foldCount*2+1}, 1fr);`}
-         role="presentation" onclick={handleChimeEdit} onkeydown={handleChimeEdit} onpointerdown={handleChimeHolding}
-         onpointerup={handleChimeLeaving} onpointerleave={handleChimeLeaving} onpointermove={handleChimeMoving}>
+         role="presentation" onclick={handleChimeEdit} onkeydown={handleChimeEdit} onpointerdown={(e) => {handleChimeEdit(e); handleItemHolding(e);}}
+         onpointerup={handleItemLeaving} onpointerleave={handleItemLeaving} onpointermove={handleChimeMoving}>
         <!-- the spacer accounts for the 0.5 folds on the left that are missing because of the shape -->
         <div class="stat-half-spacer-left"></div>
         {#each folds as fold (social.name + fold.id + fold.slug)}
@@ -649,12 +610,6 @@
     :global(.stat-fold > a > .factory-icon > svg) {
         grid-row: span 2;
         aspect-ratio: 1 / 1;
-    }
-
-    .prevent-select {
-        user-select: none;
-        -webkit-user-drag: none;
-        user-drag: none;
     }
 
     .chime-canvas {

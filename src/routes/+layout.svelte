@@ -3,7 +3,7 @@
     import '../styles/global.css';
     import {onMount} from "svelte";
     import {invalidate} from "$app/navigation";
-    import {editing, fiend, editbar, settings} from "$lib/shared.svelte";
+    import {editing, fiend, editbar, settings, windowGlobals} from "$lib/shared.svelte";
 
     let {data, children} = $props();
     let {supabase, session} = $derived(data);
@@ -46,6 +46,7 @@
 <svelte:head>
     <link rel="icon" href={favicon}/>
 </svelte:head>
-<svelte:window onkeydown={handleEditModeSwitch}></svelte:window>
+
+<svelte:window onkeydown={handleEditModeSwitch} bind:innerWidth={windowGlobals.inner_width} bind:innerHeight={windowGlobals.inner_height}/>
 
 {@render children()}

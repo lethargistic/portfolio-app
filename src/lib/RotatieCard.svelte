@@ -1,7 +1,14 @@
 <script lang="ts">
     import {Spring} from "svelte/motion";
     import {blur} from "svelte/transition";
-    import {activeEditor, handleEdit} from "$lib/shared.svelte";
+    import {
+        activeEditor,
+        editbar,
+        handleItemEdit,
+        handleItemHolding,
+        handleItemLeaving,
+        handlePositioning
+    } from "$lib/shared.svelte";
 
     let {proj} = $props();
 
@@ -27,18 +34,9 @@
     let scale = new Spring(1);
     let arrowRight = new Spring(10);
 
-    const handlePointerMove = (e: PointerEvent) => {
-        if (!card) return;
-
-        act = true;
-        const pointerX = e.clientX;
-        const pointerY = e.clientY;
-
-        rotation.target = {
-            x: (pointerY - card.offsetTop - cardHeight / 2) / 16,
-            y: -(pointerX - card.offsetLeft - cardWidth / 2) / 24
-        };
-        scale.target = 1.05;
+    const projInQuestion = $derived<Record<string, any>>(editbar.proj_data[editbar.focusedIx]);
+    const handleCardMoving = (e: PointerEvent) => {
+        handlePositioning(e, projInQuestion, proj.name, 'web');
     }
     const handlePointerLeave = () => {
         act = false;
@@ -55,8 +53,10 @@
 
     let shouldLink = $state(true)
     const handleProjectEdit = (e: Event) => {
+        if (e instanceof KeyboardEvent && e.key !== ' ') return;
+
         shouldLink = !activeEditor.state.startsWith('web');
-        handleEdit(e, proj.name, 'web-modifying');
+        handleItemEdit(e, proj.name, 'web-modifying');
     }
 
     //
@@ -69,11 +69,14 @@
 
 <a target="_blank" class={`card
             ${activeEditor.state === 'web-modifying'
-            || activeEditor.state === 'web-positioning' ? 'hover-focus-light' : ''}`}
+            || activeEditor.state === 'web-positioning' ? 'hover-focus-light;' : ''}
+            ${editbar.holding ? 'prevent-select' : ''}`}
          href={shouldLink ? proj.link : null}
    style={`transform: perspective(600px) rotateX(${rotation.current.x}deg) rotateY(${rotation.current.y}deg) scale(${scale.current});
              left: ${proj.left_vw}vw; top: ${proj.top_vh}vh; width: ${proj.width_vw}vw;`}
-   onpointermove={handlePointerMove} onpointerout={handlePointerLeave}
+   onpointerdown={(e) => {handleProjectEdit(e); handleItemHolding(e);}}
+   onpointermove={handleCardMoving} onpointerup={handleItemLeaving}
+   onpointerout={(e) => {handlePointerLeave(); handleItemLeaving(e)}}
    onclick={handleProjectEdit} onkeydown={handleProjectEdit}
    bind:clientWidth={cardWidth}
    bind:clientHeight={cardHeight}
@@ -88,7 +91,7 @@
         <p class="num">{proj.read_num.toString().padStart(2, '0')}</p>
     </div>
     <div class="img-wrap">
-        <img style={`box-shadow: ${act ? activeShadow : inactiveShadow};`} src={proj.img} alt={proj.name}/>
+        <img class={`${editbar.holding ? 'prevent-select' : ''}`} style={`box-shadow: ${act ? activeShadow : inactiveShadow};`} src={proj.img} alt={proj.name}/>
     </div>
 </a>
 

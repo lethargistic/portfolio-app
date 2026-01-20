@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: web project editing locally">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="refactor: cleaning + feat: adding, deleting web projects">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,15 +254,7 @@
       <workItem from="1768724030611" duration="26400000" />
       <workItem from="1768813010344" duration="30980000" />
       <workItem from="1768849446403" duration="23000" />
-      <workItem from="1768893557778" duration="10052000" />
-    </task>
-    <task id="LOCAL-00057" summary="chore: editing sidebar progress x3, failproofed main settings">
-      <option name="closed" value="true" />
-      <created>1768243727719</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1768243727719</updated>
+      <workItem from="1768893557778" duration="15763000" />
     </task>
     <task id="LOCAL-00058" summary="chore: extra chime editing tweaks + almost db posting">
       <option name="closed" value="true" />
@@ -647,7 +640,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768899493398</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="refactor: cleaning + feat: adding, deleting web projects">
+      <option name="closed" value="true" />
+      <created>1768906627629</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1768906627629</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -665,7 +666,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: setting saving did not handle key change" />
     <MESSAGE value="feat: added a lot socials + extra tweaks for those" />
     <MESSAGE value="chore: i cant typ, the caffein, me rip, also added bluesky stats from the api" />
     <MESSAGE value="chore: hackatime stats" />
@@ -690,6 +690,7 @@
     <MESSAGE value="chore: arrow moves" />
     <MESSAGE value="refactor: the java has gotten into my brain, bastards" />
     <MESSAGE value="feat: web project editing locally" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: web project editing locally" />
+    <MESSAGE value="refactor: cleaning + feat: adding, deleting web projects" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: cleaning + feat: adding, deleting web projects" />
   </component>
 </project>

@@ -3,7 +3,7 @@
     import SegAbout from "$lib/segments/SegAbout.svelte";
     import SegLinktree from "$lib/segments/SegLinktree.svelte";
     import {goto} from "$app/navigation";
-    import {activeEditor, editbar, editing, settings} from "$lib/shared.svelte";
+    import {activeEditor, editbar, editing, settings, windowGlobals} from "$lib/shared.svelte";
     import GlobalEditorTools from "$lib/editing/GlobalEditorTools.svelte";
     import {page} from "$app/state";
     import SegWeb from "$lib/segments/SegWeb.svelte";
@@ -85,7 +85,7 @@
     $effect(() => (updateFocused('lnkt', editbar.social_data)));
     $effect(() => (updateFocused('web', editbar.proj_data)));
 </script>
-<svelte:window on:keydown={handleTravelToAuth}/>
+<svelte:window on:keydown={handleTravelToAuth} />
 
 {#if editing.state && settings.editor.state}
     <div class="editing">
