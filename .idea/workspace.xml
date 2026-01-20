@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: project cards in the db">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: web sec editing + refactor: simplified part of convoluted logic because of dumb mistake, more to come tmrw">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,15 +248,9 @@
       <workItem from="1768554202853" duration="21179000" />
       <workItem from="1768640934290" duration="30929000" />
       <workItem from="1768724030611" duration="26400000" />
-      <workItem from="1768813010344" duration="30913000" />
-    </task>
-    <task id="LOCAL-00053" summary="chore: some editing progress">
-      <option name="closed" value="true" />
-      <created>1768129357736</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1768129357736</updated>
+      <workItem from="1768813010344" duration="30980000" />
+      <workItem from="1768849446403" duration="23000" />
+      <workItem from="1768893557778" duration="990000" />
     </task>
     <task id="LOCAL-00054" summary="chore: some editing progress x2">
       <option name="closed" value="true" />
@@ -647,7 +636,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768844675182</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="feat: web sec editing + refactor: simplified part of convoluted logic because of dumb mistake, more to come tmrw">
+      <option name="closed" value="true" />
+      <created>1768849403812</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1768849403812</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -665,7 +662,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: removed icon titles to not interfere with ux + fix: quantum entanglement of folds" />
     <MESSAGE value="fix: decided on chime font size and icons consistent with scaling&#10;now got to not forget to make sure it's readable" />
     <MESSAGE value="fix: empty folds" />
     <MESSAGE value="chore: moar chimess i, I, I really need to eat + fix: chime related fixes" />
@@ -690,6 +686,7 @@
     <MESSAGE value="chore: more card tweaks x2 and oh no im starting to really like ligatures" />
     <MESSAGE value="chore: more card tweaks x3" />
     <MESSAGE value="chore: project cards in the db" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: project cards in the db" />
+    <MESSAGE value="feat: web sec editing + refactor: simplified part of convoluted logic because of dumb mistake, more to come tmrw" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: web sec editing + refactor: simplified part of convoluted logic because of dumb mistake, more to come tmrw" />
   </component>
 </project>

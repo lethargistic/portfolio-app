@@ -77,7 +77,7 @@
                 --outer-height: 20vh;
                 --circle-diameter: calc(var(--guideline-width) * 10);
                 width: var(--circle-diameter);
-                height: 70%;
+                height: 100%;
                 display: flex;
                 flex-direction: column;
                 place-items: center start;
@@ -104,7 +104,7 @@
 
                 & .inner {
                     width: var(--guideline-width);
-                    height: 50%;
+                    height: 100%;
 
                     background-color: #6728b3;
                 }

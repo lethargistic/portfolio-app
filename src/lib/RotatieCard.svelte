@@ -1,7 +1,7 @@
 <script lang="ts">
     import {Spring} from "svelte/motion";
     import {blur} from "svelte/transition";
-    import {activeEditor, editbar, handleEdit} from "$lib/shared.svelte";
+    import {activeEditor, handleEdit} from "$lib/shared.svelte";
 
     let {proj} = $props();
 
@@ -25,6 +25,7 @@
         damping: 0.08
     });
     let scale = new Spring(1);
+    let arrowRight = new Spring(10);
 
     const handlePointerMove = (e: PointerEvent) => {
         if (!card) return;
@@ -57,9 +58,16 @@
         shouldLink = !activeEditor.state.startsWith('web');
         handleEdit(e, proj.name, 'web-modifying');
     }
+
+    //
+
+    const trackArrowLoad = () => {
+        act ? arrowRight.target = 1 : arrowRight.target = 10
+    };
+    $effect(trackArrowLoad);
 </script>
 
-<a class={`card
+<a target="_blank" class={`card
             ${activeEditor.state === 'web-modifying'
             || activeEditor.state === 'web-positioning' ? 'hover-focus-light' : ''}`}
          href={shouldLink ? proj.link : null}
@@ -71,7 +79,7 @@
    bind:clientHeight={cardHeight}
    bind:this={card}>
     {#if act}
-        <p transition:blur class="arrow">-&gt;</p>
+        <p transition:blur style={`right: ${arrowRight.current}rem`} class="arrow">-&gt;</p>
     {/if}
     <div class="card-info">
         <h3>{proj.display_name}</h3>
@@ -101,7 +109,7 @@
         & .arrow {
             position: absolute;
             top: 1rem;
-            right: 1rem;
+            right: 10rem;
             z-index: 3;
         }
 
