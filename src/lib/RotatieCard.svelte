@@ -36,6 +36,18 @@
 
     const projInQuestion = $derived<Record<string, any>>(editbar.proj_data[editbar.focusedIx]);
     const handleCardMoving = (e: PointerEvent) => {
+        if (!card) return;
+
+        act = true;
+        const pointerX = e.clientX;
+        const pointerY = e.clientY;
+
+        rotation.target = {
+            x: (pointerY - card.offsetTop - cardHeight / 2) / 16,
+            y: -(pointerX - card.offsetLeft - cardWidth / 2) / 24
+        };
+        scale.target = 1.05;
+
         handlePositioning(e, projInQuestion, proj.name, 'web');
     }
     const handlePointerLeave = () => {
