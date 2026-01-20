@@ -92,14 +92,27 @@
     const assignFoldBindingsWithExceptions = (v: any, ig: number, key: string) => {
         socialInQuestion.folds[ig][key] = convertSimpleDataTypesImplicitly(v);
     }
+
+    const isLnktMod = $derived(activeEditor.state === 'lnkt-modifying' && !isEmptyArr(editbar.social_data));
+    const isWebMod = $derived(activeEditor.state === 'web-modifying' && !isEmptyArr(editbar.proj_data));
 </script>
 
 <svelte:window onclick={checkIfClose}/>
+{#snippet deletion(action: String)}
+    {#if activeEditor.state.endsWith('modifying')}
+        <details>
+            <summary>Delete</summary>
+            <button class="delete-button" formaction={`admin/edits?/delete${action}`}>
+                {deleteText}
+            </button>
+        </details>
+    {/if}
+{/snippet}
 <aside bind:this={sidebarElem} class="sidebar">
     {#if editbar.focused !== '' && editbar.focusedIx !== -1}
-        <h2>{socialInQuestion.name}</h2>
-        <form method="POST" use:enhance={handleSubmit}>
-            {#if activeEditor.state === 'lnkt-modifying' && !isEmptyArr(editbar.social_data)}
+        {#if isLnktMod}
+            <h2>{socialInQuestion.name}</h2>
+            <form method="POST" use:enhance={handleSubmit}>
                 {#each Object.entries(socialInQuestion).filter(([key, _v]) => key !== 'folds') as [key, value] (key)}
                     {@const isInvalidFoldCount = isNumberInvalid(key, 'fold_count', value, MAX_CHIME_FOLDS)}
                     <label>
@@ -131,7 +144,11 @@
                 {#if form?.message !== undefined}
                     <p class={form?.success === false ? 'invalid-txt' : 'valid-txt'}>{form?.message}</p>
                 {/if}
-            {:else if activeEditor.state === 'web-modifying' && !isEmptyArr(editbar.proj_data)}
+                {@render deletion('Social')}
+            </form>
+
+        {:else if isWebMod}
+            <form method="POST" use:enhance={handleSubmit}>
                 <!-- TODO: foreign key for insides instead of column array because ahh... eto bleh -->
                 {#each Object.entries(projInQuestion) as [key, value] (key)}
                     <label>
@@ -140,18 +157,9 @@
                                placeholder={value}>
                     </label>
                 {/each}
-            {/if}
-            {#if activeEditor.state.endsWith('modifying')}
-                {@const action = activeEditor.state.startsWith('lnkt') ? 'Social' :
-                             activeEditor.state.startsWith('web') ? 'Project' : 'oh no'}
-                <details>
-                    <summary>Delete</summary>
-                    <button class="delete-button" formaction={`admin/edits?/delete${action}`}>
-                        {deleteText}
-                    </button>
-                </details>
-            {/if}
-        </form>
+                {@render deletion('Project')}
+            </form>
+        {/if}
     {/if}
 </aside>
 

@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: arrow moves">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="refactor: the java has gotten into my brain, bastards">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,15 +252,7 @@
       <workItem from="1768724030611" duration="26400000" />
       <workItem from="1768813010344" duration="30980000" />
       <workItem from="1768849446403" duration="23000" />
-      <workItem from="1768893557778" duration="4572000" />
-    </task>
-    <task id="LOCAL-00055" summary="chore: some more editing progress">
-      <option name="closed" value="true" />
-      <created>1768220558427</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1768220558427</updated>
+      <workItem from="1768893557778" duration="5813000" />
     </task>
     <task id="LOCAL-00056" summary="chore: editing sidebar progress x2">
       <option name="closed" value="true" />
@@ -648,7 +638,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768894823328</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="refactor: the java has gotten into my brain, bastards">
+      <option name="closed" value="true" />
+      <created>1768898519186</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1768898519186</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -666,7 +664,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: empty folds" />
     <MESSAGE value="chore: moar chimess i, I, I really need to eat + fix: chime related fixes" />
     <MESSAGE value="fix: setting saving did not handle key change" />
     <MESSAGE value="feat: added a lot socials + extra tweaks for those" />
@@ -691,6 +688,7 @@
     <MESSAGE value="chore: project cards in the db" />
     <MESSAGE value="feat: web sec editing + refactor: simplified part of convoluted logic because of dumb mistake, more to come tmrw" />
     <MESSAGE value="chore: arrow moves" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: arrow moves" />
+    <MESSAGE value="refactor: the java has gotten into my brain, bastards" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: the java has gotten into my brain, bastards" />
   </component>
 </project>

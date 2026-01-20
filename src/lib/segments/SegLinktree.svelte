@@ -1,14 +1,13 @@
 <script lang="ts">
-    import {activeEditor, currentLang, editbar, settings} from "$lib/shared.svelte";
+    import {currentLang, editbar, settings} from "$lib/shared.svelte";
 
     import {onMount} from "svelte";
     import Chime from "$lib/hangies/Chime.svelte";
     import EditorTools from "$lib/editing/EditorTools.svelte";
-    import {isEmptyArr} from "$lib/utils/utils";
 
     let {socials: socialsProp} = $props();
 
-    let socials: typeof socialsProp = $derived(editbar.social_data);
+    let socials = $derived(editbar.social_data);
 
     const isSocialHidden = (social: typeof socials[number]) => social.hidden || (social.extended && !settings.extendedLinktree.state);
 

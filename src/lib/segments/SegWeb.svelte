@@ -4,10 +4,12 @@
     import EditorTools from "$lib/editing/EditorTools.svelte";
     import {onMount} from "svelte";
 
-    const {web_projects} = $props();
+    const {webProj: webProjProp} = $props();
+
+    const webProj = $derived(editbar.proj_data);
 
     onMount(() => {
-        editbar.proj_data = web_projects;
+        editbar.proj_data = webProjProp;
     })
 </script>
 
@@ -18,7 +20,7 @@
             <h2 class="web-txt web-head-txt">Web /></h2>
             <p class="web-txt web-desc-txt">Selected web projects I've built</p>
         </div>
-        {#each web_projects as proj}
+        {#each webProj as proj}
             <RotatieCard {proj}/>
         {/each}
 
