@@ -20,7 +20,7 @@
     }
 
     // lazy-ish (not really) but this admin-only so I don't see why not
-    const trackPreprocessLnktAdding = () => {
+    const trackPreprocessEditorAdding = () => {
         if (activeEditor.state === 'lnkt-adding') {
             const socialSchem = Object.entries(editbar.social_data[0])
             const defaultSocial = Object.fromEntries(socialSchem.map(([key, value]) => {
@@ -52,9 +52,31 @@
             }));
             editbar.social_data.push(defaultSocial);
             activeEditor.state = '';
+        } else if (activeEditor.state === 'web-adding') {
+            const projSchem = Object.entries(editbar.proj_data[0])
+            const defaultProj = Object.fromEntries(projSchem.map(([key, value]) => {
+                if (key === 'img') {
+                    value = 'https://picsum.photos/1920/1080';
+                    return [key, value];
+                }
+
+                // defaulting
+                if (typeof value === "string") {
+                    value = 'non';
+                }
+                if (typeof value === "number") {
+                    // exceptions
+                    if (key === 'width_vw') return [key, 30];
+
+                    value = 1;
+                }
+                return [key, value];
+            }));
+            editbar.proj_data.push(defaultProj);
+            activeEditor.state = '';
         }
     }
-    $effect(trackPreprocessLnktAdding);
+    $effect(trackPreprocessEditorAdding);
 
     const editIconPath = '/img/icons/lucide-edit.svg';
     const modifyIconPath = '/img/icons/lucide-modify.svg';
@@ -69,26 +91,21 @@
                 <img class={light ? 'light' : ''} src={editIconPath} alt="edit">
             </button>
         {/if}
+        {#snippet genericItemEditors(prefix: String)}
+            <button onclick={() => {changeEditor(`${prefix}-adding`)}}>
+                <img class={light ? 'light' : ''} src={plusIconPath} alt="add">
+            </button>
+            <button onclick={() => {changeEditor(`${prefix}-positioning`)}}>
+                <img class={light ? 'light' : ''} src={moveIconPath} alt="move">
+            </button>
+            <button onclick={() => {changeEditor(`${prefix}-modifying`)}}>
+                <img class={light ? 'light' : ''} src={modifyIconPath} alt="edit">
+            </button>
+        {/snippet}
         {#if seg === 'linktree'}
-            <button onclick={() => {changeEditor('lnkt-adding')}}>
-                <img class={light ? 'light' : ''} src={plusIconPath} alt="add">
-            </button>
-            <button onclick={() => {changeEditor('lnkt-positioning')}}>
-                <img class={light ? 'light' : ''} src={moveIconPath} alt="move">
-            </button>
-            <button onclick={() => {changeEditor('lnkt-modifying')}}>
-                <img class={light ? 'light' : ''} src={modifyIconPath} alt="edit">
-            </button>
+            {@render genericItemEditors('lnkt')}
         {:else if seg === 'web'}
-            <button onclick={() => {changeEditor('web-adding')}}>
-                <img class={light ? 'light' : ''} src={plusIconPath} alt="add">
-            </button>
-            <button onclick={() => {changeEditor('web-positioning')}}>
-                <img class={light ? 'light' : ''} src={moveIconPath} alt="move">
-            </button>
-            <button onclick={() => {changeEditor('web-modifying')}}>
-                <img class={light ? 'light' : ''} src={modifyIconPath} alt="edit">
-            </button>
+            {@render genericItemEditors('web')}
         {/if}
     </div>
 

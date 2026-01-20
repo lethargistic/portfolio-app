@@ -38,7 +38,7 @@ export let settings: Record<string, { display: string, desc: string, state: bool
 
 export let fiend = $state({state: false});
 export let editing = $state({state: false});
-export let editbar = $state({
+export let editbar = $state<Record<string, any>>({
     open: false,
     skip: false,
     focused: '',

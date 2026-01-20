@@ -111,6 +111,8 @@
             top: 1rem;
             right: 10rem;
             z-index: 3;
+
+            text-shadow: rgba(0, 0, 0, 0.6) 0 1px 5px, rgba(0, 0, 0, 0.4) 0 -1px 3px;
         }
 
         .card-info {

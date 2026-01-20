@@ -4,6 +4,12 @@ import {PUBLIC_DEV} from "$env/static/public";
 import {getAdminClient} from "$lib/serverUtils/getSupabaseAdminClient";
 import {convertSimpleDataTypesImplicitly} from '$lib/utils/utils';
 
+// will be replaced/added if upsert
+const removeReassigned = (obj: Record<string, any>) => {
+    delete obj.id;
+    delete obj.created_at;
+}
+
 export const actions = {
     postSocial: async ({locals: {safeGetSession}, request}) => {
         const {session, user} = await safeGetSession();
@@ -31,11 +37,9 @@ export const actions = {
         delete social.folds;
         const supabase = getAdminClient();
 
-        // will be replaced/added if upsert
-        delete social.id;
-        delete social.created_at;
+        removeReassigned(social);
 
-        // most types implicitly, supabase eats them just fine
+        // some types implicitly, supabase eats them just fine
         const { error: sberr } = await supabase
             .from('socials')
             .upsert(
@@ -71,6 +75,58 @@ export const actions = {
             return fail(400, { success: false, message: "Db fail" })
         }
 
-        return {success: true, message: "Deleted!", toDelete: social.name}
+        return {success: true, message: "Deleted!", toDelete: {name: social.name, type: 'social'}}
+    },
+    postProject: async ({locals: {safeGetSession}, request}) => {
+        const {session, user} = await safeGetSession();
+
+        if (!session || !user) {
+            console.warn(`Unauthorized data submission attempt!!!, ${Date.now()}`)
+            return fail(401, {success: false, message: "Who are you? The geese will get you, soon enough. Run."})
+        }
+
+        const data = await request.formData();
+        const project = Object.fromEntries(data.entries());
+
+        const supabase = getAdminClient();
+
+        removeReassigned(project);
+
+        const { error: sberr } = await supabase
+            .from('web_projects')
+            .upsert(
+                { ...project },
+                { onConflict: 'name' })
+
+        if (sberr) {
+            if (PUBLIC_DEV) {console.error(sberr)}
+            return fail(400, { success: false, message: "Db fail" })
+        }
+
+        return {success: true, message: "Posted! Now double check or else."}
+    },
+    deleteProject: async ({locals: {safeGetSession}, request}) => {
+        const {session, user} = await safeGetSession();
+
+        if (!session || !user) {
+            console.warn(`Unauthorized data submission attempt!!!, ${Date.now()}`)
+            return fail(401, {success: false, message: "Who are you? The geese will get you, soon enough. Run."})
+        }
+
+        const data = await request.formData();
+        const project = Object.fromEntries(data.entries());
+
+        const supabase = getAdminClient();
+        const { error: sberr } = await supabase
+            .from('web_projects')
+            .delete()
+            .eq('name', project.name)
+
+        if (sberr) {
+            if (PUBLIC_DEV) {console.error(sberr)}
+            return fail(400, { success: false, message: "Db fail" })
+        }
+
+        return {success: true, message: "Deleted!", toDelete: {name: project.name, type: 'proj'}}
     }
 } satisfies Actions

@@ -1,3 +1,5 @@
+<!--get, set bindings-->
+<!--suppress CommaExpressionJS -->
 <script lang="ts">
     import {activeEditor, MAX_CHIME_FOLDS, editbar} from "$lib/shared.svelte";
     import {convertSimpleDataTypesImplicitly, isEmptyArr, SeparatorShape} from "$lib/utils/utils";
@@ -24,8 +26,8 @@
 
     //
 
-    const socialInQuestion = $derived(editbar.social_data[editbar.focusedIx]);
-    const projInQuestion = $derived(editbar.proj_data[editbar.focusedIx]);
+    const socialInQuestion = $derived<Record<string, any>>(editbar.social_data[editbar.focusedIx]);
+    const projInQuestion = $derived<Record<string, any>>(editbar.proj_data[editbar.focusedIx]);
 
     const isNumberInvalid = (key: string, trueKey: string, value: any, upperBound: number) => {
         return key === trueKey && (value > upperBound || isNaN(value))
@@ -45,7 +47,13 @@
 
         formData.delete('*');
 
-        for (const [key, value] of Object.entries(socialInQuestion)) {
+        const curData = activeEditor.state.startsWith('lnkt') ? socialInQuestion :
+            activeEditor.state.startsWith('web') ? projInQuestion : null;
+        if (curData === null) {
+            cancel();
+            throw new Error('Current data is off');
+        }
+        for (const [key, value] of Object.entries(curData)) {
             if (key === 'folds') {
                 formData.append(key, JSON.stringify(value));
                 continue;
@@ -63,11 +71,13 @@
     $effect(() => {
         if (form?.toDelete !== undefined) {
             untrack(() => {
-                const ix = editbar.social_data.findIndex((social: typeof editbar.social_data[number]) => {
-                    social.name === form?.toDelete
+                const type = form.toDelete.type;
+                const obj = editbar[`${type}_data`] ;
+                const ix = obj.findIndex((social: typeof obj[number]) => {
+                    social.name === form.toDelete.name
                 });
                 editbar.focused = '';
-                editbar.social_data.splice(ix, 1);
+                obj.splice(ix, 1);
                 form.toDelete = undefined;
             })
         }
@@ -98,7 +108,15 @@
 </script>
 
 <svelte:window onclick={checkIfClose}/>
-{#snippet deletion(action: String)}
+{#snippet sendingBloc(action: String)}
+    <button formaction={`admin/edits?/post${action}`}>
+        {postText}
+    </button>
+    {#if form?.message !== undefined}
+        <p class={form?.success === false ? 'invalid-txt' : 'valid-txt'}>{form?.message}</p>
+    {/if}
+{/snippet}
+{#snippet deletionBloc(action: String)}
     {#if activeEditor.state.endsWith('modifying')}
         <details>
             <summary>Delete</summary>
@@ -111,6 +129,7 @@
 <aside bind:this={sidebarElem} class="sidebar">
     {#if editbar.focused !== '' && editbar.focusedIx !== -1}
         {#if isLnktMod}
+            {@const action = "Social"}
             <h2>{socialInQuestion.name}</h2>
             <form method="POST" use:enhance={handleSubmit}>
                 {#each Object.entries(socialInQuestion).filter(([key, _v]) => key !== 'folds') as [key, value] (key)}
@@ -138,16 +157,12 @@
                         </label>
                     {/each}
                 {/each}
-                <button formaction="admin/edits?/postSocial">
-                    {postText}
-                </button>
-                {#if form?.message !== undefined}
-                    <p class={form?.success === false ? 'invalid-txt' : 'valid-txt'}>{form?.message}</p>
-                {/if}
-                {@render deletion('Social')}
+                {@render sendingBloc(action)}
+                {@render deletionBloc(action)}
             </form>
 
         {:else if isWebMod}
+            {@const action = "Project"}
             <form method="POST" use:enhance={handleSubmit}>
                 <!-- TODO: foreign key for insides instead of column array because ahh... eto bleh -->
                 {#each Object.entries(projInQuestion) as [key, value] (key)}
@@ -157,7 +172,9 @@
                                placeholder={value}>
                     </label>
                 {/each}
-                {@render deletion('Project')}
+
+                {@render sendingBloc(action)}
+                {@render deletionBloc(action)}
             </form>
         {/if}
     {/if}
