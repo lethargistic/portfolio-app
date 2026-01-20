@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {activeEditor, currentLang, editbar, editorProj, editorSocials, settings} from "$lib/shared.svelte";
+    import {activeEditor, currentLang, editbar, settings} from "$lib/shared.svelte";
 
     import {onMount} from "svelte";
     import Chime from "$lib/hangies/Chime.svelte";
@@ -8,12 +8,12 @@
 
     let {socials: socialsProp} = $props();
 
-    let socials: typeof socialsProp = $derived(editorSocials.state);
+    let socials: typeof socialsProp = $derived(editbar.social_data);
 
     const isSocialHidden = (social: typeof socials[number]) => social.hidden || (social.extended && !settings.extendedLinktree.state);
 
     const updateSocials = async () => {
-        editorSocials.state = socialsProp;
+        editbar.social_data = socialsProp;
 
         if (!socials) return;
         for (const social of socials) {
@@ -41,7 +41,7 @@
             _socials[socials.findIndex((s: typeof socials[number]) => s.name === social.name)].folds
                 = freshFolds;
 
-            editorSocials.state = _socials;
+            editbar.social_data = _socials;
             socials = _socials;
         }
     }
@@ -78,38 +78,6 @@
 
     const handleScrollBool = () => scrolling = true;
     const handleScrollEndBool = () => scrolling = false;
-
-    // TODO: refactor
-    $effect(() => {
-        if (!activeEditor.state.startsWith('lnkt')) return;
-
-        if (isEmptyArr(editorSocials.state)) {
-            editbar.focusedIx = -1;
-            return;
-        }
-
-        const ix = editorSocials.state.findIndex((social: typeof editorSocials.state[number]) => social.name === editbar.focused);
-        if (ix === null) {
-            editbar.focusedIx = -1;
-            return;
-        }
-        editbar.focusedIx = ix;
-    })
-    $effect(() => {
-        if (!activeEditor.state.startsWith('web')) return;
-
-        if (isEmptyArr(editorProj.state)) {
-            editbar.focusedIx = -1;
-            return;
-        }
-
-        const ix = editorProj.state.findIndex((project: typeof editorProj.state[number]) => project.name === editbar.focused);
-        if (ix === null) {
-            editbar.focusedIx = -1;
-            return;
-        }
-        editbar.focusedIx = ix;
-    })
 </script>
 
 <svelte:window bind:innerHeight={windowHeight} bind:scrollY={windowScrollY} onscroll={handleScrollBool}

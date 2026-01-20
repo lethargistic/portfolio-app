@@ -1,8 +1,7 @@
 <script lang="ts">
     import {
-        activeEditor,
+        activeEditor, editbar,
         editing,
-        editorSocials,
         MAX_CHIME_FOLDS, settings
     } from "$lib/shared.svelte";
     import {Editable} from "$lib/utils/utils";
@@ -23,7 +22,7 @@
     // lazy-ish (not really) but this admin-only so I don't see why not
     const trackPreprocessLnktAdding = () => {
         if (activeEditor.state === 'lnkt-adding') {
-            const socialSchem = Object.entries(editorSocials.state[0])
+            const socialSchem = Object.entries(editbar.social_data[0])
             const defaultSocial = Object.fromEntries(socialSchem.map(([key, value]) => {
                 // exceptions
                 if (key === 'fold_count') {
@@ -51,7 +50,7 @@
                 }
                 return [key, value];
             }));
-            editorSocials.state.push(defaultSocial);
+            editbar.social_data.push(defaultSocial);
             activeEditor.state = '';
         }
     }

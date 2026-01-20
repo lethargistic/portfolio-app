@@ -6,8 +6,6 @@
     import ChimeSVGFilling from "$lib/hangies/ChimeSVG.svelte";
     import {
         activeEditor,
-        editorSocials,
-        fiend,
         MAX_CHIME_FOLDS,
         MIN_CHIME_FOLDS,
         editbar,
@@ -465,6 +463,8 @@
         handleEdit(e, social.name, 'lnkt-modifying');
     }
 
+    const socialInQuestion = $derived(editbar.social_data[editbar.focusedIx]);
+
     let foldContWidth: number | null = $state(null);
     let foldContHeight: number | null = $state(null);
     let prevMouseX = $state(0);
@@ -482,13 +482,13 @@
             const leftVw = dx / windowInnerWidth * 100;
             const topVh = dy / windowInnerHeight * 100;
 
-            editorSocials.state[editbar.focusedIx].left_vw += leftVw;
-            editorSocials.state[editbar.focusedIx].top_vh += topVh;
+            socialInQuestion.left_vw += leftVw;
+            socialInQuestion.top_vh += topVh;
 
 
             // rounding
-            editorSocials.state[editbar.focusedIx].left_vw = parseFloat(editorSocials.state[editbar.focusedIx].left_vw.toFixed(2));
-            editorSocials.state[editbar.focusedIx].top_vh = parseFloat(editorSocials.state[editbar.focusedIx].top_vh.toFixed(2));
+            socialInQuestion.left_vw = parseFloat(socialInQuestion.left_vw.toFixed(2));
+            socialInQuestion.top_vh = parseFloat(socialInQuestion.top_vh.toFixed(2));
             prevMouseX = e.clientX;
             prevMouseY = e.clientY;
         }

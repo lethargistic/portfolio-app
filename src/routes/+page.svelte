@@ -3,10 +3,11 @@
     import SegAbout from "$lib/segments/SegAbout.svelte";
     import SegLinktree from "$lib/segments/SegLinktree.svelte";
     import {goto} from "$app/navigation";
-    import {activeEditor, editing, settings} from "$lib/shared.svelte";
+    import {activeEditor, editbar, editing, settings} from "$lib/shared.svelte";
     import GlobalEditorTools from "$lib/editing/GlobalEditorTools.svelte";
     import {page} from "$app/state";
     import SegWeb from "$lib/segments/SegWeb.svelte";
+    import {isEmptyArr} from "$lib/utils/utils";
 
     let {form, data} = $props();
 
@@ -65,6 +66,24 @@
 
     }
     $effect(manageSettings);
+
+    const updateFocused = (prefix: string, data: Array<Record<string, any>>) => {
+        if (!activeEditor.state.startsWith(prefix)) return;
+
+        if (isEmptyArr(data)) {
+            editbar.focusedIx = -1;
+            return;
+        }
+
+        const ix = data.findIndex(social => social.name === editbar.focused);
+        if (ix === null) {
+            editbar.focusedIx = -1;
+            return;
+        }
+        editbar.focusedIx = ix;
+    }
+    $effect(() => (updateFocused('lnkt', editbar.social_data)));
+    $effect(() => (updateFocused('web', editbar.proj_data)));
 </script>
 <svelte:window on:keydown={handleTravelToAuth}/>
 
