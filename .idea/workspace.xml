@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: shmooving web projects">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: the animation has borken">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
     </list>
@@ -249,15 +250,7 @@
       <workItem from="1768724030611" duration="26400000" />
       <workItem from="1768813010344" duration="30980000" />
       <workItem from="1768849446403" duration="23000" />
-      <workItem from="1768893557778" duration="16452000" />
-    </task>
-    <task id="LOCAL-00059" summary="chore: extra chime editing tweaks + almost db posting">
-      <option name="closed" value="true" />
-      <created>1768310333089</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1768310333090</updated>
+      <workItem from="1768893557778" duration="25665000" />
     </task>
     <task id="LOCAL-00060" summary="chore: db posting + very professionally changed the variable back from testing after 3 skill issues">
       <option name="closed" value="true" />
@@ -643,7 +636,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768918389443</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="fix: the animation has borken">
+      <option name="closed" value="true" />
+      <created>1768918831325</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1768918831327</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -654,14 +655,21 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ID_WIDTH">
+                <map>
+                  <entry key="Table.Default.Author.ColumnIdWidth" value="77" />
+                  <entry key="Table.Default.Date.ColumnIdWidth" value="126" />
+                  <entry key="Table.GitHub.CommitStatus.ColumnIdWidth" value="54" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: i cant typ, the caffein, me rip, also added bluesky stats from the api" />
     <MESSAGE value="chore: hackatime stats" />
     <MESSAGE value="fix: hackatime stats don't count the last week for whatever reason" />
     <MESSAGE value="feat: other social api stats" />
@@ -686,6 +694,7 @@
     <MESSAGE value="feat: web project editing locally" />
     <MESSAGE value="refactor: cleaning + feat: adding, deleting web projects" />
     <MESSAGE value="feat: shmooving web projects" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: shmooving web projects" />
+    <MESSAGE value="fix: the animation has borken" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: the animation has borken" />
   </component>
 </project>

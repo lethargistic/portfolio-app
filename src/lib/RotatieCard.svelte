@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {Spring} from "svelte/motion";
+    import {Spring, Tween} from "svelte/motion";
     import {blur} from "svelte/transition";
     import {
         activeEditor,
@@ -7,7 +7,7 @@
         handleItemEdit,
         handleItemHolding,
         handleItemLeaving,
-        handlePositioning
+        handlePositioning, windowGlobals
     } from "$lib/shared.svelte";
 
     let {proj} = $props();
@@ -32,6 +32,7 @@
         damping: 0.08
     });
     let scale = new Spring(1);
+    let shadowScale = new Tween(0.95);
     let arrowRight = new Spring(10);
 
     const projInQuestion = $derived<Record<string, any>>(editbar.proj_data[editbar.focusedIx]);
@@ -46,6 +47,7 @@
             x: (pointerY - card.offsetTop - cardHeight / 2) / 16,
             y: -(pointerX - card.offsetLeft - cardWidth / 2) / 24
         };
+        shadowScale.target = 1.05;
         scale.target = 1.05;
 
         handlePositioning(e, projInQuestion, proj.name, 'web');
@@ -53,13 +55,9 @@
     const handlePointerLeave = () => {
         act = false;
         scale.target = 1;
+        shadowScale.target = 0.95;
         rotation.target = {x: 0, y: 0};
     }
-
-    // the shadow remains flat when rotated so we basically have to remove it
-    // TODO maybe: make pseudo shadow that only rotates on y
-    const inactiveShadow = "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px";
-    const activeShadow = "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;";
 
     //
 
@@ -77,13 +75,47 @@
         act ? arrowRight.target = 1 : arrowRight.target = 10
     };
     $effect(trackArrowLoad);
+
+    //
+
+    let img: HTMLElement | null = $state(null);
+    let imgDims = $state<Record<string, any>>({
+        width: 0,
+        height: 0
+    });
+
+    let once = $state(false);
+    let shadowClone: HTMLDivElement | null = $state(null);
+    const resizeAndAnimateShadow = (resize: boolean) => {
+        if (!shadowClone || !img || !imgDims.width || !imgDims.height) return;
+
+        if (!once || resize) {
+            shadowClone.style.width = imgDims.width + 'px';
+            shadowClone.style.height = imgDims.height + 'px';
+            shadowClone.style.left = proj.left_vw + 'vw';
+            shadowClone.style.top = proj.top_vh + 'vh';
+            shadowClone.style.scale = '0.99';
+
+            once = true;
+        }
+
+        shadowClone.style.transform = `scale(${shadowScale.current})`;
+    }
+    $effect(() => {resizeAndAnimateShadow(false)})
+
+    $effect(() => {
+        if (windowGlobals.inner_width && windowGlobals.inner_height) {
+            resizeAndAnimateShadow(true);
+        }
+    })
 </script>
 
+<svelte:window />
 <a target="_blank" class={`card
             ${activeEditor.state === 'web-modifying'
             || activeEditor.state === 'web-positioning' ? 'hover-focus-light;' : ''}
             ${editbar.holding ? 'prevent-select' : ''}`}
-         href={shouldLink ? proj.link : null}
+   href={shouldLink ? proj.link : null}
    style={`transform: perspective(600px) rotateX(${rotation.current.x}deg) rotateY(${rotation.current.y}deg) scale(${scale.current});
              left: ${proj.left_vw}vw; top: ${proj.top_vh}vh; width: ${proj.width_vw}vw;`}
    onpointerdown={(e) => {handleProjectEdit(e); handleItemHolding(e);}}
@@ -103,11 +135,23 @@
         <p class="num">{proj.read_num.toString().padStart(2, '0')}</p>
     </div>
     <div class="img-wrap">
-        <img class={`${editbar.holding ? 'prevent-select' : ''}`} style={`box-shadow: ${act ? activeShadow : inactiveShadow};`} src={proj.img} alt={proj.name}/>
+        <img bind:this={img} bind:clientWidth={imgDims.width} bind:clientHeight={imgDims.height}
+             class={`${editbar.holding ? 'prevent-select' : ''}`} src={proj.img} alt={proj.name}/>
     </div>
 </a>
+<div bind:this={shadowClone}
+     class="shadow-clone"></div>
 
 <style>
+    .shadow-clone {
+        position: absolute;
+
+        width: 200px;
+        height: 200px;
+        /*box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;*/
+        box-shadow: rgba(0, 0, 0, 0.3) 0 19px 10px, rgba(0, 0, 0, 0.22) 0 15px 6px;
+    }
+
     .card {
         position: absolute;
         z-index: 2;
@@ -188,7 +232,9 @@
                 top: 0;
                 left: 0;
                 width: 100%;
-                height: 100%;
+                /* no idea what are these 5px even from */
+                /* the wrapper is just slightly bigger for some reason*/
+                height: calc(100% - 5px);
                 background: linear-gradient(to right, #111111, transparent);
                 pointer-events: none;
             }
