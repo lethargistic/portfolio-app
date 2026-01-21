@@ -56,7 +56,7 @@ export const handleItemEdit = (e: Event, name: string, editor: string) => {
 
     editbar.focused = name;
     if (activeEditor.state === editor) {
-        editbar.open = !editbar.open;
+        editbar.open = true;
 
         editbar.skip = true;
     }

@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: the animation has borken">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: made shadow follow animation properly god this took so long to match up and I didn't actually end up with the effect I wanted">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
     </list>
@@ -96,7 +95,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.smartKeys&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -250,15 +249,10 @@
       <workItem from="1768724030611" duration="26400000" />
       <workItem from="1768813010344" duration="30980000" />
       <workItem from="1768849446403" duration="23000" />
-      <workItem from="1768893557778" duration="25665000" />
-    </task>
-    <task id="LOCAL-00060" summary="chore: db posting + very professionally changed the variable back from testing after 3 skill issues">
-      <option name="closed" value="true" />
-      <created>1768316231733</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1768316231733</updated>
+      <workItem from="1768893557778" duration="25768000" />
+      <workItem from="1768983518378" duration="1651000" />
+      <workItem from="1768985867756" duration="59000" />
+      <workItem from="1768985969872" duration="413000" />
     </task>
     <task id="LOCAL-00061" summary="feat: adding and deleting new chimes in the ui">
       <option name="closed" value="true" />
@@ -644,7 +638,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768918831327</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="fix: made shadow follow animation properly god this took so long to match up and I didn't actually end up with the effect I wanted">
+      <option name="closed" value="true" />
+      <created>1768941530737</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1768941530737</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -670,7 +672,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: hackatime stats" />
     <MESSAGE value="fix: hackatime stats don't count the last week for whatever reason" />
     <MESSAGE value="feat: other social api stats" />
     <MESSAGE value="fix: rock" />
@@ -695,6 +696,7 @@
     <MESSAGE value="refactor: cleaning + feat: adding, deleting web projects" />
     <MESSAGE value="feat: shmooving web projects" />
     <MESSAGE value="fix: the animation has borken" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: the animation has borken" />
+    <MESSAGE value="fix: made shadow follow animation properly god this took so long to match up and I didn't actually end up with the effect I wanted" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: made shadow follow animation properly god this took so long to match up and I didn't actually end up with the effect I wanted" />
   </component>
 </project>

@@ -460,7 +460,6 @@
     //
 
     const handleChimeEdit = (e: Event) => {
-        console.log('trigg')
         handleItemEdit(e, social.name, 'lnkt-modifying');
     }
 

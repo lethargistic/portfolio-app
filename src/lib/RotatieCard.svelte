@@ -102,7 +102,7 @@
         shadowClone.style.transform = `scale(${shadowScale.current})`;
     }
     $effect(() => {resizeAndAnimateShadow(false)})
-
+    
     $effect(() => {
         if (windowGlobals.inner_width && windowGlobals.inner_height) {
             resizeAndAnimateShadow(true);
