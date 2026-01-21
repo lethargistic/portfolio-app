@@ -38,7 +38,7 @@
 </script>
 
 {#if !!details && modal.open}
-    <div transition:blur={{duration: 200, easing: expoIn}}
+    <div transition:blur={{duration: 300, easing: expoIn}}
          style={`justify-content: ${modal.left ? 'flex-start' : 'flex-end'};`}
          class="modal" onclick={handleModalCloseCheck} onkeydown={handleModalCloseCheck}
          role="button" tabindex="-1">
@@ -56,8 +56,7 @@
             <div class="info">
                 <h2>{details.display_name}</h2>
                 <div class="separator">
-                    =
-                    {#each [...Array(33).keys()] as _}=/{/each}==
+                    {#each [...Array(33).keys()] as i}{#if i === 0}={/if}=/{/each}==
                 </div>
                 <div class="info-props">
                     <p class="num">#{proj.read_num.toString().padStart(2, '0')}</p>
@@ -65,13 +64,13 @@
                         tech used:
                         {#each details.langs as lang}
                             <li>
-                                <Icon name={lang} width={24} height={24} currentColor="#fff"/>
-                                {lang}
+                                <Icon name={lang.lang} width={24} height={24} currentColor="#fff"/>
+                                {lang.display}
                             </li>
                         {/each}
                     </ul>
                 </div>
-                <p class="desc">-> {details.long_desc}</p>
+                <p class="desc">&nbsp;-> {details.long_desc}</p>
             </div>
         </div>
     </div>
@@ -84,7 +83,8 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-color: rgba(16, 16, 16, 0.7);
+        background-color: rgba(16, 16, 16, 0.9);
+        backdrop-filter: blur(1px);
         z-index: 1000;
 
         color: white;

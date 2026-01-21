@@ -187,7 +187,7 @@
         <div class="separator"></div>
         <p class="num">{proj.read_num.toString().padStart(2, '0')}</p>
     </div>
-    <div class={`img-wrap ${modal.open ? 'modal-open' : ''}`}>
+    <div class={`img-wrap ${modal.open && selected ? 'modal-open' : ''}`}>
         <img bind:this={img} bind:clientWidth={imgDims.width} bind:clientHeight={imgDims.height}
              class={`${editbar.holding ? 'prevent-select' : ''}`} src={proj.img} alt={proj.name}/>
     </div>
