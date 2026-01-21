@@ -7,7 +7,7 @@
         handleItemEdit,
         handleItemHolding,
         handleItemLeaving,
-        handlePositioning, windowGlobals
+        handlePositioning, modal, vwToPx, windowGlobals
     } from "$lib/shared.svelte";
 
     let {proj} = $props();
@@ -62,11 +62,13 @@
 
     //
 
-    let shouldLink = $state(true)
-    const handleProjectEdit = (e: Event) => {
-        if (e instanceof KeyboardEvent && e.key !== ' ') return;
+    const handleProjectInteraction = (e: Event) => {
+        if (e instanceof KeyboardEvent && !(e.key === ' ' || e.key === 'Enter')) return;
 
-        shouldLink = !activeEditor.state.startsWith('web');
+        modal.selected = proj.name;
+        modal.open = true;
+        modal.left = vwToPx(proj.left_vw) > windowGlobals.inner_width / 2
+
         handleItemEdit(e, proj.name, 'web-modifying');
     }
 
@@ -102,8 +104,10 @@
 
         shadowClone.style.transform = `scale(${shadowScale.current})`;
     }
-    $effect(() => {resizeAndAnimateShadow(false)})
-    
+    $effect(() => {
+        resizeAndAnimateShadow(false)
+    })
+
     $effect(() => {
         if (windowGlobals.inner_width && windowGlobals.inner_height) {
             resizeAndAnimateShadow(true);
@@ -111,21 +115,22 @@
     })
 </script>
 
-<svelte:window />
-<a target="_blank" class={`card
+<svelte:window/>
+<div class={`card
             ${activeEditor.state === 'web-modifying'
             || activeEditor.state === 'web-positioning' ? 'hover-focus-light;' : ''}
             ${editbar.holding ? 'prevent-select' : ''}`}
-   href={shouldLink ? proj.link : null}
-   style={`transform: perspective(600px) rotateX(${rotation.current.x}deg) rotateY(${rotation.current.y}deg) scale(${scale.current});
+     style={`transform: perspective(600px) rotateX(${rotation.current.x}deg) rotateY(${rotation.current.y}deg) scale(${scale.current});
              left: ${proj.left_vw}vw; top: ${proj.top_vh}vh; width: ${proj.width_vw}vw;`}
-   onpointerdown={(e) => {handleProjectEdit(e); handleItemHolding(e);}}
-   onpointermove={handleCardMoving} onpointerup={handleItemLeaving}
-   onpointerout={(e) => {handlePointerLeave(); handleItemLeaving(e)}}
-   onclick={handleProjectEdit} onkeydown={handleProjectEdit}
-   bind:clientWidth={cardWidth}
-   bind:clientHeight={cardHeight}
-   bind:this={card}>
+     onpointerdown={(e) => {handleProjectInteraction(e); handleItemHolding(e);}}
+     onpointermove={handleCardMoving} onpointerup={handleItemLeaving}
+     onpointerout={(e) => {handlePointerLeave(); handleItemLeaving(e)}}
+     onclick={handleProjectInteraction} onkeydown={handleProjectInteraction}
+     role="button"
+     tabindex="0"
+     bind:clientWidth={cardWidth}
+     bind:clientHeight={cardHeight}
+     bind:this={card}>
     {#if act}
         <p transition:blur style={`right: ${arrowRight.current}rem`} class="arrow">-&gt;</p>
     {/if}
@@ -139,7 +144,7 @@
         <img bind:this={img} bind:clientWidth={imgDims.width} bind:clientHeight={imgDims.height}
              class={`${editbar.holding ? 'prevent-select' : ''}`} src={proj.img} alt={proj.name}/>
     </div>
-</a>
+</div>
 <div bind:this={shadowClone}
      class="shadow-clone"></div>
 

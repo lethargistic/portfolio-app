@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: web project pages">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: actually nvm, we doing a modal">
+      <change afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/web-projects/[project]/+page.server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/web-projects/[project]/+page.svelte" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +33,7 @@
         <option value="SegWeb" />
         <option value="RotatieCard" />
         <option value="+page.svelte" />
+        <option value="WebProjModl" />
       </list>
     </option>
   </component>
@@ -265,15 +264,7 @@
       <workItem from="1768987261965" duration="221000" />
       <workItem from="1768987528093" duration="140000" />
       <workItem from="1768987780942" duration="896000" />
-      <workItem from="1768988699344" duration="6086000" />
-    </task>
-    <task id="LOCAL-00065" summary="chore: chime colors and selection">
-      <option name="closed" value="true" />
-      <created>1768401939267</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1768401939267</updated>
+      <workItem from="1768988699344" duration="9122000" />
     </task>
     <task id="LOCAL-00066" summary="feat: settings">
       <option name="closed" value="true" />
@@ -659,7 +650,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768995036867</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="fix: actually nvm, we doing a modal">
+      <option name="closed" value="true" />
+      <created>1768995405443</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1768995405443</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -685,7 +684,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: chime rotation and movement tweaks" />
     <MESSAGE value="feat: #linktree now puts you at the settings with extended on + fix: icon colors were not actually #111111 for brand icons" />
     <MESSAGE value="fix: rotated decor waterfall that made no sense" />
     <MESSAGE value="fix: rotated decor waterfall that made no sense but better" />
@@ -710,6 +708,7 @@
     <MESSAGE value="fix: your shadow sucks sleepy maksiks, this one does too tho" />
     <MESSAGE value="fix: your shadow sucks sleepy maksiks, this one does too tho x2" />
     <MESSAGE value="chore: web project pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: web project pages" />
+    <MESSAGE value="fix: actually nvm, we doing a modal" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: actually nvm, we doing a modal" />
   </component>
 </project>

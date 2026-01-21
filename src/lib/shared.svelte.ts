@@ -50,6 +50,12 @@ export let editbar = $state<Record<string, any>>({
 });
 export let activeEditor = $state({state: ''});
 
+export let modal = $state<Record<string, any>>({
+    open: false,
+    selected: null,
+    left: false
+})
+
 export const handleItemEdit = (e: Event, name: string, editor: string) => {
     if (!fiend.state) return;
     if (e instanceof KeyboardEvent && e.key !== ' ') return;
@@ -57,7 +63,6 @@ export const handleItemEdit = (e: Event, name: string, editor: string) => {
     editbar.focused = name;
     if (activeEditor.state === editor) {
         editbar.open = true;
-
         editbar.skip = true;
     }
 }
@@ -105,4 +110,6 @@ export const handleItemLeaving = (e: PointerEvent) => {
     editbar.holding = false;
 }
 
-
+export const vwToPx = (vw: number) => {
+    return (vw * windowGlobals.inner_width) / 100
+}
