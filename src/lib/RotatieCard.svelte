@@ -7,10 +7,13 @@
         handleItemEdit,
         handleItemHolding,
         handleItemLeaving,
-        handlePositioning, modal, vwToPx, windowGlobals
+        handlePositioning, modal, pxToVw, vwToPx, windowGlobals
     } from "$lib/shared.svelte";
+    import {untrack} from "svelte";
+    import {expoOut} from "svelte/easing";
 
     let {proj} = $props();
+    let rotatie: HTMLElement | null = $state(null);
 
     // when thinking what to do for this section i remembered
     // a portfolio website that someone sent me on discord ages ago
@@ -31,7 +34,9 @@
         stiffness: 0.01,
         damping: 0.08
     });
-    let scale = new Spring(1);
+    let scaleInit = 1;
+    let scaleTarget = 1.05;
+    let scale = new Spring(scaleInit);
     const shadowScaleInit = 0.99;
     let shadowScale = new Tween(shadowScaleInit);
     let arrowRight = new Spring(10);
@@ -49,29 +54,42 @@
             y: -(pointerX - card.offsetLeft - cardWidth / 2) / 24
         };
         shadowScale.target = 0.96;
-        scale.target = 1.05;
+        scale.target = scaleTarget;
 
         handlePositioning(e, projInQuestion, proj.name, 'web');
     }
     const handlePointerLeave = () => {
         act = false;
-        scale.target = 1;
+        scale.target = scaleInit;
         shadowScale.target = shadowScaleInit;
         rotation.target = {x: 0, y: 0};
     }
 
     //
 
+    const even = $state(false);
+    let selected = $derived(modal.selected === proj.name);
     const handleProjectInteraction = (e: Event) => {
         if (e instanceof KeyboardEvent && !(e.key === ' ' || e.key === 'Enter')) return;
 
+        !even;
         if (editing.state) {
             handleItemEdit(e, proj.name, 'web-modifying');
+        } else if (modal.open && even) {
+            modal.open = false;
         } else {
             modal.selected = proj.name;
             modal.open = true;
             // TODO: adjust coef
             modal.left = vwToPx(proj.left_vw) > windowGlobals.inner_width / 4
+
+            if (!rotatie) return;
+
+            const rect = rotatie.getBoundingClientRect();
+
+            const elemBottom = rect.bottom + window.scrollY - window.innerHeight;
+            const scrollToY = elemBottom + window.innerHeight / 2.4 - rotatie.offsetHeight / 2;
+            scrollTo({top: scrollToY, behavior: 'smooth'});
         }
     }
 
@@ -98,8 +116,8 @@
         if (!once || resize) {
             shadowClone.style.width = imgDims.width + 'px';
             shadowClone.style.height = imgDims.height + 'px';
-            shadowClone.style.left = proj.left_vw + 'vw';
-            shadowClone.style.top = proj.top_vh + 'vh';
+            shadowClone.style.left = proj.left_vw + offset.current.x + 'vw';
+            shadowClone.style.top = proj.top_vh + offset.current.y + 'vh';
             shadowClone.style.scale = '0.99';
 
             once = true;
@@ -116,15 +134,36 @@
             resizeAndAnimateShadow(true);
         }
     })
+
+    //
+
+    let offset = new Tween({x: 0, y: 0}, {
+        duration: 800,
+        easing: expoOut
+    });
+
+    $effect(() => {
+        if (modal.open) {
+            untrack(() => {
+                offset.target = {x: (pxToVw(windowGlobals.inner_width * (modal.left ? 0.75 : 0.25) - vwToPx(proj.width_vw / 2))) - proj.left_vw, y: 0}
+                resizeAndAnimateShadow(true)
+            })
+        } else {
+            untrack(() => {
+                offset.target = {x: 0, y: 0}
+                resizeAndAnimateShadow(true)
+            })
+        }
+    })
 </script>
 
 <svelte:window/>
-<div class={`card
+<div bind:this={rotatie} class={`card ${selected ? 'selected' : ''}
             ${activeEditor.state === 'web-modifying'
-            || activeEditor.state === 'web-positioning' ? 'hover-focus-light;' : ''}
+            || activeEditor.state === 'web-positioning' ? 'hover-focus-light' : ''}
             ${editbar.holding ? 'prevent-select' : ''}`}
      style={`transform: perspective(600px) rotateX(${rotation.current.x}deg) rotateY(${rotation.current.y}deg) scale(${scale.current});
-             left: ${proj.left_vw}vw; top: ${proj.top_vh}vh; width: ${proj.width_vw}vw;`}
+             left: ${proj.left_vw + offset.current.x}vw; top: ${proj.top_vh}vh; width: ${proj.width_vw + offset.current.y}vw;`}
      onpointerdown={(e) => {handleProjectInteraction(e); handleItemHolding(e);}}
      onpointermove={handleCardMoving} onpointerup={handleItemLeaving}
      onpointerout={(e) => {handlePointerLeave(); handleItemLeaving(e)}}
@@ -134,7 +173,7 @@
      bind:clientWidth={cardWidth}
      bind:clientHeight={cardHeight}
      bind:this={card}>
-    {#if act}
+    {#if act && !modal.open}
         <p transition:blur style={`right: ${arrowRight.current}rem`} class="arrow">-&gt;</p>
     {/if}
     <div class="card-info">
@@ -143,7 +182,7 @@
         <div class="separator"></div>
         <p class="num">{proj.read_num.toString().padStart(2, '0')}</p>
     </div>
-    <div class="img-wrap">
+    <div class={`img-wrap ${modal.open ? 'modal-open' : ''}`}>
         <img bind:this={img} bind:clientWidth={imgDims.width} bind:clientHeight={imgDims.height}
              class={`${editbar.holding ? 'prevent-select' : ''}`} src={proj.img} alt={proj.name}/>
     </div>
@@ -152,6 +191,10 @@
      class="shadow-clone"></div>
 
 <style>
+    .selected {
+        z-index: 1000 !important;
+    }
+
     .shadow-clone {
         position: absolute;
         background: rgba(0, 0, 0, 0.3);
@@ -234,6 +277,10 @@
                 width: 100%;
                 aspect-ratio: 16/9;
 
+                -webkit-user-drag: none;
+                user-drag: none;
+                user-select: none;
+
                 transition: box-shadow 0.5s;
             }
 
@@ -247,8 +294,30 @@
                 /* the wrapper is just slightly bigger for some reason*/
                 height: calc(100% - 5px);
                 background: linear-gradient(to right, #111111, transparent);
+                transition: opacity 0.6s;
                 pointer-events: none;
             }
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: calc(100% - 5px);
+                background: linear-gradient(to right, rgba(0, 0, 0, 0.4), transparent);
+                transition: opacity 0.1s ease-out;
+                pointer-events: none;
+                opacity: 0;
+            }
+        }
+
+        & .modal-open:before {
+            opacity: 0;
+        }
+
+        & .modal-open:after {
+            opacity: 1;
         }
     }
 </style>

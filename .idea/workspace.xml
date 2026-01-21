@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: modal start">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: css color var was declared wrong">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Icon.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Icon.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -265,23 +264,7 @@
       <workItem from="1768987261965" duration="221000" />
       <workItem from="1768987528093" duration="140000" />
       <workItem from="1768987780942" duration="896000" />
-      <workItem from="1768988699344" duration="12770000" />
-    </task>
-    <task id="LOCAL-00067" summary="chore: made all text more breathable, and extra settings tweaks + chore: extended chimes now rely on setting">
-      <option name="closed" value="true" />
-      <created>1768412798820</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1768412798820</updated>
-    </task>
-    <task id="LOCAL-00068" summary="feat: settings now save between sessions + feat: cool moon thing for no-flashing mode">
-      <option name="closed" value="true" />
-      <created>1768566011937</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1768566011938</updated>
+      <workItem from="1768988699344" duration="21206000" />
     </task>
     <task id="LOCAL-00069" summary="fix: wrong rope length no longer invalidates itself more or less">
       <option name="closed" value="true" />
@@ -659,7 +642,23 @@
       <option name="project" value="LOCAL" />
       <updated>1768998653461</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="chore: modal start x2">
+      <option name="closed" value="true" />
+      <created>1769006923447</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1769006923448</updated>
+    </task>
+    <task id="LOCAL-00117" summary="fix: css color var was declared wrong">
+      <option name="closed" value="true" />
+      <created>1769007022648</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1769007022648</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -685,8 +684,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: rotated decor waterfall that made no sense" />
-    <MESSAGE value="fix: rotated decor waterfall that made no sense but better" />
     <MESSAGE value="fix: made it look less snek + fix: lamp was wrong color" />
     <MESSAGE value="feat: started on web dev section" />
     <MESSAGE value="feat: rotatie card" />
@@ -710,6 +707,8 @@
     <MESSAGE value="chore: web project pages" />
     <MESSAGE value="fix: actually nvm, we doing a modal" />
     <MESSAGE value="chore: modal start" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: modal start" />
+    <MESSAGE value="chore: modal start x2" />
+    <MESSAGE value="fix: css color var was declared wrong" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: css color var was declared wrong" />
   </component>
 </project>

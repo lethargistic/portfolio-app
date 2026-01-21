@@ -7,9 +7,18 @@
 
     const {webProj: webProjProp, webProjDetails: webProjDetailsProp} = $props();
 
-    const webProj = $derived(editbar.proj_data);
+    const webProj: Array<Record<string, any>> = $derived(editbar.proj_data);
     const webProjDetails: Array<Record<string, any>> = $derived(editbar.proj_details_data);
-    const findSelected = () => {
+    const findSelectedProj = () => {
+        if (!webProj) return null;
+
+        const sel = webProj.find(p => p.name === modal.selected)
+        if (sel === null) return null;
+
+        return sel;
+    }
+    const selectedProj = $derived.by(findSelectedProj);
+    const findSelectedDetails = () => {
         if (!webProjDetails) return null;
 
         const sel = webProjDetails.find(p => p.name === modal.selected)
@@ -17,7 +26,7 @@
 
         return sel;
     }
-    const selectedDetails = $derived.by(findSelected);
+    const selectedDetails = $derived.by(findSelectedDetails);
 
     onMount(() => {
         editbar.proj_data = webProjProp;
@@ -27,7 +36,7 @@
 </script>
 
 {#key currentLang.lang}
-    <WebProjModal {selectedDetails}/>
+    <WebProjModal {selectedDetails} {selectedProj}/>
     <section class="web-seg" id="web">
         <EditorTools seg={'web'} light={true}/>
         <div class="web-txt-cont">

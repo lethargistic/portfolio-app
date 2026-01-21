@@ -114,3 +114,6 @@ export const handleItemLeaving = (e: PointerEvent) => {
 export const vwToPx = (vw: number) => {
     return (vw * windowGlobals.inner_width) / 100
 }
+export const pxToVw = (px: number) => {
+    return (px * 100) / windowGlobals.inner_width
+}
