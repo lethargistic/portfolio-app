@@ -67,15 +67,13 @@
 
     //
 
-    const even = $state(false);
     let selected = $derived(modal.selected === proj.name);
-    const handleProjectInteraction = (e: Event) => {
+    const handleCardInteraction = (e: Event) => {
         if (e instanceof KeyboardEvent && !(e.key === ' ' || e.key === 'Enter')) return;
 
-        !even;
         if (editing.state) {
             handleItemEdit(e, proj.name, 'web-modifying');
-        } else if (modal.open && even) {
+        } else if (modal.open) {
             modal.open = false;
         } else {
             modal.selected = proj.name;
@@ -91,6 +89,7 @@
             const scrollToY = elemBottom + window.innerHeight / 2.4 - rotatie.offsetHeight / 2;
             scrollTo({top: scrollToY, behavior: 'smooth'});
         }
+        console.log('sesame', modal.open)
     }
 
     //
@@ -164,10 +163,10 @@
             ${editbar.holding ? 'prevent-select' : ''}`}
      style={`transform: perspective(600px) rotateX(${rotation.current.x}deg) rotateY(${rotation.current.y}deg) scale(${scale.current});
              left: ${proj.left_vw + offset.current.x}vw; top: ${proj.top_vh}vh; width: ${proj.width_vw + offset.current.y}vw;`}
-     onpointerdown={(e) => {handleProjectInteraction(e); handleItemHolding(e);}}
+     onpointerdown={handleItemHolding}
      onpointermove={handleCardMoving} onpointerup={handleItemLeaving}
      onpointerout={(e) => {handlePointerLeave(); handleItemLeaving(e)}}
-     onclick={handleProjectInteraction} onkeydown={handleProjectInteraction}
+     onclick={handleCardInteraction} onkeydown={handleCardInteraction}
      role="button"
      tabindex="0"
      bind:clientWidth={cardWidth}
