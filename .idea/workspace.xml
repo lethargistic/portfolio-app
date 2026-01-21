@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: actually nvm, we doing a modal">
-      <change afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: modal start">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Icon.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Icon.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -264,15 +265,7 @@
       <workItem from="1768987261965" duration="221000" />
       <workItem from="1768987528093" duration="140000" />
       <workItem from="1768987780942" duration="896000" />
-      <workItem from="1768988699344" duration="9122000" />
-    </task>
-    <task id="LOCAL-00066" summary="feat: settings">
-      <option name="closed" value="true" />
-      <created>1768411995461</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1768411995462</updated>
+      <workItem from="1768988699344" duration="12770000" />
     </task>
     <task id="LOCAL-00067" summary="chore: made all text more breathable, and extra settings tweaks + chore: extended chimes now rely on setting">
       <option name="closed" value="true" />
@@ -658,7 +651,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768995405443</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="chore: modal start">
+      <option name="closed" value="true" />
+      <created>1768998653461</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1768998653461</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -684,7 +685,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: #linktree now puts you at the settings with extended on + fix: icon colors were not actually #111111 for brand icons" />
     <MESSAGE value="fix: rotated decor waterfall that made no sense" />
     <MESSAGE value="fix: rotated decor waterfall that made no sense but better" />
     <MESSAGE value="fix: made it look less snek + fix: lamp was wrong color" />
@@ -709,6 +709,7 @@
     <MESSAGE value="fix: your shadow sucks sleepy maksiks, this one does too tho x2" />
     <MESSAGE value="chore: web project pages" />
     <MESSAGE value="fix: actually nvm, we doing a modal" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: actually nvm, we doing a modal" />
+    <MESSAGE value="chore: modal start" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: modal start" />
   </component>
 </project>

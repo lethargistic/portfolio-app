@@ -57,6 +57,7 @@ export let modal = $state<Record<string, any>>({
 })
 
 export const handleItemEdit = (e: Event, name: string, editor: string) => {
+    if (!editing.state) return;
     if (!fiend.state) return;
     if (e instanceof KeyboardEvent && e.key !== ' ') return;
 

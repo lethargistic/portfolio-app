@@ -3,7 +3,7 @@
     import {blur} from "svelte/transition";
     import {
         activeEditor,
-        editbar,
+        editbar, editing,
         handleItemEdit,
         handleItemHolding,
         handleItemLeaving,
@@ -65,11 +65,14 @@
     const handleProjectInteraction = (e: Event) => {
         if (e instanceof KeyboardEvent && !(e.key === ' ' || e.key === 'Enter')) return;
 
-        modal.selected = proj.name;
-        modal.open = true;
-        modal.left = vwToPx(proj.left_vw) > windowGlobals.inner_width / 2
-
-        handleItemEdit(e, proj.name, 'web-modifying');
+        if (editing.state) {
+            handleItemEdit(e, proj.name, 'web-modifying');
+        } else {
+            modal.selected = proj.name;
+            modal.open = true;
+            // TODO: adjust coef
+            modal.left = vwToPx(proj.left_vw) > windowGlobals.inner_width / 4
+        }
     }
 
     //

@@ -1,15 +1,40 @@
-<script>
+<script lang="ts">
     import {modal} from "$lib/shared.svelte";
+    import Icon from "$lib/Icon.svelte";
 
     const {selectedDetails: details} = $props();
+
+    const closeModal = () => {
+        modal.open = false;
+    }
+
+    let controls: HTMLElement | null = $state(null);
+    let dialog: HTMLElement | null = $state(null);
+    const handleModalCloseCheck = (e: Event) => {
+        if (!controls || !dialog) return;
+        if (e instanceof KeyboardEvent && e.key !== 'Escape') return;
+
+        if (controls.contains(e.target as Node) || dialog.contains(e.target as Node)) {
+            return;
+        }
+
+        closeModal();
+    }
 </script>
 
 {#if !!details && modal.open}
-    <div class="modal">
-        <div class="arrows">
-            &lt;-- / --&gt;
+    <div style={`justify-content: ${modal.left ? 'flex-start' : 'flex-end'};`}
+         class="modal" onclick={handleModalCloseCheck} onkeydown={handleModalCloseCheck}
+         role="button" tabindex="-1">
+        <div bind:this={controls} class="controls">
+            <div class="arrows">
+                &lt;-- / --&gt;
+            </div>
+            <button class="cross" onclick={closeModal}>
+                <Icon name={'cross'} width={24} height={24} currentColor={'#fff'}/>
+            </button>
         </div>
-        <div class="dialog" style={`justify-content: ${modal.left ? 'flex-start' : 'flex-end'};`}>
+        <div bind:this={dialog} class="dialog">
             <img src={details.img} alt={details.display_name}/>
             <div class="info">
                 <h2>{details.display_name}</h2>
@@ -41,6 +66,12 @@
             display: flex;
             align-items: center;
 
+            /* so it's click-throughable */
+            pointer-events: none;
+            & * {
+                pointer-events: initial;
+            }
+
             & img {
                 height: 20%;
                 aspect-ratio: 16/9;
@@ -48,11 +79,27 @@
 
         }
 
-        & .arrows {
+        & .controls {
             position: absolute;
-            right: 15px;
-            top: 10px;
+            width: 100%;
+            left: 0;
+            top: 16px;
             z-index: 1001;
+
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+
+            & .cross {
+                all: unset;
+                cursor: pointer;
+                margin-left: auto;
+                margin-right: 2rem;
+            }
+
+            & .arrows {
+                margin-left: 1rem;
+            }
         }
     }
 </style>
