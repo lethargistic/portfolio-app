@@ -53,7 +53,6 @@ export const handleItemEdit = (e: Event, name: string, editor: string) => {
     if (!fiend.state) return;
     if (e instanceof KeyboardEvent && e.key !== ' ') return;
 
-
     editbar.focused = name;
     if (activeEditor.state === editor) {
         editbar.open = true;

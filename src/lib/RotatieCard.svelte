@@ -32,7 +32,8 @@
         damping: 0.08
     });
     let scale = new Spring(1);
-    let shadowScale = new Tween(0.95);
+    const shadowScaleInit = 1;
+    let shadowScale = new Tween(shadowScaleInit);
     let arrowRight = new Spring(10);
 
     const projInQuestion = $derived<Record<string, any>>(editbar.proj_data[editbar.focusedIx]);
@@ -47,7 +48,7 @@
             x: (pointerY - card.offsetTop - cardHeight / 2) / 16,
             y: -(pointerX - card.offsetLeft - cardWidth / 2) / 24
         };
-        shadowScale.target = 1.05;
+        shadowScale.target = 0.95;
         scale.target = 1.05;
 
         handlePositioning(e, projInQuestion, proj.name, 'web');
@@ -55,7 +56,7 @@
     const handlePointerLeave = () => {
         act = false;
         scale.target = 1;
-        shadowScale.target = 0.95;
+        shadowScale.target = shadowScaleInit;
         rotation.target = {x: 0, y: 0};
     }
 
@@ -145,11 +146,13 @@
 <style>
     .shadow-clone {
         position: absolute;
+        background: rgba(0, 0, 0, 0.3);
+        filter: blur(10px);
 
         width: 200px;
         height: 200px;
         /*box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;*/
-        box-shadow: rgba(0, 0, 0, 0.3) 0 19px 10px, rgba(0, 0, 0, 0.22) 0 15px 6px;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 19px 10px 1px, rgba(0, 0, 0, 0.22) 0 15px 6px;
     }
 
     .card {

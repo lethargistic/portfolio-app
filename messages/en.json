@@ -21,5 +21,6 @@
   "about_l_info_10": "<b>Spell:</b><br> I cast: - a little shadow with my hat!",
 
   "about_pfp_hp": "maksiks | hp: 85% | mana: 15%",
-  "about_pfp_info": "<b>class:</b> wizard extraordinaire<br> <b>alignment:</b> chaotic evil<br> <b>elements:</b> glyphs, shadow, light<br><b>status effects:</b> sleepy"
-}
+  "about_pfp_info": "<b>class:</b> wizard extraordinaire<br> <b>alignment:</b> chaotic evil<br> <b>elements:</b> glyphs, shadow, light<br><b>status effects:</b> sleepy",
+
+  "#s3n4": "# not yet sure if i want to make it in db or in code, kinda got to go in code anyway if i want to update something magorly, usually"}
