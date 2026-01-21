@@ -53,7 +53,9 @@ export let activeEditor = $state({state: ''});
 export let modal = $state<Record<string, any>>({
     open: false,
     selected: null,
-    left: false
+    selectedIx: null,
+    left: false,
+    travel: false
 })
 
 export const handleItemEdit = (e: Event, name: string, editor: string) => {

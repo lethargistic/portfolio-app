@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: added bugs (but admin only)">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: quantum entanglement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/admin/login/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/admin/login/+page.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,15 +265,7 @@
       <workItem from="1768987261965" duration="221000" />
       <workItem from="1768987528093" duration="140000" />
       <workItem from="1768987780942" duration="896000" />
-      <workItem from="1768988699344" duration="25006000" />
-    </task>
-    <task id="LOCAL-00071" summary="chore: max height and chime offset settings">
-      <option name="closed" value="true" />
-      <created>1768582161771</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1768582161771</updated>
+      <workItem from="1768988699344" duration="27256000" />
     </task>
     <task id="LOCAL-00072" summary="fix: borked server posting logic by accident">
       <option name="closed" value="true" />
@@ -661,7 +651,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769015990871</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="fix: quantum entanglement">
+      <option name="closed" value="true" />
+      <created>1769019209859</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1769019209860</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -687,7 +685,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: rotatie card" />
     <MESSAGE value="chore: this circle took me an awful amount of time" />
     <MESSAGE value="chore: card tweaks" />
     <MESSAGE value="chore: more card tweaks" />
@@ -712,6 +709,7 @@
     <MESSAGE value="fix: css color var was declared wrong" />
     <MESSAGE value="chore: modal progress, also, it moves" />
     <MESSAGE value="chore: added bugs (but admin only)" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: added bugs (but admin only)" />
+    <MESSAGE value="fix: quantum entanglement" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: quantum entanglement" />
   </component>
 </project>

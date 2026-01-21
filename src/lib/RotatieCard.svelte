@@ -68,17 +68,17 @@
     //
 
     let selected = $derived(modal.selected === proj.name);
-    const handleCardInteraction = (e: Event) => {
+    const handleCardInteraction = (e: Event | null, skip: boolean = false) => {
         if (e instanceof KeyboardEvent && !(e.key === ' ' || e.key === 'Enter')) return;
 
-        if (editing.state) {
+        if (editing.state && e !== null) {
             handleItemEdit(e, proj.name, 'web-modifying');
-        } else if (modal.open) {
+        } else if (modal.open && !skip) {
             modal.open = false;
         } else {
             modal.selected = proj.name;
             modal.open = true;
-            // TODO: adjust coef
+            // TODO maybe: adjust coef
             modal.left = vwToPx(proj.left_vw) > windowGlobals.inner_width / 4
 
             if (!rotatie) return;
@@ -87,10 +87,17 @@
             const elemBottom = rect.bottom + window.scrollY - window.innerHeight;
             const scrollToY = elemBottom + window.innerHeight / 2.4 - rotatie.offsetHeight / 2;
             scrollTo({top: scrollToY, behavior: 'smooth'});
+            document.documentElement.classList.add('scroll-lock');
         }
     }
 
-    $inspect(modal.open);
+    $effect(() => {
+        if (modal.travel && selected) {
+            handleCardInteraction(null, true);
+            modal.travel = false;
+        }
+    })
+
     //
 
     const trackArrowLoad = () => {

@@ -28,16 +28,37 @@
         return sel;
     }
     const selectedDetails = $derived.by(findSelectedDetails);
+    const findSelectedIx = () => {
+        if (!webProjDetails) {
+            modal.selectedIx = -1;
+            return;
+        }
+
+        const ix = webProjDetails.findIndex(p => p.name === modal.selected)
+        if (ix === undefined) {
+            modal.selectedIx = -1;
+            return;
+        }
+
+        modal.selectedIx = ix;
+    }
+    $effect(findSelectedIx);
 
     onMount(() => {
         editbar.proj_data = webProjProp;
         editbar.proj_details_data = webProjDetailsProp;
         modal.selected = editbar.proj_details_data[0].name;
     })
+
+    $effect(() => {
+        if (!modal.open) {
+            document.documentElement.classList.remove('scroll-lock');
+        }
+    })
 </script>
 
 {#key currentLang.lang}
-    <WebProjModal {selectedDetails} {selectedProj}/>
+    <WebProjModal {selectedDetails} {selectedProj} {webProjDetails}/>
     <section class="web-seg" id="web">
         <EditorTools seg={'web'} light={true}/>
         <div class="web-txt-cont">

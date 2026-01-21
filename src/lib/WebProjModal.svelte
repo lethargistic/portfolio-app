@@ -4,7 +4,7 @@
     import {blur} from "svelte/transition";
     import {expoIn} from "svelte/easing";
 
-    const {selectedDetails: details, selectedProj: proj} = $props();
+    const {selectedDetails: details, selectedProj: proj, webProjDetails: allDetails} = $props();
 
     const closeModal = () => {
         modal.open = false;
@@ -23,7 +23,18 @@
         closeModal();
     }
 
-    $inspect(details)
+    const rotateSelected = (forwards: boolean) => {
+        let newIx = modal.selectedIx + (forwards ? 1 : -1);
+
+        if (newIx >= allDetails.length) {
+            newIx = 0;
+        } else if (newIx < 0) {
+            newIx = allDetails.length - 1;
+        }
+
+        modal.travel = true;
+        modal.selected = allDetails[newIx].name;
+    }
 </script>
 
 {#if !!details && modal.open}
@@ -33,18 +44,20 @@
          role="button" tabindex="-1">
         <div bind:this={controls} class="controls">
             <div class="arrows">
-                &lt;-- / --&gt;
+                <button onclick={() => rotateSelected(false)}>&lt;--</button>
+                /
+                <button onclick={() => rotateSelected(false)}>--&gt;</button>
             </div>
             <button class="cross" onclick={closeModal}>
                 <Icon name={'cross'} width={24} height={24} currentColor={'#fff'}/>
             </button>
         </div>
         <div bind:this={dialog} class={`dialog ${modal.left ? 'dialog-left' : 'dialog-right'}`}>
-            <!--            <img src={details.img} alt={details.display_name}/>-->
             <div class="info">
                 <h2>{details.display_name}</h2>
                 <div class="separator">
-                    ={#each [...Array(33).keys()] as _}=/{/each}==
+                    =
+                    {#each [...Array(33).keys()] as _}=/{/each}==
                 </div>
                 <div class="info-props">
                     <p class="num">#{proj.read_num.toString().padStart(2, '0')}</p>
@@ -58,7 +71,7 @@
                         {/each}
                     </ul>
                 </div>
-                <p class="desc">-->{details.long_desc}</p>
+                <p class="desc">-> {details.long_desc}</p>
             </div>
         </div>
     </div>
@@ -142,11 +155,12 @@
                         }
                     }
                 }
-            }
 
-            & img {
-                height: 20%;
-                aspect-ratio: 16/9;
+                & .desc {
+                    width: 85%;
+                    word-break: break-word;
+                    line-height: 2rem;
+                }
             }
         }
 
@@ -178,6 +192,11 @@
 
             & .arrows {
                 margin-left: 1rem;
+
+                & button {
+                    all: unset;
+                    cursor: pointer;
+                }
             }
         }
     }
