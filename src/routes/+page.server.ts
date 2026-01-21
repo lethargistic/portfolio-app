@@ -48,5 +48,13 @@ export const load: PageServerLoad = async () => {
         .order('id', {ascending: true})
     if (wberr || !web_projects) error(500, `Failed to load socials ${wberr.message}`);
 
-    return {socials, web_projects};
+    //
+
+    const {data: web_projects_details, error: sbwerr} = await supabase
+        .from('web_projects_details')
+        .select()
+
+    if (sbwerr || !web_projects_details) error(500, `Failed to load web project details: ${sberr?.message}`)
+
+    return {socials, web_projects, web_projects_details};
 }

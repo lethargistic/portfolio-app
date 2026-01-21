@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: your shadow sucks sleepy maksiks, this one does too tho x2">
-      <change afterPath="$PROJECT_DIR$/src/routes/web-projects/[project]/+page.server.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/web-projects/[project]/+page.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: web project pages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/web-projects/[project]/+page.server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/web-projects/[project]/+page.svelte" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,15 +265,7 @@
       <workItem from="1768987261965" duration="221000" />
       <workItem from="1768987528093" duration="140000" />
       <workItem from="1768987780942" duration="896000" />
-      <workItem from="1768988699344" duration="5436000" />
-    </task>
-    <task id="LOCAL-00064" summary="chore: added a few more settings to chimes">
-      <option name="closed" value="true" />
-      <created>1768400405616</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1768400405616</updated>
+      <workItem from="1768988699344" duration="6086000" />
     </task>
     <task id="LOCAL-00065" summary="chore: chime colors and selection">
       <option name="closed" value="true" />
@@ -658,7 +651,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768989823526</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="chore: web project pages">
+      <option name="closed" value="true" />
+      <created>1768995036867</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1768995036867</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -684,7 +685,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: destroying webgl contexts on component destroy to prevent warning of using too many" />
     <MESSAGE value="fix: chime rotation and movement tweaks" />
     <MESSAGE value="feat: #linktree now puts you at the settings with extended on + fix: icon colors were not actually #111111 for brand icons" />
     <MESSAGE value="fix: rotated decor waterfall that made no sense" />
@@ -709,6 +709,7 @@
     <MESSAGE value="fix: items were clicked twice" />
     <MESSAGE value="fix: your shadow sucks sleepy maksiks, this one does too tho" />
     <MESSAGE value="fix: your shadow sucks sleepy maksiks, this one does too tho x2" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: your shadow sucks sleepy maksiks, this one does too tho x2" />
+    <MESSAGE value="chore: web project pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: web project pages" />
   </component>
 </project>

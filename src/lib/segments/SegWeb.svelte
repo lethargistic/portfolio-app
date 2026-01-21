@@ -4,12 +4,14 @@
     import EditorTools from "$lib/editing/EditorTools.svelte";
     import {onMount} from "svelte";
 
-    const {webProj: webProjProp} = $props();
+    const {webProj: webProjProp, webProjDetails: webProjDetailsProp} = $props();
 
     const webProj = $derived(editbar.proj_data);
+    const webProjDetails = $derived(editbar.proj_details_data);
 
     onMount(() => {
         editbar.proj_data = webProjProp;
+        editbar.proj_details_data = webProjDetailsProp;
     })
 </script>
 

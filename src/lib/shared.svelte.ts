@@ -45,7 +45,8 @@ export let editbar = $state<Record<string, any>>({
     focusedIx: 0,
     holding: false,
     social_data: [] as Array<Record<string, any>>,
-    proj_data: [] as Array<Record<string, any>>
+    proj_data: [] as Array<Record<string, any>>,
+    proj_details_data: [] as Array<Record<string, any>>
 });
 export let activeEditor = $state({state: ''});
 
