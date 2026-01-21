@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: your shadow sucks sleepy maksiks, this one does too tho">
-      <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: your shadow sucks sleepy maksiks, this one does too tho x2">
+      <change afterPath="$PROJECT_DIR$/src/routes/web-projects/[project]/+page.server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/web-projects/[project]/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +30,10 @@
         <option value="editPencil" />
         <option value="EditingSidebar" />
         <option value="GlobalEditorTools" />
-        <option value="+page.svelte" />
         <option value="Icon" />
         <option value="SegWeb" />
         <option value="RotatieCard" />
+        <option value="+page.svelte" />
       </list>
     </option>
   </component>
@@ -113,11 +118,11 @@
       <recent name="D:\Docs\webstormproj\sustenant\static\img\linktree-decor" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\src\routes\web-projects\[project]" />
+      <recent name="D:\Docs\webstormproj\sustenant\src\routes" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\icons" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\hangies\separators" />
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\admin\workaround" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\routes\admin" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\routes\api\v1" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.localhost:5174">
@@ -259,15 +264,7 @@
       <workItem from="1768987261965" duration="221000" />
       <workItem from="1768987528093" duration="140000" />
       <workItem from="1768987780942" duration="896000" />
-      <workItem from="1768988699344" duration="1077000" />
-    </task>
-    <task id="LOCAL-00063" summary="feat: positioning, that's editor done except furnishing and a few settings basically?">
-      <option name="closed" value="true" />
-      <created>1768396053262</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1768396053262</updated>
+      <workItem from="1768988699344" duration="5436000" />
     </task>
     <task id="LOCAL-00064" summary="chore: added a few more settings to chimes">
       <option name="closed" value="true" />
@@ -653,7 +650,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768989655966</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="fix: your shadow sucks sleepy maksiks, this one does too tho x2">
+      <option name="closed" value="true" />
+      <created>1768989823526</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1768989823526</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -679,7 +684,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: rock" />
     <MESSAGE value="fix: destroying webgl contexts on component destroy to prevent warning of using too many" />
     <MESSAGE value="fix: chime rotation and movement tweaks" />
     <MESSAGE value="feat: #linktree now puts you at the settings with extended on + fix: icon colors were not actually #111111 for brand icons" />
@@ -704,6 +708,7 @@
     <MESSAGE value="fix: made shadow follow animation properly god this took so long to match up and I didn't actually end up with the effect I wanted" />
     <MESSAGE value="fix: items were clicked twice" />
     <MESSAGE value="fix: your shadow sucks sleepy maksiks, this one does too tho" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: your shadow sucks sleepy maksiks, this one does too tho" />
+    <MESSAGE value="fix: your shadow sucks sleepy maksiks, this one does too tho x2" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: your shadow sucks sleepy maksiks, this one does too tho x2" />
   </component>
 </project>

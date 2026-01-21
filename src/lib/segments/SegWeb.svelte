@@ -37,7 +37,7 @@
             width: 100vw;
             position: relative;
 
-            background-color: #1a171e;
+            background-color: var(--seg-web-bg);
 
             color: white;
 

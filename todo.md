@@ -44,3 +44,4 @@
 - [ ] todo maybe: art art art art lots of art in web dev sec
 - [ ] todo very high: add one or another kind of bg/diffuser to web dev sec
 - [ ] todo maybe: investigate dev browser having slower animations
+- [ ] todo: case study cursor
