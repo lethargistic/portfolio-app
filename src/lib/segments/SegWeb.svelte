@@ -22,7 +22,8 @@
         if (!webProjDetails) return null;
 
         const sel = webProjDetails.find(p => p.name === modal.selected)
-        if (sel === null) return null;
+        if (sel === undefined) return null;
+
 
         return sel;
     }
@@ -43,7 +44,7 @@
             <h2 class="web-txt web-head-txt">Web /></h2>
             <p class="web-txt web-desc-txt">Selected web projects I've built</p>
         </div>
-        {#each webProj as proj}
+        {#each webProj as proj (proj.name)}
             <RotatieCard {proj}/>
         {/each}
 

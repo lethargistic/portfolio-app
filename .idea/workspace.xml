@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: css color var was declared wrong">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: added bugs (but admin only)">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/admin/login/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/admin/login/+page.server.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,23 +267,7 @@
       <workItem from="1768987261965" duration="221000" />
       <workItem from="1768987528093" duration="140000" />
       <workItem from="1768987780942" duration="896000" />
-      <workItem from="1768988699344" duration="21206000" />
-    </task>
-    <task id="LOCAL-00069" summary="fix: wrong rope length no longer invalidates itself more or less">
-      <option name="closed" value="true" />
-      <created>1768566893707</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1768566893707</updated>
-    </task>
-    <task id="LOCAL-00070" summary="fix: edited positons and others no longer bork themselves if string or 0">
-      <option name="closed" value="true" />
-      <created>1768569360184</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1768569360184</updated>
+      <workItem from="1768988699344" duration="25006000" />
     </task>
     <task id="LOCAL-00071" summary="chore: max height and chime offset settings">
       <option name="closed" value="true" />
@@ -658,7 +645,23 @@
       <option name="project" value="LOCAL" />
       <updated>1769007022648</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="chore: modal progress, also, it moves">
+      <option name="closed" value="true" />
+      <created>1769015610304</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1769015610304</updated>
+    </task>
+    <task id="LOCAL-00119" summary="chore: added bugs (but admin only)">
+      <option name="closed" value="true" />
+      <created>1769015990871</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1769015990871</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -684,8 +687,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: made it look less snek + fix: lamp was wrong color" />
-    <MESSAGE value="feat: started on web dev section" />
     <MESSAGE value="feat: rotatie card" />
     <MESSAGE value="chore: this circle took me an awful amount of time" />
     <MESSAGE value="chore: card tweaks" />
@@ -709,6 +710,8 @@
     <MESSAGE value="chore: modal start" />
     <MESSAGE value="chore: modal start x2" />
     <MESSAGE value="fix: css color var was declared wrong" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: css color var was declared wrong" />
+    <MESSAGE value="chore: modal progress, also, it moves" />
+    <MESSAGE value="chore: added bugs (but admin only)" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: added bugs (but admin only)" />
   </component>
 </project>

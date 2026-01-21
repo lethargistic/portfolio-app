@@ -92,14 +92,28 @@ export const actions = {
 
         removeReassigned(project);
 
-        const { error: sberr } = await supabase
+        const { data: pong, error: sberr } = await supabase
             .from('web_projects')
             .upsert(
                 { ...project },
                 { onConflict: 'name' })
+            .select()
+            .limit(1)
+            .single()
 
-        if (sberr) {
+        if (!pong || sberr) {
             if (PUBLIC_DEV) {console.error(sberr)}
+            return fail(400, { success: false, message: "Db fail" })
+        }
+
+        const { error: sbferr } = await supabase
+            .from('web_projects_details')
+            .upsert(
+                { id: pong.id, display_name: pong.display_name, name: project.name  },
+                { onConflict: 'name' })
+
+        if (sbferr) {
+            if (PUBLIC_DEV) {console.error(sbferr)}
             return fail(400, { success: false, message: "Db fail" })
         }
 

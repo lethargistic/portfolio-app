@@ -22,6 +22,8 @@
 
         closeModal();
     }
+
+    $inspect(details)
 </script>
 
 {#if !!details && modal.open}

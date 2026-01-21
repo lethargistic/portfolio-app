@@ -103,6 +103,19 @@
         socialInQuestion.folds[ig][key] = convertSimpleDataTypesImplicitly(v);
     }
 
+    const assignProjectBindingsWithExceptions = (v: any, key: string) => {
+        if (key === 'name') {
+            if (v === '') {
+                v = 'none';
+            }
+
+            projInQuestion[key] = v;
+            editbar.focused = v;
+            return;
+        }
+        projInQuestion[key] = key.startsWith('type_') ? v : convertSimpleDataTypesImplicitly(v);
+    }
+
     const isLnktMod = $derived(activeEditor.state === 'lnkt-modifying' && !isEmptyArr(editbar.social_data));
     const isWebMod = $derived(activeEditor.state === 'web-modifying' && !isEmptyArr(editbar.proj_data));
 </script>
@@ -164,11 +177,10 @@
         {:else if isWebMod}
             {@const action = "Project"}
             <form method="POST" use:enhance={handleSubmit}>
-                <!-- TODO: foreign key for insides instead of column array because ahh... eto bleh -->
                 {#each Object.entries(projInQuestion) as [key, value] (key)}
                     <label>
                         {key}
-                        <input bind:value={projInQuestion[key]}
+                        <input bind:value={() => projInQuestion[key], (v) => assignProjectBindingsWithExceptions(v, key)}
                                placeholder={value}>
                     </label>
                 {/each}

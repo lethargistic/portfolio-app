@@ -26,7 +26,6 @@ export const actions: Actions = {
                 email
             });
         }
-        console.log(email);
         const {error} = await supabase.auth.signInWithPassword({email, password});
 
         if (error) {

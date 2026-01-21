@@ -82,16 +82,15 @@
             modal.left = vwToPx(proj.left_vw) > windowGlobals.inner_width / 4
 
             if (!rotatie) return;
-
             const rect = rotatie.getBoundingClientRect();
 
             const elemBottom = rect.bottom + window.scrollY - window.innerHeight;
             const scrollToY = elemBottom + window.innerHeight / 2.4 - rotatie.offsetHeight / 2;
             scrollTo({top: scrollToY, behavior: 'smooth'});
         }
-        console.log('sesame', modal.open)
     }
 
+    $inspect(modal.open);
     //
 
     const trackArrowLoad = () => {
@@ -142,7 +141,7 @@
     });
 
     $effect(() => {
-        if (modal.open) {
+        if (modal.open && selected) {
             untrack(() => {
                 offset.target = {x: (pxToVw(windowGlobals.inner_width * (modal.left ? 0.75 : 0.25) - vwToPx(proj.width_vw / 2))) - proj.left_vw, y: 0}
                 resizeAndAnimateShadow(true)
