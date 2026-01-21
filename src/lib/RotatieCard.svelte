@@ -32,7 +32,7 @@
         damping: 0.08
     });
     let scale = new Spring(1);
-    const shadowScaleInit = 1;
+    const shadowScaleInit = 0.99;
     let shadowScale = new Tween(shadowScaleInit);
     let arrowRight = new Spring(10);
 
@@ -48,7 +48,7 @@
             x: (pointerY - card.offsetTop - cardHeight / 2) / 16,
             y: -(pointerX - card.offsetLeft - cardWidth / 2) / 24
         };
-        shadowScale.target = 0.95;
+        shadowScale.target = 0.96;
         scale.target = 1.05;
 
         handlePositioning(e, projInQuestion, proj.name, 'web');

@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: items were clicked twice">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: your shadow sucks sleepy maksiks, this one does too tho">
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,15 +259,7 @@
       <workItem from="1768987261965" duration="221000" />
       <workItem from="1768987528093" duration="140000" />
       <workItem from="1768987780942" duration="896000" />
-      <workItem from="1768988699344" duration="716000" />
-    </task>
-    <task id="LOCAL-00062" summary="chore: positioning progress">
-      <option name="closed" value="true" />
-      <created>1768389893204</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1768389893210</updated>
+      <workItem from="1768988699344" duration="1077000" />
     </task>
     <task id="LOCAL-00063" summary="feat: positioning, that's editor done except furnishing and a few settings basically?">
       <option name="closed" value="true" />
@@ -656,7 +645,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768986622026</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="fix: your shadow sucks sleepy maksiks, this one does too tho">
+      <option name="closed" value="true" />
+      <created>1768989655965</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1768989655966</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -682,7 +679,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: other social api stats" />
     <MESSAGE value="fix: rock" />
     <MESSAGE value="fix: destroying webgl contexts on component destroy to prevent warning of using too many" />
     <MESSAGE value="fix: chime rotation and movement tweaks" />
@@ -707,6 +703,7 @@
     <MESSAGE value="fix: the animation has borken" />
     <MESSAGE value="fix: made shadow follow animation properly god this took so long to match up and I didn't actually end up with the effect I wanted" />
     <MESSAGE value="fix: items were clicked twice" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: items were clicked twice" />
+    <MESSAGE value="fix: your shadow sucks sleepy maksiks, this one does too tho" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: your shadow sucks sleepy maksiks, this one does too tho" />
   </component>
 </project>
