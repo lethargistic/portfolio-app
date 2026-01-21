@@ -1,8 +1,9 @@
 <script lang="ts">
-    import {modal} from "$lib/shared.svelte";
+    import {activeEditor, editing, handleItemEdit, modal, vwToPx, windowGlobals} from "$lib/shared.svelte";
     import Icon from "$lib/Icon.svelte";
     import {blur} from "svelte/transition";
     import {expoIn} from "svelte/easing";
+    import EditorTools from "$lib/editing/EditorTools.svelte";
 
     const {selectedDetails: details, selectedProj: proj, webProjDetails: allDetails} = $props();
 
@@ -35,6 +36,14 @@
         modal.travel = true;
         modal.selected = allDetails[newIx].name;
     }
+
+    const handleDetailsInteraction = (e: Event) => {
+        if (e instanceof KeyboardEvent && !(e.key === ' ' || e.key === 'Enter')) return;
+
+        if (editing.state) {
+            handleItemEdit(e, details.name, 'wb-inn-modifying');
+        }
+    }
 </script>
 
 {#if !!details && modal.open}
@@ -47,16 +56,24 @@
                 <button onclick={() => rotateSelected(false)}>&lt;--</button>
                 /
                 <button onclick={() => rotateSelected(false)}>--&gt;</button>
+                <!-- putting it here is a dumb idea but it works lol -->
+                <EditorTools seg={'wb-inn'} light={true}/>
             </div>
+
             <button class="cross" onclick={closeModal}>
                 <Icon name={'cross'} width={24} height={24} currentColor={'#fff'}/>
             </button>
         </div>
         <div bind:this={dialog} class={`dialog ${modal.left ? 'dialog-left' : 'dialog-right'}`}>
-            <div class="info">
+            <div
+                    onclick={handleDetailsInteraction}
+                    onkeydown={handleDetailsInteraction}
+                    role="button"
+                    tabindex="-1"
+                    class={`info ${activeEditor.state === 'wb-inn-modifying' ? 'hover-focus-light' : ''}`} >
                 <h2>{details.display_name}</h2>
                 <div class="separator">
-                    {#each [...Array(33).keys()] as i}{#if i === 0}={/if}=/{/each}==
+                    {#each [...Array(27).keys()] as i}{#if i === 0}={/if}=/{/each}==
                 </div>
                 <div class="info-props">
                     <p class="num">#{proj.read_num.toString().padStart(2, '0')}</p>
@@ -85,7 +102,7 @@
         height: 100vh;
         background-color: rgba(16, 16, 16, 0.9);
         backdrop-filter: blur(1px);
-        z-index: 1000;
+        z-index: 100000;
 
         color: white;
         display: flex;

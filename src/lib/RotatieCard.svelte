@@ -197,7 +197,7 @@
 
 <style>
     .selected {
-        z-index: 1000 !important;
+        z-index: 100001 !important;
     }
 
     .shadow-clone {

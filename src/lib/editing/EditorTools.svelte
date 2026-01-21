@@ -106,6 +106,10 @@
             {@render genericItemEditors('lnkt')}
         {:else if seg === 'web'}
             {@render genericItemEditors('web')}
+        {:else if seg === 'wb-inn'}
+            <button onclick={() => {changeEditor(`wb-inn-modifying`)}}>
+                <img class={light ? 'light' : ''} src={modifyIconPath} alt="edit">
+            </button>
         {/if}
     </div>
 
@@ -125,7 +129,7 @@
 
         .editor-tools {
             position: absolute;
-            z-index: 9999999;
+            z-index: 99999;
             top: 30px;
             width: 42px;
             height: 40px;

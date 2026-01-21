@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: arrows n fancy">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: fade scope">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,15 +265,7 @@
       <workItem from="1768987261965" duration="221000" />
       <workItem from="1768987528093" duration="140000" />
       <workItem from="1768987780942" duration="896000" />
-      <workItem from="1768988699344" duration="28983000" />
-    </task>
-    <task id="LOCAL-00073" summary="chore: more separators + fix: int values could not be floatified">
-      <option name="closed" value="true" />
-      <created>1768587247740</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1768587247741</updated>
+      <workItem from="1768988699344" duration="31529000" />
     </task>
     <task id="LOCAL-00074" summary="chore: added more relevant icons + feat: added a dedicated component for svgs instead of img tag">
       <option name="closed" value="true" />
@@ -656,7 +651,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769021676427</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="fix: fade scope">
+      <option name="closed" value="true" />
+      <created>1769023195816</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1769023195816</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -682,7 +685,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: card tweaks" />
     <MESSAGE value="chore: more card tweaks" />
     <MESSAGE value="chore: more card tweaks x2 and oh no im starting to really like ligatures" />
     <MESSAGE value="chore: more card tweaks x3" />
@@ -707,6 +709,7 @@
     <MESSAGE value="chore: added bugs (but admin only)" />
     <MESSAGE value="fix: quantum entanglement" />
     <MESSAGE value="feat: arrows n fancy" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: arrows n fancy" />
+    <MESSAGE value="fix: fade scope" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: fade scope" />
   </component>
 </project>

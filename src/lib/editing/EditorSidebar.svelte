@@ -1,7 +1,7 @@
 <!--get, set bindings-->
 <!--suppress CommaExpressionJS -->
 <script lang="ts">
-    import {activeEditor, MAX_CHIME_FOLDS, editbar} from "$lib/shared.svelte";
+    import {activeEditor, MAX_CHIME_FOLDS, editbar, modal} from "$lib/shared.svelte";
     import {convertSimpleDataTypesImplicitly, isEmptyArr, SeparatorShape} from "$lib/utils/utils";
     import {applyAction, enhance} from "$app/forms";
     import type {SubmitFunction} from "@sveltejs/kit";
@@ -28,6 +28,7 @@
 
     const socialInQuestion = $derived<Record<string, any>>(editbar.social_data[editbar.focusedIx]);
     const projInQuestion = $derived<Record<string, any>>(editbar.proj_data[editbar.focusedIx]);
+    const projDetailsInQuestion = $derived<Record<string, any>>(editbar.proj_details_data[modal.selectedIx]);
 
     const isNumberInvalid = (key: string, trueKey: string, value: any, upperBound: number) => {
         return key === trueKey && (value > upperBound || isNaN(value))
@@ -72,7 +73,7 @@
         if (form?.toDelete !== undefined) {
             untrack(() => {
                 const type = form.toDelete.type;
-                const obj = editbar[`${type}_data`] ;
+                const obj = editbar[`${type}_data`];
                 const ix = obj.findIndex((social: typeof obj[number]) => {
                     social.name === form.toDelete.name
                 });
@@ -115,9 +116,32 @@
         }
         projInQuestion[key] = key.startsWith('type_') ? v : convertSimpleDataTypesImplicitly(v);
     }
+    const assignInnerProjectBindingsWithExceptions = (v: any, key: string) => {
+        if (key === 'langs') {
+            let parsed = {};
+            try {
+                parsed = JSON.parse(v);
+            } catch (err) {
+                return null;
+            }
+            projDetailsInQuestion[key] = parsed;
+            return;
+        }
+        if (key === 'name') {
+            if (v === '') {
+                v = 'none';
+            }
+
+            projDetailsInQuestion[key] = v;
+            modal.selected = v;
+            return;
+        }
+        projDetailsInQuestion[key] = key.startsWith('type_') ? v : convertSimpleDataTypesImplicitly(v);
+    }
 
     const isLnktMod = $derived(activeEditor.state === 'lnkt-modifying' && !isEmptyArr(editbar.social_data));
     const isWebMod = $derived(activeEditor.state === 'web-modifying' && !isEmptyArr(editbar.proj_data));
+    const isWbInnMod = $derived(activeEditor.state === 'wb-inn-modifying' && !isEmptyArr(editbar.proj_details_data));
 </script>
 
 <svelte:window onclick={checkIfClose}/>
@@ -173,7 +197,6 @@
                 {@render sendingBloc(action)}
                 {@render deletionBloc(action)}
             </form>
-
         {:else if isWebMod}
             {@const action = "Project"}
             <form method="POST" use:enhance={handleSubmit}>
@@ -182,6 +205,26 @@
                         {key}
                         <input bind:value={() => projInQuestion[key], (v) => assignProjectBindingsWithExceptions(v, key)}
                                placeholder={value}>
+                    </label>
+                {/each}
+
+                {@render sendingBloc(action)}
+                {@render deletionBloc(action)}
+            </form>
+        {:else if isWbInnMod}
+            {@const action = "ProjectInner"}
+            <form method="POST" use:enhance={handleSubmit}>
+                {#each Object.entries(projDetailsInQuestion) as [key, value] (key)}
+                    <label>
+                        {key}
+                        {#if key === 'long_desc'}
+                                <textarea bind:value={() => projDetailsInQuestion[key],
+                                         (v) => assignInnerProjectBindingsWithExceptions(v, key)}
+                                          placeholder={value}></textarea>
+                        {:else}
+                            <input bind:value={() => key === 'langs' ? JSON.stringify(projDetailsInQuestion[key]) : projDetailsInQuestion[key], (v) => assignInnerProjectBindingsWithExceptions(v, key)}
+                                   placeholder={value}>
+                        {/if}
                     </label>
                 {/each}
 
@@ -253,6 +296,11 @@
 
             & label {
                 display: flex;
+
+                & textarea {
+                    width: 100%;
+                    height: 15vh
+                }
 
                 & input {
                     margin-left: auto;
