@@ -3,13 +3,13 @@
     import {blur} from "svelte/transition";
     import {
         activeEditor,
-        editbar, editing,
+        editbar, editing, hackeryAnimObserver, hackeryTextAnim,
         handleItemEdit,
         handleItemHolding,
         handleItemLeaving,
         handlePositioning, modal, pxToVw, vwToPx, windowGlobals
     } from "$lib/shared.svelte";
-    import {untrack} from "svelte";
+    import {onMount, untrack} from "svelte";
     import {expoOut} from "svelte/easing";
 
     let {proj} = $props();
@@ -169,6 +169,19 @@
             })
         }
     })
+
+    let hElem: HTMLElement | null = $state(null);
+    let blurbElem: HTMLElement | null = $state(null);
+    let numElem: HTMLElement | null = $state(null);
+    onMount(() => {
+        if (!hElem || !blurbElem || !numElem || !hackeryAnimObserver) return;
+        hElem.dataset.speed = '0.1';
+        blurbElem.dataset.speed = '0.2';
+        numElem.dataset.speed = '0.025';
+        hackeryAnimObserver.observe(hElem);
+        hackeryAnimObserver.observe(blurbElem);
+        hackeryAnimObserver.observe(numElem);
+    })
 </script>
 
 <svelte:window/>
@@ -191,10 +204,10 @@
         <p transition:blur style={`right: ${arrowRight.current}rem`} class="arrow">-&gt;</p>
     {/if}
     <div class="card-info">
-        <h3>{proj.display_name}</h3>
-        <p class="blurb">{proj.blurb}</p>
+        <h3 bind:this={hElem}>{proj.display_name}</h3>
+        <p bind:this={blurbElem} class="blurb">{proj.blurb}</p>
         <div class="separator"></div>
-        <p class="num">{proj.read_num.toString().padStart(2, '0')}</p>
+        <p bind:this={numElem} class="num">{proj.read_num.toString().padStart(2, '0')}</p>
     </div>
     <div class={`img-wrap ${modal.open && selected ? 'modal-open' : ''}`}>
         <img bind:this={img} bind:clientWidth={imgDims.width} bind:clientHeight={imgDims.height}

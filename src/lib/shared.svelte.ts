@@ -189,8 +189,10 @@ export let hackeryAnimObserver: IntersectionObserver | null = null;
 if (browser) {
     hackeryAnimObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+            const target = entry.target as HTMLElement;
+            const speed = parseFloat(target.dataset.speed ?? '0.4') || 0.4;
             if (entry.isIntersecting) {
-                hackeryTextAnim(entry.target as HTMLElement, 0.4);
+                hackeryTextAnim(entry.target as HTMLElement, speed);
                 hackeryAnimObserver?.unobserve(entry.target);
             }
         });

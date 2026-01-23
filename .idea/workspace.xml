@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: sick text anim">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: text anim was eating text">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,15 +265,7 @@
       <workItem from="1768987528093" duration="140000" />
       <workItem from="1768987780942" duration="896000" />
       <workItem from="1768988699344" duration="31828000" />
-      <workItem from="1769156514193" duration="34363000" />
-    </task>
-    <task id="LOCAL-00083" summary="chore: i cant typ, the caffein, me rip, also added bluesky stats from the api">
-      <option name="closed" value="true" />
-      <created>1768734357336</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1768734357336</updated>
+      <workItem from="1769156514193" duration="35760000" />
     </task>
     <task id="LOCAL-00084" summary="chore: hackatime stats">
       <option name="closed" value="true" />
@@ -657,7 +651,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769194174670</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="fix: text anim was eating text">
+      <option name="closed" value="true" />
+      <created>1769196313856</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1769196313856</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -683,7 +685,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: shmooving web projects" />
     <MESSAGE value="fix: the animation has borken" />
     <MESSAGE value="fix: made shadow follow animation properly god this took so long to match up and I didn't actually end up with the effect I wanted" />
     <MESSAGE value="fix: items were clicked twice" />
@@ -708,6 +709,7 @@
     <MESSAGE value="feat: tooltips for linktree and tweaks god this took so long" />
     <MESSAGE value="fix: no longer scrolling if close by, it feels a bit like a lag" />
     <MESSAGE value="feat: sick text anim" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: sick text anim" />
+    <MESSAGE value="fix: text anim was eating text" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: text anim was eating text" />
   </component>
 </project>

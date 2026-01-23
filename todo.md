@@ -47,3 +47,4 @@
 - [ ] todo: case study cursor
 - [ ] todo: hackery text animation ; mmm hackery that's like witchery
 - [ ] todo: loading states for imgs
+- [ ] todo maybe: more anims for web seg, the button for example

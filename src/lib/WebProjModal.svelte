@@ -2,16 +2,16 @@
     import {
         activeEditor,
         editing,
-        hackeryAnimObserver, hackeryTextAnim,
+        hackeryTextAnim,
         handleItemEdit,
-        modal,
-        positionTooltip
+        positionTooltip,
+        modal
     } from "$lib/shared.svelte";
     import Icon from "$lib/Icon.svelte";
     import {blur} from "svelte/transition";
     import {expoIn, expoOut, cubicInOut} from "svelte/easing";
     import EditorTools from "$lib/editing/EditorTools.svelte";
-    import {onMount, untrack} from "svelte";
+    import {untrack} from "svelte";
 
     const {selectedDetails: details, selectedProj: proj, webProjDetails: allDetails} = $props();
 
