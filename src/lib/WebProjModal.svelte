@@ -47,7 +47,7 @@
 </script>
 
 {#if !!details && modal.open}
-    <div transition:blur={{duration: 500, easing: modal.open ? expoIn : expoOut}}
+    <div transition:blur={{duration: modal.open ? 500 : 400, easing: modal.open ? expoIn : expoOut}}
          style={`justify-content: ${modal.left ? 'flex-start' : 'flex-end'};`}
          class="modal" onclick={handleModalCloseCheck} onkeydown={handleModalCloseCheck}
          role="button" tabindex="-1">

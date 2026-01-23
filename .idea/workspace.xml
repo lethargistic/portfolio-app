@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: more ui tweaks">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: tooltips for linktree and tweaks god this took so long">
+      <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,15 +261,7 @@
       <workItem from="1768987528093" duration="140000" />
       <workItem from="1768987780942" duration="896000" />
       <workItem from="1768988699344" duration="31828000" />
-      <workItem from="1769156514193" duration="26915000" />
-    </task>
-    <task id="LOCAL-00080" summary="chore: moar chimess i, I, I really need to eat + fix: chime related fixes">
-      <option name="closed" value="true" />
-      <created>1768677941899</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1768677941899</updated>
+      <workItem from="1769156514193" duration="27246000" />
     </task>
     <task id="LOCAL-00081" summary="fix: setting saving did not handle key change">
       <option name="closed" value="true" />
@@ -662,7 +647,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769175209011</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="feat: tooltips for linktree and tweaks god this took so long">
+      <option name="closed" value="true" />
+      <created>1769188264117</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1769188264117</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -688,7 +681,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor: the java has gotten into my brain, bastards" />
     <MESSAGE value="feat: web project editing locally" />
     <MESSAGE value="refactor: cleaning + feat: adding, deleting web projects" />
     <MESSAGE value="feat: shmooving web projects" />
@@ -713,6 +705,7 @@
     <MESSAGE value="chore: tooltips and ui tweaks" />
     <MESSAGE value="chore: tooltips and ui tweaks + fix: rotatie math was wrong" />
     <MESSAGE value="chore: more ui tweaks" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: more ui tweaks" />
+    <MESSAGE value="feat: tooltips for linktree and tweaks god this took so long" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: tooltips for linktree and tweaks god this took so long" />
   </component>
 </project>

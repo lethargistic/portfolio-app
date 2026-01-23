@@ -86,7 +86,16 @@
 
             const elemBottom = rect.bottom + window.scrollY - window.innerHeight;
             const scrollToY = elemBottom + window.innerHeight / 2.1 - rotatie.offsetHeight / 2;
-            scrollTo({top: scrollToY, behavior: 'smooth'});
+
+            // this is so it doesn't feel like a lag when you're really close to it anyway
+            const scrollDifference = Math.abs(window.scrollY - scrollToY);
+            // px
+            const SCROLL_THRESHOLD = 50;
+
+            if (scrollDifference > SCROLL_THRESHOLD) {
+                scrollTo({top: scrollToY, behavior: 'smooth'});
+            }
+
             document.documentElement.classList.add('scroll-lock');
         }
     }
