@@ -130,6 +130,7 @@
                 place-items: center start;
 
                 margin-top: calc((var(--outer-height) * -1) - var(--circle-diameter));
+                box-sizing: border-box;
 
                 & .circle {
                     border-radius: 50%;
@@ -140,6 +141,7 @@
 
                     box-sizing: border-box;
                     border: 0.1rem solid #111111;
+                    margin-left: 0.05rem;
                 }
 
                 & .outer {

@@ -79,7 +79,6 @@
         } else {
             modal.selected = proj.name;
             modal.open = true;
-            // TODO maybe: adjust coef
             modal.left = vwToPx(proj.left_vw) > windowGlobals.inner_width / 4
 
             if (!rotatie) return;
