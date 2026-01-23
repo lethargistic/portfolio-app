@@ -85,7 +85,7 @@
             const rect = rotatie.getBoundingClientRect();
 
             const elemBottom = rect.bottom + window.scrollY - window.innerHeight;
-            const scrollToY = elemBottom + window.innerHeight / 2.4 - rotatie.offsetHeight / 2;
+            const scrollToY = elemBottom + window.innerHeight / 2.1 - rotatie.offsetHeight / 2;
             scrollTo({top: scrollToY, behavior: 'smooth'});
             document.documentElement.classList.add('scroll-lock');
         }
@@ -292,6 +292,7 @@
             &:before {
                 content: '';
                 position: absolute;
+                opacity: 1;
                 top: 0;
                 left: 0;
                 width: 100%;
@@ -299,8 +300,10 @@
                 /* the wrapper is just slightly bigger for some reason*/
                 height: calc(100% - 5px);
                 background: linear-gradient(to right, #111111, transparent);
-                transition: opacity 0.1s;
+                border: 0 solid white;
+                transition: opacity 1s, border 0.1s ease-in-out, scale 0.1s ease-in-out;
                 pointer-events: none;
+                scale: 1.01;
             }
 
             &:after {
@@ -310,19 +313,21 @@
                 left: 0;
                 width: 100%;
                 height: calc(100% - 5px);
-                background: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
-                transition: opacity 0.1s ease-out;
+                background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+                transition: opacity 0.2s ease-out, border 0.1s ease-in-out, scale 0.1s ease-in-out;
+                border: 0 solid white;
                 pointer-events: none;
                 opacity: 0;
             }
         }
 
         & .modal-open:before {
-            opacity: 0.7;
+            opacity: 0.9;
         }
 
         & .modal-open:after {
             opacity: 1;
+            border: 1px solid white;
         }
     }
 </style>

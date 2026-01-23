@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: tooltips and ui tweaks + fix: rotatie math was wrong">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: more ui tweaks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,15 +262,7 @@
       <workItem from="1768987528093" duration="140000" />
       <workItem from="1768987780942" duration="896000" />
       <workItem from="1768988699344" duration="31828000" />
-      <workItem from="1769156514193" duration="13299000" />
-    </task>
-    <task id="LOCAL-00078" summary="fix: decided on chime font size and icons consistent with scaling&#10;now got to not forget to make sure it's readable">
-      <option name="closed" value="true" />
-      <created>1768669007469</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1768669007469</updated>
+      <workItem from="1769156514193" duration="14223000" />
     </task>
     <task id="LOCAL-00079" summary="fix: empty folds">
       <option name="closed" value="true" />
@@ -657,7 +648,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769173807838</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="chore: more ui tweaks">
+      <option name="closed" value="true" />
+      <created>1769174271734</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1769174271734</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -683,7 +682,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: arrow moves" />
     <MESSAGE value="refactor: the java has gotten into my brain, bastards" />
     <MESSAGE value="feat: web project editing locally" />
     <MESSAGE value="refactor: cleaning + feat: adding, deleting web projects" />
@@ -708,6 +706,7 @@
     <MESSAGE value="chore: visit button" />
     <MESSAGE value="chore: tooltips and ui tweaks" />
     <MESSAGE value="chore: tooltips and ui tweaks + fix: rotatie math was wrong" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: tooltips and ui tweaks + fix: rotatie math was wrong" />
+    <MESSAGE value="chore: more ui tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: more ui tweaks" />
   </component>
 </project>
