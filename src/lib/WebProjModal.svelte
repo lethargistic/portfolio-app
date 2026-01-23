@@ -70,10 +70,12 @@
                     onkeydown={handleDetailsInteraction}
                     role="button"
                     tabindex="-1"
-                    class={`info ${activeEditor.state === 'wb-inn-modifying' ? 'hover-focus-light' : ''}`} >
+                    class={`info ${activeEditor.state === 'wb-inn-modifying' ? 'hover-focus-light' : ''}`}>
                 <h2>{details.display_name}</h2>
                 <div class="separator">
-                    {#each [...Array(27).keys()] as i}{#if i === 0}={/if}=/{/each}==
+                    {#each [...Array(27).keys()] as i}
+                        {#if i === 0}={/if}=/
+                    {/each}==
                 </div>
                 <div class="info-props">
                     <p class="num">#{proj.read_num.toString().padStart(2, '0')}</p>
@@ -88,6 +90,9 @@
                     </ul>
                 </div>
                 <p class="desc">&nbsp;-> {details.long_desc}</p>
+                <a href={details.link} class="cta" target="_blank">
+                    visit
+                </a>
             </div>
         </div>
     </div>
@@ -216,5 +221,52 @@
                 }
             }
         }
+    }
+
+    .cta {
+        all: unset;
+
+        position: relative;
+        cursor: pointer;
+        width: min-content;
+        display: grid;
+        place-items: center;
+        border: 2px solid #3b225a;
+        padding: 0.3rem 1rem 0.5rem 1rem;
+        margin-top: 0.3rem;
+        border-radius: 4px;
+        background-color: #6728b3;
+
+        /*transform: translate3d(0, 12px, -16px);*/
+        transform-style: preserve-3d;
+        transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+    }
+
+    .cta:before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        --shadowed-btn-color: #3e2471;
+        background: var(--shadowed-btn-color);
+        border-radius: inherit;
+        box-shadow: 0 0 0 1px var(--shadowed-btn-color);
+        transform: translate3d(0, 6px, -16px);
+        transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+    }
+
+    .cta:hover {
+        background-color: #6c35af;
+        transform: translate(0, 6px);
+    }
+
+    .cta:hover::before {
+        box-shadow: 0 0 0 1px #3a1c5c;
+        transform: translate3d(0, 4px, -16px);
     }
 </style>

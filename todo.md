@@ -45,3 +45,4 @@
 - [ ] todo very high: add one or another kind of bg/diffuser to web dev sec
 - [ ] todo maybe: investigate dev browser having slower animations
 - [ ] todo: case study cursor
+- [ ] todo: hackery text animation ; mmm hackery that's like witchery

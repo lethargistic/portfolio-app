@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: inner card editing no db yet">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: db posting for inner projects">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,15 +263,7 @@
       <workItem from="1768987528093" duration="140000" />
       <workItem from="1768987780942" duration="896000" />
       <workItem from="1768988699344" duration="31828000" />
-      <workItem from="1769156514193" duration="1702000" />
-    </task>
-    <task id="LOCAL-00075" summary="feat: centered option for folds + feat: auto updating fold keys">
-      <option name="closed" value="true" />
-      <created>1768653783284</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1768653783284</updated>
+      <workItem from="1769156514193" duration="3974000" />
     </task>
     <task id="LOCAL-00076" summary="chore: social filling progress + feat: title text on folds + fix: folds were not auto converted + fix: auto fill was borken ... borken, sure it was borken">
       <option name="closed" value="true" />
@@ -658,7 +649,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769025970966</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="chore: db posting for inner projects">
+      <option name="closed" value="true" />
+      <created>1769158425006</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1769158425006</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -684,7 +683,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: more card tweaks x2 and oh no im starting to really like ligatures" />
     <MESSAGE value="chore: more card tweaks x3" />
     <MESSAGE value="chore: project cards in the db" />
     <MESSAGE value="feat: web sec editing + refactor: simplified part of convoluted logic because of dumb mistake, more to come tmrw" />
@@ -709,6 +707,7 @@
     <MESSAGE value="feat: arrows n fancy" />
     <MESSAGE value="fix: fade scope" />
     <MESSAGE value="chore: inner card editing no db yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: inner card editing no db yet" />
+    <MESSAGE value="chore: db posting for inner projects" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: db posting for inner projects" />
   </component>
 </project>
