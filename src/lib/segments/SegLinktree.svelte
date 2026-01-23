@@ -1,9 +1,11 @@
 <script lang="ts">
-    import {currentLang, editbar, settings} from "$lib/shared.svelte";
+    import {currentLang, editbar, MAX_CHIME_FOLDS, settings} from "$lib/shared.svelte";
 
     import {onMount} from "svelte";
     import Chime from "$lib/hangies/Chime.svelte";
     import EditorTools from "$lib/editing/EditorTools.svelte";
+    // jetbrains fix when
+    import { positionTooltip} from "$lib/shared.svelte";
 
     let {socials: socialsProp} = $props();
 
@@ -77,6 +79,19 @@
 
     const handleScrollBool = () => scrolling = true;
     const handleScrollEndBool = () => scrolling = false;
+
+    //
+
+    let socialsLength = $derived(socials.length);
+
+    // TODO: refactor Linktree tooltip pipeline
+    // should have used data attributes instead of refs
+    // or actually i could just render a copy elsewhere instead of
+    // manipulating data
+    let foldStatElems: Array<Array<Record<string, HTMLElement | null>>> = $derived(Array.from({length: socialsLength}, () => {
+        return Array.from({length: MAX_CHIME_FOLDS * 2}, () => {return {elem: null}});
+    }));
+    let foldTooltipOverride: string | null = $state(null);
 </script>
 
 <svelte:window bind:innerHeight={windowHeight} bind:scrollY={windowScrollY} onscroll={handleScrollBool}
@@ -99,7 +114,7 @@
                  alt="linktree background, various simple geometric shapes made with thin lines">
         {/each}
         <div class="chime-cont">
-            {#each socials as social}
+            {#each socials as social, i (social.name + i)}
                 {#if !isSocialHidden(social)}
                     <div class={`social-chime social-chime-${social.name}`}
                          style={`top: ${social.top_vh*(branchHeight/windowHeight)}vh;
@@ -107,14 +122,52 @@
                          left: ${social.left_vw}vw;
                          z-index: ${social.above ? '999' : '0'};
                          `}>
-                        <Chime {social}/>
+                        <Chime {social} socialIx={i} bind:foldStatElems={foldStatElems} bind:foldTooltipOverride={foldTooltipOverride}/>
                     </div>
+
+                    <!-- tooltips -->
+                    {#each social.folds as fold, j (fold.slug + j)}
+                        {#if fold.tooltip_on && fold.tooltip_text !== ''}
+                            <!-- jetbrains fix when -->
+                            <!--suppress ALL-->
+                            <div {@attach positionTooltip(foldStatElems[i][j].elem)}
+                                 class="tooltip" role="tooltip">
+                                <div>
+                                    {@html foldTooltipOverride ? foldTooltipOverride : (fold.tooltip_text ? fold.tooltip_text : '')}
+                                </div>
+                            </div>
+                        {/if}
+                    {/each}
                 {/if}
             {/each}
         </div>
     </section>
 
     <style>
+        .tooltip {
+            width: max-content;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-weight: bold;
+            font-size: 90%;
+            z-index: 99999;
+        }
+
+        .tooltip > div {
+            background: rgba(248, 242, 255, 0.4);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            color: #000000;
+            border-radius: 0;
+            padding: 0.2rem 0.6rem;
+            margin-bottom: 0.6rem;
+            border: 1px solid #111111;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
         .linktree-seg {
             height: 300vh;
             width: 100vw;

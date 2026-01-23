@@ -1,10 +1,9 @@
 <script lang="ts">
-    import {activeEditor, editing, handleItemEdit, modal, vwToPx, windowGlobals} from "$lib/shared.svelte";
+    import {activeEditor, editing, handleItemEdit, modal, positionTooltip} from "$lib/shared.svelte";
     import Icon from "$lib/Icon.svelte";
-    import {blur, fade} from "svelte/transition";
+    import {blur} from "svelte/transition";
     import {expoIn, expoOut, cubicInOut} from "svelte/easing";
     import EditorTools from "$lib/editing/EditorTools.svelte";
-    import {computePosition, flip, shift} from "@floating-ui/dom";
 
     const {selectedDetails: details, selectedProj: proj, webProjDetails: allDetails} = $props();
 
@@ -45,21 +44,6 @@
             handleItemEdit(e, details.name, 'wb-inn-modifying');
         }
     }
-
-    const positionTooltip = async (tooltip: HTMLElement | null) => {
-        if (!tooltip) return;
-        const tracked = tooltip.parentElement;
-        if (!tracked) return;
-        const {x, y} = await computePosition(tracked, tooltip, {
-            placement: 'top',
-            middleware: [flip(), shift({padding: 6})]
-        })
-        Object.assign(tooltip.style, {
-            left: `${x}px`,
-            top: `${y}px`
-        })
-    }
-
 </script>
 
 {#if !!details && modal.open}
@@ -105,7 +89,8 @@
 
                                 {#if lang.tooltip}
                                     <!-- jetbrains fix when -->
-                                    <div {@attach positionTooltip} transition:blur={{duration: 100, easing: cubicInOut}}
+                                    <!--suppress ALL-->
+                                    <div {@attach positionTooltip(true)}  transition:blur={{duration: 100, easing: cubicInOut}}
                                          class="tooltip" role="tooltip"
                                          onpointerenter={() => lang.tooltip = true}
                                          onpointerleave={() => lang.tooltip = false}>

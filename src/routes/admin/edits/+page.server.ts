@@ -10,6 +10,13 @@ const removeReassigned = (obj: Record<string, any>) => {
     delete obj.created_at;
 }
 
+const defaultSocialFlags = (obj: Record<string, any>) => {
+    obj.tooltip_on = false;
+}
+const defaultProjectDetailsFlags = (obj: Record<string, any>) => {
+    obj.tooltip = false;
+}
+
 export const actions = {
     postSocial: async ({locals: {safeGetSession}, request}) => {
         const {session, user} = await safeGetSession();
@@ -31,6 +38,7 @@ export const actions = {
             for (let [key, value] of Object.entries(obj)) {
                 newObj[key] = key.startsWith('type_') ? value : convertSimpleDataTypesImplicitly(value);
             }
+            defaultSocialFlags(newObj);
             folds.push(newObj);
         }
 
@@ -130,6 +138,10 @@ export const actions = {
         const data = await request.formData();
         const details = Object.fromEntries(data.entries());
         const langsJSON = JSON.parse(details.langs as string)
+
+        for (const lang of langsJSON) {
+            defaultProjectDetailsFlags(lang);
+        }
 
         delete details.langs;
 

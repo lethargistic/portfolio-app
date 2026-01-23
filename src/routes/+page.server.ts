@@ -23,8 +23,7 @@ export const load: PageServerLoad = async () => {
             for (const [key, value] of firstFoldEntries) {
                 if (fold[key] === undefined) {
                     update = true;
-                    socials[socials.findIndex((s: typeof social) => s.name === social.name)]
-                        .folds[social.folds.findIndex((f: typeof fold) => f.slug === fold.slug)][key] = value;
+                    fold[key] = value;
                 }
             }
         }

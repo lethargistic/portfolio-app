@@ -1,3 +1,6 @@
+import {computePosition, flip, shift} from "@floating-ui/dom";
+import type {Attachment} from "svelte/attachments";
+
 export let currentLang = $state({lang: "en"});
 
 export const MAX_CHIME_FOLDS = 4;
@@ -118,4 +121,22 @@ export const vwToPx = (vw: number) => {
 }
 export const pxToVw = (px: number) => {
     return (px * 100) / windowGlobals.inner_width
+}
+
+export const positionTooltip = (parent: boolean | HTMLElement | null) => {
+    return async (tooltip: HTMLElement) => {
+        if (!tooltip) return;
+        if (parent === null) return;
+        const anchor = parent === true ? tooltip.parentElement : parent;
+        if (!anchor) return;
+
+        const {x, y} = await computePosition(anchor, tooltip, {
+            placement: 'top',
+            middleware: [flip(), shift({padding: 6})]
+        })
+        Object.assign(tooltip.style, {
+            left: `${x}px`,
+            top: `${y}px`
+        })
+    }
 }

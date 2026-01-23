@@ -9,7 +9,7 @@
         MAX_CHIME_FOLDS,
         MIN_CHIME_FOLDS,
         editbar,
-        handleItemEdit, handleItemHolding, handleItemLeaving, handlePositioning, windowGlobals
+        handleItemEdit, handleItemHolding, handleItemLeaving, handlePositioning
     } from "$lib/shared.svelte";
     import SVGThreeStars from "$lib/hangies/separators/separators/SVGThreeStars.svelte";
     import SVGStar from "$lib/hangies/separators/separators/SVGStar.svelte";
@@ -17,8 +17,7 @@
     import SVGLantern from "$lib/hangies/separators/separators/SVGLantern.svelte";
     import Icon from "$lib/Icon.svelte";
 
-    let props = $props();
-    let {social: socialProp} = props;
+    let {social: socialProp, socialIx, foldStatElems = $bindable(), foldTooltipOverride = $bindable()} = $props();
 
     let social = $derived(socialProp);
     let folds = $derived(social.folds);
@@ -475,16 +474,15 @@
     const BASE_ICON_SIZE_PX = $state(19.5);
     const DEFAULT_CHIME_SIZE_VH = $state(82)
 
-    let foldTitleOverride: string | null = $state(null);
     const handleSocialLink = (fold_link: string | null) => {
         if (fold_link?.startsWith('copy_')) {
             const toCopy = fold_link.replace('copy_', '');
             navigator.clipboard.writeText(toCopy);
-            foldTitleOverride = `Copied: ${toCopy}!`;
+            foldTooltipOverride = `Copied: "${toCopy}!"`;
 
             setTimeout(() => {
-                foldTitleOverride = null;
-            }, 4000)
+                foldTooltipOverride = null;
+            }, 1000)
         }
     }
 
@@ -494,6 +492,8 @@
         renderer.dispose()
         renderer.forceContextLoss()
     })
+
+    //
 </script>
 <svelte:window onresize={adjustPathDimensionTracking} bind:innerWidth={windowInnerWidth}
                bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove}/>
@@ -549,21 +549,30 @@
     <div class={`fold-cont
          ${activeEditor.state === 'lnkt-modifying' || activeEditor.state === 'lnkt-positioning' ? 'hover-focus' : ''}`}
          style={`grid-template-rows: repeat(${foldCount*2+1}, 1fr);`}
-         role="presentation" onclick={handleChimeEdit} onkeydown={handleChimeEdit} onpointerdown={(e) => {handleChimeEdit(e); handleItemHolding(e);}}
-         onpointerup={handleItemLeaving} onpointerleave={handleItemLeaving} onpointermove={handleChimeMoving}>
+         role="presentation" onclick={handleChimeEdit} onkeydown={handleChimeEdit}
+         onpointerdown={(e) => {handleChimeEdit(e); handleItemHolding(e);}}
+         onpointerup={handleItemLeaving} onpointerleave={handleItemLeaving}
+         onpointermove={handleChimeMoving}>
         <!-- the spacer accounts for the 0.5 folds on the left that are missing because of the shape -->
         <div class="stat-half-spacer-left"></div>
-        {#each folds as fold (social.name + fold.id + fold.slug)}
+        {#each folds as fold, j (social.name + fold.id + fold.slug)}
             {#if !fold.slug.startsWith('hide_')}
                 {@const left = fold.left}
                 {@const iconSize = social.chime_max_height_vh / (DEFAULT_CHIME_SIZE_VH / BASE_ICON_SIZE_PX)}
                 <div class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
                      style={`width: ${chimeGroupWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;
                         --title-font-size: ${social.chime_max_height_vh/(DEFAULT_CHIME_SIZE_VH/BASE_FONT_SIZE_REM)}rem`}>
-                    <a href={fold.link ? (fold.link.startsWith('copy_') ? null : fold.link) : social.link === 'none' ? null : social.link}
+                    <!-- It is definitely reactive, there is definitely a better way -->
+                    <!-- to do this than what i did tho-->
+                    <!-- it's been 8 hours have mercy on my poor soul -->
+                    <!-- svelte-ignore binding_property_non_reactive -->
+                    <a bind:this={foldStatElems[socialIx][j].elem}
+                       href={fold.link ? (fold.link.startsWith('copy_') ? null : fold.link) : social.link === 'none' ? null : social.link}
                        onclick={() => handleSocialLink(fold.link)}
                        target="_blank"
-                       title={foldTitleOverride ? foldTitleOverride : (fold.hover ? fold.hover : '')}>
+                       onpointerenter={() => fold.tooltip_on = true}
+                       onpointerleave={() => {foldTooltipOverride = null;
+                           fold.tooltip_on = false}}>
                         {#if fold.icon === 'hackatime'}
                             <img src={`/img/icons/${fold.icon}.webp`} width={iconSize} height={iconSize}
                                  alt={fold.slug}>
@@ -824,5 +833,4 @@
             margin-top: 1.1rem;
         }
     }
-
 </style>

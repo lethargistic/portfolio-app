@@ -102,7 +102,7 @@
                     opacity: 0.7;
                     font-family: "Montserrat", sans-serif;
 
-                    /* *tries not to giggle really hard* */
+                    /* *tries not to giggle/die really hard* */
                     transform: scaleX(1.05);
                     transform-origin: top left;
                     font-weight: 200;
