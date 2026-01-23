@@ -29,6 +29,7 @@
 		]
 	},
 	"dependencies": {
+		"@floating-ui/dom": "^1.7.4",
 		"@supabase/ssr": "^0.8.0",
 		"@supabase/supabase-js": "^2.89.0",
 		"@upstash/redis": "^1.36.1",

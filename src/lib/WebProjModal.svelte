@@ -1,9 +1,10 @@
 <script lang="ts">
     import {activeEditor, editing, handleItemEdit, modal, vwToPx, windowGlobals} from "$lib/shared.svelte";
     import Icon from "$lib/Icon.svelte";
-    import {blur} from "svelte/transition";
-    import {expoIn} from "svelte/easing";
+    import {blur, fade} from "svelte/transition";
+    import {expoIn, expoOut, cubicInOut} from "svelte/easing";
     import EditorTools from "$lib/editing/EditorTools.svelte";
+    import {computePosition, flip, shift} from "@floating-ui/dom";
 
     const {selectedDetails: details, selectedProj: proj, webProjDetails: allDetails} = $props();
 
@@ -44,10 +45,25 @@
             handleItemEdit(e, details.name, 'wb-inn-modifying');
         }
     }
+
+    const positionTooltip = async (tooltip: HTMLElement | null) => {
+        if (!tooltip) return;
+        const tracked = tooltip.parentElement;
+        if (!tracked) return;
+        const {x, y} = await computePosition(tracked, tooltip, {
+            placement: 'top',
+            middleware: [flip(), shift({padding: 6})]
+        })
+        Object.assign(tooltip.style, {
+            left: `${x}px`,
+            top: `${y}px`
+        })
+    }
+
 </script>
 
 {#if !!details && modal.open}
-    <div transition:blur={{duration: 300, easing: expoIn}}
+    <div transition:blur={{duration: 500, easing: modal.open ? expoIn : expoOut}}
          style={`justify-content: ${modal.left ? 'flex-start' : 'flex-end'};`}
          class="modal" onclick={handleModalCloseCheck} onkeydown={handleModalCloseCheck}
          role="button" tabindex="-1">
@@ -82,9 +98,22 @@
                     <ul class="langs">
                         tech used:
                         {#each details.langs as lang}
-                            <li>
-                                <Icon name={lang.lang} width={24} height={24} currentColor="#fff"/>
-                                {lang.display}
+                            <li class="web-info-prop"
+                                onpointerenter={() => lang.tooltip = true}
+                                onpointerleave={() => lang.tooltip = false}>
+                                <Icon name={lang.lang} width={20} height={20} currentColor="#fff"/>
+
+                                {#if lang.tooltip}
+                                    <!-- jetbrains fix when -->
+                                    <div {@attach positionTooltip} transition:blur={{duration: 100, easing: cubicInOut}}
+                                         class="tooltip" role="tooltip"
+                                         onpointerenter={() => lang.tooltip = true}
+                                         onpointerleave={() => lang.tooltip = false}>
+                                        <div>
+                                            {lang.display}
+                                        </div>
+                                    </div>
+                                {/if}
                             </li>
                         {/each}
                     </ul>
@@ -99,6 +128,12 @@
 {/if}
 
 <style>
+    :global(.web-info-prop > .factory-icon) {
+        display: grid;
+        place-items: center;
+        margin-bottom: 0.1rem;
+    }
+
     .modal {
         position: fixed;
         top: 0;
@@ -171,7 +206,7 @@
                         align-items: center;
                         gap: 1rem;
 
-                        & li {
+                        & .web-info-prop {
                             display: flex;
                             align-items: center;
                         }
@@ -232,9 +267,9 @@
         display: grid;
         place-items: center;
         border: 2px solid #3b225a;
-        padding: 0.3rem 1rem 0.5rem 1rem;
-        margin-top: 0.3rem;
-        border-radius: 4px;
+        padding: 0.2rem 0.9rem 0.4rem 0.9rem;
+        margin: 0.4rem 0.9rem 0.1rem 0.1rem;
+        border-radius: 2px;
         background-color: #6728b3;
 
         /*transform: translate3d(0, 12px, -16px);*/
@@ -256,17 +291,37 @@
         background: var(--shadowed-btn-color);
         border-radius: inherit;
         box-shadow: 0 0 0 1px var(--shadowed-btn-color);
-        transform: translate3d(0, 6px, -16px);
+        transform: translate3d(0, 4px, -16px);
         transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
     }
 
     .cta:hover {
         background-color: #6c35af;
-        transform: translate(0, 6px);
+        transform: translate(0, 4px);
     }
 
     .cta:hover::before {
         box-shadow: 0 0 0 1px #3a1c5c;
-        transform: translate3d(0, 4px, -16px);
+        transform: translate3d(0, 2px, -16px);
+    }
+
+    .tooltip {
+        width: max-content;
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-weight: bold;
+        font-size: 90%;
+    }
+
+    .tooltip > div {
+        background: #222;
+        color: white;
+        border-radius: 2px;
+        padding: 0.05rem 0.3rem;
+        margin-bottom: 0.6rem;
+        border: 1px solid white;
+        font-size: 0.85rem;
+        font-weight: normal;
     }
 </style>

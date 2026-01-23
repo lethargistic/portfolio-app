@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: db posting for inner projects">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: tooltips and ui tweaks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,15 +266,7 @@
       <workItem from="1768987528093" duration="140000" />
       <workItem from="1768987780942" duration="896000" />
       <workItem from="1768988699344" duration="31828000" />
-      <workItem from="1769156514193" duration="3974000" />
-    </task>
-    <task id="LOCAL-00076" summary="chore: social filling progress + feat: title text on folds + fix: folds were not auto converted + fix: auto fill was borken ... borken, sure it was borken">
-      <option name="closed" value="true" />
-      <created>1768657551773</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1768657551773</updated>
+      <workItem from="1769156514193" duration="12657000" />
     </task>
     <task id="LOCAL-00077" summary="fix: removed icon titles to not interfere with ux + fix: quantum entanglement of folds">
       <option name="closed" value="true" />
@@ -657,7 +652,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769158425006</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="chore: visit button">
+      <option name="closed" value="true" />
+      <created>1769160539155</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1769160539155</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -683,8 +686,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: more card tweaks x3" />
-    <MESSAGE value="chore: project cards in the db" />
     <MESSAGE value="feat: web sec editing + refactor: simplified part of convoluted logic because of dumb mistake, more to come tmrw" />
     <MESSAGE value="chore: arrow moves" />
     <MESSAGE value="refactor: the java has gotten into my brain, bastards" />
@@ -708,6 +709,8 @@
     <MESSAGE value="fix: fade scope" />
     <MESSAGE value="chore: inner card editing no db yet" />
     <MESSAGE value="chore: db posting for inner projects" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: db posting for inner projects" />
+    <MESSAGE value="chore: visit button" />
+    <MESSAGE value="chore: tooltips and ui tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: tooltips and ui tweaks" />
   </component>
 </project>

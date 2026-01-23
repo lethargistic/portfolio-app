@@ -46,12 +46,13 @@
         if (!card) return;
 
         act = true;
-        const pointerX = e.clientX;
-        const pointerY = e.clientY;
+        const rect = card.getBoundingClientRect();
+        const pointerX = e.clientX - rect.left;
+        const pointerY = e.clientY - rect.top;
 
         rotation.target = {
-            x: (pointerY - card.offsetTop - cardHeight / 2) / 16,
-            y: -(pointerX - card.offsetLeft - cardWidth / 2) / 24
+            x: (pointerY - cardHeight / 2) / 16,
+            y: -(pointerX - cardWidth / 2) / 24
         };
         shadowScale.target = 0.96;
         scale.target = scaleTarget;
@@ -299,7 +300,7 @@
                 /* the wrapper is just slightly bigger for some reason*/
                 height: calc(100% - 5px);
                 background: linear-gradient(to right, #111111, transparent);
-                transition: opacity 0.6s;
+                transition: opacity 0.1s;
                 pointer-events: none;
             }
 
@@ -310,7 +311,7 @@
                 left: 0;
                 width: 100%;
                 height: calc(100% - 5px);
-                background: linear-gradient(to right, rgba(0, 0, 0, 0.4), transparent);
+                background: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
                 transition: opacity 0.1s ease-out;
                 pointer-events: none;
                 opacity: 0;
@@ -318,7 +319,7 @@
         }
 
         & .modal-open:before {
-            opacity: 0;
+            opacity: 0.7;
         }
 
         & .modal-open:after {

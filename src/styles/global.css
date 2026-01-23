@@ -45,6 +45,11 @@ body, html {
     display: none;
 }
 
+.d-initial {
+    display: initial;
+}
+
+
 h1, h2, h3, h4, h5, h6 {
     font-weight: bolder;
     font-family: 'Karla', sans-serif;
@@ -58,11 +63,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* SCROLLBAR */
 ::-webkit-scrollbar {
-    width: 0.5vw;
+    width: 0.4vw;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #5c5c5c;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -70,7 +75,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #b8b8b8;
 }
 
 /*KEYBOARD FOCUS*/
@@ -107,5 +112,6 @@ h1, h2, h3, h4, h5, h6 {
 
 html.scroll-lock {
     overflow-y: clip;
-    background-color: #4f4f4f;
+    scrollbar-gutter: stable;
+    background: #333333;
 }
