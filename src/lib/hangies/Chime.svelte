@@ -493,7 +493,6 @@
         renderer.forceContextLoss()
     })
 
-    //
 </script>
 <svelte:window onresize={adjustPathDimensionTracking} bind:innerWidth={windowInnerWidth}
                bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove}/>

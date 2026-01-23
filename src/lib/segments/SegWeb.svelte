@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {currentLang, editbar, modal} from "$lib/shared.svelte";
+    import {currentLang, editbar, hackeryTextAnim, modal, hackeryAnimObserver} from "$lib/shared.svelte";
     import RotatieCard from "$lib/RotatieCard.svelte";
     import EditorTools from "$lib/editing/EditorTools.svelte";
     import {onMount} from "svelte";
@@ -55,6 +55,13 @@
             document.documentElement.classList.remove('scroll-lock');
         }
     })
+
+    let webTxtElem: HTMLElement | null = $state(null);
+
+    onMount(() => {
+        if (!webTxtElem || !hackeryAnimObserver) return;
+        hackeryAnimObserver.observe(webTxtElem);
+    })
 </script>
 
 {#key currentLang.lang}
@@ -63,7 +70,7 @@
         <EditorTools seg={'web'} light={true}/>
         <div class="web-txt-cont">
             <h2 class="web-txt web-head-txt">Web /></h2>
-            <p class="web-txt web-desc-txt">Selected web projects I've built</p>
+            <p bind:this={webTxtElem} class="web-txt web-desc-txt">Selected web projects I've built</p>
         </div>
         {#each webProj as proj (proj.name)}
             <RotatieCard {proj}/>

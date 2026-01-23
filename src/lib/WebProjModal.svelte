@@ -1,9 +1,17 @@
 <script lang="ts">
-    import {activeEditor, editing, handleItemEdit, modal, positionTooltip} from "$lib/shared.svelte";
+    import {
+        activeEditor,
+        editing,
+        hackeryAnimObserver, hackeryTextAnim,
+        handleItemEdit,
+        modal,
+        positionTooltip
+    } from "$lib/shared.svelte";
     import Icon from "$lib/Icon.svelte";
     import {blur} from "svelte/transition";
     import {expoIn, expoOut, cubicInOut} from "svelte/easing";
     import EditorTools from "$lib/editing/EditorTools.svelte";
+    import {onMount} from "svelte";
 
     const {selectedDetails: details, selectedProj: proj, webProjDetails: allDetails} = $props();
 
@@ -44,9 +52,23 @@
             handleItemEdit(e, details.name, 'wb-inn-modifying');
         }
     }
+
+    //
+
+    let hElem: HTMLElement | null = $state(null);
+    let descElem: HTMLElement | null = $state(null);
+
+    const isOpen = () => !!details && modal.open;
+    $effect(() => {
+        if (isOpen()) {
+            if (!descElem || !hElem ) return;
+            hackeryTextAnim(hElem, 0.5);
+            hackeryTextAnim(descElem, 6);
+        }
+    })
 </script>
 
-{#if !!details && modal.open}
+{#if isOpen()}
     <div transition:blur={{duration: modal.open ? 500 : 400, easing: modal.open ? expoIn : expoOut}}
          style={`justify-content: ${modal.left ? 'flex-start' : 'flex-end'};`}
          class="modal" onclick={handleModalCloseCheck} onkeydown={handleModalCloseCheck}
@@ -71,7 +93,7 @@
                     role="button"
                     tabindex="-1"
                     class={`info ${activeEditor.state === 'wb-inn-modifying' ? 'hover-focus-light' : ''}`}>
-                <h2>{details.display_name}</h2>
+                <h2 bind:this={hElem}>{details.display_name}</h2>
                 <div class="separator">
                     {#each [...Array(27).keys()] as i}
                         {#if i === 0}={/if}=/
@@ -103,7 +125,7 @@
                         {/each}
                     </ul>
                 </div>
-                <p class="desc">&nbsp;-> {details.long_desc}</p>
+                <p bind:this={descElem} class="desc">&nbsp;-> {details.long_desc}</p>
                 <a href={details.link} class="cta" target="_blank">
                     visit
                 </a>

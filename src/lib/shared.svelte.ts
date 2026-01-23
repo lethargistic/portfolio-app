@@ -1,5 +1,6 @@
 import {computePosition, flip, shift} from "@floating-ui/dom";
 import type {Attachment} from "svelte/attachments";
+import {browser} from "$app/environment";
 
 export let currentLang = $state({lang: "en"});
 
@@ -74,7 +75,7 @@ export const handleItemEdit = (e: Event, name: string, editor: string) => {
 }
 
 export let windowGlobals = $state({inner_width: 0, inner_height: 0});
-export let prevMousePos = $state<{ x: number, y: number }>( {x: 0, y: 0} );
+export let prevMousePos = $state<{ x: number, y: number }>({x: 0, y: 0});
 export const handlePositioning = (e: PointerEvent, item: Record<string, any>, name: string, editor: string) => {
     if (!activeEditor.state.startsWith(editor)) return;
     if (editbar.holding && name === editbar.focused) {
@@ -139,4 +140,53 @@ export const positionTooltip = (parent: boolean | HTMLElement | null) => {
             top: `${y}px`
         })
     }
+}
+
+export const hackeryTextAnim = (elem: HTMLElement, speed: number = 0.4) => {
+    const oldText = elem.textContent || '';
+    const chars = `/@{)=]!?+Δ  √˂˃ˆ⌀♯01;`;
+    const trailLength = 10;
+    let iteration = 0;
+    let blinkCounter = 0;
+    const blinkSpeed = 30;
+
+    const animate = () => {
+        const currentPos = Math.floor(iteration);
+        let result = oldText.slice(0, currentPos);
+
+        if (currentPos < oldText.length) {
+            for (let i = 0; i < trailLength && currentPos + i < oldText.length; i++) {
+                result += chars[Math.floor(Math.random() * chars.length)];
+            }
+
+            blinkCounter++;
+            if (Math.floor(blinkCounter / blinkSpeed) % 2 === 0) {
+                result += '|';
+            } else {
+                result += ' ';
+            }
+        }
+
+        elem.textContent = result;
+
+        if (iteration >= oldText.length) {
+            elem.textContent = oldText;
+        } else {
+            iteration += speed;
+            requestAnimationFrame(animate);
+        }
+    };
+
+    requestAnimationFrame(animate);
+};
+export let hackeryAnimObserver: IntersectionObserver | null = null;
+if (browser) {
+    hackeryAnimObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                hackeryTextAnim(entry.target as HTMLElement, 0.4);
+                hackeryAnimObserver?.unobserve(entry.target);
+            }
+        });
+    });
 }

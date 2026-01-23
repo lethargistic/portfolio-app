@@ -46,3 +46,4 @@
 - [ ] todo maybe: investigate dev browser having slower animations
 - [ ] todo: case study cursor
 - [ ] todo: hackery text animation ; mmm hackery that's like witchery
+- [ ] todo: loading states for imgs
