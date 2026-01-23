@@ -142,13 +142,14 @@ export const positionTooltip = (parent: boolean | HTMLElement | null) => {
     }
 }
 
-export const hackeryTextAnim = (elem: HTMLElement, speed: number = 0.4) => {
-    const oldText = elem.textContent || '';
+export const hackeryTextAnim = (elem: HTMLElement, speed: number = 0.4, text: string = '') => {
+    const oldText = text ? text : elem.textContent || '';
     const chars = `/@{)=]!?+Δ  √˂˃ˆ⌀♯01;`;
     const trailLength = 10;
     let iteration = 0;
     let blinkCounter = 0;
     const blinkSpeed = 30;
+    let rafId: number;
 
     const animate = () => {
         const currentPos = Math.floor(iteration);
@@ -173,11 +174,16 @@ export const hackeryTextAnim = (elem: HTMLElement, speed: number = 0.4) => {
             elem.textContent = oldText;
         } else {
             iteration += speed;
-            requestAnimationFrame(animate);
+            rafId = requestAnimationFrame(animate);
         }
     };
 
-    requestAnimationFrame(animate);
+    rafId = requestAnimationFrame(animate);
+
+    return () => {
+        cancelAnimationFrame(rafId);
+        elem.textContent = oldText;
+    };
 };
 export let hackeryAnimObserver: IntersectionObserver | null = null;
 if (browser) {

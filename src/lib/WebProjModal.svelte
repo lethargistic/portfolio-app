@@ -11,7 +11,7 @@
     import {blur} from "svelte/transition";
     import {expoIn, expoOut, cubicInOut} from "svelte/easing";
     import EditorTools from "$lib/editing/EditorTools.svelte";
-    import {onMount} from "svelte";
+    import {onMount, untrack} from "svelte";
 
     const {selectedDetails: details, selectedProj: proj, webProjDetails: allDetails} = $props();
 
@@ -58,17 +58,24 @@
     let hElem: HTMLElement | null = $state(null);
     let descElem: HTMLElement | null = $state(null);
 
-    const isOpen = () => !!details && modal.open;
+    let cleanupH: (() => void) | null = null;
+    let cleanupDesc: (() => void) | null = null;
+    let isOpen = $derived(!!details && modal.open);
     $effect(() => {
-        if (isOpen()) {
-            if (!descElem || !hElem ) return;
-            hackeryTextAnim(hElem, 0.5);
-            hackeryTextAnim(descElem, 6);
+        if (isOpen && modal.selected) {
+            untrack(() => {
+                if (cleanupH) cleanupH();
+                if (cleanupDesc) cleanupDesc();
+                if (!descElem || !hElem) return;
+
+                cleanupH = hackeryTextAnim(hElem, 0.5, details.display_name);
+                cleanupDesc = hackeryTextAnim(descElem, 6, details.long_desc);
+            })
         }
     })
 </script>
 
-{#if isOpen()}
+{#if isOpen}
     <div transition:blur={{duration: modal.open ? 500 : 400, easing: modal.open ? expoIn : expoOut}}
          style={`justify-content: ${modal.left ? 'flex-start' : 'flex-end'};`}
          class="modal" onclick={handleModalCloseCheck} onkeydown={handleModalCloseCheck}
@@ -112,7 +119,8 @@
                                 {#if lang.tooltip}
                                     <!-- jetbrains fix when -->
                                     <!--suppress ALL-->
-                                    <div {@attach positionTooltip(true)}  transition:blur={{duration: 100, easing: cubicInOut}}
+                                    <div {@attach positionTooltip(true)}
+                                         transition:blur={{duration: 100, easing: cubicInOut}}
                                          class="tooltip" role="tooltip"
                                          onpointerenter={() => lang.tooltip = true}
                                          onpointerleave={() => lang.tooltip = false}>
