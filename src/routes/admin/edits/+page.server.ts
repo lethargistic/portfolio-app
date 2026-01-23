@@ -119,6 +119,40 @@ export const actions = {
 
         return {success: true, message: "Posted! Now double check or else."}
     },
+    postProjectDetails: async ({locals: {safeGetSession}, request}) => {
+        const {session, user} = await safeGetSession();
+
+        if (!session || !user) {
+            console.warn(`Unauthorized data submission attempt!!!, ${Date.now()}`)
+            return fail(401, {success: false, message: "Who are you? The geese will get you, soon enough. Run."})
+        }
+
+        const data = await request.formData();
+        const details = Object.fromEntries(data.entries());
+        const langsJSON = JSON.parse(details.langs as string)
+
+        delete details.langs;
+
+        const supabase = getAdminClient();
+
+        removeReassigned(details);
+
+        const { data: pong, error: sberr } = await supabase
+            .from('web_projects_details')
+            .upsert(
+                { langs: langsJSON, ...details },
+                { onConflict: 'name' })
+            .select()
+            .limit(1)
+            .single()
+
+        if (!pong || sberr) {
+            if (PUBLIC_DEV) {console.error(sberr)}
+            return fail(400, { success: false, message: "Db fail" })
+        }
+
+        return {success: true, message: "Posted! Now double check or else."}
+    },
     deleteProject: async ({locals: {safeGetSession}, request}) => {
         const {session, user} = await safeGetSession();
 
@@ -142,5 +176,29 @@ export const actions = {
         }
 
         return {success: true, message: "Deleted!", toDelete: {name: project.name, type: 'proj'}}
+    },
+    deleteProjectDetails: async ({locals: {safeGetSession}, request}) => {
+        const {session, user} = await safeGetSession();
+
+        if (!session || !user) {
+            console.warn(`Unauthorized data submission attempt!!!, ${Date.now()}`)
+            return fail(401, {success: false, message: "Who are you? The geese will get you, soon enough. Run."})
+        }
+
+        const data = await request.formData();
+        const details = Object.fromEntries(data.entries());
+
+        const supabase = getAdminClient();
+        const { error: sberr } = await supabase
+            .from('web_projects_details')
+            .delete()
+            .eq('name', details.name)
+
+        if (sberr) {
+            if (PUBLIC_DEV) {console.error(sberr)}
+            return fail(400, { success: false, message: "Db fail" })
+        }
+
+        return {success: true, message: "Deleted!", toDelete: {name: details.name, type: 'proj'}}
     }
 } satisfies Actions

@@ -106,5 +106,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 html.scroll-lock {
-    overflow-y: hidden;
+    overflow-y: clip;
+    background-color: #4f4f4f;
 }

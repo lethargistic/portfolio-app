@@ -49,13 +49,14 @@
         formData.delete('*');
 
         const curData = activeEditor.state.startsWith('lnkt') ? socialInQuestion :
-            activeEditor.state.startsWith('web') ? projInQuestion : null;
+            activeEditor.state.startsWith('web') ? projInQuestion :
+                activeEditor.state.startsWith('wb-inn') ? projDetailsInQuestion : null;
         if (curData === null) {
             cancel();
             throw new Error('Current data is off');
         }
         for (const [key, value] of Object.entries(curData)) {
-            if (key === 'folds') {
+            if (key === 'folds' || key === 'langs') {
                 formData.append(key, JSON.stringify(value));
                 continue;
             }
@@ -212,7 +213,7 @@
                 {@render deletionBloc(action)}
             </form>
         {:else if isWbInnMod}
-            {@const action = "ProjectInner"}
+            {@const action = "ProjectDetails"}
             <form method="POST" use:enhance={handleSubmit}>
                 {#each Object.entries(projDetailsInQuestion) as [key, value] (key)}
                     <label>
