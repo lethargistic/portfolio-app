@@ -270,6 +270,11 @@
                 font-size: 2rem;
 
                 padding-bottom: 0.5rem;
+
+                max-height: 4.5rem;
+                line-height: 2.5rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             & .blurb {
