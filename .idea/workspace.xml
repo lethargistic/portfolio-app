@@ -4,7 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: made langs more editable">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: fallback icon">
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/convertSVGToJson.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/icons.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/migrateIcon.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/angular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/anki.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/arduino.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/aseprite.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/blender.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/c.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/cplusplus.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/css.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/electron.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/framer.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/git.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/googlesheets.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/html5.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/javascript.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/jetbrains.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/kotlin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/less.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/mediapipe.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/nextdotjs.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/nuxt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/pnpm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/postcss.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/puppeteer.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/python.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/react.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/recoil.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/rollupdotjs.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/rust.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/sass.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/solid.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/tauri.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/threedotjs.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/unity.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/vercel.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/vite.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/vitest.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/vuedotjs.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/icons/tera.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Icon.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Icon.svelte" afterDir="false" />
     </list>
@@ -74,52 +115,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;JavaScript Debug.localhost:5173.executor&quot;: &quot;Debug&quot;,
-    &quot;JavaScript Debug.localhost:5174.executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Shell Script.Host.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.やばそうなの.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Docs/webstormproj/sustenant/static/img/icons&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "JavaScript Debug.localhost:5173.executor": "Debug",
+    "JavaScript Debug.localhost:5174.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Shell Script.Host.executor": "Run",
+    "Shell Script.やばそうなの.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/src/lib/svgs",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;JSON&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JSON"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\src\lib\svgs" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\icons" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\hangies\separators\separators" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\separators" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img\linktree-decor" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\src\lib\icons" />
+      <recent name="D:\Docs\webstormproj\sustenant\src\lib\icons\svgs" />
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\web-projects\[project]" />
       <recent name="D:\Docs\webstormproj\sustenant\src\routes" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\icons" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\lib\hangies\separators" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\routes\admin\workaround" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.localhost:5174">
@@ -264,15 +305,7 @@
       <workItem from="1768988699344" duration="31828000" />
       <workItem from="1769156514193" duration="35811000" />
       <workItem from="1769197705222" duration="1682000" />
-      <workItem from="1769244730030" duration="8566000" />
-    </task>
-    <task id="LOCAL-00088" summary="fix: destroying webgl contexts on component destroy to prevent warning of using too many">
-      <option name="closed" value="true" />
-      <created>1768753095185</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1768753095185</updated>
+      <workItem from="1769244730030" duration="13844000" />
     </task>
     <task id="LOCAL-00089" summary="fix: chime rotation and movement tweaks">
       <option name="closed" value="true" />
@@ -658,7 +691,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769251824127</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="fix: fallback icon">
+      <option name="closed" value="true" />
+      <created>1769254006647</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1769254006647</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -684,7 +725,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: your shadow sucks sleepy maksiks, this one does too tho x2" />
     <MESSAGE value="chore: web project pages" />
     <MESSAGE value="fix: actually nvm, we doing a modal" />
     <MESSAGE value="chore: modal start" />
@@ -709,6 +749,7 @@
     <MESSAGE value="fix: capped card header height to prevent flickering on animation" />
     <MESSAGE value="fix: text updates were not live anymore due to anim" />
     <MESSAGE value="fix: made langs more editable" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: made langs more editable" />
+    <MESSAGE value="fix: fallback icon" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: fallback icon" />
   </component>
 </project>
