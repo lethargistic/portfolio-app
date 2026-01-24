@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: text updates were not live anymore due to anim">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: made langs more editable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Icon.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Icon.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,15 +264,7 @@
       <workItem from="1768988699344" duration="31828000" />
       <workItem from="1769156514193" duration="35811000" />
       <workItem from="1769197705222" duration="1682000" />
-      <workItem from="1769244730030" duration="6753000" />
-    </task>
-    <task id="LOCAL-00087" summary="fix: rock">
-      <option name="closed" value="true" />
-      <created>1768753001729</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1768753001730</updated>
+      <workItem from="1769244730030" duration="8566000" />
     </task>
     <task id="LOCAL-00088" summary="fix: destroying webgl contexts on component destroy to prevent warning of using too many">
       <option name="closed" value="true" />
@@ -659,7 +650,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769249618484</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="fix: made langs more editable">
+      <option name="closed" value="true" />
+      <created>1769251824127</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1769251824127</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -685,7 +684,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: your shadow sucks sleepy maksiks, this one does too tho" />
     <MESSAGE value="fix: your shadow sucks sleepy maksiks, this one does too tho x2" />
     <MESSAGE value="chore: web project pages" />
     <MESSAGE value="fix: actually nvm, we doing a modal" />
@@ -710,6 +708,7 @@
     <MESSAGE value="chore: added anim to other text bits" />
     <MESSAGE value="fix: capped card header height to prevent flickering on animation" />
     <MESSAGE value="fix: text updates were not live anymore due to anim" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: text updates were not live anymore due to anim" />
+    <MESSAGE value="fix: made langs more editable" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: made langs more editable" />
   </component>
 </project>
