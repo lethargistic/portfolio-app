@@ -62,13 +62,20 @@
     let cleanupDesc: (() => void) | null = null;
     let isOpen = $derived(!!details && modal.open);
     $effect(() => {
+        if (details) {
+            if (details.display_name && details.long_desc) {
+                // reactivity
+                // should have given it the state to edit instead of editing the elem's text content
+                // but it started as an attachment and went on from there and not a big deal so whatever
+            }
+        }
         if (isOpen && modal.selected) {
             untrack(() => {
                 if (cleanupH) cleanupH();
                 if (cleanupDesc) cleanupDesc();
                 if (!descElem || !hElem) return;
 
-                cleanupH = hackeryTextAnim(hElem, 0.5, details.display_name);
+                cleanupH = hackeryTextAnim(hElem, 0.4, details.display_name);
                 cleanupDesc = hackeryTextAnim(descElem, 6, details.long_desc);
             })
         }

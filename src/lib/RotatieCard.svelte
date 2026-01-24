@@ -7,10 +7,11 @@
         handleItemEdit,
         handleItemHolding,
         handleItemLeaving,
-        handlePositioning, modal, pxToVw, vwToPx, windowGlobals
+        handlePositioning, isHackeryAnimating, modal, pxToVw, vwToPx, windowGlobals
     } from "$lib/shared.svelte";
     import {onMount, untrack} from "svelte";
     import {expoOut} from "svelte/easing";
+    import {browser} from "$app/environment";
 
     let {proj} = $props();
     let rotatie: HTMLElement | null = $state(null);
@@ -159,7 +160,10 @@
     $effect(() => {
         if (modal.open && selected) {
             untrack(() => {
-                offset.target = {x: (pxToVw(windowGlobals.inner_width * (modal.left ? 0.75 : 0.25) - vwToPx(proj.width_vw / 2))) - proj.left_vw, y: 0}
+                offset.target = {
+                    x: (pxToVw(windowGlobals.inner_width * (modal.left ? 0.75 : 0.25) - vwToPx(proj.width_vw / 2))) - proj.left_vw,
+                    y: 0
+                }
                 resizeAndAnimateShadow(true)
             })
         } else {
@@ -173,14 +177,34 @@
     let hElem: HTMLElement | null = $state(null);
     let blurbElem: HTMLElement | null = $state(null);
     let numElem: HTMLElement | null = $state(null);
+
+    const speeds = {
+        h_elem: '0.2',
+        blurb_elem: '0.2',
+        num_elem: '0.025'
+    }
+
     onMount(() => {
         if (!hElem || !blurbElem || !numElem || !hackeryAnimObserver) return;
-        hElem.dataset.speed = '0.1';
-        blurbElem.dataset.speed = '0.2';
-        numElem.dataset.speed = '0.025';
+        hElem.dataset.speed = speeds.h_elem;
+        blurbElem.dataset.speed = speeds.blurb_elem;
+        numElem.dataset.speed = speeds.num_elem;
         hackeryAnimObserver.observe(hElem);
         hackeryAnimObserver.observe(blurbElem);
         hackeryAnimObserver.observe(numElem);
+    })
+
+    $effect(() => {
+        if (proj) {
+            if (proj.display_name && proj.blurb && proj.num_elem !== null) {
+                untrack(() => {
+                    if (!hElem || !blurbElem || !numElem) return;
+                    if (!isHackeryAnimating(hElem)) {hackeryTextAnim(hElem, parseFloat(speeds.h_elem), proj.display_name)}
+                    if (!isHackeryAnimating(blurbElem)) hackeryTextAnim(blurbElem, parseFloat(speeds.blurb_elem), proj.blurb);
+                    if (!isHackeryAnimating(numElem)) hackeryTextAnim(numElem, parseFloat(speeds.num_elem), proj.read_num.toString().padStart(2, '0'));
+                })
+            }
+        }
     })
 </script>
 

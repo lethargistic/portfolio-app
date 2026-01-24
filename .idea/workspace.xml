@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: added anim to other text bits">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: capped card header height to prevent flickering on animation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.inlang/cache/plugins/ygx0uiahq6uw" beforeDir="false" afterPath="$PROJECT_DIR$/project.inlang/cache/plugins/ygx0uiahq6uw" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,15 +267,7 @@
       <workItem from="1768988699344" duration="31828000" />
       <workItem from="1769156514193" duration="35811000" />
       <workItem from="1769197705222" duration="1682000" />
-      <workItem from="1769244730030" duration="930000" />
-    </task>
-    <task id="LOCAL-00085" summary="fix: hackatime stats don't count the last week for whatever reason">
-      <option name="closed" value="true" />
-      <created>1768740199770</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1768740199770</updated>
+      <workItem from="1769244730030" duration="4606000" />
     </task>
     <task id="LOCAL-00086" summary="feat: other social api stats">
       <option name="closed" value="true" />
@@ -659,7 +653,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769197622181</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="fix: capped card header height to prevent flickering on animation">
+      <option name="closed" value="true" />
+      <created>1769245694204</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1769245694205</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -685,7 +687,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: made shadow follow animation properly god this took so long to match up and I didn't actually end up with the effect I wanted" />
     <MESSAGE value="fix: items were clicked twice" />
     <MESSAGE value="fix: your shadow sucks sleepy maksiks, this one does too tho" />
     <MESSAGE value="fix: your shadow sucks sleepy maksiks, this one does too tho x2" />
@@ -710,6 +711,7 @@
     <MESSAGE value="feat: sick text anim" />
     <MESSAGE value="fix: text anim was eating text" />
     <MESSAGE value="chore: added anim to other text bits" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: added anim to other text bits" />
+    <MESSAGE value="fix: capped card header height to prevent flickering on animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: capped card header height to prevent flickering on animation" />
   </component>
 </project>

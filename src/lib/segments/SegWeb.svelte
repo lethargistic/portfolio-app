@@ -60,6 +60,7 @@
 
     onMount(() => {
         if (!webTxtElem || !hackeryAnimObserver) return;
+        webTxtElem.dataset.speed = "0.3"
         hackeryAnimObserver.observe(webTxtElem);
     })
 </script>

@@ -142,8 +142,15 @@ export const positionTooltip = (parent: boolean | HTMLElement | null) => {
     }
 }
 
+const hackeryAnimatingElems = $state(new Set());
+export const isHackeryAnimating = (elem: HTMLElement) => {
+    console.log(hackeryAnimatingElems)
+    return hackeryAnimatingElems.has(elem)
+};
+
 export const hackeryTextAnim = (elem: HTMLElement, speed: number = 0.4, text: string = '') => {
     const oldText = text ? text : elem.textContent || '';
+    hackeryAnimatingElems.add(elem)
     const chars = `/@{)=]!?+Δ  √˂˃ˆ⌀♯01;`;
     const trailLength = 10;
     let iteration = 0;
@@ -172,6 +179,7 @@ export const hackeryTextAnim = (elem: HTMLElement, speed: number = 0.4, text: st
 
         if (iteration >= oldText.length) {
             elem.textContent = oldText;
+            hackeryAnimatingElems.delete(elem);
         } else {
             iteration += speed;
             rafId = requestAnimationFrame(animate);
@@ -183,8 +191,10 @@ export const hackeryTextAnim = (elem: HTMLElement, speed: number = 0.4, text: st
     return () => {
         cancelAnimationFrame(rafId);
         elem.textContent = oldText;
+        hackeryAnimatingElems.delete(elem);
     };
 };
+
 export let hackeryAnimObserver: IntersectionObserver | null = null;
 if (browser) {
     hackeryAnimObserver = new IntersectionObserver((entries) => {
@@ -192,8 +202,10 @@ if (browser) {
             const target = entry.target as HTMLElement;
             const speed = parseFloat(target.dataset.speed ?? '0.4') || 0.4;
             if (entry.isIntersecting) {
-                hackeryTextAnim(entry.target as HTMLElement, speed);
-                hackeryAnimObserver?.unobserve(entry.target);
+                if (!isHackeryAnimating(target)) {
+                    hackeryTextAnim(entry.target as HTMLElement, speed);
+                    hackeryAnimObserver?.unobserve(target);
+                }
             }
         });
     });
