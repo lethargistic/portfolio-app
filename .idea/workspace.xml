@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: capped card header height to prevent flickering on animation">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: text updates were not live anymore due to anim">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,15 +265,7 @@
       <workItem from="1768988699344" duration="31828000" />
       <workItem from="1769156514193" duration="35811000" />
       <workItem from="1769197705222" duration="1682000" />
-      <workItem from="1769244730030" duration="4606000" />
-    </task>
-    <task id="LOCAL-00086" summary="feat: other social api stats">
-      <option name="closed" value="true" />
-      <created>1768747884597</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1768747884597</updated>
+      <workItem from="1769244730030" duration="6753000" />
     </task>
     <task id="LOCAL-00087" summary="fix: rock">
       <option name="closed" value="true" />
@@ -661,7 +651,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769245694205</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="fix: text updates were not live anymore due to anim">
+      <option name="closed" value="true" />
+      <created>1769249618484</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1769249618484</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -687,7 +685,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: items were clicked twice" />
     <MESSAGE value="fix: your shadow sucks sleepy maksiks, this one does too tho" />
     <MESSAGE value="fix: your shadow sucks sleepy maksiks, this one does too tho x2" />
     <MESSAGE value="chore: web project pages" />
@@ -712,6 +709,7 @@
     <MESSAGE value="fix: text anim was eating text" />
     <MESSAGE value="chore: added anim to other text bits" />
     <MESSAGE value="fix: capped card header height to prevent flickering on animation" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: capped card header height to prevent flickering on animation" />
+    <MESSAGE value="fix: text updates were not live anymore due to anim" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: text updates were not live anymore due to anim" />
   </component>
 </project>

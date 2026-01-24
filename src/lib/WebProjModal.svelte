@@ -65,6 +65,7 @@
         if (details) {
             if (details.display_name && details.long_desc) {
                 // reactivity
+                // TODO maybe: remake anim properly
                 // should have given it the state to edit instead of editing the elem's text content
                 // but it started as an attachment and went on from there and not a big deal so whatever
             }
@@ -239,6 +240,7 @@
                     width: 85%;
                     word-break: break-word;
                     line-height: 2rem;
+                    white-space: pre-line;
                 }
             }
         }

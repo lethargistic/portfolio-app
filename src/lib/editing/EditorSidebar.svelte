@@ -119,14 +119,15 @@
     }
     const assignInnerProjectBindingsWithExceptions = (v: any, key: string) => {
         if (key === 'langs') {
-            let parsed = {};
+            let parsed = null;
             try {
                 parsed = JSON.parse(v);
             } catch (err) {
-                return null;
+                projDetailsInQuestion[key] = v;
+                return;
             }
             projDetailsInQuestion[key] = parsed;
-            return;
+            return null;
         }
         if (key === 'name') {
             if (v === '') {
@@ -218,12 +219,12 @@
                 {#each Object.entries(projDetailsInQuestion) as [key, value] (key)}
                     <label>
                         {key}
-                        {#if key === 'long_desc'}
-                                <textarea bind:value={() => projDetailsInQuestion[key],
+                        {#if key === 'long_desc' || key === 'langs'}
+                                <textarea bind:value={() => key === 'langs' ? typeof projDetailsInQuestion[key] === 'object' ? JSON.stringify(projDetailsInQuestion[key], null ,2) : projDetailsInQuestion[key] : projDetailsInQuestion[key],
                                          (v) => assignInnerProjectBindingsWithExceptions(v, key)}
                                           placeholder={value}></textarea>
                         {:else}
-                            <input bind:value={() => key === 'langs' ? JSON.stringify(projDetailsInQuestion[key]) : projDetailsInQuestion[key], (v) => assignInnerProjectBindingsWithExceptions(v, key)}
+                            <input bind:value={() => projDetailsInQuestion[key], (v) => assignInnerProjectBindingsWithExceptions(v, key)}
                                    placeholder={value}>
                         {/if}
                     </label>
