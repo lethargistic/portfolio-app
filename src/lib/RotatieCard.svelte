@@ -199,7 +199,9 @@
             if (proj.display_name && proj.blurb && proj.num_elem !== null) {
                 untrack(() => {
                     if (!hElem || !blurbElem || !numElem) return;
-                    if (!isHackeryAnimating(hElem)) {hackeryTextAnim(hElem, parseFloat(speeds.h_elem), proj.display_name)}
+                    if (!isHackeryAnimating(hElem)) {
+                        hackeryTextAnim(hElem, parseFloat(speeds.h_elem), proj.display_name)
+                    }
                     if (!isHackeryAnimating(blurbElem)) hackeryTextAnim(blurbElem, parseFloat(speeds.blurb_elem), proj.blurb);
                     if (!isHackeryAnimating(numElem)) hackeryTextAnim(numElem, parseFloat(speeds.num_elem), proj.read_num.toString().padStart(2, '0'));
                 })
@@ -227,15 +229,19 @@
     {#if act && !modal.open}
         <p transition:blur style={`right: ${arrowRight.current}rem`} class="arrow">-&gt;</p>
     {/if}
-    <div class="card-info">
-        <h3 bind:this={hElem}>{proj.display_name}</h3>
-        <p bind:this={blurbElem} class="blurb">{proj.blurb}</p>
-        <div class="separator"></div>
-        <p bind:this={numElem} class="num">{proj.read_num.toString().padStart(2, '0')}</p>
-    </div>
+    {#if !modal.open}
+        <div class="card-info">
+            <h3 bind:this={hElem}>{proj.display_name}</h3>
+            <p bind:this={blurbElem} class="blurb">{proj.blurb}</p>
+            <div class="separator"></div>
+            <p bind:this={numElem} class="num">{proj.read_num.toString().padStart(2, '0')}</p>
+        </div>
+    {/if}
+
     <div class={`img-wrap ${modal.open && selected ? 'modal-open' : ''}`}>
         <img bind:this={img} bind:clientWidth={imgDims.width} bind:clientHeight={imgDims.height}
-             class={`${editbar.holding ? 'prevent-select' : ''}`} src={proj.img} alt={proj.name}/>
+             class={`${editbar.holding ? 'prevent-select' : ''}`}
+             src={proj.img.startsWith('https') ? proj.img : `/img/web-thumbnails/small/${proj.img}`} alt={proj.name}/>
     </div>
 </div>
 <div bind:this={shadowClone}
@@ -299,6 +305,8 @@
                 line-height: 2.5rem;
                 overflow: hidden;
                 text-overflow: ellipsis;
+
+                white-space: pre-line;
             }
 
             & .blurb {
@@ -350,7 +358,7 @@
                 /* no idea what are these 5px even from */
                 /* the wrapper is just slightly bigger for some reason*/
                 height: calc(100% - 5px);
-                background: linear-gradient(to right, #111111, transparent);
+                background: linear-gradient(to top right, #111111, transparent);
                 border: 0 solid white;
                 transition: opacity 1s, border 0.1s ease-in-out, scale 0.1s ease-in-out;
                 pointer-events: none;
@@ -360,11 +368,11 @@
             &:after {
                 content: '';
                 position: absolute;
-                top: 0;
-                left: 0;
+                top: -1px;
+                left: -1px;
                 width: 100%;
                 height: calc(100% - 5px);
-                background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+                background: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
                 transition: opacity 0.2s ease-out, border 0.1s ease-in-out, scale 0.1s ease-in-out;
                 border: 0 solid white;
                 pointer-events: none;
@@ -373,7 +381,7 @@
         }
 
         & .modal-open:before {
-            opacity: 0.9;
+            opacity: 0.0;
         }
 
         & .modal-open:after {

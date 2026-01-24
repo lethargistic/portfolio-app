@@ -62,6 +62,7 @@
 
                 // defaulting
                 if (typeof value === "string") {
+
                     value = 'non';
                 }
                 if (typeof value === "number") {

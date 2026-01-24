@@ -205,8 +205,14 @@
                 {#each Object.entries(projInQuestion) as [key, value] (key)}
                     <label>
                         {key}
-                        <input bind:value={() => projInQuestion[key], (v) => assignProjectBindingsWithExceptions(v, key)}
-                               placeholder={value}>
+                        {#if key === 'display_name'}
+                                <textarea
+                                        bind:value={() => projInQuestion[key], (v) => assignProjectBindingsWithExceptions(v, key)}
+                                        placeholder={value}></textarea>
+                        {:else}
+                            <input bind:value={() => projInQuestion[key], (v) => assignProjectBindingsWithExceptions(v, key)}
+                                   placeholder={value}>
+                        {/if}
                     </label>
                 {/each}
 

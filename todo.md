@@ -48,3 +48,5 @@
 - [ ] todo: hackery text animation ; mmm hackery that's like witchery
 - [ ] todo: loading states for imgs
 - [ ] todo maybe: more anims for web seg, the button for example
+- [ ] todo maybe: web seg sites unfold into photo reel rather than just one pic
+- [ ] todo: language rack somewhere

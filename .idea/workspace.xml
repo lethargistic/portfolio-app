@@ -4,10 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="refactor: more sophisticated icon system but i remembered to actually use it ahem (and it works first try)">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: screenshot maker + chore: lots of tweaks to web section">
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/espressif.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/inlang.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/playwright.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/screenshots/grabWebsiteScreenshots.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/screenshots/screenshots/ceto.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/screenshots/screenshots/chaos-abyss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/screenshots/screenshots/lit-wrld-q.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/screenshots/screenshots/oh-thats-useful.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/screenshots/screenshots/swish.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/screenshots/screenshots/this.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/screenshots/screenshots/wrem.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/web-thumbnails/ceto.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/web-thumbnails/chaos-abyss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/web-thumbnails/hatsunemikuapparentlybg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/web-thumbnails/lit-wrld-q.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/web-thumbnails/oh-thats-useful.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/web-thumbnails/small/ceto.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/web-thumbnails/small/chaos-abyss.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/web-thumbnails/small/hatsunemikuapparentlybg.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/web-thumbnails/small/lit-wrld-q.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/web-thumbnails/small/oh-thats-useful.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/web-thumbnails/small/swish.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/web-thumbnails/small/this.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/web-thumbnails/swish.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/web-thumbnails/this.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/icons/icons.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/icons/icons.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,14 +122,14 @@
     "Shell Script.やばそうなの.executor": "Run",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/src/lib/svgs",
+    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/static/img/web-thumbnails",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "editor.preferences.tabs",
     "ts.external.directory.path": "D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   },
@@ -109,18 +141,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\static\img\web-thumbnails" />
+      <recent name="D:\Docs\webstormproj\sustenant\src\lib\icons\svgs" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\svgs" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\icons" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\hangies\separators\separators" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img\hangies\separators" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\src\lib\screenshots" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\icons" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\icons\svgs" />
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\web-projects\[project]" />
       <recent name="D:\Docs\webstormproj\sustenant\src\routes" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img\icons" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.localhost:5174">
@@ -265,15 +297,9 @@
       <workItem from="1768988699344" duration="31828000" />
       <workItem from="1769156514193" duration="35811000" />
       <workItem from="1769197705222" duration="1682000" />
-      <workItem from="1769244730030" duration="16054000" />
-    </task>
-    <task id="LOCAL-00091" summary="fix: rotated decor waterfall that made no sense">
-      <option name="closed" value="true" />
-      <created>1768759377598</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1768759377598</updated>
+      <workItem from="1769244730030" duration="26044000" />
+      <workItem from="1769274844096" duration="55000" />
+      <workItem from="1769279205050" duration="6594000" />
     </task>
     <task id="LOCAL-00092" summary="fix: rotated decor waterfall that made no sense but better">
       <option name="closed" value="true" />
@@ -659,7 +685,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769259980184</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="feat: github link">
+      <option name="closed" value="true" />
+      <created>1769262258109</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1769262258109</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -685,7 +719,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: modal start" />
     <MESSAGE value="chore: modal start x2" />
     <MESSAGE value="fix: css color var was declared wrong" />
     <MESSAGE value="chore: modal progress, also, it moves" />
@@ -710,6 +743,7 @@
     <MESSAGE value="fix: fallback icon" />
     <MESSAGE value="refactor: more sophisticated icon system" />
     <MESSAGE value="refactor: more sophisticated icon system but i remembered to actually use it ahem (and it works first try)" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: more sophisticated icon system but i remembered to actually use it ahem (and it works first try)" />
+    <MESSAGE value="feat: github link" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: github link" />
   </component>
 </project>

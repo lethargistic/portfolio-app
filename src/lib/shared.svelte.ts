@@ -144,7 +144,6 @@ export const positionTooltip = (parent: boolean | HTMLElement | null) => {
 
 const hackeryAnimatingElems = $state(new Set());
 export const isHackeryAnimating = (elem: HTMLElement) => {
-    console.log(hackeryAnimatingElems)
     return hackeryAnimatingElems.has(elem)
 };
 

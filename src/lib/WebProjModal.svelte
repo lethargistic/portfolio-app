@@ -325,7 +325,7 @@
         & .cta-github {
             all: unset;
             background-color: #19141e;
-            border: 2px solid #2a1449;
+            border: 2px solid #4d2387;
         }
 
         & .cta-link {
