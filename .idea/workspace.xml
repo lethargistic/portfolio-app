@@ -4,50 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: fallback icon">
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/convertSVGToJson.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/icons.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/migrateIcon.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/angular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/anki.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/arduino.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/aseprite.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/blender.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/c.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/cplusplus.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/css.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/electron.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/framer.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/git.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/googlesheets.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/html5.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/javascript.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/jetbrains.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/kotlin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/less.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/mediapipe.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/nextdotjs.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/nuxt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/pnpm.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/postcss.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/puppeteer.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/python.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/react.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/recoil.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/rollupdotjs.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/rust.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/sass.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/solid.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/tauri.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/threedotjs.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/unity.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/vercel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/vite.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/vitest.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/vuedotjs.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icons/tera.svg" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="refactor: more sophisticated icon system but i remembered to actually use it ahem (and it works first try)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Icon.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Icon.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/icons/icons.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/icons/icons.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,23 +265,7 @@
       <workItem from="1768988699344" duration="31828000" />
       <workItem from="1769156514193" duration="35811000" />
       <workItem from="1769197705222" duration="1682000" />
-      <workItem from="1769244730030" duration="13844000" />
-    </task>
-    <task id="LOCAL-00089" summary="fix: chime rotation and movement tweaks">
-      <option name="closed" value="true" />
-      <created>1768756194269</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1768756194269</updated>
-    </task>
-    <task id="LOCAL-00090" summary="feat: #linktree now puts you at the settings with extended on + fix: icon colors were not actually #111111 for brand icons">
-      <option name="closed" value="true" />
-      <created>1768758060848</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1768758060848</updated>
+      <workItem from="1769244730030" duration="16054000" />
     </task>
     <task id="LOCAL-00091" summary="fix: rotated decor waterfall that made no sense">
       <option name="closed" value="true" />
@@ -699,7 +643,23 @@
       <option name="project" value="LOCAL" />
       <updated>1769254006647</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="refactor: more sophisticated icon system">
+      <option name="closed" value="true" />
+      <created>1769259938760</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1769259938760</updated>
+    </task>
+    <task id="LOCAL-00139" summary="refactor: more sophisticated icon system but i remembered to actually use it ahem (and it works first try)">
+      <option name="closed" value="true" />
+      <created>1769259980183</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1769259980184</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -725,8 +685,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: web project pages" />
-    <MESSAGE value="fix: actually nvm, we doing a modal" />
     <MESSAGE value="chore: modal start" />
     <MESSAGE value="chore: modal start x2" />
     <MESSAGE value="fix: css color var was declared wrong" />
@@ -750,6 +708,8 @@
     <MESSAGE value="fix: text updates were not live anymore due to anim" />
     <MESSAGE value="fix: made langs more editable" />
     <MESSAGE value="fix: fallback icon" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: fallback icon" />
+    <MESSAGE value="refactor: more sophisticated icon system" />
+    <MESSAGE value="refactor: more sophisticated icon system but i remembered to actually use it ahem (and it works first try)" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: more sophisticated icon system but i remembered to actually use it ahem (and it works first try)" />
   </component>
 </project>

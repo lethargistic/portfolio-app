@@ -142,9 +142,18 @@
                     </ul>
                 </div>
                 <p bind:this={descElem} class="desc">&nbsp;-> {details.long_desc}</p>
-                <a href={details.link} class="cta" target="_blank">
-                    visit
-                </a>
+                <div class="button-wrap">
+                    {#if details.link}
+                        <a href={details.link} class="cta cta-link" target="_blank">
+                            take&nbsp;a&nbsp;look
+                        </a>
+                    {/if}
+                    {#if details.link_github}
+                        <a href={details.link_github} class="cta cta-github" target="_blank">
+                            github
+                        </a>
+                    {/if}
+                </div>
             </div>
         </div>
     </div>
@@ -282,52 +291,102 @@
         }
     }
 
-    .cta {
-        all: unset;
+    .button-wrap {
+        display: flex;
 
-        position: relative;
-        cursor: pointer;
-        width: min-content;
-        display: grid;
-        place-items: center;
-        border: 2px solid #3b225a;
-        padding: 0.2rem 0.9rem 0.4rem 0.9rem;
-        margin: 0.4rem 0.9rem 0.1rem 0.1rem;
-        border-radius: 2px;
-        background-color: #6728b3;
+        & .cta-github:before {
+            --shadowed-btn-color: #1b1820;
+            background: var(--shadowed-btn-color);
+            box-shadow: 0 0 0 1px var(--shadowed-btn-color);
+        }
 
-        /*transform: translate3d(0, 12px, -16px);*/
-        transform-style: preserve-3d;
-        transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+        & .cta-link:before {
+            --shadowed-btn-color: #3e2471;
+            background: var(--shadowed-btn-color);
+            box-shadow: 0 0 0 1px var(--shadowed-btn-color);
+        }
+
+        & .cta-github:hover {
+            background-color: #100e13;
+        }
+
+        & .cta-github:hover::before {
+            box-shadow: 0 0 0 1px #0a060e;
+        }
+
+        & .cta-link:hover {
+            background-color: #6c35af;
+        }
+
+        & .cta-link:hover::before {
+            box-shadow: 0 0 0 1px #3a1c5c;
+        }
+
+        & .cta-github {
+            all: unset;
+            background-color: #19141e;
+            border: 2px solid #2a1449;
+        }
+
+        & .cta-link {
+            all: unset;
+            background-color: #6728b3;
+            border: 2px solid #3b225a;
+        }
+
+        & .cta {
+            position: relative;
+            cursor: pointer;
+            width: min-content;
+            display: grid;
+            place-items: center;
+            padding: 0.2rem 0.9rem 0.4rem 0.9rem;
+            margin: 0.4rem 0.9rem 0.1rem 0.1rem;
+            border-radius: 2px;
+
+            /*transform: translate3d(0, 12px, -16px);*/
+            transform-style: preserve-3d;
+            transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+        }
+
+        & .cta:before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            border-radius: inherit;
+            transform: translate3d(0, 4px, -16px);
+            transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+        }
+
+        & .cta:hover {
+            transform: translate(0, 4px);
+        }
+
+        & .cta:hover::before {
+            transform: translate3d(0, 2px, -16px);
+        }
+
+        & .cta:after {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            background-color: transparent;
+            transform: translate(0, -4px);
+        }
     }
 
-    .cta:before {
-        position: absolute;
-        content: '';
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-
-        --shadowed-btn-color: #3e2471;
-        background: var(--shadowed-btn-color);
-        border-radius: inherit;
-        box-shadow: 0 0 0 1px var(--shadowed-btn-color);
-        transform: translate3d(0, 4px, -16px);
-        transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
-    }
-
-    .cta:hover {
-        background-color: #6c35af;
-        transform: translate(0, 4px);
-    }
-
-    .cta:hover::before {
-        box-shadow: 0 0 0 1px #3a1c5c;
-        transform: translate3d(0, 2px, -16px);
-    }
 
     .tooltip {
         width: max-content;
