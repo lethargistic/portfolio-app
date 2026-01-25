@@ -2,18 +2,17 @@
     import {Spring, Tween} from "svelte/motion";
     import {blur} from "svelte/transition";
     import {
-        activeEditor,
+        activeEditor, deviceMin,
         editbar, editing, hackeryAnimObserver, hackeryTextAnim,
         handleItemEdit,
         handleItemHolding,
         handleItemLeaving,
-        handlePositioning, isHackeryAnimating, modal, pxToVw, vwToPx, windowGlobals
+        handlePositioning, isHackeryAnimating, modal, pxToVh, pxToVw, vhToPx, vwToPx, windowGlobals
     } from "$lib/shared.svelte";
     import {onMount, untrack} from "svelte";
     import {expoOut} from "svelte/easing";
-    import {browser} from "$app/environment";
 
-    let {proj} = $props();
+    let {proj, ix} = $props();
     let rotatie: HTMLElement | null = $state(null);
 
     // when thinking what to do for this section i remembered
@@ -26,6 +25,9 @@
     // i'm stealing which doesn't feel right
     // albeit it's probably just natural UX choices and me overthinking it
     // but consider this my inspiration for the section: https://yasio.dev/
+    //
+    // edit: it's so different now that i didn't even have to but i'm leaving this in anyway
+    // because Yasio is a chad
 
     let act = $state(false)
     let card: HTMLElement | null = $state(null);
@@ -123,16 +125,24 @@
         height: 0
     });
 
+    let offset = new Tween({x: 0, y: 0}, {
+        duration: 800,
+        easing: expoOut
+    });
+    let top = $derived(deviceMin.mobile ? offset.current.y : proj.top_vh);
+
     let once = $state(false);
     let shadowClone: HTMLDivElement | null = $state(null);
     const resizeAndAnimateShadow = (resize: boolean) => {
-        if (!shadowClone || !img || !imgDims.width || !imgDims.height) return;
+        if (!shadowClone || !img || !card || !imgDims.width || !imgDims.height) return;
 
         if (!once || resize) {
+            const cardRect = card.getBoundingClientRect();
+
             shadowClone.style.width = imgDims.width + 'px';
             shadowClone.style.height = imgDims.height + 'px';
-            shadowClone.style.left = proj.left_vw + offset.current.x + 'vw';
-            shadowClone.style.top = proj.top_vh + offset.current.y + 'vh';
+            shadowClone.style.left = deviceMin.mobile ? pxToVw(cardRect.left) + offset.current.x + "vw" : proj.left_vw + offset.current.x + 'vw';
+            shadowClone.style.top = deviceMin.mobile ? pxToVh(card.offsetTop) + offset.current.y + "vh" : proj.top_vh + offset.current.y + 'vh';
             shadowClone.style.scale = '0.99';
 
             once = true;
@@ -152,17 +162,12 @@
 
     //
 
-    let offset = new Tween({x: 0, y: 0}, {
-        duration: 800,
-        easing: expoOut
-    });
-
     $effect(() => {
         if (modal.open && selected) {
             untrack(() => {
                 offset.target = {
                     x: (pxToVw(windowGlobals.inner_width * (modal.left ? 0.75 : 0.25) - vwToPx(proj.width_vw / 2))) - proj.left_vw,
-                    y: 0
+                    y: deviceMin.mobile ? (pxToVh(windowGlobals.inner_height * 0.635 - vhToPx(cardHeight / 2))) : 0
                 }
                 resizeAndAnimateShadow(true)
             })
@@ -211,12 +216,12 @@
 </script>
 
 <svelte:window/>
-<div bind:this={rotatie} class={`card ${selected ? 'selected' : ''}
+<div bind:this={rotatie} class={`card ${ix === 0 ? 'first-card' : ''} ${selected ? 'selected' : ''}
             ${activeEditor.state === 'web-modifying'
             || activeEditor.state === 'web-positioning' ? 'hover-focus-light' : ''}
             ${editbar.holding ? 'prevent-select' : ''}`}
      style={`transform: perspective(600px) rotateX(${rotation.current.x}deg) rotateY(${rotation.current.y}deg) scale(${scale.current});
-             left: ${proj.left_vw + offset.current.x}vw; top: ${proj.top_vh}vh; width: ${proj.width_vw + offset.current.y}vw;`}
+             left: ${deviceMin.mobile ? 0 : proj.left_vw + offset.current.x}vw; top: ${top}vh; width: ${proj.width_vw + offset.current.y}vw;`}
      onpointerdown={handleItemHolding}
      onpointermove={handleCardMoving} onpointerup={handleItemLeaving}
      onpointerout={(e) => {handlePointerLeave(); handleItemLeaving(e)}}
@@ -387,6 +392,25 @@
         & .modal-open:after {
             opacity: 1;
             border: 1px solid white;
+        }
+    }
+
+    @media (max-width: 1023px) {
+        .first-card {
+            margin-top: 40vh;
+        }
+
+        .card {
+            position: relative;
+            width: 90% !important;
+
+            & .card-info {
+                margin-left: 5%;
+
+                & .blurb {
+                    opacity: 1;
+                }
+            }
         }
     }
 </style>

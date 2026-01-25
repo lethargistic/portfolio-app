@@ -5,7 +5,7 @@
         hackeryTextAnim,
         handleItemEdit,
         positionTooltip,
-        modal
+        modal, deviceMin
     } from "$lib/shared.svelte";
     import Icon from "$lib/Icon.svelte";
     import {blur} from "svelte/transition";
@@ -89,7 +89,7 @@
 
 {#if isOpen}
     <div transition:blur={{duration: modal.open ? 500 : 400, easing: modal.open ? expoIn : expoOut}}
-         style={`justify-content: ${modal.left ? 'flex-start' : 'flex-end'};`}
+         style={`justify-content: ${modal.left || deviceMin.mobile ? 'flex-start' : 'flex-end'};`}
          class="modal" onclick={handleModalCloseCheck} onkeydown={handleModalCloseCheck}
          role="button" tabindex="-1">
         <div bind:this={controls} class="controls">
@@ -184,6 +184,11 @@
         display: flex;
         align-items: center;
 
+        @media (max-width: 767px) {
+            display: flex;
+            align-items: end;
+        }
+
         & * {
             font-family: 'Fira Code', monospace;
         }
@@ -213,6 +218,14 @@
             /* so it's click-throughable */
             pointer-events: none;
 
+            @media (max-width: 767px) {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 0 1rem 0 1.5rem;
+                height: 60%;
+                margin: 0;
+            }
+
             & * {
                 pointer-events: initial;
             }
@@ -221,16 +234,35 @@
                 display: grid;
                 gap: 1rem;
 
+                @media (max-width: 767px) {
+                    width: 100%;
+                    height: 100%;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    box-sizing: border-box;
+                    padding-right: 0.5rem;
+                    padding-bottom: 3rem;
+                }
+
                 & h2 {
                     font-family: 'Fira Code', monospace;
                     font-weight: normal;
                     font-size: 2.5rem;
+
+                    @media (max-width: 767px) {
+                        width: 60%;
+                    }
                 }
 
                 & .info-props {
                     display: flex;
                     align-items: center;
                     gap: 1rem;
+
+                    @media (max-width: 767px) {
+                        flex-direction: column;
+                        align-items: initial;
+                    }
 
                     & .num {
                         margin-top: 1px;
@@ -241,6 +273,12 @@
                         display: flex;
                         align-items: center;
                         gap: 1rem;
+
+                        @media (max-width: 767px) {
+                            width: 57%;
+                            flex-wrap: wrap;
+                            padding-right: 0.5rem;
+                        }
 
                         & .web-info-prop {
                             display: flex;
@@ -254,6 +292,10 @@
                     word-break: break-word;
                     line-height: 2rem;
                     white-space: pre-line;
+
+                    @media (max-width: 767px) {
+                        width: 55%;
+                    }
                 }
             }
         }

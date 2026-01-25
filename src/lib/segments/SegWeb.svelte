@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {currentLang, editbar, hackeryTextAnim, modal, hackeryAnimObserver} from "$lib/shared.svelte";
+    import {currentLang, editbar, modal, hackeryAnimObserver} from "$lib/shared.svelte";
     import RotatieCard from "$lib/RotatieCard.svelte";
     import EditorTools from "$lib/editing/EditorTools.svelte";
     import {onMount} from "svelte";
@@ -73,8 +73,8 @@
             <h2 class="web-txt web-head-txt">Web /></h2>
             <p bind:this={webTxtElem} class="web-txt web-desc-txt">Selected web projects I've built</p>
         </div>
-        {#each webProj as proj (proj.name)}
-            <RotatieCard {proj}/>
+        {#each webProj as proj, i (proj.name)}
+            <RotatieCard {proj} ix={i}/>
         {/each}
 
         <div class="guideline">
@@ -94,6 +94,14 @@
 
             color: white;
 
+            @media (max-width: 1023px) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                gap: 12vh;
+            }
+
             & *::selection {
                 color: black;
                 background-color: white;
@@ -105,6 +113,10 @@
                 left: 5rem;
                 display: grid;
                 gap: 0.4rem;
+
+                @media (max-width: 1023px) {
+                    left: 1.5rem;
+                }
 
                 & .web-head-txt {
                     opacity: 0.7;

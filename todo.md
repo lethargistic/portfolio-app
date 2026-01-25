@@ -50,7 +50,8 @@
 - [ ] todo maybe: more anims for web seg, the button for example
 - [ ] todo maybe: web seg sites unfold into photo reel rather than just one pic
 - [ ] todo: language rack somewhere
-- [ ] todo: fix mobile linktree rendering having failovers
+- [ ] fix eventually: fix mobile linktree
+- [ ] fix eventually: fix web seg shadows being weird on a real phone ; it's the dynamic elems but i can't figure out how exactly
 
 - [ ] todo semi-prod: responsive
 - [ ] todo semi-prod: translate everything
