@@ -3,7 +3,7 @@
     import '../styles/global.css';
     import {onMount} from "svelte";
     import {invalidate} from "$app/navigation";
-    import {editing, fiend, editbar, settings, windowGlobals} from "$lib/shared.svelte";
+    import {editing, fiend, editbar, settings, windowGlobals, deviceMin} from "$lib/shared.svelte";
 
     let {data, children} = $props();
     let {supabase, session} = $derived(data);
@@ -41,12 +41,20 @@
             editbar.open = !editbar.open;
         }
     }
+
+    const checkIfMobile = () => {
+        deviceMin.mobile = window.matchMedia('(max-width: 767px)').matches;
+        deviceMin.tablet = window.matchMedia('(max-width: 1279px)').matches;
+    }
+
+    $effect(() => checkIfMobile())
 </script>
 
 <svelte:head>
     <link rel="icon" href={favicon}/>
 </svelte:head>
 
-<svelte:window onkeydown={handleEditModeSwitch} bind:innerWidth={windowGlobals.inner_width} bind:innerHeight={windowGlobals.inner_height}/>
+<svelte:window onresize={checkIfMobile} onkeydown={handleEditModeSwitch} bind:innerWidth={windowGlobals.inner_width}
+               bind:innerHeight={windowGlobals.inner_height}/>
 
 {@render children()}

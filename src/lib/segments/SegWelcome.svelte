@@ -3,7 +3,7 @@
     import {getLocale, setLocale} from "$lib/paraglide/runtime";
     import {Spring, Tween} from "svelte/motion";
     import {cubicOut, cubicInOut, cubicIn} from "svelte/easing";
-    import {currentLang, fiend, settings} from "$lib/shared.svelte";
+    import {currentLang, deviceMin, fiend, settings} from "$lib/shared.svelte";
     import {scale} from "svelte/transition"
 
     let seeLang = $state(false);
@@ -43,9 +43,9 @@
 
     // TODO: maybe add fonts per lang (page load speed death?)
     const mapLangFontSize = {
-        "en": null,
-        "jp": "2rem",
-        "uk": "2rem",
+        "en": deviceMin.tablet ? "2.5rem" : null,
+        "jp": deviceMin.tablet ? "2rem" : "2rem",
+        "uk": deviceMin.tablet ? "1.8rem" : "2rem",
     } as const;
 
     const defaultFontSize = "2.5rem";
@@ -216,6 +216,10 @@
 
             gap: 2rem;
 
+            @media(max-width: 767px) {
+                --openers-right: 1.5rem;
+            }
+
             & button {
                 all: unset;
                 cursor: pointer;
@@ -239,13 +243,14 @@
                 }
             }
 
-
             & .opener-selector-wrap {
                 position: absolute;
                 z-index: 999;
 
                 top: 0;
                 right: var(--openers-right);
+
+                --mobile-selector-width: 75vw;
 
                 & .opener-selectors {
                     margin-right: calc(var(--lang-icon-width) + 1vw);
@@ -277,6 +282,10 @@
                     width: 28vw;
                     gap: 0.3rem;
                     padding: 0.6rem 0;
+
+                    @media(max-width: 767px) {
+                        width: var(--mobile-selector-width);
+                    }
 
                     & li {
                         width: 100%;
@@ -343,9 +352,18 @@
                 }
 
                 & .lang-selectors {
+                    @media(max-width: 767px) {
+                        width: var(--mobile-selector-width);
+                    }
+
                     & li {
                         height: 1.6vw;
                         padding: 0.6rem 0 0.6rem 0;
+
+                        @media(max-width: 767px) {
+                            width: 100%;
+                            min-height: 7vw;
+                        }
                     }
 
                     & button {
@@ -375,6 +393,10 @@
             align-items: center;
             /* super duper precise positioning ! */
 
+            @media(max-width: 767px) {
+                --floatie-font-size: 4rem;
+            }
+
             & .illu {
                 zoom: 1.025;
                 height: 30.425vw;
@@ -391,19 +413,40 @@
                 position: absolute;
 
                 /* centered inline because transform order */
+
+                @media(max-width: 767px) {
+                    height: 86vw;
+
+                    /* transform rotation makes it go off screen if it's absolute */
+                    /* so im just making it artsier instead */
+                    position: relative;
+                }
             }
 
             & .illu-left {
                 width: 28.8vw;
                 left: 50.4%;
                 top: 55.2%;
+
+                @media(max-width: 767px) {
+                    left: 58%;
+                    top: 35.2%;
+                    width: 84.6vw;
+                }
             }
 
             & .illu-right {
                 width: 28.825vw;
                 left: 54.7%;
                 top: 49.3%;
+
                 box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
+
+                @media(max-width: 767px) {
+                    left: 43%;
+                    top: 40.2%;
+                    width: 84.625vw;
+                }
             }
 
             & .floatie {
@@ -418,6 +461,11 @@
                 position: absolute;
 
                 left: 13%;
+
+                @media(max-width: 767px) {
+                    margin-top: -70vh;
+                    left: 5%;
+                }
 
                 & h1 {
                     pointer-events: none;
@@ -451,6 +499,11 @@
                 align-items: center;
                 box-sizing: border-box;
                 color: white;
+
+                @media(max-width: 767px) {
+                    margin-top: -40vh;
+                    left: 5%;
+                }
 
                 & h2 {
                     pointer-events: none;

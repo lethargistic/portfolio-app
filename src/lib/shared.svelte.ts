@@ -1,11 +1,15 @@
 import {computePosition, flip, shift} from "@floating-ui/dom";
-import type {Attachment} from "svelte/attachments";
 import {browser} from "$app/environment";
 
 export let currentLang = $state({lang: "en"});
 
 export const MAX_CHIME_FOLDS = 4;
 export const MIN_CHIME_FOLDS = 1;
+
+export let deviceMin = $state({
+    mobile: false,
+    tablet: false
+})
 
 export let settings: Record<string, { display: string, desc: string, state: boolean, admin: boolean }> = $state({
     sounds: {
