@@ -133,6 +133,10 @@
                     opacity: 0.7;
                     font-size: 2rem;
                     font-family: "Fira Mono", monospace;
+
+                    @media (max-width: 450px) {
+                        font-size: 1.5rem;
+                    }
                 }
             }
 

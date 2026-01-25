@@ -397,6 +397,11 @@
 
     @media (max-width: 1023px) {
         .first-card {
+            margin-top: 10vh;
+        }
+    }
+    @media (max-width: 767px) {
+        .first-card {
             margin-top: 40vh;
         }
 

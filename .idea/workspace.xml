@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: ok this one was really fun, tho it's kinda wonky on a real phone">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: web seg responsive, once again a bit of real-phone jank rip">
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,15 +267,7 @@
       <workItem from="1769274844096" duration="55000" />
       <workItem from="1769279205050" duration="6827000" />
       <workItem from="1769326753393" duration="11680000" />
-      <workItem from="1769345985475" duration="18675000" />
-    </task>
-    <task id="LOCAL-00099" summary="chore: more card tweaks x2 and oh no im starting to really like ligatures">
-      <option name="closed" value="true" />
-      <created>1768839891547</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1768839891547</updated>
+      <workItem from="1769345985475" duration="18995000" />
     </task>
     <task id="LOCAL-00100" summary="chore: more card tweaks x3">
       <option name="closed" value="true" />
@@ -666,7 +653,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769359919779</updated>
     </task>
-    <option name="localTasksCounter" value="148" />
+    <task id="LOCAL-00148" summary="chore: web seg responsive, once again a bit of real-phone jank rip">
+      <option name="closed" value="true" />
+      <created>1769367703179</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1769367703179</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -692,7 +687,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: inner card editing no db yet" />
     <MESSAGE value="chore: db posting for inner projects" />
     <MESSAGE value="chore: visit button" />
     <MESSAGE value="chore: tooltips and ui tweaks" />
@@ -717,6 +711,7 @@
     <MESSAGE value="chore: welcome seg responsive" />
     <MESSAGE value="chore: about seg responsive" />
     <MESSAGE value="chore: ok this one was really fun, tho it's kinda wonky on a real phone" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: ok this one was really fun, tho it's kinda wonky on a real phone" />
+    <MESSAGE value="chore: web seg responsive, once again a bit of real-phone jank rip" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: web seg responsive, once again a bit of real-phone jank rip" />
   </component>
 </project>
