@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: you can never draw something this well when you actually try to">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: all card info blocks would disappear + fix: nav was in db order and borken">
+      <change afterPath="$PROJECT_DIR$/static/img/web-thumbnails/hatsunemikuapparentlybgedited.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/web-thumbnails/small/hatsunemikuapparentlybgedited.webp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/WebProjModal.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/web-thumbnails/hatsunemikuapparentlybg.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/web-thumbnails/old/hatsunemikuapparentlybgold.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/web-thumbnails/small/hatsunemikuapparentlybg.webp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,15 +270,7 @@
       <workItem from="1769244730030" duration="26044000" />
       <workItem from="1769274844096" duration="55000" />
       <workItem from="1769279205050" duration="6827000" />
-      <workItem from="1769326753393" duration="3170000" />
-    </task>
-    <task id="LOCAL-00094" summary="feat: started on web dev section">
-      <option name="closed" value="true" />
-      <created>1768824961422</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1768824961422</updated>
+      <workItem from="1769326753393" duration="5596000" />
     </task>
     <task id="LOCAL-00095" summary="feat: rotatie card">
       <option name="closed" value="true" />
@@ -663,7 +656,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769286841696</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="fix: all card info blocks would disappear + fix: nav was in db order and borken">
+      <option name="closed" value="true" />
+      <created>1769330603947</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1769330603949</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -689,7 +690,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: modal progress, also, it moves" />
     <MESSAGE value="chore: added bugs (but admin only)" />
     <MESSAGE value="fix: quantum entanglement" />
     <MESSAGE value="feat: arrows n fancy" />
@@ -714,6 +714,7 @@
     <MESSAGE value="feat: github link" />
     <MESSAGE value="chore: filled in content for web projects" />
     <MESSAGE value="chore: you can never draw something this well when you actually try to" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: you can never draw something this well when you actually try to" />
+    <MESSAGE value="fix: all card info blocks would disappear + fix: nav was in db order and borken" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: all card info blocks would disappear + fix: nav was in db order and borken" />
   </component>
 </project>
