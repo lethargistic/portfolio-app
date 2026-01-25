@@ -34,6 +34,9 @@
 
     const rotateSelected = (forwards: boolean) => {
         let newIx = modal.selectedIx + (forwards ? 1 : -1);
+        console.log(modal.selectedIx)
+        console.log('nw', newIx)
+        console.log('allDt', allDetails)
 
         if (newIx >= allDetails.length) {
             newIx = 0;
@@ -42,6 +45,7 @@
         }
 
         modal.travel = true;
+        modal.selectedIx = newIx;
         modal.selected = allDetails[newIx].name;
     }
 
@@ -92,7 +96,7 @@
             <div class="arrows">
                 <button onclick={() => rotateSelected(false)}>&lt;--</button>
                 /
-                <button onclick={() => rotateSelected(false)}>--&gt;</button>
+                <button onclick={() => rotateSelected(true)}>--&gt;</button>
                 <!-- putting it here is a dumb idea but it works lol -->
                 <EditorTools seg={'wb-inn'} light={true}/>
             </div>

@@ -229,8 +229,8 @@
     {#if act && !modal.open}
         <p transition:blur style={`right: ${arrowRight.current}rem`} class="arrow">-&gt;</p>
     {/if}
-    {#if !modal.open}
-        <div class="card-info">
+    {#if !(modal.open && selected)}
+        <div transition:blur class="card-info">
             <h3 bind:this={hElem}>{proj.display_name}</h3>
             <p bind:this={blurbElem} class="blurb">{proj.blurb}</p>
             <div class="separator"></div>

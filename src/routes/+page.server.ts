@@ -10,7 +10,7 @@ export const load: PageServerLoad = async () => {
     const {data: socials, error: sberr} = await supabase
         .from('socials')
         .select()
-        .order('id', { ascending: true })
+        .order('id', {ascending: true})
     if (sberr || !socials) error(500, `Failed to load socials: ${sberr?.message}`);
 
     // sort of a dumb way to do it but i don't want to fiddle with the added infrastructure by
@@ -44,14 +44,16 @@ export const load: PageServerLoad = async () => {
     const {data: web_projects, error: wberr} = await supabase
         .from('web_projects')
         .select()
-        .order('id', {ascending: true})
+        .order('read_num', {ascending: true})
     if (wberr || !web_projects) error(500, `Failed to load socials ${wberr.message}`);
+
 
     //
 
     const {data: web_projects_details, error: sbwerr} = await supabase
         .from('web_projects_details')
         .select()
+        .order('read_num', {ascending: true})
 
     if (sbwerr || !web_projects_details) error(500, `Failed to load web project details: ${sberr?.message}`)
 
