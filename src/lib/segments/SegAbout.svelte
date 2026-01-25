@@ -148,11 +148,16 @@
 
     <style>
         .about-seg {
-            height: 160vh;
+            --seg-height: 160vh;
+            height: var(--seg-height);
             width: 100vw;
             position: relative;
 
             background-color: white;
+
+            @media(max-width: 1023px) {
+                height: max-content;
+            }
 
             & .train-cont {
                 margin-top: 20vh;
@@ -163,6 +168,14 @@
                     user-select: none;
                     width: 100%;
                     height: 20vh;
+
+                    @media(max-width: 1023px) {
+                        width: 175%;
+                    }
+                    @media(max-width: 767px) {
+                        width: 400%;
+                        height: 20vh;
+                    }
                 }
 
                 & .train-front {
@@ -188,6 +201,14 @@
                     user-select: none;
                     width: 100%;
                     margin-top: -10px;
+
+                    @media(max-width: 1023px) {
+                        height: 4vh;
+                    }
+                    @media(max-width: 767px) {
+                        width: 250%;
+                        height: 6vh;
+                    }
                 }
             }
 
@@ -196,6 +217,10 @@
 
                 position: absolute;
                 width: 44px;
+
+                @media(max-width: 1023px) {
+                    display: none;
+                }
             }
 
             & .decor-waterfall-upper {
@@ -227,6 +252,12 @@
                 display: flex;
                 flex-direction: row;
 
+                @media(max-width: 1023px) {
+                    flex-direction: column;
+                    gap: 2.5rem;
+                    padding: 6vw 0 0 0;
+                }
+
                 & .infobloc {
                     width: 60%;
                     height: 69vh;
@@ -237,18 +268,19 @@
                     background-color: #ffffff;
                     border: 4px solid #1b1b1b;
 
+                    @media(max-width: 1500px) {
+                        height: max-content;
+                    }
+                    @media(max-width: 1023px) {
+                        order: 1;
+                        width: 100%;
+                        height: max-content;
+                        border: 0;
+                    }
+
                     & .infobloc-inner {
                         width: 100%;
                         height: 100%;
-
-                        & p::selection {
-                            color: black;
-                            background-color: white;
-                        }
-
-                        & img::selection {
-                            background-color: transparent;
-                        }
 
                         display: flex;
                         flex-direction: column;
@@ -262,6 +294,27 @@
                         background-color: #212121;
                         /* works surprisingly well */
                         box-shadow: inset 0 0 0 var(--white-padding-size) white;
+
+                        @media(max-width: 1023px) {
+                            width: 110%;
+                            padding: 4rem 6rem;
+                            --white-padding-size: 0;
+                            position: relative;
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+                        @media(max-width: 767px) {
+                            padding: 2.5rem 3rem;
+                        }
+
+                        & p::selection {
+                            color: black;
+                            background-color: white;
+                        }
+
+                        & img::selection {
+                            background-color: transparent;
+                        }
 
                         & .infobloc-chief-blurb {
                             line-height: 1.8;
@@ -277,9 +330,28 @@
                             row-gap: 0.3rem;
                             line-height: 1.7rem;
 
+                            @media(max-width: 1500px) {
+                                grid-template-rows: auto;
+                            }
+                            @media(max-width: 1023px) {
+                                margin-top: 2rem;
+                                grid-auto-flow: dense;
+                                grid-template-columns: auto;
+                                grid-template-rows: auto;
+                                row-gap: 0.8rem;
+
+                                & li {
+                                    height: min-content;
+                                }
+                            }
+
                             & .infobloc-separator {
                                 user-select: none;
                                 text-align: center;
+
+                                @media(max-width: 1023px) {
+                                    display: none;
+                                }
                             }
                         }
                     }
@@ -289,6 +361,12 @@
                     display: flex;
                     justify-content: center;
                     width: 40%;
+
+                    @media(max-width: 1023px) {
+                        order: 0;
+                        width: 100%;
+                        margin-top: 3rem;
+                    }
 
                     & .pfpbloc {
                         display: flex;
@@ -329,6 +407,11 @@
                                 padding: 1rem 0 0 0;
                                 width: 100%;
                                 user-select: none;
+
+                                @media(max-width: 1023px) {
+                                    box-sizing: border-box;
+                                    padding: 1rem 2rem 0 2rem;
+                                }
                             }
 
                             & .status-info {

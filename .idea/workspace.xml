@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: minor thumbnail edit">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: welcome seg responsive">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,15 +268,7 @@
       <workItem from="1769274844096" duration="55000" />
       <workItem from="1769279205050" duration="6827000" />
       <workItem from="1769326753393" duration="11680000" />
-      <workItem from="1769345985475" duration="147000" />
-    </task>
-    <task id="LOCAL-00096" summary="chore: this circle took me an awful amount of time">
-      <option name="closed" value="true" />
-      <created>1768832579130</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1768832579131</updated>
+      <workItem from="1769345985475" duration="3719000" />
     </task>
     <task id="LOCAL-00097" summary="chore: card tweaks">
       <option name="closed" value="true" />
@@ -665,7 +654,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769334813152</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="chore: welcome seg responsive">
+      <option name="closed" value="true" />
+      <created>1769347994524</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1769347994524</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -691,7 +688,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: quantum entanglement" />
     <MESSAGE value="feat: arrows n fancy" />
     <MESSAGE value="fix: fade scope" />
     <MESSAGE value="chore: inner card editing no db yet" />
@@ -716,6 +712,7 @@
     <MESSAGE value="chore: you can never draw something this well when you actually try to" />
     <MESSAGE value="fix: all card info blocks would disappear + fix: nav was in db order and borken" />
     <MESSAGE value="chore: minor thumbnail edit" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: minor thumbnail edit" />
+    <MESSAGE value="chore: welcome seg responsive" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: welcome seg responsive" />
   </component>
 </project>
