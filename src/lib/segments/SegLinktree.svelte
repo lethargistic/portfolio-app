@@ -1,11 +1,11 @@
 <script lang="ts">
-    import {currentLang, editbar, MAX_CHIME_FOLDS, settings} from "$lib/shared.svelte";
+    import {currentLang, deviceMin, editbar, MAX_CHIME_FOLDS, settings} from "$lib/shared.svelte";
 
     import {onMount} from "svelte";
     import Chime from "$lib/hangies/Chime.svelte";
     import EditorTools from "$lib/editing/EditorTools.svelte";
     // jetbrains fix when
-    import { positionTooltip} from "$lib/shared.svelte";
+    import {positionTooltip} from "$lib/shared.svelte";
 
     let {socials: socialsProp} = $props();
 
@@ -89,7 +89,9 @@
     // or actually i could just render a copy elsewhere instead of
     // manipulating data
     let foldStatElems: Array<Array<Record<string, HTMLElement | null>>> = $derived(Array.from({length: socialsLength}, () => {
-        return Array.from({length: MAX_CHIME_FOLDS * 2}, () => {return {elem: null}});
+        return Array.from({length: MAX_CHIME_FOLDS * 2}, () => {
+            return {elem: null}
+        });
     }));
     let foldTooltipOverride: string | null = $state(null);
 </script>
@@ -117,12 +119,16 @@
             {#each socials as social, i (social.name + i)}
                 {#if !isSocialHidden(social)}
                     <div class={`social-chime social-chime-${social.name}`}
-                         style={`top: ${social.top_vh*(branchHeight/windowHeight)}vh;
-                         transform: translate(-${social.left_vw}%, 0);
-                         left: ${social.left_vw}vw;
+                         style={`top: ${(deviceMin.mobile ? social.mobile_top_vh : social.top_vh)*(branchHeight/windowHeight)}dvh;
+                         transform: translate(-${deviceMin.mobile ? social.mobile_left_vw
+                          : social.left_vw}%, 0);
+                         left: ${deviceMin.mobile ? social.mobile_left_vw
+                          : social.left_vw}vw;
                          z-index: ${social.above ? '999' : '0'};
                          `}>
-                        <Chime {social} socialIx={i} bind:foldStatElems={foldStatElems} bind:foldTooltipOverride={foldTooltipOverride}/>
+                        <div class="mobile-peg"></div>
+                        <Chime {social} socialIx={i} bind:foldStatElems={foldStatElems}
+                               bind:foldTooltipOverride={foldTooltipOverride}/>
                     </div>
 
                     <!-- tooltips -->
@@ -178,6 +184,10 @@
 
             background-color: white;
 
+            @media (max-width: 767px) {
+                height: 400vh;
+            }
+
             & .lilac-cherry-branch {
                 position: relative;
                 z-index: 1;
@@ -187,6 +197,12 @@
                 align-self: flex-end;
                 user-select: none;
                 -webkit-user-drag: none;
+
+                @media (max-width: 767px) {
+                    width: 280vw;
+                    position: relative;
+                    left: 50%;
+                }
             }
 
             & .chime-cont {
@@ -199,6 +215,24 @@
                     position: absolute;
 
                     pointer-events: none;
+
+                    @media (max-width: 767px) {
+                        display: grid;
+                        place-items: center;
+                    }
+
+                    & .mobile-peg {
+                        display: none;
+
+                        @media (max-width: 767px) {
+                            display: initial;
+                            width: 1.5vh;
+                            height: 1.5vh;
+                            background-color: #111111;
+                            border-radius: 50%;
+                            margin-left: 1px;
+                        }
+                    }
                 }
             }
 

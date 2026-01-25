@@ -9,7 +9,7 @@
         MAX_CHIME_FOLDS,
         MIN_CHIME_FOLDS,
         editbar,
-        handleItemEdit, handleItemHolding, handleItemLeaving, handlePositioning
+        handleItemEdit, handleItemHolding, handleItemLeaving, handlePositioning, deviceMin, vhToDvh
     } from "$lib/shared.svelte";
     import SVGThreeStars from "$lib/hangies/separators/separators/SVGThreeStars.svelte";
     import SVGStar from "$lib/hangies/separators/separators/SVGStar.svelte";
@@ -70,7 +70,7 @@
 
     const treeRopeSegments = 3;
     const treeRopeParticleCount = treeRopeSegments + 1;
-    const treeRopeLength = $derived(social.tree_rope_length);
+    const treeRopeLength = $derived(deviceMin.mobile ? social.mobile_tree_rope_length*0.75 : social.tree_rope_length);
 
 
     const separatorSegments = 2;
@@ -83,7 +83,7 @@
 
     const chimeRopeSegments = 30;
     const chimeRopeParticleCount = chimeRopeSegments + 1;
-    const chimeRopeLength = $derived(isNaN(social.chime_rope_length) ? 1 : social.chime_rope_length);
+    const chimeRopeLength = $derived(deviceMin.mobile ? social.mobile_chime_rope_length : isNaN(social.chime_rope_length) ? 1 : social.chime_rope_length);
 
     const chimeSegments = 2;
     const chimeParticleCount = chimeSegments + 1;
@@ -312,8 +312,8 @@
         const ambientWindY = Math.cos(time * 0.25) * 0.2;
 
         const windForce = new three.Vector3(
-            mouseDx * 0.8 * distanceFalloff + ambientWindX,
-            -mouseDy * 0.4 * distanceFalloff + ambientWindY,
+            (deviceMin.tablet ? 4 : mouseDx) * 0.8 * distanceFalloff + ambientWindX,
+            (deviceMin.tablet ? 4 : -mouseDy) * 0.4 * distanceFalloff + ambientWindY,
             0
         );
 
@@ -493,6 +493,9 @@
         renderer.forceContextLoss()
     })
 
+    //
+
+    let chimeMaxHeight = $derived(deviceMin.mobile ? vhToDvh(social.mobile_chime_max_height_vh) : social.chime_max_height_vh);
 </script>
 <svelte:window onresize={adjustPathDimensionTracking} bind:innerWidth={windowInnerWidth}
                bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove}/>
@@ -557,10 +560,10 @@
         {#each folds as fold, j (social.name + fold.id + fold.slug)}
             {#if !fold.slug.startsWith('hide_')}
                 {@const left = fold.left}
-                {@const iconSize = social.chime_max_height_vh / (DEFAULT_CHIME_SIZE_VH / BASE_ICON_SIZE_PX)}
+                {@const iconSize = chimeMaxHeight / (DEFAULT_CHIME_SIZE_VH / BASE_ICON_SIZE_PX)}
                 <div class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
                      style={`width: ${chimeGroupWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;
-                        --title-font-size: ${social.chime_max_height_vh/(DEFAULT_CHIME_SIZE_VH/BASE_FONT_SIZE_REM)}rem`}>
+                        --title-font-size: ${chimeMaxHeight/(DEFAULT_CHIME_SIZE_VH/BASE_FONT_SIZE_REM)}rem`}>
                     <!-- It is definitely reactive, there is definitely a better way -->
                     <!-- to do this than what i did tho-->
                     <!-- it's been 8 hours have mercy on my poor soul -->
@@ -592,13 +595,13 @@
         <!-- the 0.5 accounts for the shape -->
         {@const svgHeight = 1578 * ((foldCount + 0.5) / (MAX_CHIME_FOLDS + 0.5))}
         <svg class="chime"
-             style={`height: ${social.chime_max_height_vh/((MAX_CHIME_FOLDS+0.5)/(foldCount+0.5))}vh`} width="530"
+             style={`height: ${chimeMaxHeight/((MAX_CHIME_FOLDS+0.5)/(foldCount+0.5))}vh`} width="530"
              height={`${svgHeight}`} viewBox={`0 0 530 ${svgHeight}`} fill="none"
              xmlns="http://www.w3.org/2000/svg">
             <ChimeSVGFilling {foldCount} bind:trackedGroup={trackedGroup} cutout={false}/>
         </svg>
         <svg bind:this={chimeSVGCutoutElem} class="chime chime-cutout"
-             style={`height: ${social.chime_max_height_vh/((MAX_CHIME_FOLDS+0.5)/(foldCount+0.5))}vh`} width="530"
+             style={`height: ${chimeMaxHeight/((MAX_CHIME_FOLDS+0.5)/(foldCount+0.5))}vh`} width="530"
              height={`${svgHeight}`} viewBox={`0 0 530 ${svgHeight}`} fill="none"
              xmlns="http://www.w3.org/2000/svg">
             <ChimeSVGFilling {foldCount} cutout={true}/>
@@ -772,6 +775,10 @@
         & .three-stars {
             /* putting it on the string */
             margin-top: -10rem;
+
+            @media (max-width: 767px) {
+                height: 20vh;
+            }
         }
 
         & .pebble {
@@ -786,6 +793,10 @@
 
         & .circles {
             margin-top: -3rem;
+
+            @media (max-width: 767px) {
+                height: 10vh;
+            }
         }
 
         & .ok {

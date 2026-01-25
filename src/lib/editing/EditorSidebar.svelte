@@ -283,6 +283,10 @@
         overflow-y: auto;
         overflow-x: hidden;
 
+        @media(max-width: 767px) {
+            width: 70vw;
+        }
+
         &:hover {
             cursor: default;
         }

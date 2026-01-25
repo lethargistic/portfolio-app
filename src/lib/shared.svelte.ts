@@ -78,7 +78,7 @@ export const handleItemEdit = (e: Event, name: string, editor: string) => {
     }
 }
 
-export let windowGlobals = $state({inner_width: 0, inner_height: 0});
+export let windowGlobals = $state({inner_width: 0, inner_height: 0, visual_viewport: 0});
 export let prevMousePos = $state<{ x: number, y: number }>({x: 0, y: 0});
 export const handlePositioning = (e: PointerEvent, item: Record<string, any>, name: string, editor: string) => {
     if (!activeEditor.state.startsWith(editor)) return;
@@ -126,6 +126,12 @@ export const vwToPx = (vw: number) => {
 }
 export const pxToVw = (px: number) => {
     return (px * 100) / windowGlobals.inner_width
+}
+export const vhToDvh = (vh: number) => {
+    const staticVH = windowGlobals.inner_height / 100;
+    const dynamicVH = (window.visualViewport?.height || windowGlobals.inner_height) / 100;
+
+    return (vh * staticVH) / dynamicVH;
 }
 
 export const positionTooltip = (parent: boolean | HTMLElement | null) => {

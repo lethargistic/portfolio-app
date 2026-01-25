@@ -44,7 +44,7 @@
 
     const checkIfMobile = () => {
         deviceMin.mobile = window.matchMedia('(max-width: 767px)').matches;
-        deviceMin.tablet = window.matchMedia('(max-width: 1279px)').matches;
+        deviceMin.tablet = window.matchMedia('(max-width: 1023px)').matches;
     }
 
     $effect(() => checkIfMobile())

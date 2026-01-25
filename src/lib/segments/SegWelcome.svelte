@@ -137,6 +137,9 @@
                                                    bind:checked={settings[key].state}/>
                                         </div>
                                         <p>{value.display}</p>
+                                        {#if key === 'extendedLinktree' && deviceMin.mobile}
+                                            <p class="note">Note: may lag on mobile</p>
+                                        {/if}
                                         <small>{@html value.desc}</small>
                                     </label>
                                 </li>
@@ -159,7 +162,8 @@
 
     <section class='welcome-seg' id="welcome">
         {#if settings.noFlashing.state}
-            <img transition:scale={{duration: 800, easing: settings.noFlashing.state ? cubicIn : cubicOut}} class="no-flashing"
+            <img transition:scale={{duration: 800, easing: settings.noFlashing.state ? cubicIn : cubicOut}}
+                 class="no-flashing"
                  src="/img/moon-sticker-i-once-drew-on-a-whim.webp"
                  alt="a moon with a forest on it">
         {:else}
@@ -216,7 +220,7 @@
 
             gap: 2rem;
 
-            @media(max-width: 767px) {
+            @media (max-width: 767px) {
                 --openers-right: 1.5rem;
             }
 
@@ -275,6 +279,15 @@
 
                         font-size: 1.1rem;
                     }
+
+                    & li {
+                        .note {
+                            margin: 0.2rem 0 0 0;
+                            grid-column: span 2;
+                            font-size: 0.8rem;
+                            width: 100%;
+                        }
+                    }
                 }
 
                 & .settings-selectors {
@@ -283,7 +296,7 @@
                     gap: 0.3rem;
                     padding: 0.6rem 0;
 
-                    @media(max-width: 767px) {
+                    @media (max-width: 767px) {
                         width: var(--mobile-selector-width);
                     }
 
@@ -352,7 +365,7 @@
                 }
 
                 & .lang-selectors {
-                    @media(max-width: 767px) {
+                    @media (max-width: 767px) {
                         width: var(--mobile-selector-width);
                     }
 
@@ -360,7 +373,7 @@
                         height: 1.6vw;
                         padding: 0.6rem 0 0.6rem 0;
 
-                        @media(max-width: 767px) {
+                        @media (max-width: 767px) {
                             width: 100%;
                             min-height: 7vw;
                         }
@@ -393,7 +406,7 @@
             align-items: center;
             /* super duper precise positioning ! */
 
-            @media(max-width: 767px) {
+            @media (max-width: 767px) {
                 --floatie-font-size: 4rem;
             }
 
@@ -414,7 +427,7 @@
 
                 /* centered inline because transform order */
 
-                @media(max-width: 767px) {
+                @media (max-width: 767px) {
                     height: 86vw;
 
                     /* transform rotation makes it go off screen if it's absolute */
@@ -428,7 +441,7 @@
                 left: 50.4%;
                 top: 55.2%;
 
-                @media(max-width: 767px) {
+                @media (max-width: 767px) {
                     left: 58%;
                     top: 35.2%;
                     width: 84.6vw;
@@ -442,7 +455,7 @@
 
                 box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 
-                @media(max-width: 767px) {
+                @media (max-width: 767px) {
                     left: 43%;
                     top: 40.2%;
                     width: 84.625vw;
@@ -462,7 +475,7 @@
 
                 left: 13%;
 
-                @media(max-width: 767px) {
+                @media (max-width: 767px) {
                     margin-top: -70vh;
                     left: 5%;
                 }
@@ -500,7 +513,7 @@
                 box-sizing: border-box;
                 color: white;
 
-                @media(max-width: 767px) {
+                @media (max-width: 767px) {
                     margin-top: -40vh;
                     left: 5%;
                 }
