@@ -35,7 +35,7 @@
     }
 
     const mapLang = {
-        "English (recommended)": "en",
+        "English (original)": "en",
         "日本語": "jp",
         "Українська": "uk",
     } as const;

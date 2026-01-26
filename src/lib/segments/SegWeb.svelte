@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {currentLang, editbar, modal, hackeryAnimObserver} from "$lib/shared.svelte";
+    import {currentLang, editbar, modal, hackeryAnimObserver, t} from "$lib/shared.svelte";
     import RotatieCard from "$lib/RotatieCard.svelte";
     import EditorTools from "$lib/editing/EditorTools.svelte";
     import {onMount} from "svelte";
@@ -71,7 +71,7 @@
         <EditorTools seg={'web'} light={true}/>
         <div class="web-txt-cont">
             <h2 class="web-txt web-head-txt">Web /></h2>
-            <p bind:this={webTxtElem} class="web-txt web-desc-txt">Selected web projects I've built</p>
+            <p bind:this={webTxtElem} class="web-txt web-desc-txt">{t.web_text_selected()}</p>
         </div>
         {#each webProj as proj, i (proj.name)}
             <RotatieCard {proj} ix={i}/>

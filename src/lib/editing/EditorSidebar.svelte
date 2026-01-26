@@ -225,7 +225,7 @@
                 {#each Object.entries(projDetailsInQuestion) as [key, value] (key)}
                     <label>
                         {key}
-                        {#if key === 'long_desc' || key === 'langs'}
+                        {#if key.startsWith('long_desc') || key === 'langs'}
                                 <textarea bind:value={() => key === 'langs' ? typeof projDetailsInQuestion[key] === 'object' ? JSON.stringify(projDetailsInQuestion[key], null ,2) : projDetailsInQuestion[key] : projDetailsInQuestion[key],
                                          (v) => assignInnerProjectBindingsWithExceptions(v, key)}
                                           placeholder={value}></textarea>

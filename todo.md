@@ -59,3 +59,4 @@
 - [ ] todo semi-prod: linktree -> web sec animation
 - [ ] todo semi-prod: reduce linktree lag
 - [ ] todo semi-prod: settings (including sounds)
+- [ ] todo semi-prod: update screenie

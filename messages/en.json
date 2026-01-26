@@ -19,6 +19,7 @@
   "#s2": "/",
   "about_info_upper": "Hi, I’m Maksiks<br> I'm a full-stack developer and designer from Ukraine :flag_ua:",
 
+  "~about": "/",
   "#about lower": "parsed by prefix ! /",
   "about_l_info_1": "<b>Location:</b><br> Vinnytsia, Ukraine",
   "about_l_info_2": "<b>Loves:</b><br> Difficult games",
@@ -34,6 +35,7 @@
   "about_pfp_info": "<b>class:</b> wizard extraordinaire<br> <b>alignment:</b> chaotic evil<br> <b>elements:</b> glyphs, shadow, light<br><b>status effects:</b> sleepy",
 
   "#s3": "/",
+  "~chimes": "/",
   "chime_github_fold_github_display": "Github",
   "chime_github_fold_github_tooltip": "my Github",
   "chime_github_fold_commits_display": "",
@@ -110,5 +112,30 @@
   "chime_instagram_fold_followed_tooltip": "",
 
   "chime_lastfm_fold_lastfm_display": "last.fm",
-  "chime_lastfm_fold_lastfm_tooltip": "the music i listen to if you're curious i guess"
+  "chime_lastfm_fold_lastfm_tooltip": "the music i listen to if you're curious i guess",
+
+  "#s4": "/",
+  "web_text_selected": "Selected web projects I've built",
+
+  "~cards": "/",
+  "web_card_chaos_abyss_display": "chaos abyss",
+  "web_card_chaos_abyss_blurb": "a void of words",
+  "web_card_lit_wrld_q_display": "lit-wrld-q",
+  "web_card_lit_wrld_q_blurb": "competition winner",
+  "web_card_ceto_display": "ceto",
+  "web_card_ceto_blurb": "cheerfully mundane",
+  "web_card_this_display": "maksiks is\n a dev",
+  "web_card_this_blurb": "competition winner",
+  "web_card_swish_display": "swish",
+  "web_card_swish_blurb": "it sees your hands",
+  "web_card_wrem_display": "weird runic hex matrix",
+  "web_card_wrem_blurb": "yes it's called that",
+  "web_card_oh_thats_useful_display": "oh that's useful",
+  "web_card_oh_thats_useful_blurb": "tidy list of stuffs",
+
+  "~details": "/",
+  "#details_comment": "these are stored in the db for visual editing",
+  "web_modal_text_tech_used": "tech used:",
+  "web_modal_button_take_a_look": "take&nbsp;a&nbsp;look",
+  "web_modal_button_github": "github"
 }

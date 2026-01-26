@@ -13,6 +13,10 @@ const removeReassigned = (obj: Record<string, any>) => {
 const defaultSocialFlags = (obj: Record<string, any>) => {
     obj.tooltip_on = false;
 }
+// lazy :shrug:
+const deleteSocialProps = (obj: Record<string, any>) => {
+    // delete obj.n;
+}
 const defaultProjectDetailsFlags = (obj: Record<string, any>) => {
     obj.tooltip = false;
 }
@@ -39,6 +43,7 @@ export const actions = {
                 newObj[key] = key.startsWith('type_') ? value : convertSimpleDataTypesImplicitly(value);
             }
             defaultSocialFlags(newObj);
+            deleteSocialProps(newObj);
             folds.push(newObj);
         }
 

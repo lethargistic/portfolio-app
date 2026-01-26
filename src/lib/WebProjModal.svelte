@@ -5,7 +5,7 @@
         hackeryTextAnim,
         handleItemEdit,
         positionTooltip,
-        modal, deviceMin
+        modal, deviceMin, t, currentLang
     } from "$lib/shared.svelte";
     import Icon from "$lib/Icon.svelte";
     import {blur} from "svelte/transition";
@@ -34,9 +34,6 @@
 
     const rotateSelected = (forwards: boolean) => {
         let newIx = modal.selectedIx + (forwards ? 1 : -1);
-        console.log(modal.selectedIx)
-        console.log('nw', newIx)
-        console.log('allDt', allDetails)
 
         if (newIx >= allDetails.length) {
             newIx = 0;
@@ -62,12 +59,15 @@
     let hElem: HTMLElement | null = $state(null);
     let descElem: HTMLElement | null = $state(null);
 
+    let longDesc = $derived(details ? details[`long_desc_${currentLang.lang}`] : '');
+
+    let displayName = $derived(proj ? t[`web_card_${(proj.name).replaceAll('-', '_')}_display`]() : '');
     let cleanupH: (() => void) | null = null;
     let cleanupDesc: (() => void) | null = null;
     let isOpen = $derived(!!details && modal.open);
     $effect(() => {
         if (details) {
-            if (details.display_name && details.long_desc) {
+            if (displayName && longDesc) {
                 // reactivity
                 // TODO maybe: remake anim properly
                 // should have given it the state to edit instead of editing the elem's text content
@@ -80,8 +80,8 @@
                 if (cleanupDesc) cleanupDesc();
                 if (!descElem || !hElem) return;
 
-                cleanupH = hackeryTextAnim(hElem, 0.4, details.display_name);
-                cleanupDesc = hackeryTextAnim(descElem, 6, details.long_desc);
+                cleanupH = hackeryTextAnim(hElem, 0.4, displayName);
+                cleanupDesc = hackeryTextAnim(descElem, 6, longDesc);
             })
         }
     })
@@ -112,7 +112,7 @@
                     role="button"
                     tabindex="-1"
                     class={`info ${activeEditor.state === 'wb-inn-modifying' ? 'hover-focus-light' : ''}`}>
-                <h2 bind:this={hElem}>{details.display_name}</h2>
+                <h2 bind:this={hElem}>{displayName}</h2>
                 <div class="separator">
                     {#each [...Array(27).keys()] as i}
                         {#if i === 0}={/if}=/
@@ -121,7 +121,7 @@
                 <div class="info-props">
                     <p class="num">#{proj.read_num.toString().padStart(2, '0')}</p>
                     <ul class="langs">
-                        tech used:
+                        {t.web_modal_text_tech_used()}
                         {#each details.langs as lang}
                             <li class="web-info-prop"
                                 onpointerenter={() => lang.tooltip = true}
@@ -145,16 +145,16 @@
                         {/each}
                     </ul>
                 </div>
-                <p bind:this={descElem} class="desc">&nbsp;-> {details.long_desc}</p>
+                <p bind:this={descElem} class="desc">&nbsp;-> {longDesc}</p>
                 <div class="button-wrap">
                     {#if details.link}
                         <a href={details.link} class="cta cta-link" target="_blank">
-                            take&nbsp;a&nbsp;look
+                            {@html t.web_modal_button_take_a_look()}
                         </a>
                     {/if}
                     {#if details.link_github}
                         <a href={details.link_github} class="cta cta-github" target="_blank">
-                            github
+                            {t.web_modal_button_github()}
                         </a>
                     {/if}
                 </div>

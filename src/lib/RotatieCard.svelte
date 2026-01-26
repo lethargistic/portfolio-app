@@ -7,7 +7,7 @@
         handleItemEdit,
         handleItemHolding,
         handleItemLeaving,
-        handlePositioning, isHackeryAnimating, modal, pxToVh, pxToVw, vhToPx, vwToPx, windowGlobals
+        handlePositioning, isHackeryAnimating, modal, pxToVh, pxToVw, t, vhToPx, vwToPx, windowGlobals
     } from "$lib/shared.svelte";
     import {onMount, untrack} from "svelte";
     import {expoOut} from "svelte/easing";
@@ -199,15 +199,17 @@
         hackeryAnimObserver.observe(numElem);
     })
 
+    let displayName = $derived(t[`web_card_${(proj.name).replaceAll('-', '_')}_display`]());
+    let blurb = $derived(t[`web_card_${(proj.name).replaceAll('-', '_')}_blurb`]());
     $effect(() => {
         if (proj) {
-            if (proj.display_name && proj.blurb && proj.num_elem !== null) {
+            if (displayName && blurb && proj.num_elem !== null) {
                 untrack(() => {
                     if (!hElem || !blurbElem || !numElem) return;
                     if (!isHackeryAnimating(hElem)) {
-                        hackeryTextAnim(hElem, parseFloat(speeds.h_elem), proj.display_name)
+                        hackeryTextAnim(hElem, parseFloat(speeds.h_elem), displayName)
                     }
-                    if (!isHackeryAnimating(blurbElem)) hackeryTextAnim(blurbElem, parseFloat(speeds.blurb_elem), proj.blurb);
+                    if (!isHackeryAnimating(blurbElem)) hackeryTextAnim(blurbElem, parseFloat(speeds.blurb_elem), blurb);
                     if (!isHackeryAnimating(numElem)) hackeryTextAnim(numElem, parseFloat(speeds.num_elem), proj.read_num.toString().padStart(2, '0'));
                 })
             }
@@ -236,8 +238,8 @@
     {/if}
     {#if !(modal.open && selected)}
         <div transition:blur class="card-info">
-            <h3 bind:this={hElem}>{proj.display_name}</h3>
-            <p bind:this={blurbElem} class="blurb">{proj.blurb}</p>
+            <h3 bind:this={hElem}>{displayName}</h3>
+            <p bind:this={blurbElem} class="blurb">{blurb}</p>
             <div class="separator"></div>
             <p bind:this={numElem} class="num">{proj.read_num.toString().padStart(2, '0')}</p>
         </div>
