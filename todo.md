@@ -52,6 +52,7 @@
 - [ ] todo: language rack somewhere
 - [ ] fix eventually: fix mobile linktree
 - [ ] fix eventually: fix web seg shadows being weird on a real phone ; it's the dynamic elems but i can't figure out how exactly
+- [ ] fix eventually: rewrite the web seg projects in japanese with more detail when my jp is better
 
 - [x] todo semi-prod: responsive
 - [ ] todo semi-prod: translate everything

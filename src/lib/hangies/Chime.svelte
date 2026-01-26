@@ -9,7 +9,7 @@
         MAX_CHIME_FOLDS,
         MIN_CHIME_FOLDS,
         editbar,
-        handleItemEdit, handleItemHolding, handleItemLeaving, handlePositioning, deviceMin, vhToDvh, t
+        handleItemEdit, handleItemHolding, handleItemLeaving, handlePositioning, deviceMin, vhToDvh, t, currentLang
     } from "$lib/shared.svelte";
     import SVGThreeStars from "$lib/hangies/separators/separators/SVGThreeStars.svelte";
     import SVGStar from "$lib/hangies/separators/separators/SVGStar.svelte";
@@ -70,7 +70,7 @@
 
     const treeRopeSegments = 3;
     const treeRopeParticleCount = treeRopeSegments + 1;
-    const treeRopeLength = $derived(deviceMin.mobile ? social.mobile_tree_rope_length*0.75 : social.tree_rope_length);
+    const treeRopeLength = $derived(deviceMin.mobile ? social.mobile_tree_rope_length * 0.75 : social.tree_rope_length);
 
 
     const separatorSegments = 2;
@@ -586,7 +586,6 @@
                                   height={iconSize} currentColor={'#111111'}/>
                         {/if}
                         <p class={`${fold.centered ? 'stat-fold-display-centered' : ''}`}>
-
                             <svelte:boundary>
                                 {@html t[display]() ? t[display]() : fold.slug}
                                 {#snippet failed(error, reset)}
@@ -630,6 +629,10 @@
     :global(.stat-fold > a > .factory-icon > svg) {
         grid-row: span 2;
         aspect-ratio: 1 / 1;
+    }
+
+    .vertical {
+        writing-mode: vertical-rl;
     }
 
     .chime-canvas {
