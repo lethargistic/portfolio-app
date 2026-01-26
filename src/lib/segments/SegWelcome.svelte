@@ -1,15 +1,14 @@
 <script lang="ts">
-    import {m} from "../paraglide/messages.js"
     import {getLocale, setLocale} from "$lib/paraglide/runtime";
     import {Spring, Tween} from "svelte/motion";
     import {cubicOut, cubicInOut, cubicIn} from "svelte/easing";
-    import {currentLang, deviceMin, fiend, settings} from "$lib/shared.svelte";
+    import {currentLang, deviceMin, fiend, settings, t} from "$lib/shared.svelte";
     import {scale} from "svelte/transition"
 
     let seeLang = $state(false);
     let seeSettings = $state(false);
 
-    const languages = ["English", "日本語", "Українська"];
+    const languages = ["English (original)", "日本語", "Українська"];
     let langButton: HTMLElement | null = $state(null);
     let settingsButton: HTMLElement | null = $state(null);
     let langSelectors: HTMLElement | null = $state(null);
@@ -36,7 +35,7 @@
     }
 
     const mapLang = {
-        "English": "en",
+        "English (recommended)": "en",
         "日本語": "jp",
         "Українська": "uk",
     } as const;
@@ -136,11 +135,11 @@
                                             <input id={key} name={key} type="checkbox"
                                                    bind:checked={settings[key].state}/>
                                         </div>
-                                        <p>{value.display}</p>
+                                        <p>{t[value.display]()}</p>
                                         {#if key === 'extendedLinktree' && deviceMin.mobile}
                                             <p class="note">Note: may lag on mobile</p>
                                         {/if}
-                                        <small>{@html value.desc}</small>
+                                        <small>{@html t[value.desc]()}</small>
                                     </label>
                                 </li>
                             {/if}
@@ -185,7 +184,7 @@
              class="floatie floatie-maksiks" onmousedown={() => {hold(floatieMaksiksCoords)}} onmouseup={unHold}
              onmouseout={unHold} onblur={unHold} tabindex="0" role="button"
              aria-label="header text that runs away">
-            <h1>{m.welcome_button_maksiks()}</h1>
+            <h1>{t.welcome_button_maksiks()}</h1>
         </div>
 
         <!--TODO: maybe think up something better-->
@@ -198,7 +197,7 @@
              tabindex="0"
              class="floatie floatie-is" bind:this={floatieIs} role="button"
              aria-label="floatie is">
-            <h2>{m.welcome_button_is()}</h2>
+            <h2>{t.welcome_button_is()}</h2>
         </div>
     </section>
 

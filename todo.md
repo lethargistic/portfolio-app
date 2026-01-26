@@ -45,7 +45,7 @@
 - [ ] todo very high: add one or another kind of bg/diffuser to web dev sec
 - [ ] todo maybe: investigate dev browser having slower animations
 - [ ] todo: case study cursor
-- [ ] todo: hackery text animation ; mmm hackery that's like witchery
+- [x] todo: hackery text animation ; mmm hackery that's like witchery
 - [ ] todo: loading states for imgs
 - [ ] todo maybe: more anims for web seg, the button for example
 - [ ] todo maybe: web seg sites unfold into photo reel rather than just one pic
@@ -53,8 +53,9 @@
 - [ ] fix eventually: fix mobile linktree
 - [ ] fix eventually: fix web seg shadows being weird on a real phone ; it's the dynamic elems but i can't figure out how exactly
 
-- [ ] todo semi-prod: responsive
+- [x] todo semi-prod: responsive
 - [ ] todo semi-prod: translate everything
 - [ ] todo semi-prod: little end bit
 - [ ] todo semi-prod: linktree -> web sec animation
+- [ ] todo semi-prod: reduce linktree lag
 - [ ] todo semi-prod: settings (including sounds)

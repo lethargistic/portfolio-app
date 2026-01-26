@@ -9,7 +9,7 @@
         MAX_CHIME_FOLDS,
         MIN_CHIME_FOLDS,
         editbar,
-        handleItemEdit, handleItemHolding, handleItemLeaving, handlePositioning, deviceMin, vhToDvh
+        handleItemEdit, handleItemHolding, handleItemLeaving, handlePositioning, deviceMin, vhToDvh, t
     } from "$lib/shared.svelte";
     import SVGThreeStars from "$lib/hangies/separators/separators/SVGThreeStars.svelte";
     import SVGStar from "$lib/hangies/separators/separators/SVGStar.svelte";
@@ -561,6 +561,7 @@
             {#if !fold.slug.startsWith('hide_')}
                 {@const left = fold.left}
                 {@const iconSize = chimeMaxHeight / (DEFAULT_CHIME_SIZE_VH / BASE_ICON_SIZE_PX)}
+                {@const display = `chime_${social.name}_fold_${fold.slug}_display`.replace('-', '_')}
                 <div class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
                      style={`width: ${chimeGroupWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;
                         --title-font-size: ${chimeMaxHeight/(DEFAULT_CHIME_SIZE_VH/BASE_FONT_SIZE_REM)}rem`}>
@@ -584,7 +585,16 @@
                             <Icon name={fold.icon} width={iconSize}
                                   height={iconSize} currentColor={'#111111'}/>
                         {/if}
-                        <p class={`${fold.centered ? 'stat-fold-display-centered' : ''}`}>{@html fold.display_override ?? fold.slug}</p>
+                        <p class={`${fold.centered ? 'stat-fold-display-centered' : ''}`}>
+
+                            <svelte:boundary>
+                                {@html t[display]() ? t[display]() : fold.slug}
+                                {#snippet failed(error, reset)}
+                                    <p>maksiks is a stupid aho and made a typo please report this to me thank you</p>
+                                    <p>{error}</p>
+                                {/snippet}
+                            </svelte:boundary>
+                        </p>
                         <p class={`stat-fold-state ${fold.centered ? 'stat-fold-state-centered' : ''} ${fold.thick ? 'stat-fold-thick' : ''}`}>{fold.preface}{fold.state}{fold.postface}</p>
                     </a>
                 </div>

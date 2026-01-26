@@ -1,5 +1,8 @@
 import {computePosition, flip, shift} from "@floating-ui/dom";
 import {browser} from "$app/environment";
+import {m} from "./paraglide/messages.js"
+
+export const t = m as Record<string, () => string>;
 
 export let currentLang = $state({lang: "en"});
 
@@ -13,32 +16,32 @@ export let deviceMin = $state({
 
 export let settings: Record<string, { display: string, desc: string, state: boolean, admin: boolean }> = $state({
     sounds: {
-        display: 'sounds',
-        desc: 'You found the settings! Just as planned. <br>Enable if you can, this setting is recommended.',
+        display: 'settings_sounds_display',
+        desc: 'settings_sounds_desc',
         state: false,
         admin: false
     },
     noFlashing: {
-        display: 'remove flashing',
-        desc: 'Disables optical illusions & flashing effects.<br> You may enable to help prevent seizures.',
+        display: 'settings_remove_flashing_display',
+        desc: 'settings_remove_flashing_desc',
         state: false,
         admin: false
     },
     extendedLinktree: {
-        display: 'extended linktree',
-        desc: 'Shows the cursed socials in the linktree section. Dare to look? Actually, don\'t, they\'re boring. ',
+        display: 'settings_extended_linktree_display',
+        desc: 'settings_extended_linktree_desc',
         state: false,
         admin: false
     },
     performance: {
-        display: 'performance',
-        desc: 'Reduces chunkier animations if your device is a professional gaming potato. ',
+        display: 'settings_performance_display',
+        desc: 'settings_performance_desc',
         state: false,
         admin: false
     },
     editor: {
-        display: 'editor mode',
-        desc: 'The geese give you the pen admiring your sheer presence.',
+        display: 'settings_editor_mode_display',
+        desc: 'settings_editor_mode_desc',
         state: false,
         admin: true
     },

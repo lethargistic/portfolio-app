@@ -1,9 +1,20 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-
   "#s1": "/",
   "welcome_button_maksiks": "Maksiks",
   "welcome_button_is": "is a dev",
+
+  "~settings": "/",
+  "settings_sounds_display": "sounds",
+  "settings_sounds_desc": "You found the settings! Just as planned. <br>Enable if you can, this setting is recommended.",
+  "settings_remove_flashing_display": "remove flashing",
+  "settings_remove_flashing_desc": "Disables optical illusions & flashing effects.<br> You may enable to help prevent seizures.",
+  "settings_extended_linktree_display": "extended linktree",
+  "settings_extended_linktree_desc": "Shows the cursed socials in the linktree section. Dare to look? Actually, don't, they're boring. ",
+  "settings_performance_display": "performance",
+  "settings_performance_desc": "Reduces chunkier animations if your device is a professional gaming potato. ",
+  "settings_editor_mode_display": "editor mode",
+  "settings_editor_mode_desc": "The geese give you the pen admiring your sheer presence.",
 
   "#s2": "/",
   "about_info_upper": "Hi, I’m Maksiks<br> I'm a full-stack developer and designer from Ukraine :flag_ua:",
@@ -19,8 +30,85 @@
   "about_l_info_8": "<b>Random:</b><br>Ask me about the Gandalf incident",
   "about_l_info_9": "<b>Lifeline:</b><br> Coffee/Tea",
   "about_l_info_10": "<b>Spell:</b><br> I cast: - a little shadow with my hat!",
-
   "about_pfp_hp": "maksiks | hp: 85% | mana: 15%",
   "about_pfp_info": "<b>class:</b> wizard extraordinaire<br> <b>alignment:</b> chaotic evil<br> <b>elements:</b> glyphs, shadow, light<br><b>status effects:</b> sleepy",
 
-  "#s3n4": "# not yet sure if i want to make it in db or in code, kinda got to go in code anyway if i want to update something magorly, usually"}
+  "#s3": "/",
+  "chime_github_fold_github_display": "Github",
+  "chime_github_fold_github_tooltip": "my Github",
+  "chime_github_fold_commits_display": "",
+  "chime_github_fold_commits_tooltip": "total commits made over the years",
+  "chime_github_fold_followed_display": "",
+  "chime_github_fold_followed_tooltip": "",
+  "chime_github_fold_repos_display": "",
+  "chime_github_fold_repos_tooltip": "total public repository count, <br> there's a bunch of private ones as well",
+  "chime_github_fold_stars_display": "",
+  "chime_github_fold_stars_tooltip": "total stars on all of my public repos",
+
+  "chime_chaos_abyss_fold_chaos_abyss_display": "Chaos",
+  "chime_chaos_abyss_fold_chaos_abyss_tooltip": "my personal blog, check it out!",
+  "chime_chaos_abyss_fold_last_post_display": "last&nbsp;post",
+  "chime_chaos_abyss_fold_last_post_tooltip": "",
+  "chime_chaos_abyss_fold_words_display": "",
+  "chime_chaos_abyss_fold_words_tooltip": "total words written in all articles on the site",
+  "chime_chaos_abyss_fold_articles_display": "",
+  "chime_chaos_abyss_fold_articles_tooltip": "",
+
+  "chime_hackatime_fold_hackatime_display": "Hackatime",
+  "chime_hackatime_fold_hackatime_tooltip": "Wakatime fork, coding time tracking software",
+  "chime_hackatime_fold_time_display": "coding&nbsp;&nbsp;&nbsp;",
+  "chime_hackatime_fold_time_tooltip": "total coding time since I installed Hackatime (summer 2025),<br> there's a lot of unaccounted time before I installed it too",
+  "chime_hackatime_fold_second_top_lang_display": "Typescript",
+  "chime_hackatime_fold_second_top_lang_tooltip": "",
+  "chime_hackatime_fold_top_lang_display": "Svelte&nbsp;&nbsp;&nbsp;&nbsp;",
+  "chime_hackatime_fold_top_lang_tooltip": "",
+
+  "chime_bluesky_fold_bluesky_display": "Bluesky",
+  "chime_bluesky_fold_bluesky_tooltip": "my Bluesky, @maksiks.bsky.social",
+  "chime_bluesky_fold_followed_display": "",
+  "chime_bluesky_fold_followed_tooltip": "",
+  "chime_bluesky_fold_posts_display": "",
+  "chime_bluesky_fold_posts_tooltip": "total posts, including replies and et cetera",
+  "chime_bluesky_fold_likes_display": "",
+  "chime_bluesky_fold_likes_tooltip": "total likes on all of my posts",
+
+  "chime_contact_fold_email_display": "",
+  "chime_contact_fold_email_tooltip": "click to mail (maksiks.touch@gmail.com)",
+  "chime_contact_fold_discord_display": "Discord",
+  "chime_contact_fold_discord_tooltip": "click to copy",
+  "chime_contact_fold_alternatively_display": "or (hover)",
+  "chime_contact_fold_alternatively_tooltip": "carrier pigeon (ask for Jeff)",
+  "chime_contact_fold_bluesky_display": "Bluesky",
+  "chime_contact_fold_bluesky_tooltip": "you can contact me via Bluesky dms as well,<br> tho email/discord is more appreciated",
+
+  "chime_npm_fold_npm_display": "",
+  "chime_npm_fold_npm_tooltip": "my npm packages",
+  "chime_npm_fold_packages_display": "",
+  "chime_npm_fold_packages_tooltip": "",
+
+  "chime_stack_overflow_fold_stack_overflow_display": "Stack",
+  "chime_stack_overflow_fold_stack_overflow_tooltip": "my Stack Overflow",
+  "chime_stack_overflow_fold_reputation_display": "rep",
+  "chime_stack_overflow_fold_reputation_tooltip": "",
+
+  "chime_youtube_fold_youtube_display": "Youtube",
+  "chime_youtube_fold_youtube_tooltip": "my Youtube",
+  "chime_youtube_fold_subscribers_display": "subs",
+  "chime_youtube_fold_subscribers_tooltip": "",
+
+  "chime_twitter_fold_twitter_display": "Twitter",
+  "chime_twitter_fold_twitter_tooltip": "my Twitter/X",
+
+  "chime_gitlab_fold_gitlab_display": "Gitlab",
+  "chime_gitlab_fold_gitlab_tooltip": "my Gitlab",
+  "chime_gitlab_fold_joined_display": "joined&nbsp;&nbsp;&nbsp;&nbsp;",
+  "chime_gitlab_fold_joined_tooltip": "",
+
+  "chime_instagram_fold_instagram_display": "Instagram",
+  "chime_instagram_fold_instagram_tooltip": "hail my majestic beard (or lack there of)",
+  "chime_instagram_fold_followed_display": "",
+  "chime_instagram_fold_followed_tooltip": "",
+
+  "chime_lastfm_fold_lastfm_display": "last.fm",
+  "chime_lastfm_fold_lastfm_tooltip": "the music i listen to if you're curious i guess"
+}

@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: web seg responsive, once again a bit of real-phone jank rip">
-      <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: borken tablet by wrong media query + fix: nit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/uk.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/uk.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,15 +274,17 @@
       <workItem from="1769274844096" duration="55000" />
       <workItem from="1769279205050" duration="6827000" />
       <workItem from="1769326753393" duration="11680000" />
-      <workItem from="1769345985475" duration="18995000" />
-    </task>
-    <task id="LOCAL-00100" summary="chore: more card tweaks x3">
-      <option name="closed" value="true" />
-      <created>1768842851753</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1768842851753</updated>
+      <workItem from="1769345985475" duration="19615000" />
+      <workItem from="1769413344507" duration="393000" />
+      <workItem from="1769413801849" duration="330000" />
+      <workItem from="1769414210749" duration="505000" />
+      <workItem from="1769415021071" duration="452000" />
+      <workItem from="1769415518974" duration="150000" />
+      <workItem from="1769415687285" duration="1335000" />
+      <workItem from="1769420028372" duration="80000" />
+      <workItem from="1769420141132" duration="322000" />
+      <workItem from="1769420488542" duration="79000" />
+      <workItem from="1769420587995" duration="7257000" />
     </task>
     <task id="LOCAL-00101" summary="chore: project cards in the db">
       <option name="closed" value="true" />
@@ -661,7 +670,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769367703179</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <task id="LOCAL-00149" summary="fix: borken tablet by wrong media query + fix: nit">
+      <option name="closed" value="true" />
+      <created>1769368086548</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1769368086548</updated>
+    </task>
+    <option name="localTasksCounter" value="150" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -687,7 +704,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: db posting for inner projects" />
     <MESSAGE value="chore: visit button" />
     <MESSAGE value="chore: tooltips and ui tweaks" />
     <MESSAGE value="chore: tooltips and ui tweaks + fix: rotatie math was wrong" />
@@ -712,6 +728,7 @@
     <MESSAGE value="chore: about seg responsive" />
     <MESSAGE value="chore: ok this one was really fun, tho it's kinda wonky on a real phone" />
     <MESSAGE value="chore: web seg responsive, once again a bit of real-phone jank rip" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: web seg responsive, once again a bit of real-phone jank rip" />
+    <MESSAGE value="fix: borken tablet by wrong media query + fix: nit" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: borken tablet by wrong media query + fix: nit" />
   </component>
 </project>

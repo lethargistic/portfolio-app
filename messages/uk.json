@@ -1,6 +1,7 @@
 {
-	"$schema": "https://inlang.com/schema/inlang-message-format",
-
-	"welcome_button_maksiks": "Maksiks",
-	"welcome_button_is": "- це розробник"
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "welcome_button_maksiks": "Maksiks",
+  "welcome_button_is": "- це розробник",
+  "chime_lastfm_fold_lastfm_display": "пирдоля",
+  "chime_lastfm_fold_lastfm_tooltip": "пирдоля"
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {currentLang, deviceMin, editbar, MAX_CHIME_FOLDS, settings} from "$lib/shared.svelte";
+    import {currentLang, deviceMin, editbar, MAX_CHIME_FOLDS, settings, t} from "$lib/shared.svelte";
 
     import {onMount} from "svelte";
     import Chime from "$lib/hangies/Chime.svelte";
@@ -133,13 +133,14 @@
 
                     <!-- tooltips -->
                     {#each social.folds as fold, j (fold.slug + j)}
-                        {#if fold.tooltip_on && fold.tooltip_text !== ''}
+                        {@const text_key = `chime_${social.name}_fold_${fold.slug}_tooltip`.replace('-', '_')}
+                        {#if fold.tooltip_on && t[text_key]() !== ''}
                             <!-- jetbrains fix when -->
                             <!--suppress ALL-->
                             <div {@attach positionTooltip(foldStatElems[i][j].elem)}
                                  class="tooltip" role="tooltip">
                                 <div>
-                                    {@html foldTooltipOverride ? foldTooltipOverride : (fold.tooltip_text ? fold.tooltip_text : '')}
+                                    {@html foldTooltipOverride ? foldTooltipOverride : (t[text_key]() ? t[text_key]() : '')}
                                 </div>
                             </div>
                         {/if}
