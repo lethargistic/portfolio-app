@@ -7,6 +7,9 @@
     import EditorTools from "$lib/editing/EditorTools.svelte";
 
     const blurbs = $derived.by(() => {
+        if (currentLang.lang) {
+            // reactivity
+        }
         return Object.keys(m)
             .filter(key => key.startsWith("about_l_"))
             .sort((a, b) => a.localeCompare(b, undefined, {numeric: true}))
