@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: Ukrainian translation (мова чату гуцульська вчіци трохи людськості якої туво) + fix: jp was missing some linktree labels + fix: typo check">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/messages/jp.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/jp.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/messages/uk.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/uk.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,15 +280,7 @@
       <workItem from="1769420141132" duration="322000" />
       <workItem from="1769420488542" duration="79000" />
       <workItem from="1769420587995" duration="31968000" />
-      <workItem from="1769525990520" duration="12606000" />
-    </task>
-    <task id="LOCAL-00105" summary="feat: web project editing locally">
-      <option name="closed" value="true" />
-      <created>1768899493398</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1768899493398</updated>
+      <workItem from="1769525990520" duration="12968000" />
     </task>
     <task id="LOCAL-00106" summary="refactor: cleaning + feat: adding, deleting web projects">
       <option name="closed" value="true" />
@@ -678,7 +666,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769526731773</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="chore: Ukrainian translation (мова чату гуцульська вчіци трохи людськості якої туво) + fix: jp was missing some linktree labels + fix: typo check">
+      <option name="closed" value="true" />
+      <created>1769543863467</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1769543863469</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

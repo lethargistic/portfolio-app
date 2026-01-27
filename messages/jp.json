@@ -63,10 +63,13 @@
   "chime_hackatime_fold_hackatime_tooltip": "Wakatimeフォーク, コーディング時間追跡ソフト",
   "chime_hackatime_fold_time_display": "総時間&nbsp;&nbsp;&nbsp;",
   "chime_hackatime_fold_time_tooltip": "Hackatimeをインストールした頃(2025年夏)からの総コーディング時間<br> インストール前にも結構書いてたけどね",
+  "chime_hackatime_fold_time_postface": "時",
   "chime_hackatime_fold_second_top_lang_display": "Typescript",
   "chime_hackatime_fold_second_top_lang_tooltip": "",
+  "chime_hackatime_fold_second_top_lang_postface": "時",
   "chime_hackatime_fold_top_lang_display": "Svelte&nbsp;&nbsp;&nbsp;&nbsp;",
   "chime_hackatime_fold_top_lang_tooltip": "",
+  "chime_hackatime_fold_top_lang_postface": "時",
 
   "chime_bluesky_fold_bluesky_display": "Bluesky",
   "chime_bluesky_fold_bluesky_tooltip": "私のBluesky, @maksiks.bsky.social",
