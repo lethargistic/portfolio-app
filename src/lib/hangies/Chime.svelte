@@ -478,7 +478,7 @@
         if (fold_link?.startsWith('copy_')) {
             const toCopy = fold_link.replace('copy_', '');
             navigator.clipboard.writeText(toCopy);
-            foldTooltipOverride = `Copied: "${toCopy}!"`;
+            foldTooltipOverride = `${t.linktree_copy_text()}"${toCopy}!"`;
 
             setTimeout(() => {
                 foldTooltipOverride = null;
@@ -562,9 +562,11 @@
                 {@const left = fold.left}
                 {@const iconSize = chimeMaxHeight / (DEFAULT_CHIME_SIZE_VH / BASE_ICON_SIZE_PX)}
                 {@const display = `chime_${social.name}_fold_${fold.slug}_display`.replace('-', '_')}
+                {@const preface = `chime_${social.name}_fold_${fold.slug}_preface`.replace('-', '_')}
+                {@const postface = `chime_${social.name}_fold_${fold.slug}_postface`.replace('-', '_')}
                 <div class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
                      style={`width: ${chimeGroupWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;
-                        --title-font-size: ${chimeMaxHeight/(DEFAULT_CHIME_SIZE_VH/BASE_FONT_SIZE_REM)}rem`}>
+                        --title-font-size: ${chimeMaxHeight/(DEFAULT_CHIME_SIZE_VH/BASE_FONT_SIZE_REM)-(currentLang.lang === 'jp' ? 0.1 : 0)}rem`}>
                     <!-- It is definitely reactive, there is definitely a better way -->
                     <!-- to do this than what i did tho-->
                     <!-- it's been 8 hours have mercy on my poor soul -->
@@ -594,7 +596,8 @@
                                 {/snippet}
                             </svelte:boundary>
                         </p>
-                        <p class={`stat-fold-state ${fold.centered ? 'stat-fold-state-centered' : ''} ${fold.thick ? 'stat-fold-thick' : ''}`}>{fold.preface}{fold.state}{fold.postface}</p>
+                        <p class={`stat-fold-state ${fold.centered ? 'stat-fold-state-centered' : ''} ${fold.thick ? 'stat-fold-thick' : ''}`}>
+                            {t[preface] !== undefined ? t[preface]() : fold.preface}{fold.state}{t[postface] !== undefined ? t[postface]() : fold.postface}</p>
                     </a>
                 </div>
             {/if}

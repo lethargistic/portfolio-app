@@ -36,6 +36,8 @@
   "about_pfp_info": "<b>class:</b> wizard extraordinaire<br> <b>alignment:</b> chaotic evil<br> <b>elements:</b> glyphs, shadow, light<br><b>status effects:</b> sleepy",
 
   "#s3": "/",
+  "linktree_copy_text": "Copied: ",
+
   "~chimes": "/",
   "chime_github_fold_github_display": "Github",
   "chime_github_fold_github_tooltip": "my Github",
@@ -108,7 +110,7 @@
   "chime_gitlab_fold_joined_tooltip": "",
 
   "chime_instagram_fold_instagram_display": "Instagram",
-  "chime_instagram_fold_instagram_tooltip": "hail my majestic beard (or lack there of)",
+  "chime_instagram_fold_instagram_tooltip": "hail my majestic beard (or lack thereof)",
   "chime_instagram_fold_followed_display": "",
   "chime_instagram_fold_followed_tooltip": "",
 
@@ -116,7 +118,7 @@
   "chime_lastfm_fold_lastfm_tooltip": "the music i listen to if you're curious i guess",
 
   "#s4": "/",
-  "web_text_selected": "Selected web projects I've built",
+  "web_text_selected": "selected web projects I've built",
 
   "~cards": "/",
   "web_card_chaos_abyss_display": "chaos abyss",

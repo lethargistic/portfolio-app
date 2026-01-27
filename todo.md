@@ -55,7 +55,7 @@
 - [ ] fix eventually: rewrite the web seg projects in japanese with more detail when my jp is better
 
 - [x] todo semi-prod: responsive
-- [ ] todo semi-prod: translate everything
+- [x] todo semi-prod: translate everything
 - [ ] todo semi-prod: little end bit
 - [ ] todo semi-prod: linktree -> web sec animation
 - [ ] todo semi-prod: reduce linktree lag
