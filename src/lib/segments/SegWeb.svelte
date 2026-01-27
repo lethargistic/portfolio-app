@@ -101,6 +101,9 @@
 
                 gap: 12vh;
             }
+            @media (max-width: 400px) {
+                height: 320vh;
+            }
 
             & *::selection {
                 color: black;

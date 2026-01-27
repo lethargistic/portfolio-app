@@ -61,3 +61,4 @@
 - [ ] todo semi-prod: reduce linktree lag
 - [ ] todo semi-prod: settings (including sounds)
 - [ ] todo semi-prod: update screenie
+- [ ] todo semi-prod: error page i suppose

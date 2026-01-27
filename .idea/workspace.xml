@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: Ukrainian translation (мова чату гуцульська вчіци трохи людськості якої туво) + fix: jp was missing some linktree labels + fix: typo check">
-      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/jp.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/jp.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/uk.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/uk.json" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: fold translations have borken">
+      <change afterPath="$PROJECT_DIR$/src/lib/segments/SegFooter.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +34,7 @@
         <option value="RotatieCard" />
         <option value="+page.svelte" />
         <option value="WebProjModl" />
+        <option value="SegFooter" />
       </list>
     </option>
   </component>
@@ -280,15 +283,8 @@
       <workItem from="1769420141132" duration="322000" />
       <workItem from="1769420488542" duration="79000" />
       <workItem from="1769420587995" duration="31968000" />
-      <workItem from="1769525990520" duration="12968000" />
-    </task>
-    <task id="LOCAL-00106" summary="refactor: cleaning + feat: adding, deleting web projects">
-      <option name="closed" value="true" />
-      <created>1768906627629</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1768906627629</updated>
+      <workItem from="1769525990520" duration="13721000" />
+      <workItem from="1769548102317" duration="1579000" />
     </task>
     <task id="LOCAL-00107" summary="feat: shmooving web projects">
       <option name="closed" value="true" />
@@ -674,7 +670,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769543863469</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="fix: fold translations have borken">
+      <option name="closed" value="true" />
+      <created>1769544454062</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1769544454062</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -700,7 +704,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: no longer scrolling if close by, it feels a bit like a lag" />
     <MESSAGE value="feat: sick text anim" />
     <MESSAGE value="fix: text anim was eating text" />
     <MESSAGE value="chore: added anim to other text bits" />
@@ -725,6 +728,7 @@
     <MESSAGE value="chore: translated everything to japanese, oh my god am i tried" />
     <MESSAGE value="fix: about bits did not update correctly on lang change" />
     <MESSAGE value="chore: Ukrainian translation (мова чату гуцульська вчіци трохи людськості якої туво) + fix: jp was missing some linktree labels + fix: typo check" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: Ukrainian translation (мова чату гуцульська вчіци трохи людськості якої туво) + fix: jp was missing some linktree labels + fix: typo check" />
+    <MESSAGE value="fix: fold translations have borken" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: fold translations have borken" />
   </component>
 </project>

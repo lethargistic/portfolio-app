@@ -10,6 +10,7 @@
     import {isEmptyArr} from "$lib/utils/utils";
     import {getLocale} from "$lib/paraglide/runtime";
     import {onMount} from "svelte";
+    import SegFooter from "$lib/segments/SegFooter.svelte";
 
     let {form, data} = $props();
 
@@ -107,10 +108,11 @@
     <SegAbout/>
     <SegLinktree socials={data.socials}/>
     <SegWeb webProj={data.web_projects} webProjDetails={data.web_projects_details}/>
+    <SegFooter/>
 </main>
-{#each Array.from({length: 100}) as _, i }
-    <p>{i}</p>
-{/each}
+<!--{#each Array.from({length: 100}) as _, i }-->
+<!--    <p>{i}</p>-->
+<!--{/each}-->
 
 <style>
     .editing {
