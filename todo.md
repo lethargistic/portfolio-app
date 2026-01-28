@@ -7,23 +7,25 @@
 - [ ] todo maybe: status effect and mana changes based on time of day
 - [ ] todo maybe: maybe make status scale in
 - [ ] todo maybe: ambient sounds
-- [ ] todo maybe: afterfx background for s2, trains passing by into portals or something 
+- [ ] todo maybe: afterfx background for s2, trains passing by into portals or something
 - [ ] todo maybe: maybe let the user catch the train
-- [ ] todo maybe: clicks for sounds? 
+- [ ] todo maybe: clicks for sounds?
 - [ ] todo maybe: train pushes mouse?
 - [ ] todo: DO NOT OVERDO IT
 - [ ] todo: take your time
 - [ ] fix: train and track artstyle inconsistency
-- [ ] todo fun pain: make the two branches separate in space (and not cover up the tree) 
+- [ ] todo fun pain: make the two branches separate in space (and not cover up the tree)
 - [ ] todo very fun: make one of the blurred hangies cover up a part of the tree because the colors just look too good
-- [ ] todo very: make the tree hangie section have #link-tree so i can link it, cause it's a literal link tree get it? (help)
+- [ ] todo very: make the tree hangie section have #link-tree so i can link it, cause it's a literal link tree get it? (
+  help)
 - [ ] todo high: amethyst sounds
 - [x] todo high: everything must have a little pencil near it so i can change whatever i want if im logged in
 - [ ] todo maybe: rain on the stats page?
 - [ ] todo maybe: leaf particles
 - [ ] todo maybe: memorize the stat values in the db in case the enemy api dies ; enemy??? sure caffeine hallucinations
 - [ ] todo maybe: multiple things hanging off the base of the hangie
-- [ ] todo maybe: make client ask for social values if fail (kinda whatever since there are definitely not 5000 people per hour visiting my lil site)
+- [ ] todo maybe: make client ask for social values if fail (kinda whatever since there are definitely not 5000 people
+  per hour visiting my lil site)
 - [x] fix very: random scroll snap in about???
 - [ ] todo maybe: flip icon color on selection in chimes
 - [ ] todo maybe: occasionally stronger wind
@@ -31,7 +33,8 @@
 - [ ] todo high: you have unposted changes!
 - [ ] todo high: implement all the settings
 - [ ] todo high: sounds off toast due to chrome policy if you relog
-- [ ] todo: replace moon thing with a less intrusive version of illusion (accessibility option should not provide new content)
+- [ ] todo: replace moon thing with a less intrusive version of illusion (accessibility option should not provide new
+  content)
 - [x] todo high: svg sprite sheet for icons, there's way too many
 - [ ] todo maybe: replace title with a proper tooltip in folds
 - [ ] todo maybe: add more to hackatime section
@@ -51,14 +54,21 @@
 - [ ] todo maybe: web seg sites unfold into photo reel rather than just one pic
 - [ ] todo: language rack somewhere
 - [ ] fix eventually: fix mobile linktree
-- [ ] fix eventually: fix web seg shadows being weird on a real phone ; it's the dynamic elems but i can't figure out how exactly
+- [ ] fix eventually: fix web seg shadows being weird on a real phone ; it's the dynamic elems but i can't figure out
+  how exactly
 - [ ] fix eventually: rewrite the web seg projects in japanese with more detail when my jp is better
 
 - [x] todo semi-prod: responsive
 - [x] todo semi-prod: translate everything
-- [ ] todo semi-prod: little end bit
+- [x] todo semi-prod: little end bit
 - [ ] todo semi-prod: linktree -> web sec animation
-- [ ] todo semi-prod: reduce linktree lag
+- [x] todo semi-prod: reduce linktree lag
+  ; from my testing the lags i often observe are purely from hmr refreshes spawning too much of something so not an
+  issue for a normal user except on phone, there maybe the limit of webgl contexts is lower? either way some chimes just
+  die or dont render there, it's not lag per se. so nothing to fix here, plus doesn't lag on my mom's igpu so it's good
+  to go probably
+- [ ] todo semi-prod: inconsistent annoying layout shift caused by chimes supposedly, possible css rather than js issue?
 - [ ] todo semi-prod: settings (including sounds)
-- [ ] todo semi-prod: update screenie
-- [ ] todo semi-prod: error page i suppose
+- [x] todo semi-prod: update this screenie
+- [ ] todo semi-prod: error page
+- [ ] todo semi-prod: diplomas
