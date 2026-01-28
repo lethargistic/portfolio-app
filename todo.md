@@ -57,6 +57,8 @@
 - [ ] fix eventually: fix web seg shadows being weird on a real phone ; it's the dynamic elems but i can't figure out
   how exactly
 - [ ] fix eventually: rewrite the web seg projects in japanese with more detail when my jp is better
+- [ ] fix eventually: improve linktree performance
+- [ ] fix eventually: minor layout shift due to anim expanding if you scroll into web seg too fast (particularly on phone)
 
 - [x] todo semi-prod: responsive
 - [x] todo semi-prod: translate everything
@@ -66,9 +68,11 @@
   ; from my testing the lags i often observe are purely from hmr refreshes spawning too much of something so not an
   issue for a normal user except on phone, there maybe the limit of webgl contexts is lower? either way some chimes just
   die or dont render there, it's not lag per se. so nothing to fix here, plus doesn't lag on my mom's igpu so it's good
-  to go probably
-- [ ] todo semi-prod: inconsistent annoying layout shift caused by chimes supposedly, possible css rather than js issue?
+  to go probably ; it does still kinda lag on entry when extended tho so improve perf anyway
+- [x] todo semi-prod: inconsistent annoying layout shift caused by chimes supposedly, possible css rather than js
+  issue? ; can't for the god of me replicate this in prod which could be a bad thing, or a good thing
 - [ ] todo semi-prod: settings (including sounds)
 - [x] todo semi-prod: update this screenie
+- [x] todo semi-prod: center chimes for 100% and 150% zoom
 - [ ] todo semi-prod: error page
 - [ ] todo semi-prod: diplomas

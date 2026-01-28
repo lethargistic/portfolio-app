@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fixes: from the pat yes">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: oh damn devtools had a screenshot feature all this time, then why did i make that really cool script">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/web-thumbnails/small/this.webp" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/web-thumbnails/small/this.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/web-thumbnails/this.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/web-thumbnails/this.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -284,15 +286,8 @@
       <workItem from="1769420587995" duration="31968000" />
       <workItem from="1769525990520" duration="13721000" />
       <workItem from="1769548102317" duration="1870000" />
-      <workItem from="1769590623188" duration="2609000" />
-    </task>
-    <task id="LOCAL-00109" summary="fix: made shadow follow animation properly god this took so long to match up and I didn't actually end up with the effect I wanted">
-      <option name="closed" value="true" />
-      <created>1768941530737</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1768941530737</updated>
+      <workItem from="1769590623188" duration="5681000" />
+      <workItem from="1769610353707" duration="1162000" />
     </task>
     <task id="LOCAL-00110" summary="fix: items were clicked twice">
       <option name="closed" value="true" />
@@ -678,7 +673,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769591488230</updated>
     </task>
-    <option name="localTasksCounter" value="158" />
+    <task id="LOCAL-00158" summary="fix: oh damn devtools had a screenshot feature all this time, then why did i make that really cool script">
+      <option name="closed" value="true" />
+      <created>1769593491648</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1769593491648</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,7 +707,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: added anim to other text bits" />
     <MESSAGE value="fix: capped card header height to prevent flickering on animation" />
     <MESSAGE value="fix: text updates were not live anymore due to anim" />
     <MESSAGE value="fix: made langs more editable" />
@@ -729,6 +731,7 @@
     <MESSAGE value="fix: fold translations have borken" />
     <MESSAGE value="feat: mini footer throwback from the pat" />
     <MESSAGE value="fixes: from the pat yes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes: from the pat yes" />
+    <MESSAGE value="fix: oh damn devtools had a screenshot feature all this time, then why did i make that really cool script" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: oh damn devtools had a screenshot feature all this time, then why did i make that really cool script" />
   </component>
 </project>

@@ -11,7 +11,8 @@ export const MIN_CHIME_FOLDS = 1;
 
 export let deviceMin = $state({
     mobile: false,
-    tablet: false
+    tablet: false,
+    grandma: false,
 })
 
 export let settings: Record<string, { display: string, desc: string, state: boolean, admin: boolean }> = $state({

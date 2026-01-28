@@ -566,7 +566,7 @@
                 {@const postface = `chime_${social.name}_fold_${fold.slug}_postface`.replace('-', '_')}
                 <div class={`stat-fold ${left ? 'stat-fold-left' : 'stat-fold-right'}`}
                      style={`width: ${chimeGroupWidth*CHIME_CSS_SIZE_WIDTH_MULT_ADJUSTED}px;
-                        --title-font-size: ${chimeMaxHeight/(DEFAULT_CHIME_SIZE_VH/BASE_FONT_SIZE_REM)-(currentLang.lang === 'jp' ? 0.1 : 0)}rem`}>
+                        --title-font-size: ${(chimeMaxHeight/(DEFAULT_CHIME_SIZE_VH/BASE_FONT_SIZE_REM)-(currentLang.lang === 'jp' ? 0.1 : 0))*(deviceMin.grandma && !deviceMin.tablet ? 0.75 : 1)}rem`}>
                     <!-- It is definitely reactive, there is definitely a better way -->
                     <!-- to do this than what i did tho-->
                     <!-- it's been 8 hours have mercy on my poor soul -->
@@ -696,6 +696,7 @@
                 justify-content: center;
                 align-items: center;
 
+                /* js */
                 --title-font-size: 0.87rem;
 
                 & a {
@@ -746,11 +747,26 @@
                 grid-column: 1;
             }
 
+            --normie-zoom-margin: 1.8rem;
+            --grandma-zoom-margin: 1.8rem;
             & .stat-fold-right {
                 grid-column: 2;
 
                 & a {
-                    margin-left: -0.5rem;
+                    --stat-fold-right-default-margin: -0.5rem;
+                    margin-left: var(--stat-fold-right-default-margin);
+
+                    @media(max-width: 1921px) {
+                        margin-left: calc((var(--normie-zoom-margin) * -1) + var(--stat-fold-right-default-margin));
+                    }
+                    @media(max-width: 1537px) {
+                        margin-left: 0;
+                    }
+                    @media(max-width: 1281px) {
+                    }
+                    @media(max-width: 1081px) {
+                        margin-left: 0;
+                    }
                 }
             }
 
@@ -758,6 +774,16 @@
                 margin-left: auto;
                 justify-self: end;
                 grid-column: 1;
+
+                & a {
+                    @media(max-width: 1921px) {
+                        margin-left: var(--normie-zoom-margin);
+
+                    }
+                    @media(max-width: 1537px) {
+                        margin-left: 0;
+                    }
+                }
             }
         }
 
