@@ -9,7 +9,8 @@
         MAX_CHIME_FOLDS,
         MIN_CHIME_FOLDS,
         editbar,
-        handleItemEdit, handleItemHolding, handleItemLeaving, handlePositioning, deviceMin, vhToDvh, t, currentLang
+        handleItemEdit, handleItemHolding, handleItemLeaving, handlePositioning, deviceMin, vhToDvh, t, currentLang,
+        settings
     } from "$lib/shared.svelte";
     import SVGThreeStars from "$lib/hangies/separators/separators/SVGThreeStars.svelte";
     import SVGStar from "$lib/hangies/separators/separators/SVGStar.svelte";
@@ -289,11 +290,22 @@
     let sceneRotationY = 0;
     const rotationLerpFactor = 0.1;
 
+    let shouldFreeze = false;
     const kTime = $derived(0.016 + ((foldCount / MAX_CHIME_FOLDS) - 1) * (-0.05));
     const animate = () => {
         if (!treeRope || !chimeRope || !chimeObj || !renderer || !camera || !scene || !separatorObj || !cssRenderer) return;
 
         requestAnimationFrame(animate);
+        if (!shouldFreeze && settings.performance.state) {
+            setTimeout(() => {
+                shouldFreeze = true;
+            }, 2000)
+        }
+        if (!settings.performance.state) {
+            shouldFreeze = false;
+        }
+        if (shouldFreeze) {return}
+
         time += kTime;
 
         const mouseDx = (mouseXDoubled - prevMouseXDoubled) * 50;
@@ -311,9 +323,11 @@
         const ambientWindX = Math.sin(time * 0.3) * 0.9 + Math.sin(time * 0.17) * 0.03;
         const ambientWindY = Math.cos(time * 0.25) * 0.2;
 
+        const forceFactorX = deviceMin.tablet ? 4 : mouseDx;
+        const forceFactorY = deviceMin.tablet ? 4 : -mouseDy;
         const windForce = new three.Vector3(
-            (deviceMin.tablet ? 4 : mouseDx) * 0.8 * distanceFalloff + ambientWindX,
-            (deviceMin.tablet ? 4 : -mouseDy) * 0.4 * distanceFalloff + ambientWindY,
+            forceFactorX * 0.8 * distanceFalloff + ambientWindX,
+            forceFactorY * 0.4 * distanceFalloff + ambientWindY,
             0
         );
 
