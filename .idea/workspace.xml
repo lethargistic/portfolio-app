@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: fold translations have borken">
-      <change afterPath="$PROJECT_DIR$/src/lib/segments/SegFooter.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: mini footer throwback from the pat">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegFooter.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegFooter.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/admin/edits/+page.server.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,15 +284,8 @@
       <workItem from="1769420488542" duration="79000" />
       <workItem from="1769420587995" duration="31968000" />
       <workItem from="1769525990520" duration="13721000" />
-      <workItem from="1769548102317" duration="1579000" />
-    </task>
-    <task id="LOCAL-00107" summary="feat: shmooving web projects">
-      <option name="closed" value="true" />
-      <created>1768918389443</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1768918389443</updated>
+      <workItem from="1769548102317" duration="1870000" />
+      <workItem from="1769590623188" duration="804000" />
     </task>
     <task id="LOCAL-00108" summary="fix: the animation has borken">
       <option name="closed" value="true" />
@@ -678,7 +671,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769544454062</updated>
     </task>
-    <option name="localTasksCounter" value="156" />
+    <task id="LOCAL-00156" summary="feat: mini footer throwback from the pat">
+      <option name="closed" value="true" />
+      <created>1769549960471</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1769549960471</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,7 +705,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: sick text anim" />
     <MESSAGE value="fix: text anim was eating text" />
     <MESSAGE value="chore: added anim to other text bits" />
     <MESSAGE value="fix: capped card header height to prevent flickering on animation" />
@@ -729,6 +729,7 @@
     <MESSAGE value="fix: about bits did not update correctly on lang change" />
     <MESSAGE value="chore: Ukrainian translation (мова чату гуцульська вчіци трохи людськості якої туво) + fix: jp was missing some linktree labels + fix: typo check" />
     <MESSAGE value="fix: fold translations have borken" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: fold translations have borken" />
+    <MESSAGE value="feat: mini footer throwback from the pat" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: mini footer throwback from the pat" />
   </component>
 </project>

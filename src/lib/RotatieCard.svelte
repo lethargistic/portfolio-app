@@ -321,6 +321,7 @@
                 font-size: 1rem;
 
                 padding-bottom: 1rem;
+                text-wrap: nowrap;
             }
 
             & .separator {

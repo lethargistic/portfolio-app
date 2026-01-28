@@ -8,6 +8,9 @@ import {convertSimpleDataTypesImplicitly} from '$lib/utils/utils';
 const removeReassigned = (obj: Record<string, any>) => {
     delete obj.id;
     delete obj.created_at;
+
+    delete obj.blurb;
+    delete obj.display_name;
 }
 
 const defaultSocialFlags = (obj: Record<string, any>) => {

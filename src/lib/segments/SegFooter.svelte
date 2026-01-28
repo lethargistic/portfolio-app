@@ -9,7 +9,6 @@
 </footer>
 
 <style>
-
     .footer {
         background-color: #232323;
         display: flex;
@@ -19,6 +18,11 @@
         z-index: 10009;
 
         color: white;
+
+        ::selection {
+            color: black;
+            background-color: white;
+        }
 
         & a {
             cursor: pointer;
