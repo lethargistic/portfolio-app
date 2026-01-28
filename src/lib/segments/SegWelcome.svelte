@@ -160,18 +160,18 @@
     </div>
 
     <section class='welcome-seg' id="welcome">
-        {#if settings.noFlashing.state}
-            <img transition:scale={{duration: 800, easing: settings.noFlashing.state ? cubicIn : cubicOut}}
+        {#if settings.no_flashing.state}
+            <img transition:scale={{duration: 800, easing: settings.no_flashing.state ? cubicIn : cubicOut}}
                  class="no-flashing"
-                 src="/img/moon-sticker-i-once-drew-on-a-whim.webp"
+                 src="/img/illu-no-illu.svg"
                  alt="a moon with a forest on it">
         {:else}
-            <img transition:scale={{duration: 1200, easing: settings.noFlashing.state ? cubicOut : cubicIn}}
+            <img transition:scale={{duration: 1200, easing: settings.no_flashing.state ? cubicOut : cubicIn}}
                  style={`transform: translate(-50%, -50%) rotate(${illuRotation.current}deg)`}
                  class="illu illu-left"
                  src='/img/illu1.webp'
                  alt="cool illusion part 1">
-            <img transition:scale={{duration: 1200, easing: settings.noFlashing.state ? cubicOut : cubicIn}}
+            <img transition:scale={{duration: 1200, easing: settings.no_flashing.state ? cubicOut : cubicIn}}
                  style={`transform: translate(-50%, -50%) rotate(${illuRotation.current*2}deg)`}
                  class="illu illu-right"
                  src='/img/illu2.webp'
@@ -541,6 +541,9 @@
             width: 37vw;
             height: 37.5vw;
             aspect-ratio: 1/1;
+            pointer-events: none;
+            -webkit-user-drag: none;
+            user-select: none;
         }
     </style>
 {/key}

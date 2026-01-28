@@ -61,7 +61,7 @@
             }
 
             if (page.url.hash === '#linktree') {
-                settings.extendedLinktree.state = true;
+                settings.extended_linktree.state = true;
             }
 
             pulledSettings = true;

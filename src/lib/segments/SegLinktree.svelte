@@ -11,7 +11,7 @@
 
     let socials = $derived(editbar.social_data);
 
-    const isSocialHidden = (social: typeof socials[number]) => social.hidden || (social.extended && !settings.extendedLinktree.state);
+    const isSocialHidden = (social: typeof socials[number]) => social.hidden || (social.extended && !settings.extended_linktree.state);
 
     const updateSocials = async () => {
         editbar.social_data = socialsProp;
@@ -106,8 +106,8 @@
         {#each [0, 1, 2] as i}
             {@const highest = 2}
             <img class={`mathboils mathboils-layer-${i}`} style={
-            `transform: translateY(${smoothScrollY * (0.05 + i * 0.01)}px);
-             filter: blur(${scrolling ? ((i+0.5)*0.3)+windBlur : windBlur}px);
+            `transform: translateY(${settings.no_flashing.state ? 0 : smoothScrollY * (0.05 + i * 0.01)}px);
+             filter: blur(${settings.no_flashing.state ? 0 : scrolling ? ((i+0.5)*0.3)+windBlur : windBlur}px);
              transition: filter ${i*0.01+0.6}s ease-in-out;
              top: -${30-10*(highest-i)}vh;
              opacity: ${0.8-i*0.15};

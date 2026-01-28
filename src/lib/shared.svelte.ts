@@ -22,13 +22,13 @@ export let settings: Record<string, { display: string, desc: string, state: bool
         state: false,
         admin: false
     },
-    noFlashing: {
+    no_flashing: {
         display: 'settings_remove_flashing_display',
         desc: 'settings_remove_flashing_desc',
         state: false,
         admin: false
     },
-    extendedLinktree: {
+    extended_linktree: {
         display: 'settings_extended_linktree_display',
         desc: 'settings_extended_linktree_desc',
         state: false,
