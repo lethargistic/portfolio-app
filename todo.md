@@ -63,7 +63,7 @@
   phone)
 - [ ] fix very: train anim length may be inconsistent, just split the sound into 3 or rewrite it with
   requestAnimationFrame ; i fixed the race condition but this is still kinda dumb right now ; my raf fix made it better
-  in terms of lags but introduced a new issue, i need to remake the anime from scratch
+  in terms of lags but introduced a new issue, i need to remake the animation from scratch ; anime rofl
 
 - [x] todo semi-prod: responsive
 - [x] todo semi-prod: translate everything
@@ -80,4 +80,6 @@
 - [x] todo semi-prod: update this screenie
 - [x] todo semi-prod: center chimes for 100% and 150% zoom
 - [ ] todo semi-prod: error page
-- [ ] todo semi-prod: diplomas
+- [ ] todo semi-prod: diplomas ; make them available only with key from resume,
+  and filter commit history for them too, they're not really private and the resume is public anyway,
+  but hell knows yer stalker

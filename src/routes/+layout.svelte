@@ -4,6 +4,7 @@
     import {onMount} from "svelte";
     import {invalidate} from "$app/navigation";
     import {editing, fiend, editbar, settings, windowGlobals, deviceMin} from "$lib/shared.svelte";
+    import {Toaster} from 'svelte-french-toast'
 
     let {data, children} = $props();
     let {supabase, session} = $derived(data);
@@ -58,4 +59,5 @@
 <svelte:window onresize={checkIfMobile} onkeydown={handleEditModeSwitch} bind:innerWidth={windowGlobals.inner_width}
                bind:innerHeight={windowGlobals.inner_height}/>
 
+<Toaster />
 {@render children()}

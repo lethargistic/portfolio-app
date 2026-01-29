@@ -6,6 +6,7 @@
     import {cubicInOut} from "svelte/easing";
     import EditorTools from "$lib/editing/EditorTools.svelte";
     import {browser} from "$app/environment";
+    import toast from 'svelte-french-toast'
 
     const blurbs = $derived.by(() => {
         if (currentLang.lang) {
@@ -64,7 +65,6 @@
         }, 1000)
     }
 
-    $inspect('tt', ghostWagons);
     let soundPlaying = $state(false)
     let trainSound: HTMLAudioElement | null = null;
     if (browser) {
@@ -96,11 +96,44 @@
         trainSound.volume = volume;
     })
 
+    let soundStartTime = 0;
+    $effect(() => {
+        if (!trainSound) return;
+        trainSound.muted = !settings.sounds.state;
+        if (settings.sounds.state && passingBy) {
+            if (trainSound.duration && isFinite(trainSound.duration)) {
+                const elapsed = (Date.now() - soundStartTime) / 1000;
+                trainSound.currentTime = elapsed % trainSound.duration;
+            }
+            trainSound.play().catch(() => {
+                // caught in anim
+            });
+        }
+    })
+
     const trainPosTarget = 500;
-    const startTrainAnim = () => {
+    const startTrainAnim = async () => {
         if (!trainFrontElem || !trainMiddleElemFirst || !trainMiddleElemSecond) return;
-        if (settings.sounds.state && !soundPlaying && trainSound) {
-            trainSound.play()
+        if (!soundPlaying && trainSound) {
+            trainSound.muted = true;
+            soundStartTime = Date.now();
+
+            try {
+                await trainSound.play()
+                trainSound.muted = false;
+            } catch (e) {
+                if (e instanceof DOMException && e.name === "NotAllowedError") {
+                    if (settings.sounds.state) {
+                        toast.error("Your browser's policy disabled sounds before interaction. \n\nYou can re-enable in settings!", {
+                            position: "bottom-end",
+                            duration: 3000
+                        })
+                    }
+                    settings.sounds.state = false;
+                } else {
+                    throw e;
+                }
+            }
             soundPlaying = true;
 
             setTimeout(() => {
@@ -108,7 +141,7 @@
             }, 50)
             setTimeout(() => {
                 soundPlaying = false;
-            }, 13000)
+            }, trainSound.duration * 1000)
         } else if (soundPlaying) {
             return;
         } else {
@@ -150,7 +183,7 @@
                     trainInView = entry.isIntersecting;
                 });
             },
-            { threshold: 0.05 }
+            {threshold: 0.05}
         );
 
         observer.observe(charSheetElem);
@@ -298,6 +331,7 @@
             }
 
             /* way too snek */
+
             & .decor-waterfall-lower {
                 top: 43%;
                 left: 20%;
