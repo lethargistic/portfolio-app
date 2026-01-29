@@ -159,7 +159,6 @@
     })
 
     let charSheetElem: HTMLElement | null = $state(null)
-    $inspect(charSheetElem)
     $effect(() => {
         if (!charSheetElem || !browser) return;
 

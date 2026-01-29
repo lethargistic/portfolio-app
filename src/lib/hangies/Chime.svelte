@@ -18,7 +18,7 @@
     import SVGLantern from "$lib/hangies/separators/separators/SVGLantern.svelte";
     import Icon from "$lib/Icon.svelte";
 
-    let {social: socialProp, socialIx, foldStatElems = $bindable(), foldTooltipOverride = $bindable()} = $props();
+    let {social: socialProp, socialIx, foldStatElems = $bindable(), foldTooltipOverride = $bindable(), linkTreeSegElem} = $props();
 
     let social = $derived(socialProp);
     let folds = $derived(social.folds);
@@ -207,6 +207,7 @@
     let time = $state(Math.floor(Math.random() * MAX_CHIME_FOLDS));
 
     const handleMouseMove = (e: MouseEvent) => {
+        handleChimeMovementSounds(e);
         if (!windowInnerWidth || !windowInnerHeight) return;
         prevMouseXDoubled = mouseXDoubled;
         prevMouseYDoubled = mouseYDoubled;
@@ -290,6 +291,12 @@
     let sceneRotationY = 0;
     const rotationLerpFactor = 0.1;
 
+    let foldWobbleOffsetX = $state(0);
+    let foldWobbleOffsetY = $state(0);
+    let foldWobbleVelocityX = $state(0);
+    let foldWobbleVelocityY = $state(0);
+    const wobbleRandomOffset = Math.random() * 0.2 - 0.1;
+
     let shouldFreeze = false;
     const kTime = $derived(0.016 + ((foldCount / MAX_CHIME_FOLDS) - 1) * (-0.05));
     const animate = () => {
@@ -320,7 +327,7 @@
 
         const distanceFalloff = Math.min(distanceFromChime, 1);
 
-        const ambientWindX = Math.sin(time * 0.3) * 0.9 + Math.sin(time * 0.17) * 0.03;
+        const ambientWindX = Math.sin(time * 0.3) * 1.2 + Math.sin(time * 0.17) * 0.03;
         const ambientWindY = Math.cos(time * 0.25) * 0.2;
 
         const forceFactorX = deviceMin.tablet ? 4 : mouseDx;
@@ -330,6 +337,29 @@
             forceFactorY * 0.4 * distanceFalloff + ambientWindY,
             0
         );
+
+        // fold wobble
+        const heightFactor = chimeMaxHeight / DEFAULT_CHIME_SIZE_VH;
+        const wobbleMultiplier = 1 + (heightFactor - 1) * 0.3 + wobbleRandomOffset;
+
+        const wobbleDampening = Math.max(0.1, Math.min(distanceFromChime * 2, 1));
+
+        const wobbleForceX = windForce.x * 0.15 * wobbleMultiplier * wobbleDampening;
+        const wobbleForceY = windForce.y * 0.15 * wobbleMultiplier * wobbleDampening;
+
+        foldWobbleVelocityX += wobbleForceX;
+        foldWobbleVelocityY += wobbleForceY;
+
+        const springStrength = 0.08 * wobbleMultiplier;
+        const damping = 0.9 - (1 - wobbleDampening) * 0.05;
+        foldWobbleVelocityX -= foldWobbleOffsetX * springStrength;
+        foldWobbleVelocityY -= foldWobbleOffsetY * springStrength;
+
+        foldWobbleVelocityX *= damping;
+        foldWobbleVelocityY *= damping;
+
+        foldWobbleOffsetX += foldWobbleVelocityX;
+        foldWobbleOffsetY += foldWobbleVelocityY;
 
         const gravity = new three.Vector3(0, -0.08, 0);
 
@@ -510,9 +540,56 @@
     //
 
     let chimeMaxHeight = $derived(deviceMin.mobile ? vhToDvh(social.mobile_chime_max_height_vh) : social.chime_max_height_vh);
+
+    let soundPlaying = false;
+    const handleChimeMovementSounds = (e: MouseEvent) => {
+        if (!linkTreeSegElem || !chimeObj) return;
+        const elementUnderMouse = document.elementFromPoint(e.clientX, e.clientY);
+        if (!elementUnderMouse || !linkTreeSegElem.contains(elementUnderMouse)) {
+            return;
+        }
+
+        const chimeScreenX = chimeObj.position.x / 2;
+        const chimeScreenY = chimeObj.position.y / 2;
+
+        const dx = mouseXDoubled - chimeScreenX;
+        const dy = mouseYDoubled - chimeScreenY;
+        const distanceFromChime = Math.sqrt(dx * dx + dy * dy);
+
+        const fullVolumeThreshold = 0.20;
+        const fadeRange = 0.05;
+        const maxDistance = fullVolumeThreshold + fadeRange;
+
+        if (distanceFromChime > maxDistance) {
+            return;
+        }
+
+        let volume = 0.6;
+        if (distanceFromChime > fullVolumeThreshold) {
+            const fadeProgress = (distanceFromChime - fullVolumeThreshold) / fadeRange;
+            volume = 0.6 * (1 - fadeProgress);
+        }
+
+        if (settings.sounds.state && !soundPlaying) {
+            soundPlaying = true;
+
+            let sound = new Audio(`/audio/chime/wind-chime-${Math.floor(Math.random() * 9)}.opus`);
+            sound.volume = volume;
+
+            sound.addEventListener('loadedmetadata', () => {
+                setTimeout(() => {
+                    soundPlaying = false;
+                }, sound.duration * 1000 -+ 100 * (settings.extended_linktree.state ? 1 : Math.floor(Math.random() * 3)));
+            });
+
+            if (!Math.floor(Math.random() * (settings.extended_linktree.state ? 6 : 3))) {
+                sound.play();
+            }
+        }
+    }
 </script>
 <svelte:window onresize={adjustPathDimensionTracking} bind:innerWidth={windowInnerWidth}
-               bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove}/>
+                bind:innerHeight={windowInnerHeight} onmousemove={handleMouseMove}/>
 <canvas bind:this={canvas} bind:clientWidth={canvasWidth} bind:clientHeight={canvasHeight}
         class="chime-canvas"></canvas>
 <div bind:this={cssContElem} class="chime-css"></div>
@@ -564,7 +641,7 @@
      style={`mask-image: url("${chimeSVGMaskUrl}");`}>
     <div class={`fold-cont
          ${activeEditor.state === 'lnkt-modifying' || activeEditor.state === 'lnkt-positioning' ? 'hover-focus' : ''}`}
-         style={`grid-template-rows: repeat(${foldCount*2+1}, 1fr);`}
+         style={`grid-template-rows: repeat(${foldCount*2+1}, 1fr); transform: translate(calc(-50% + ${foldWobbleOffsetX}px), ${foldWobbleOffsetY}px);`}
          role="presentation" onclick={handleChimeEdit} onkeydown={handleChimeEdit}
          onpointerdown={(e) => {handleChimeEdit(e); handleItemHolding(e);}}
          onpointerup={handleItemLeaving} onpointerleave={handleItemLeaving}

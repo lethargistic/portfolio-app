@@ -1,7 +1,7 @@
 <script lang="ts">
     import {currentLang, deviceMin, editbar, MAX_CHIME_FOLDS, settings, t} from "$lib/shared.svelte";
 
-    import {onMount} from "svelte";
+    import {onDestroy, onMount} from "svelte";
     import Chime from "$lib/hangies/Chime.svelte";
     import EditorTools from "$lib/editing/EditorTools.svelte";
     // jetbrains fix when
@@ -94,12 +94,14 @@
         });
     }));
     let foldTooltipOverride: string | null = $state(null);
+
+    let linkTreeSegElem: HTMLElement | null = $state(null);
 </script>
 
 <svelte:window bind:innerHeight={windowHeight} bind:scrollY={windowScrollY} onscroll={handleScrollBool}
                onscrollend={handleScrollEndBool}/>
 {#key currentLang.lang}
-    <section class="linktree-seg" id="linktree">
+    <section bind:this={linkTreeSegElem} aria-label="linktree section" class="linktree-seg" id="linktree">
         <EditorTools seg={'linktree'}/>
         <img bind:clientHeight={branchHeight} class="lilac-cherry-branch" src="/img/branch2transparent.webp"
              alt="a sakura branch except flowers are lilac for some reason">
@@ -128,7 +130,7 @@
                          `}>
                         <div class="mobile-peg"></div>
                         <Chime {social} socialIx={i} bind:foldStatElems={foldStatElems}
-                               bind:foldTooltipOverride={foldTooltipOverride}/>
+                               bind:foldTooltipOverride={foldTooltipOverride} {linkTreeSegElem}/>
                     </div>
 
                     <!-- tooltips -->

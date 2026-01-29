@@ -4,13 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: better sound setting detection + chore: styled the toast&#10;mmm toast&#10;my mind drifts towards a sandwich but i resist">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: translated toast + fix: train anim could break because of lang reupdate">
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-0.opus" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-1.opus" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-2.opus" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-3.opus" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-4.opus" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-5.opus" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-6.opus" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-7.opus" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-8.opus" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/jp.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/jp.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/uk.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/uk.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +102,7 @@
     &quot;Shell Script.やばそうなの.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Docs/webstormproj/sustenant/static/audio&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Docs/webstormproj/sustenant/static/audio/chime&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -114,11 +121,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\static\audio\chime" />
       <recent name="D:\Docs\webstormproj\sustenant\static\audio" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\web-thumbnails" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\icons\svgs" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\lib\svgs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\screenshots" />
@@ -290,15 +297,9 @@
       <workItem from="1769590623188" duration="5681000" />
       <workItem from="1769610353707" duration="9828000" />
       <workItem from="1769675561594" duration="1089000" />
-      <workItem from="1769676926996" duration="20605000" />
-    </task>
-    <task id="LOCAL-00117" summary="fix: css color var was declared wrong">
-      <option name="closed" value="true" />
-      <created>1769007022648</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1769007022648</updated>
+      <workItem from="1769676926996" duration="23221000" />
+      <workItem from="1769712255980" duration="2049000" />
+      <workItem from="1769714384492" duration="2916000" />
     </task>
     <task id="LOCAL-00118" summary="chore: modal progress, also, it moves">
       <option name="closed" value="true" />
@@ -684,7 +685,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769701151927</updated>
     </task>
-    <option name="localTasksCounter" value="166" />
+    <task id="LOCAL-00166" summary="fix: translated toast + fix: train anim could break because of lang reupdate">
+      <option name="closed" value="true" />
+      <created>1769702613028</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1769702613028</updated>
+    </task>
+    <option name="localTasksCounter" value="167" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,7 +719,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: filled in content for web projects" />
     <MESSAGE value="chore: you can never draw something this well when you actually try to" />
     <MESSAGE value="fix: all card info blocks would disappear + fix: nav was in db order and borken" />
     <MESSAGE value="chore: minor thumbnail edit" />
@@ -735,6 +743,7 @@
     <MESSAGE value="fix: train sound is dimmer the further you go" />
     <MESSAGE value="feat: chrome boinked my sounds toast, also this lib is ridiculous in the best way possible" />
     <MESSAGE value="fix: better sound setting detection + chore: styled the toast&#10;mmm toast&#10;my mind drifts towards a sandwich but i resist" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: better sound setting detection + chore: styled the toast&#10;mmm toast&#10;my mind drifts towards a sandwich but i resist" />
+    <MESSAGE value="fix: translated toast + fix: train anim could break because of lang reupdate" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: translated toast + fix: train anim could break because of lang reupdate" />
   </component>
 </project>
