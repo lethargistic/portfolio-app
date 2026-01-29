@@ -6,7 +6,6 @@
     import {cubicInOut} from "svelte/easing";
     import EditorTools from "$lib/editing/EditorTools.svelte";
     import {browser} from "$app/environment";
-    import toast from 'svelte-french-toast'
 
     const blurbs = $derived.by(() => {
         if (currentLang.lang) {
@@ -105,9 +104,7 @@
                 const elapsed = (Date.now() - soundStartTime) / 1000;
                 trainSound.currentTime = elapsed % trainSound.duration;
             }
-            trainSound.play().catch(() => {
-                // caught in anim
-            });
+            trainSound.play();
         }
     })
 
@@ -118,21 +115,9 @@
             trainSound.muted = true;
             soundStartTime = Date.now();
 
-            try {
+            if (settings.sounds.state) {
                 await trainSound.play()
                 trainSound.muted = false;
-            } catch (e) {
-                if (e instanceof DOMException && e.name === "NotAllowedError") {
-                    if (settings.sounds.state) {
-                        toast.error("Your browser's policy disabled sounds before interaction. \n\nYou can re-enable in settings!", {
-                            position: "bottom-end",
-                            duration: 3000
-                        })
-                    }
-                    settings.sounds.state = false;
-                } else {
-                    throw e;
-                }
             }
             soundPlaying = true;
 

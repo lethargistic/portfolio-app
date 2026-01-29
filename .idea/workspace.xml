@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: train sound is dimmer the further you go">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: chrome boinked my sounds toast, also this lib is ridiculous in the best way possible">
+      <change afterPath="$PROJECT_DIR$/src/lib/toasts/ToastErrorCustom.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/audio/1sec-silence.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +37,7 @@
         <option value="+page.svelte" />
         <option value="WebProjModl" />
         <option value="SegFooter" />
+        <option value="ErrorCustom" />
       </list>
     </option>
   </component>
@@ -289,15 +291,7 @@
       <workItem from="1769590623188" duration="5681000" />
       <workItem from="1769610353707" duration="9828000" />
       <workItem from="1769675561594" duration="1089000" />
-      <workItem from="1769676926996" duration="12310000" />
-    </task>
-    <task id="LOCAL-00115" summary="chore: modal start">
-      <option name="closed" value="true" />
-      <created>1768998653461</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1768998653461</updated>
+      <workItem from="1769676926996" duration="19046000" />
     </task>
     <task id="LOCAL-00116" summary="chore: modal start x2">
       <option name="closed" value="true" />
@@ -683,7 +677,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769683667052</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="feat: chrome boinked my sounds toast, also this lib is ridiculous in the best way possible">
+      <option name="closed" value="true" />
+      <created>1769690560558</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1769690560558</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -709,7 +711,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor: more sophisticated icon system but i remembered to actually use it ahem (and it works first try)" />
     <MESSAGE value="feat: github link" />
     <MESSAGE value="chore: filled in content for web projects" />
     <MESSAGE value="chore: you can never draw something this well when you actually try to" />
@@ -734,6 +735,7 @@
     <MESSAGE value="fix: no flashing option properly" />
     <MESSAGE value="feat: bullet train asmr.wav" />
     <MESSAGE value="fix: train sound is dimmer the further you go" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: train sound is dimmer the further you go" />
+    <MESSAGE value="feat: chrome boinked my sounds toast, also this lib is ridiculous in the best way possible" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: chrome boinked my sounds toast, also this lib is ridiculous in the best way possible" />
   </component>
 </project>

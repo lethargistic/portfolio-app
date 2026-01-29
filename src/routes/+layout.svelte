@@ -59,5 +59,8 @@
 <svelte:window onresize={checkIfMobile} onkeydown={handleEditModeSwitch} bind:innerWidth={windowGlobals.inner_width}
                bind:innerHeight={windowGlobals.inner_height}/>
 
-<Toaster />
+<Toaster toastOptions={{
+             style: 'border: 2px solid #713200; padding-left: 1rem; border-radius: 2px;'
+
+}}/>
 {@render children()}
