@@ -17,7 +17,7 @@
             .map(key => m[key as keyof typeof m]());
     })
 
-    let trainInView = $state(false);
+    let charSheetInView = $state(false);
     let trainFrontElem: HTMLElement | null = $state(null)
     let trainMiddleElems: Array<HTMLElement | null> = $state([])
     let trainMiddleElemFirst: HTMLElement | null = $derived(trainMiddleElems[0])
@@ -56,7 +56,7 @@
                     : 90;
             const roll = (Math.floor(Math.random() * chanceMult) == 0);
             if (!roll) return;
-            if (!trainInView) return;
+            if (!charSheetInView) return;
             passes++;
             passingBy = true;
 
@@ -159,13 +159,14 @@
     })
 
     let charSheetElem: HTMLElement | null = $state(null)
-    onMount(() => {
+    $inspect(charSheetElem)
+    $effect(() => {
         if (!charSheetElem || !browser) return;
 
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
-                    trainInView = entry.isIntersecting;
+                    charSheetInView = entry.isIntersecting;
                 });
             },
             {threshold: 0.05}

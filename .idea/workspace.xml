@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: chrome boinked my sounds toast, also this lib is ridiculous in the best way possible">
-      <change afterPath="$PROJECT_DIR$/src/lib/toasts/ToastErrorCustom.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/audio/1sec-silence.mp3" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: better sound setting detection + chore: styled the toast&#10;mmm toast&#10;my mind drifts towards a sandwich but i resist">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/jp.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/jp.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/uk.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/uk.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -291,15 +290,7 @@
       <workItem from="1769590623188" duration="5681000" />
       <workItem from="1769610353707" duration="9828000" />
       <workItem from="1769675561594" duration="1089000" />
-      <workItem from="1769676926996" duration="19046000" />
-    </task>
-    <task id="LOCAL-00116" summary="chore: modal start x2">
-      <option name="closed" value="true" />
-      <created>1769006923447</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1769006923448</updated>
+      <workItem from="1769676926996" duration="20605000" />
     </task>
     <task id="LOCAL-00117" summary="fix: css color var was declared wrong">
       <option name="closed" value="true" />
@@ -685,7 +676,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769690560558</updated>
     </task>
-    <option name="localTasksCounter" value="165" />
+    <task id="LOCAL-00165" summary="fix: better sound setting detection + chore: styled the toast&#10;mmm toast&#10;my mind drifts towards a sandwich but i resist">
+      <option name="closed" value="true" />
+      <created>1769701151927</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1769701151927</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -711,7 +710,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: github link" />
     <MESSAGE value="chore: filled in content for web projects" />
     <MESSAGE value="chore: you can never draw something this well when you actually try to" />
     <MESSAGE value="fix: all card info blocks would disappear + fix: nav was in db order and borken" />
@@ -736,6 +734,7 @@
     <MESSAGE value="feat: bullet train asmr.wav" />
     <MESSAGE value="fix: train sound is dimmer the further you go" />
     <MESSAGE value="feat: chrome boinked my sounds toast, also this lib is ridiculous in the best way possible" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: chrome boinked my sounds toast, also this lib is ridiculous in the best way possible" />
+    <MESSAGE value="fix: better sound setting detection + chore: styled the toast&#10;mmm toast&#10;my mind drifts towards a sandwich but i resist" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: better sound setting detection + chore: styled the toast&#10;mmm toast&#10;my mind drifts towards a sandwich but i resist" />
   </component>
 </project>

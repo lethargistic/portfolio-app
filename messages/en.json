@@ -1,6 +1,8 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
 
+  "sound_setting_toast": "Your browser's policy disabled sounds before interaction. \nYou can re-enable in settings!",
+
   "#s1": "/",
   "welcome_button_maksiks": "Maksiks",
   "welcome_button_is": "is a dev",

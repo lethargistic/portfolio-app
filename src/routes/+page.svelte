@@ -3,7 +3,7 @@
     import SegAbout from "$lib/segments/SegAbout.svelte";
     import SegLinktree from "$lib/segments/SegLinktree.svelte";
     import {goto} from "$app/navigation";
-    import {activeEditor, currentLang, editbar, editing, settings} from "$lib/shared.svelte";
+    import {activeEditor, currentLang, editbar, editing, settings, t} from "$lib/shared.svelte";
     import GlobalEditorTools from "$lib/editing/GlobalEditorTools.svelte";
     import {page} from "$app/state";
     import SegWeb from "$lib/segments/SegWeb.svelte";
@@ -97,6 +97,7 @@
 
     //
 
+    let toastSettingTxt = $derived(t.sound_setting_toast());
     const validateSoundSetting = async () => {
         const checkSound = new Audio('/audio/1sec-silence.mp3');
 
@@ -107,7 +108,7 @@
                 if (settings.sounds.state) {
                     // @ts-ignore
                     toast.error(ToastErrorCustom, {props: {
-                            text: "Your browser's policy disabled sounds before interaction. \nYou can re-enable in settings!"
+                            text: toastSettingTxt
                         },
                         position: "bottom-end",
                         duration: 5000
