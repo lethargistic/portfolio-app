@@ -1,10 +1,12 @@
 <script lang="ts">
-    import {currentLang} from "$lib/shared.svelte";
+    import {currentLang, settings} from "$lib/shared.svelte";
     import {m} from "../paraglide/messages";
     import {onMount} from "svelte";
     import {Tween} from "svelte/motion";
     import {cubicInOut} from "svelte/easing";
     import EditorTools from "$lib/editing/EditorTools.svelte";
+    import {sleep} from "$lib/utils/utils";
+    import {browser} from "$app/environment";
 
     const blurbs = $derived.by(() => {
         if (currentLang.lang) {
@@ -61,22 +63,38 @@
         }, 1000)
     }
 
+    $inspect('tt', ghostWagons)
     const trainPosTarget = 500;
+    let soundPlaying = $state(false)
+    let trainSound = null;
+    if (browser) {
+        trainSound = new Audio('/audio/bullet-train-asmr.wav');
+    }
     const startTrainAnim = () => {
         if (!trainFrontElem || !trainMiddleElemFirst || !trainMiddleElemSecond) return;
-        trainPos.target = trainPosTarget;
+        if (settings.sounds.state && !soundPlaying && trainSound) {
+            trainSound.play()
+            soundPlaying = true;
+
+            setTimeout(() => {
+                trainPos.target = trainPosTarget;
+            }, 50)
+            setTimeout(() => {
+                soundPlaying = false;
+            }, 15000)
+        } else {
+            trainPos.target = trainPosTarget;
+        }
     }
 
+    $inspect(trainPos.current);
     $effect(() => {
-        if (trainPos.current == trainPosTarget) {
+        if (ghostWagons >= ghostWagonCap) {
             passingBy = false;
             ghostWagons = 0;
             frontPass = true;
             trainPos.target = 0;
             trainPos = getTrainTween(0, 1000);
-        }
-
-        if (ghostWagons >= ghostWagonCap) {
             return;
         }
 
@@ -84,7 +102,7 @@
             trainPos.target = 0;
             frontPass = false;
             ghostWagons++;
-            juggler != juggler;
+            juggler = !juggler;
             trainPos = getTrainTween(200, 100);
             startTrainAnim();
         }

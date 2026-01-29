@@ -27,13 +27,13 @@
 - [ ] todo maybe: make client ask for social values if fail (kinda whatever since there are definitely not 5000 people
   per hour visiting my lil site)
 - [x] fix very: random scroll snap in about???
-- [ ] todo maybe: flip icon color on selection in chimes
+- [x] todo maybe: flip icon color on selection in chimes ; dont select them you weirdo, no selection color for you
 - [ ] todo maybe: occasionally stronger wind
 - [ ] todo high: db backups cron (supabase provides storage, how nice of it)
 - [ ] todo high: you have unposted changes!
 - [ ] todo high: implement all the settings
 - [ ] todo high: sounds off toast due to chrome policy if you relog
-- [ ] todo: replace moon thing with a less intrusive version of illusion (accessibility option should not provide new
+- [x] todo: replace moon thing with a less intrusive version of illusion (accessibility option should not provide new
   content)
 - [x] todo high: svg sprite sheet for icons, there's way too many
 - [ ] todo maybe: replace title with a proper tooltip in folds
@@ -59,6 +59,7 @@
 - [ ] fix eventually: rewrite the web seg projects in japanese with more detail when my jp is better
 - [ ] fix eventually: improve linktree performance
 - [ ] fix eventually: minor layout shift due to anim expanding if you scroll into web seg too fast (particularly on phone)
+- [ ] fix eventually: train anim length may be inconsistent, just split the sound into 3 or rewrite it with requestAnimationFrame
 
 - [x] todo semi-prod: responsive
 - [x] todo semi-prod: translate everything
