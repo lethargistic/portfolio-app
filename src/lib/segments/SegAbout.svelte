@@ -5,7 +5,6 @@
     import {Tween} from "svelte/motion";
     import {cubicInOut} from "svelte/easing";
     import EditorTools from "$lib/editing/EditorTools.svelte";
-    import {sleep} from "$lib/utils/utils";
     import {browser} from "$app/environment";
 
     const blurbs = $derived.by(() => {
@@ -18,6 +17,7 @@
             .map(key => m[key as keyof typeof m]());
     })
 
+    let trainInView = $state(false);
     let trainFrontElem: HTMLElement | null = $state(null)
     let trainMiddleElems: Array<HTMLElement | null> = $state([])
     let trainMiddleElemFirst: HTMLElement | null = $derived(trainMiddleElems[0])
@@ -56,6 +56,7 @@
                     : 90;
             const roll = (Math.floor(Math.random() * chanceMult) == 0);
             if (!roll) return;
+            if (!trainInView) return;
             passes++;
             passingBy = true;
 
@@ -63,13 +64,39 @@
         }, 1000)
     }
 
-    $inspect('tt', ghostWagons)
-    const trainPosTarget = 500;
+    $inspect('tt', ghostWagons);
     let soundPlaying = $state(false)
-    let trainSound = null;
+    let trainSound: HTMLAudioElement | null = null;
     if (browser) {
         trainSound = new Audio('/audio/bullet-train-asmr.wav');
     }
+    $effect(() => {
+        if (!trainSound || !trainFrontElem) return;
+        if (scrollY) {
+            // reactivity
+        }
+
+        const rect = trainFrontElem.getBoundingClientRect();
+        const elementCenter = rect.top + rect.height / 2;
+        const viewportCenter = innerHeight / 2;
+
+        const distanceFromCenter = elementCenter - viewportCenter;
+
+        const fadeZoneTop = innerHeight * 3;
+        const fadeZoneBottom = innerHeight * 1.35;
+
+        let volume = 1.0;
+
+        if (distanceFromCenter < 0) {
+            volume = Math.max(0, 1 - (Math.abs(distanceFromCenter) / fadeZoneBottom));
+        } else if (distanceFromCenter > 0) {
+            volume = Math.max(0, 1 - (distanceFromCenter / fadeZoneTop));
+        }
+
+        trainSound.volume = volume;
+    })
+
+    const trainPosTarget = 500;
     const startTrainAnim = () => {
         if (!trainFrontElem || !trainMiddleElemFirst || !trainMiddleElemSecond) return;
         if (settings.sounds.state && !soundPlaying && trainSound) {
@@ -81,13 +108,14 @@
             }, 50)
             setTimeout(() => {
                 soundPlaying = false;
-            }, 15000)
+            }, 13000)
+        } else if (soundPlaying) {
+            return;
         } else {
             trainPos.target = trainPosTarget;
         }
     }
 
-    $inspect(trainPos.current);
     $effect(() => {
         if (ghostWagons >= ghostWagonCap) {
             passingBy = false;
@@ -104,12 +132,30 @@
             ghostWagons++;
             juggler = !juggler;
             trainPos = getTrainTween(200, 100);
-            startTrainAnim();
+            trainPos.target = trainPosTarget
         }
     })
 
     onMount(() => {
         startRandomTick();
+    })
+
+    let charSheetElem: HTMLElement | null = $state(null)
+    onMount(() => {
+        if (!charSheetElem || !browser) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    trainInView = entry.isIntersecting;
+                });
+            },
+            { threshold: 0.05 }
+        );
+
+        observer.observe(charSheetElem);
+
+        return () => observer.disconnect();
     })
 </script>
 
@@ -121,7 +167,8 @@
         <div class="decor-waterfall decor-waterfall-upper"></div>
         <div class="decor-waterfall decor-waterfall-lower"></div>
         <div class="decor-waterfall decor-waterfall-sideways-lower"></div>
-        <div class="char-sheet">
+        <!-- train anims depends on it -->
+        <div class="char-sheet" bind:this={charSheetElem}>
             <div style={passingBy ? `animation: shake 0.5s infinite ease-in-out` : ``} class="infobloc">
                 <div class="infobloc-inner">
                     <p class="infobloc-chief-blurb">{@html m.about_info_upper().replace(":flag_ua:", `<img width="72" height="72" class="smol" src="/img/icons/flag_ua.webp" alt="Ukrainian flag"/>`)}</p>
@@ -169,7 +216,7 @@
 
     <style>
         .about-seg {
-            --seg-height: 160vh;
+            --seg-height: 180vh;
             height: var(--seg-height);
             width: 100vw;
             position: relative;
@@ -250,8 +297,9 @@
                 height: 40%;
             }
 
+            /* way too snek */
             & .decor-waterfall-lower {
-                top: 50%;
+                top: 43%;
                 left: 20%;
                 height: 10%;
 

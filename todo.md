@@ -53,13 +53,17 @@
 - [ ] todo maybe: more anims for web seg, the button for example
 - [ ] todo maybe: web seg sites unfold into photo reel rather than just one pic
 - [ ] todo: language rack somewhere
+- [ ] fix minor: train sound doesn't play if you're unlucky enough to get it consecutively ; plus second sound might be a bit off
 - [ ] fix eventually: fix mobile linktree
 - [ ] fix eventually: fix web seg shadows being weird on a real phone ; it's the dynamic elems but i can't figure out
   how exactly
 - [ ] fix eventually: rewrite the web seg projects in japanese with more detail when my jp is better
 - [ ] fix eventually: improve linktree performance
-- [ ] fix eventually: minor layout shift due to anim expanding if you scroll into web seg too fast (particularly on phone)
-- [ ] fix eventually: train anim length may be inconsistent, just split the sound into 3 or rewrite it with requestAnimationFrame
+- [ ] fix eventually: minor layout shift due to anim expanding if you scroll into web seg too fast (particularly on
+  phone)
+- [ ] fix very: train anim length may be inconsistent, just split the sound into 3 or rewrite it with
+  requestAnimationFrame ; i fixed the race condition but this is still kinda dumb right now ; my raf fix made it better
+  in terms of lags but introduced a new issue, i need to remake the anime from scratch
 
 - [x] todo semi-prod: responsive
 - [x] todo semi-prod: translate everything
