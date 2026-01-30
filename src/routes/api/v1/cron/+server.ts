@@ -11,7 +11,15 @@ export const GET: RequestHandler = async ({request: req, locals: {supabase}}) =>
     // i did this it was wonky so what do i know
     //
     // i am a pirate arr
-    const {data, error: sberr} = await supabase
+    const dayOfMonth = new Date().getDate();
+    const shouldRun = dayOfMonth <= 3 || Math.floor(dayOfMonth / 2) % 2 === 0;
+
+    if (!shouldRun) {
+        console.log('Skipping cronin this time');
+        return new Response('skipped');
+    }
+
+    const {data: _d, error: sberr} = await supabase
         .from('socials')
         .select()
 
