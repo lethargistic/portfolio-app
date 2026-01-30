@@ -3,7 +3,16 @@
     import SegAbout from "$lib/segments/SegAbout.svelte";
     import SegLinktree from "$lib/segments/SegLinktree.svelte";
     import {goto} from "$app/navigation";
-    import {activeEditor, currentLang, editbar, editing, settings, t} from "$lib/shared.svelte";
+    import {
+        activeEditor,
+        animateTitleOverride,
+        currentLang,
+        editbar,
+        editing,
+        settings,
+        t,
+        windowGlobals
+    } from "$lib/shared.svelte";
     import GlobalEditorTools from "$lib/editing/GlobalEditorTools.svelte";
     import {page} from "$app/state";
     import SegWeb from "$lib/segments/SegWeb.svelte";
@@ -122,8 +131,68 @@
     }
 
     onMount(validateSoundSetting);
+
+
+    // what a slightly dumb way to do this 2024 maksiks
+    let title = $state('maksiks');
+    let titleIx = 0;
+    let curTitle = '';
+    const initSubName = 'maksiksq';
+    const subName = 'maksiks ';
+    let switcher = false;
+
+    const animateTitle = () => {
+        const interval = setInterval(() => {
+            switcher = !switcher;
+
+            if (!settings.title_animation.state) {
+                title = subName;
+                return;
+            }
+
+            if (titleIx === initSubName.length
+                && !animateTitleOverride.state) return;
+
+            if (titleIx < initSubName.length) {
+                titleIx++;
+                curTitle = subName.slice(0, titleIx);
+            } else {
+                setTimeout(() => {
+                    titleIx = 0;
+                    curTitle = '';
+                    switcher = false;
+                }, 1000);
+            }
+
+            title = curTitle + (switcher ? "▮" : " ");
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }
+
+    $effect(() => {
+        if (!settings.title_animation.state) {
+            title = subName;
+        }
+    })
+
+    onMount(() => {
+        setTimeout(() => {
+            return animateTitle();
+        }, 3000)
+    });
+
+    let scrollY = $state(0);
+    $effect(() => {
+        animateTitleOverride.state = !(scrollY > windowGlobals.inner_height);
+    })
 </script>
-<svelte:window on:keydown={handleTravelToAuth} />
+
+<svelte:head>
+    <title>{title}</title>
+</svelte:head>
+
+<svelte:window on:keydown={handleTravelToAuth} bind:scrollY={scrollY}/>
 
 {#if editing.state && settings.editor.state}
     <div class="editing">
@@ -139,9 +208,6 @@
     <SegWeb webProj={data.web_projects} webProjDetails={data.web_projects_details}/>
     <SegFooter/>
 </main>
-<!--{#each Array.from({length: 100}) as _, i }-->
-<!--    <p>{i}</p>-->
-<!--{/each}-->
 
 <style>
     .editing {

@@ -34,6 +34,12 @@ export let settings: Record<string, { display: string, desc: string, state: bool
         state: false,
         admin: false
     },
+    title_animation: {
+        display: 'settings_title_animation_display',
+        desc: 'settings_title_animation_desc',
+        state: true,
+        admin: false
+    },
     performance: {
         display: 'settings_performance_display',
         desc: 'settings_performance_desc',
@@ -47,6 +53,8 @@ export let settings: Record<string, { display: string, desc: string, state: bool
         admin: true
     },
 })
+
+export let animateTitleOverride  = $state({state: true})
 
 export let fiend = $state({state: false});
 export let editing = $state({state: false});

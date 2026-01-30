@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: cert page">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: cert tweaks">
+      <change afterPath="$PROJECT_DIR$/src/lib/assets/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/certificates/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/certificates/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/assets/favicon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/shared.svelte.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/shared.svelte.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +99,7 @@
     "Shell Script.やばそうなの.executor": "Run",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/src/lib/cert",
+    "last_opened_file_path": "D:/Docs/webstormproj/sustenant",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -114,18 +118,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\cert" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\screenshots" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img" />
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\diplomas" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\audio\chime" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\src\lib\assets" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img" />
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\certificates" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\screenshots" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\icons" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\lib\icons\svgs" />
     </key>
   </component>
   <component name="RunManager" selected="Shell Script.Host">
@@ -293,15 +297,7 @@
       <workItem from="1769676926996" duration="23221000" />
       <workItem from="1769712255980" duration="2049000" />
       <workItem from="1769714384492" duration="4741000" />
-      <workItem from="1769774486619" duration="18999000" />
-    </task>
-    <task id="LOCAL-00125" summary="chore: visit button">
-      <option name="closed" value="true" />
-      <created>1769160539155</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1769160539155</updated>
+      <workItem from="1769774486619" duration="21603000" />
     </task>
     <task id="LOCAL-00126" summary="chore: tooltips and ui tweaks + fix: rotatie math was wrong">
       <option name="closed" value="true" />
@@ -687,7 +683,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769796977542</updated>
     </task>
-    <option name="localTasksCounter" value="174" />
+    <task id="LOCAL-00174" summary="fix: cert tweaks">
+      <option name="closed" value="true" />
+      <created>1769797614087</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1769797614087</updated>
+    </task>
+    <option name="localTasksCounter" value="175" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -713,7 +717,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: borken tablet by wrong media query + fix: nit" />
     <MESSAGE value="chore: translation keys up to web seg" />
     <MESSAGE value="chore: web seg translation keys" />
     <MESSAGE value="chore: translated everything to japanese, oh my god am i tried" />
@@ -738,6 +741,7 @@
     <MESSAGE value="feat: 5% charge left. seems like this the end. if anyone can hear me on the other side, it's been a good run, o7. Anyway silly error page oh fck we had lights for 20 minutes now i just my charger did not plug itself in im i was about to commit this and it's off realization hit ohmygod what a twist" />
     <MESSAGE value="feat: error page" />
     <MESSAGE value="feat: cert page" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: cert page" />
+    <MESSAGE value="fix: cert tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: cert tweaks" />
   </component>
 </project>
