@@ -4,59 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: sound tweaks">
-      <change afterPath="$PROJECT_DIR$/src/routes/certificates/+page.server.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/certificates/+page.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/1730386486474_certificate.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/5cb5996a-6df7-4845-aaab-b6b96cf14a81.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195135.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195200.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195227.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195228.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195301.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195357.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195410.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195422.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195447.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195503.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195519.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195528.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195544.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195612.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195626.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195635.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195654.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195711.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195734.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195809.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195820.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195829.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195850.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195900.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_200020.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_200035.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_200141.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/TALAN_certificate_1.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/TALAN_certificate_2.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/TALAN_certificate_3.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/badlycroppedicpc.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/batlumbutwedidntwinthattime.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/cybergram.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/engineerektccredit.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/factorygames.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/icpcintecollege.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/ituniverse.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/kharkivitcluster.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/shodekoly.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/stickerpack.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/talan7.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/trivia2ndplace.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/veryverified.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/vntu1stplace.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/vntu1stplaceagain.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cert/webdevagain.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: started on certificates but no lights and mobile data can't handle imgs">
+      <change afterPath="$PROJECT_DIR$/src/routes/+error.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -342,15 +291,7 @@
       <workItem from="1769676926996" duration="23221000" />
       <workItem from="1769712255980" duration="2049000" />
       <workItem from="1769714384492" duration="4741000" />
-      <workItem from="1769774486619" duration="9698000" />
-    </task>
-    <task id="LOCAL-00121" summary="feat: arrows n fancy">
-      <option name="closed" value="true" />
-      <created>1769021676427</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1769021676427</updated>
+      <workItem from="1769774486619" duration="11458000" />
     </task>
     <task id="LOCAL-00122" summary="fix: fade scope">
       <option name="closed" value="true" />
@@ -736,7 +677,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769782258818</updated>
     </task>
-    <option name="localTasksCounter" value="170" />
+    <task id="LOCAL-00170" summary="chore: started on certificates but no lights and mobile data can't handle imgs">
+      <option name="closed" value="true" />
+      <created>1769786596102</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1769786596103</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -762,7 +711,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: welcome seg responsive" />
     <MESSAGE value="chore: about seg responsive" />
     <MESSAGE value="chore: ok this one was really fun, tho it's kinda wonky on a real phone" />
     <MESSAGE value="chore: web seg responsive, once again a bit of real-phone jank rip" />
@@ -787,6 +735,7 @@
     <MESSAGE value="feat: chime sounds" />
     <MESSAGE value="feat: subtle wind sound + feat: card sound this is adhd sounds now" />
     <MESSAGE value="chore: sound tweaks" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: sound tweaks" />
+    <MESSAGE value="chore: started on certificates but no lights and mobile data can't handle imgs" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: started on certificates but no lights and mobile data can't handle imgs" />
   </component>
 </project>
