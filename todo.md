@@ -11,7 +11,7 @@
 - [ ] todo maybe: maybe let the user catch the train
 - [ ] todo maybe: clicks for sounds?
 - [ ] todo maybe: train pushes mouse?
-- [ ] todo: DO NOT OVERDO IT
+- [ ] todo: DO NOT OVERDO IT ; help
 - [ ] todo: take your time
 - [ ] fix: train and track artstyle inconsistency
 - [ ] todo fun pain: make the two branches separate in space (and not cover up the tree)
@@ -68,7 +68,6 @@
 - [x] todo semi-prod: responsive
 - [x] todo semi-prod: translate everything
 - [x] todo semi-prod: little end bit
-- [ ] todo semi-prod: linktree -> web sec animation
 - [x] todo semi-prod: reduce linktree lag
   ; from my testing the lags i often observe are purely from hmr refreshes spawning too much of something so not an
   issue for a normal user except on phone, there maybe the limit of webgl contexts is lower? either way some chimes just
@@ -80,8 +79,10 @@
 - [x] todo semi-prod: update this screenie
 - [x] todo semi-prod: center chimes for 100% and 150% zoom
 - [x] todo semi-prod: error page
-- [ ] todo semi-prod: supabase keepalive, and one for ohthatsuseful while i'm at it too
-- [ ] todo semi-prod: title anim and og
+- [x] todo semi-prod: title anim
+- [x] todo semi-prod: og
 - [ ] todo semi-prod: diplomas ; make them available only with key from resume,
   and filter commit history for them too, they're not really private and the resume is public anyway,
   but hell knows yer stalkere
+- [ ] todo semi-prod: supabase keepalive, and one for ohthatsuseful while i'm at it too
+- [ ] todo semi-prod: linktree -> web sec animation

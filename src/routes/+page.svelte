@@ -138,7 +138,6 @@
     let titleIx = 0;
     let curTitle = '';
     const initSubName = 'maksiksq';
-    const subName = 'maksiks ';
     let switcher = false;
 
     const animateTitle = () => {
@@ -146,7 +145,7 @@
             switcher = !switcher;
 
             if (!settings.title_animation.state) {
-                title = subName;
+                title = iniTitle;
                 return;
             }
 
@@ -155,7 +154,7 @@
 
             if (titleIx < initSubName.length) {
                 titleIx++;
-                curTitle = subName.slice(0, titleIx);
+                curTitle = iniTitle.slice(0, titleIx);
             } else {
                 setTimeout(() => {
                     titleIx = 0;
@@ -172,7 +171,7 @@
 
     $effect(() => {
         if (!settings.title_animation.state) {
-            title = subName;
+            title = iniTitle;
         }
     })
 
@@ -186,10 +185,69 @@
     $effect(() => {
         animateTitleOverride.state = !(scrollY > windowGlobals.inner_height);
     })
+
+    const iniTitle = 'maksiks ';
+    const desc = "Maksiks's personal void, come grab a tea.";
+    const canonUrl = "https://maksiks.is-a.dev/";
+    const ogImgPath = "https://maksiks.is-a.dev/img/ogimg.png";
+
+    const metaNamed = [
+        { name: "description", content:  desc},
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: iniTitle },
+        { name: "twitter:description", content: desc },
+        { name: "twitter:image", content: ogImgPath },
+        { name: "author", content: "Maksiks" }
+    ];
+
+    const metaProperty = [
+        { property: "og:type", content: "website" },
+        { property: "og:title", content: iniTitle },
+        { property: "og:description", content: desc },
+        { property: "og:url", content: canonUrl },
+        { property: "og:image", content: ogImgPath }
+    ]
+
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Maksiks",
+        "url": "https://maksiks.is-a.dev/",
+        "email": "maksiks.touch@gmail.com",
+        "sameAs": [
+            "https://github.com/maksiksq",
+            "https://www.linkedin.com/in/maksiksq/",
+            "https://bsky.app/profile/maksiks.bsky.social"
+        ],
+        "jobTitle": "Software Developer",
+        "knowsAbout": [
+            "Software Development",
+            "JavaScript",
+            "TypeScript",
+            "Svelte",
+            "React",
+            "Web dev"
+        ],
+        "alumniOf": "Vifc NUFT",
+        "description": "Maksiks is a self-taught software developer with a passion for Japanese, games, media, and design.",
+        "image": "https://maksiks.is-a.dev/img/pfp.webp"
+    };
 </script>
+
+
 
 <svelte:head>
     <title>{title}</title>
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonUrl}>
+
+    {#each metaNamed ?? [] as meta (meta.name)}
+        <meta name={meta.name} content={meta.content}/>
+    {/each}
+    {#each metaProperty ?? [] as meta (meta.property)}
+        <meta property={meta.property} content={meta.content}/>
+    {/each}
+    {@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
 </svelte:head>
 
 <svelte:window on:keydown={handleTravelToAuth} bind:scrollY={scrollY}/>
