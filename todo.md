@@ -84,4 +84,4 @@
 - [ ] todo semi-prod: title anim and og
 - [ ] todo semi-prod: diplomas ; make them available only with key from resume,
   and filter commit history for them too, they're not really private and the resume is public anyway,
-  but hell knows yer stalker
+  but hell knows yer stalkere

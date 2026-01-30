@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: error page">
-      <change afterPath="$PROJECT_DIR$/src/lib/cert/diplomas.xbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/cert/very-convincing-watermark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/screenshots/webthumbsforportfolio.xbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: cert page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/certificates/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/certificates/+page.server.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/certificates/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/certificates/+page.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
@@ -298,15 +293,7 @@
       <workItem from="1769676926996" duration="23221000" />
       <workItem from="1769712255980" duration="2049000" />
       <workItem from="1769714384492" duration="4741000" />
-      <workItem from="1769774486619" duration="18393000" />
-    </task>
-    <task id="LOCAL-00124" summary="chore: db posting for inner projects">
-      <option name="closed" value="true" />
-      <created>1769158425006</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1769158425006</updated>
+      <workItem from="1769774486619" duration="18999000" />
     </task>
     <task id="LOCAL-00125" summary="chore: visit button">
       <option name="closed" value="true" />
@@ -692,7 +679,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769790420974</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL-00173" summary="feat: cert page">
+      <option name="closed" value="true" />
+      <created>1769796977542</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1769796977542</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -718,7 +713,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: web seg responsive, once again a bit of real-phone jank rip" />
     <MESSAGE value="fix: borken tablet by wrong media query + fix: nit" />
     <MESSAGE value="chore: translation keys up to web seg" />
     <MESSAGE value="chore: web seg translation keys" />
@@ -743,6 +737,7 @@
     <MESSAGE value="chore: started on certificates but no lights and mobile data can't handle imgs" />
     <MESSAGE value="feat: 5% charge left. seems like this the end. if anyone can hear me on the other side, it's been a good run, o7. Anyway silly error page oh fck we had lights for 20 minutes now i just my charger did not plug itself in im i was about to commit this and it's off realization hit ohmygod what a twist" />
     <MESSAGE value="feat: error page" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: error page" />
+    <MESSAGE value="feat: cert page" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: cert page" />
   </component>
 </project>
