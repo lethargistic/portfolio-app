@@ -8,13 +8,15 @@
 
   "~settings": "/",
   "settings_sounds_display": "音",
-  "settings_sounds_desc": "設定を見つけたね！計画通りだよ。<br>できればオンにして。おすすめだから。",
+  "settings_sounds_desc": "設定を見つけたね！計画通りだよ。<br>できればオンにして。おすすめだから",
   "settings_remove_flashing_display": "点滅を除く",
   "settings_remove_flashing_desc": "錯視と点滅エフェクトを無効にする。<br> 発作の予防に役立つ可能性がある",
   "settings_extended_linktree_display": "拡張linktree",
-  "settings_extended_linktree_desc": "呪われたソーシャルも表示する。見る勇気ある？まあ、実際つまらないけどね。",
+  "settings_extended_linktree_desc": "呪われたソーシャルも表示する。見る勇気ある？まあ、実際つまらないけどね",
+  "settings_title_animation_display": "タイトルアニメーション",
+  "settings_title_animation_desc": "ブラウザタブのアニメーション。少し気を散らすかも。先のセクションの自動的停止",
   "settings_performance_display": "性能モード",
-  "settings_performance_desc": "デバイスがプロゲーミングじゃが芋なら、重いアニメションを軽減する。",
+  "settings_performance_desc": "デバイスがプロゲーミングじゃが芋なら、重いアニメションを軽減する",
   "settings_editor_mode_display": "編集モード",
   "settings_editor_mode_desc": "ガチョウがあなたの存在を感心してペンをくれる",
 

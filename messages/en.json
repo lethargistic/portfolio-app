@@ -15,7 +15,7 @@
   "settings_extended_linktree_display": "extended linktree",
   "settings_extended_linktree_desc": "Shows the cursed socials in the linktree section. Dare to look? Actually, don't, they're boring. ",
   "settings_title_animation_display": "title animation",
-  "settings_title_animation_desc": "The one in your browser tab, it may be a bit distracting. Off automatically in sections ahead.",
+  "settings_title_animation_desc": "The one in your browser tab, it may be a bit distracting. Stops automatically in sections ahead.",
   "settings_performance_display": "performance",
   "settings_performance_desc": "Reduces chunkier animations if your device is a professional gaming potato. ",
   "settings_editor_mode_display": "editor mode",

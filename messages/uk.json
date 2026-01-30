@@ -14,6 +14,8 @@
   "settings_remove_flashing_desc": "Вимикає оптичні іллюзії та спалахуючі ефекти. Може допомогти фотосенситивним людям.",
   "settings_extended_linktree_display": "розширене linktree",
   "settings_extended_linktree_desc": "Показує заборонені прокляті гуцульські соціальні мережі в дереві нижче. Лячно? Ну, насправді там нема нічо цікавого.",
+  "settings_title_animation_display": "анімація назви",
+  "settings_title_animation_desc": "Тієї що зверху, у вкладці браузера. Може трохи заважати. Вона стає автоматично у наступних секціях.",
   "settings_performance_display": "performance",
   "settings_performance_desc": "Викручує деякі потужні анімації вниз. <br>На випадок якщо твій девайс професійна геймерська бульба.",
   "settings_editor_mode_display": "На ручку, тримай",
