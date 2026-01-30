@@ -79,7 +79,9 @@
 - [x] todo semi-prod: settings (including sounds)
 - [x] todo semi-prod: update this screenie
 - [x] todo semi-prod: center chimes for 100% and 150% zoom
-- [ ] todo semi-prod: error page
+- [x] todo semi-prod: error page
+- [ ] todo semi-prod: supabase keepalive, and one for ohthatsuseful while i'm at it too
+- [ ] todo semi-prod: title anim and og
 - [ ] todo semi-prod: diplomas ; make them available only with key from resume,
   and filter commit history for them too, they're not really private and the resume is public anyway,
   but hell knows yer stalker

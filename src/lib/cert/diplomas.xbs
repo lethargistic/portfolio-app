@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><XnView_script version="1.0" name="diplomas">
+    <Watermark filename="C:/Progs/Dev/Future/Diplomas/watermark.png" opacity="4" no_alpha="false" position="4" delta_x="0" delta_y="0" perc="50" size="1"/>
+    <Clean_metadata flags="31"/>
+    <Output folder="" filename="{Filename}" case="0" startIndex="1" format="WEBP">
+        <Options overwrite="1" orgDate="false" keepMeta="true" keepICC="false" keepFolder="false" keepParentFolder="false" keepExtension="false" delOrg="false" multipage="false" allPages="false" openExplorer="false" openBrowser="false" clearItems="false"/>
+        <WEBP method="0" quality="80" filesize="128" compress="4" strength="60" sharpness="0" preset="0"/>
+    </Output>
+</XnView_script>

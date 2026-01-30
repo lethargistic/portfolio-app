@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: started on certificates but no lights and mobile data can't handle imgs">
-      <change afterPath="$PROJECT_DIR$/src/routes/+error.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: error page">
+      <change afterPath="$PROJECT_DIR$/src/lib/cert/diplomas.xbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/cert/very-convincing-watermark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/screenshots/webthumbsforportfolio.xbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/certificates/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/certificates/+page.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/certificates/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/certificates/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +100,7 @@
     "Shell Script.やばそうなの.executor": "Run",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/src/routes/diplomas",
+    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/src/lib/cert",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -112,11 +119,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\src\lib\cert" />
+      <recent name="D:\Docs\webstormproj\sustenant\src\lib\screenshots" />
+      <recent name="D:\Docs\webstormproj\sustenant\static\img" />
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\diplomas" />
       <recent name="D:\Docs\webstormproj\sustenant\static\audio\chime" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\audio" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img\web-thumbnails" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Docs\webstormproj\sustenant\static\img" />
@@ -291,23 +298,7 @@
       <workItem from="1769676926996" duration="23221000" />
       <workItem from="1769712255980" duration="2049000" />
       <workItem from="1769714384492" duration="4741000" />
-      <workItem from="1769774486619" duration="11458000" />
-    </task>
-    <task id="LOCAL-00122" summary="fix: fade scope">
-      <option name="closed" value="true" />
-      <created>1769023195816</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1769023195816</updated>
-    </task>
-    <task id="LOCAL-00123" summary="chore: inner card editing no db yet">
-      <option name="closed" value="true" />
-      <created>1769025970966</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1769025970966</updated>
+      <workItem from="1769774486619" duration="18393000" />
     </task>
     <task id="LOCAL-00124" summary="chore: db posting for inner projects">
       <option name="closed" value="true" />
@@ -685,7 +676,23 @@
       <option name="project" value="LOCAL" />
       <updated>1769786596103</updated>
     </task>
-    <option name="localTasksCounter" value="171" />
+    <task id="LOCAL-00171" summary="feat: 5% charge left. seems like this the end. if anyone can hear me on the other side, it's been a good run, o7. Anyway silly error page oh fck we had lights for 20 minutes now i just my charger did not plug itself in im i was about to commit this and it's off realization hit ohmygod what a twist">
+      <option name="closed" value="true" />
+      <created>1769788309045</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1769788309045</updated>
+    </task>
+    <task id="LOCAL-00172" summary="feat: error page">
+      <option name="closed" value="true" />
+      <created>1769790420974</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1769790420974</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -711,8 +718,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: about seg responsive" />
-    <MESSAGE value="chore: ok this one was really fun, tho it's kinda wonky on a real phone" />
     <MESSAGE value="chore: web seg responsive, once again a bit of real-phone jank rip" />
     <MESSAGE value="fix: borken tablet by wrong media query + fix: nit" />
     <MESSAGE value="chore: translation keys up to web seg" />
@@ -736,6 +741,8 @@
     <MESSAGE value="feat: subtle wind sound + feat: card sound this is adhd sounds now" />
     <MESSAGE value="chore: sound tweaks" />
     <MESSAGE value="chore: started on certificates but no lights and mobile data can't handle imgs" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: started on certificates but no lights and mobile data can't handle imgs" />
+    <MESSAGE value="feat: 5% charge left. seems like this the end. if anyone can hear me on the other side, it's been a good run, o7. Anyway silly error page oh fck we had lights for 20 minutes now i just my charger did not plug itself in im i was about to commit this and it's off realization hit ohmygod what a twist" />
+    <MESSAGE value="feat: error page" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: error page" />
   </component>
 </project>

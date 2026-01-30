@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><XnView_script version="1.0" name="webthumbsforportfolio">
+    <Resize mode="5" width="600" height="600" unit="0" ratio="true" orientation="false" enlarge="0" resample="7" gamma_correct="false"/>
+    <Output folder="D:/Docs/webstormproj/sustenant/static/img/web-thumbnails/small" filename="{Filename}" case="0" startIndex="1" format="WEBP">
+        <Options overwrite="1" orgDate="false" keepMeta="true" keepICC="false" keepFolder="false" keepParentFolder="false" keepExtension="false" delOrg="false" multipage="false" allPages="false" openExplorer="false" openBrowser="false" clearItems="false"/>
+        <WEBP method="2" quality="100" filesize="128" compress="4" strength="60" sharpness="0" preset="0"/>
+    </Output>
+</XnView_script>
