@@ -7,10 +7,11 @@
         handleItemEdit,
         handleItemHolding,
         handleItemLeaving,
-        handlePositioning, isHackeryAnimating, modal, pxToVh, pxToVw, t, vhToPx, vwToPx, windowGlobals
+        handlePositioning, isHackeryAnimating, modal, pxToVh, pxToVw, settings, t, vhToPx, vwToPx, windowGlobals
     } from "$lib/shared.svelte";
     import {onMount, untrack} from "svelte";
     import {expoOut} from "svelte/easing";
+    import {browser} from "$app/environment";
 
     let {proj, ix} = $props();
     let rotatie: HTMLElement | null = $state(null);
@@ -71,9 +72,17 @@
 
     //
 
+    let sfx: HTMLAudioElement | null = null;
+    if (browser) {
+        sfx = new Audio('/audio/chime/cabinet-bonk.opus')
+    }
     let selected = $derived(modal.selected === proj.name);
     const handleCardInteraction = (e: Event | null, skip: boolean = false) => {
         if (e instanceof KeyboardEvent && !(e.key === ' ' || e.key === 'Enter')) return;
+
+        if (settings.sounds.state && sfx) {
+            sfx.play();
+        }
 
         if (editing.state && e !== null) {
             handleItemEdit(e, proj.name, 'web-modifying');

@@ -4,20 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: translated toast + fix: train anim could break because of lang reupdate">
-      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-0.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-1.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-2.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-3.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-4.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-5.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-6.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-7.opus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/audio/chime/wind-chime-8.opus" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: subtle wind sound">
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/_cabinet-bonk-softer.opus" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/_glitch-chime.opus" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/_highlighter-marker.opus" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/_paper-slide.opus" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/_sci-fi-typing-i-guess.opus" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/_soft-keyboard-type.opus" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/ambient-wind.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/audio/chime/cabinet-bonk.opus" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hangies/Chime.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegAbout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,15 +299,8 @@
       <workItem from="1769675561594" duration="1089000" />
       <workItem from="1769676926996" duration="23221000" />
       <workItem from="1769712255980" duration="2049000" />
-      <workItem from="1769714384492" duration="2916000" />
-    </task>
-    <task id="LOCAL-00118" summary="chore: modal progress, also, it moves">
-      <option name="closed" value="true" />
-      <created>1769015610304</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
-      <option name="project" value="LOCAL" />
-      <updated>1769015610304</updated>
+      <workItem from="1769714384492" duration="4741000" />
+      <workItem from="1769774486619" duration="6050000" />
     </task>
     <task id="LOCAL-00119" summary="chore: added bugs (but admin only)">
       <option name="closed" value="true" />
@@ -693,7 +686,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769702613028</updated>
     </task>
-    <option name="localTasksCounter" value="167" />
+    <task id="LOCAL-00167" summary="feat: chime sounds">
+      <option name="closed" value="true" />
+      <created>1769717501999</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1769717502000</updated>
+    </task>
+    <option name="localTasksCounter" value="168" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -719,7 +720,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: you can never draw something this well when you actually try to" />
     <MESSAGE value="fix: all card info blocks would disappear + fix: nav was in db order and borken" />
     <MESSAGE value="chore: minor thumbnail edit" />
     <MESSAGE value="chore: welcome seg responsive" />
@@ -744,6 +744,7 @@
     <MESSAGE value="feat: chrome boinked my sounds toast, also this lib is ridiculous in the best way possible" />
     <MESSAGE value="fix: better sound setting detection + chore: styled the toast&#10;mmm toast&#10;my mind drifts towards a sandwich but i resist" />
     <MESSAGE value="fix: translated toast + fix: train anim could break because of lang reupdate" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: translated toast + fix: train anim could break because of lang reupdate" />
+    <MESSAGE value="feat: chime sounds" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: chime sounds" />
   </component>
 </project>

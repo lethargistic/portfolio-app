@@ -7,6 +7,10 @@
 
     const {webProj: webProjProp, webProjDetails: webProjDetailsProp} = $props();
 
+    // the fact this is the only section without sounds is stupid but i couldn't make anything work well
+    // the web section is always cursed <--- fuck you, checkmate
+    // it's supposed to be the most important one
+
     const webProj: Array<Record<string, any>> = $derived(editbar.proj_data);
     const webProjDetails: Array<Record<string, any>> = $derived(editbar.proj_details_data);
     const findSelectedProj = () => {

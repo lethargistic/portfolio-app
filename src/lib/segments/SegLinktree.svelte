@@ -96,6 +96,61 @@
     let foldTooltipOverride: string | null = $state(null);
 
     let linkTreeSegElem: HTMLElement | null = $state(null);
+
+    let ambientWindAudio: HTMLAudioElement | null = $state(null);
+    onMount(() => {
+        lerpParallaxScroll();
+        animateWindBlur();
+
+
+        ambientWindAudio = new Audio('/audio/chime/ambient-wind.mp3');
+        ambientWindAudio.loop = true;
+        ambientWindAudio.volume = 0;
+
+        if (linkTreeSegElem && ambientWindAudio) {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (!ambientWindAudio) return;
+
+                        const ratio = entry.intersectionRatio;
+
+                        if (ratio > 0) {
+                            if (ambientWindAudio.paused) {
+                                if (settings.sounds.state) {
+                                    ambientWindAudio.play();
+                                }
+                            }
+
+                            let targetVolume = 0.9;
+                            if (ratio < 0.1) {
+                                targetVolume = (ratio / 0.1) * 0.9;
+                            } else if (ratio > 0.9) {
+                                targetVolume = ((1 - ratio) / 0.1) * 0.9;
+                            }
+
+                            ambientWindAudio.volume = targetVolume;
+                        } else {
+                            ambientWindAudio.pause();
+                            ambientWindAudio.volume = 0;
+                        }
+                    });
+                },
+                {threshold: Array.from({length: 101}, (_, i) => i / 100)}
+            );
+
+            observer.observe(linkTreeSegElem);
+
+            return () => observer.disconnect();
+        }
+    })
+
+    onDestroy(() => {
+        if (ambientWindAudio) {
+            ambientWindAudio.pause();
+            ambientWindAudio = null;
+        }
+    });
 </script>
 
 <svelte:window bind:innerHeight={windowHeight} bind:scrollY={windowScrollY} onscroll={handleScrollBool}
