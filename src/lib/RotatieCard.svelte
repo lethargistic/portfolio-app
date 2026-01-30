@@ -75,6 +75,7 @@
     let sfx: HTMLAudioElement | null = null;
     if (browser) {
         sfx = new Audio('/audio/chime/cabinet-bonk.opus')
+        sfx.volume = 0.8;
     }
     let selected = $derived(modal.selected === proj.name);
     const handleCardInteraction = (e: Event | null, skip: boolean = false) => {

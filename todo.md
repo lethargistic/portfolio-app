@@ -76,7 +76,7 @@
   to go probably ; it does still kinda lag on entry when extended tho so improve perf anyway
 - [x] todo semi-prod: inconsistent annoying layout shift caused by chimes supposedly, possible css rather than js
   issue? ; can't for the god of me replicate this in prod which could be a bad thing, or a good thing
-- [ ] todo semi-prod: settings (including sounds)
+- [x] todo semi-prod: settings (including sounds)
 - [x] todo semi-prod: update this screenie
 - [x] todo semi-prod: center chimes for 100% and 150% zoom
 - [ ] todo semi-prod: error page
