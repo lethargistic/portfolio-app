@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: title animation setting translations">
-      <change afterPath="$PROJECT_DIR$/static/img/ogimg.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: open graph and minor seo">
       <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -294,15 +291,7 @@
       <workItem from="1769676926996" duration="23221000" />
       <workItem from="1769712255980" duration="2049000" />
       <workItem from="1769714384492" duration="4741000" />
-      <workItem from="1769774486619" duration="25398000" />
-    </task>
-    <task id="LOCAL-00128" summary="chore: more ui tweaks">
-      <option name="closed" value="true" />
-      <created>1769175209011</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1769175209011</updated>
+      <workItem from="1769774486619" duration="25653000" />
     </task>
     <task id="LOCAL-00129" summary="feat: tooltips for linktree and tweaks god this took so long">
       <option name="closed" value="true" />
@@ -688,7 +677,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769801674570</updated>
     </task>
-    <option name="localTasksCounter" value="177" />
+    <task id="LOCAL-00177" summary="chore: open graph and minor seo">
+      <option name="closed" value="true" />
+      <created>1769804498226</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1769804498226</updated>
+    </task>
+    <option name="localTasksCounter" value="178" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -714,7 +711,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: translated everything to japanese, oh my god am i tried" />
     <MESSAGE value="fix: about bits did not update correctly on lang change" />
     <MESSAGE value="chore: Ukrainian translation (мова чату гуцульська вчіци трохи людськості якої туво) + fix: jp was missing some linktree labels + fix: typo check" />
     <MESSAGE value="fix: fold translations have borken" />
@@ -739,6 +735,7 @@
     <MESSAGE value="fix: cert tweaks" />
     <MESSAGE value="feat: title animation" />
     <MESSAGE value="fix: title animation setting translations" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: title animation setting translations" />
+    <MESSAGE value="chore: open graph and minor seo" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: open graph and minor seo" />
   </component>
 </project>

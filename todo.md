@@ -86,3 +86,4 @@
   but hell knows yer stalkere
 - [ ] todo semi-prod: supabase keepalive, and one for ohthatsuseful while i'm at it too
 - [ ] todo semi-prod: linktree -> web sec animation
+- [ ] todo semi-prod: make lang switcher change "original"
