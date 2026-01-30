@@ -4,9 +4,59 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: subtle wind sound + feat: card sound this is adhd sounds now">
-      <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: sound tweaks">
+      <change afterPath="$PROJECT_DIR$/src/routes/certificates/+page.server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/certificates/+page.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/1730386486474_certificate.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/5cb5996a-6df7-4845-aaab-b6b96cf14a81.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195135.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195200.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195227.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195228.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195301.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195357.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195410.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195422.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195447.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195503.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195519.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195528.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195544.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195612.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195626.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195635.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195654.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195711.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195734.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195809.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195820.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195829.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195850.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_195900.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_200020.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_200035.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/IMG_20251022_200141.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/TALAN_certificate_1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/TALAN_certificate_2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/TALAN_certificate_3.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/badlycroppedicpc.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/batlumbutwedidntwinthattime.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/cybergram.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/engineerektccredit.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/factorygames.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/icpcintecollege.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/ituniverse.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/kharkivitcluster.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/shodekoly.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/stickerpack.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/talan7.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/trivia2ndplace.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/veryverified.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/vntu1stplace.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/vntu1stplaceagain.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/cert/webdevagain.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,10 +79,10 @@
         <option value="Icon" />
         <option value="SegWeb" />
         <option value="RotatieCard" />
-        <option value="+page.svelte" />
         <option value="WebProjModl" />
         <option value="SegFooter" />
         <option value="ErrorCustom" />
+        <option value="+page.svelte" />
       </list>
     </option>
   </component>
@@ -58,6 +108,9 @@
     <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@types+three@0.182.0/node_modules/@types/three/examples/jsm/lines/LineMaterial.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@types+three@0.182.0/node_modules/@types/three/examples/jsm/renderers/CSS3DRenderer.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@types+three@0.182.0/node_modules/@types/three/src/math/Vector3.d.ts" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/svelte-french-toast@2.0.0-alpha.0_svelte@5.45.5/node_modules/svelte-french-toast/dist/components/ToastIcon.svelte.d.ts" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/svelte-french-toast@2.0.0-alpha.0_svelte@5.45.5/node_modules/svelte-french-toast/dist/core/toast.d.ts" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/svelte-french-toast@2.0.0-alpha.0_svelte@5.45.5/node_modules/svelte-french-toast/dist/core/types.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/svelte@5.45.5/node_modules/svelte/elements.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/svelte@5.45.5/node_modules/svelte/types/index.d.ts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.dom.d.ts" root0="SKIP_INSPECTION" />
@@ -76,52 +129,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;JavaScript Debug.localhost:5173.executor&quot;: &quot;Debug&quot;,
-    &quot;JavaScript Debug.localhost:5174.executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Shell Script.Host.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.やばそうなの.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Docs/webstormproj/sustenant/static/audio/chime&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "JavaScript Debug.localhost:5173.executor": "Debug",
+    "JavaScript Debug.localhost:5174.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Shell Script.Host.executor": "Run",
+    "Shell Script.やばそうなの.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/src/routes/diplomas",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "editor.preferences.tabs",
+    "ts.external.directory.path": "D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;JSON&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JSON"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\src\routes\diplomas" />
       <recent name="D:\Docs\webstormproj\sustenant\static\audio\chime" />
       <recent name="D:\Docs\webstormproj\sustenant\static\audio" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\web-thumbnails" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\lib\icons\svgs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\static\img" />
+      <recent name="D:\Docs\webstormproj\sustenant\src\routes\certificates" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\screenshots" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\icons" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\icons\svgs" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\routes\web-projects\[project]" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\routes" />
     </key>
   </component>
   <component name="RunManager" selected="Shell Script.Host">
@@ -289,15 +342,7 @@
       <workItem from="1769676926996" duration="23221000" />
       <workItem from="1769712255980" duration="2049000" />
       <workItem from="1769714384492" duration="4741000" />
-      <workItem from="1769774486619" duration="6538000" />
-    </task>
-    <task id="LOCAL-00120" summary="fix: quantum entanglement">
-      <option name="closed" value="true" />
-      <created>1769019209859</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1769019209860</updated>
+      <workItem from="1769774486619" duration="9698000" />
     </task>
     <task id="LOCAL-00121" summary="feat: arrows n fancy">
       <option name="closed" value="true" />
@@ -683,7 +728,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769781717880</updated>
     </task>
-    <option name="localTasksCounter" value="169" />
+    <task id="LOCAL-00169" summary="chore: sound tweaks">
+      <option name="closed" value="true" />
+      <created>1769782258818</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1769782258818</updated>
+    </task>
+    <option name="localTasksCounter" value="170" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -709,7 +762,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: minor thumbnail edit" />
     <MESSAGE value="chore: welcome seg responsive" />
     <MESSAGE value="chore: about seg responsive" />
     <MESSAGE value="chore: ok this one was really fun, tho it's kinda wonky on a real phone" />
@@ -734,6 +786,7 @@
     <MESSAGE value="fix: translated toast + fix: train anim could break because of lang reupdate" />
     <MESSAGE value="feat: chime sounds" />
     <MESSAGE value="feat: subtle wind sound + feat: card sound this is adhd sounds now" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: subtle wind sound + feat: card sound this is adhd sounds now" />
+    <MESSAGE value="chore: sound tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: sound tweaks" />
   </component>
 </project>

@@ -27,3 +27,6 @@ src/lib/paraglide
 
 .vercel
 /supabase/
+
+/static/img/cert/
+/static/img/cert/*
