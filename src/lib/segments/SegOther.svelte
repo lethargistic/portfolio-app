@@ -1,9 +1,10 @@
 <script lang="ts">
-    import {currentLang, windowGlobals} from "$lib/shared.svelte";
+    import {currentLang, settings, windowGlobals} from "$lib/shared.svelte";
     import {untrack} from "svelte";
     import {Spring} from "svelte/motion";
 
-    const SNOWFLAKE_COUNT = 400;
+    const MAX_SNOWFLAKE_COUNT = $state(500);
+    let realSnowflakeCount = $derived(settings.performance.state ? MAX_SNOWFLAKE_COUNT/5 : MAX_SNOWFLAKE_COUNT);
     const SNOWFLAKE_SIZE_BASE = 30;
     const SNOWFLAKE_SIZE_MIN_ADDED = 3;
 
@@ -33,7 +34,7 @@
     let toUpdate = $state(0);
     const startFreshFlake = (ix: number, initial: boolean) => {
         const toView = windowGlobals.inner_width !== 0 && initial;
-        const speed = toView ? Math.floor(Math.random() * 100) : ANIMATION_SPEED_BASE_S;
+        const speed = toView ? Math.floor(Math.random() * 50) : ANIMATION_SPEED_BASE_S;
         const minSpeed = toView ? 1 : ANIMATION_MINIMUM_FALLING_SPEED_S;
 
         const duration = getAbsRand(speed, minSpeed);
@@ -66,7 +67,7 @@
         }
     }
 
-    const invalidateFlakes = () => Array.from({length: SNOWFLAKE_COUNT}, (_, i) => {
+    const invalidateFlakes = () => Array.from({length: MAX_SNOWFLAKE_COUNT}, (_, i) => {
         return startFreshFlake(i, true)
     });
     let snowflakes: Array<Record<string, any>> = $state(invalidateFlakes());
@@ -100,6 +101,8 @@
     const yuru = (e: PointerEvent) => {
         mouseOffset.target = e.clientX / -4;
     }
+
+    $inspect(snowflakes.length);
 </script>
 
 <svelte:body bind:this={bodyElem}/>
@@ -109,8 +112,9 @@
         <div class="snowy" onpointermove={yuru}>
             <div class="snow-cont" bind:clientHeight={snowyHeight}>
                 {#each snowflakes as flake, i (i)}
-                    {#key snowflakes[i]}
-                        <div class="snowflake" style={`
+                    {#if i < realSnowflakeCount}
+                        {#key snowflakes[i]}
+                            <div class="snowflake" style={`
                         width: ${flake.diagonal}px;
                         height: ${flake.diagonal}px;
                         --flake-right: ${flake.right+mouseOffset.current + flake.offset}px;
@@ -118,7 +122,8 @@
                         animation-name: ${flake.name};
                         animation-duration: ${flake.duration}s;
                     `}></div>
-                    {/key}
+                        {/key}
+                    {/if}
                 {/each}
             </div>
         </div>
@@ -192,20 +197,20 @@
             }
 
             10% {
-                right: calc(var(--flake-right) + 20px);
+                right: calc(var(--flake-right) + 30px);
             }
 
             20% {
-                right: calc(var(--flake-right) + 25px);
+                right: calc(var(--flake-right) + 40px);
             }
 
             25% {
                 opacity: 0.75;
-                transform: translate(0px, calc(var(--snowy-height)*0.25));
+                transform: translate(0px, calc(var(--snowy-height) * 0.25));
             }
 
             30% {
-                right: calc(var(--flake-right) + 20px);
+                right: calc(var(--flake-right) + 30px);
             }
 
             40% {
@@ -214,21 +219,21 @@
 
             50% {
                 opacity: 1;
-                right: calc(var(--flake-right) + -20px);
-                transform: translate(0px, calc(var(--snowy-height)*0.5));
+                right: calc(var(--flake-right) + -30px);
+                transform: translate(0px, calc(var(--snowy-height) * 0.5));
             }
 
             60% {
-                right: calc(var(--flake-right) + -25px);
+                right: calc(var(--flake-right) + -40px);
             }
 
             70% {
-                right: calc(var(--flake-right) + -20px);
+                right: calc(var(--flake-right) + -30px);
             }
 
             75% {
                 opacity: 0.5;
-                transform: translate(0px, calc(var(--snowy-height)*0.75));
+                transform: translate(0px, calc(var(--snowy-height) * 0.75));
             }
 
             80% {
