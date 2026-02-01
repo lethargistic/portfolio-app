@@ -32,7 +32,11 @@
 
     let toUpdate = $state(0);
     const startFreshFlake = (ix: number, initial: boolean) => {
-        const duration = getAbsRand(ANIMATION_SPEED_BASE_S, ANIMATION_MINIMUM_FALLING_SPEED_S);
+        const toView = windowGlobals.inner_width !== 0 && initial;
+        const speed = toView ? Math.floor(Math.random() * 100) : ANIMATION_SPEED_BASE_S;
+        const minSpeed = toView ? 1 : ANIMATION_MINIMUM_FALLING_SPEED_S;
+
+        const duration = getAbsRand(speed, minSpeed);
 
         let timeout = null;
         if (windowGlobals.inner_width !== 0) {
