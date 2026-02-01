@@ -84,6 +84,9 @@
 - [ ] todo semi-prod: diplomas ; make them available only with key from resume,
   and filter commit history for them too, they're not really private and the resume is public anyway,
   but hell knows yer stalkere
-- [ ] todo semi-prod: supabase keepalive, and one for ohthatsuseful while i'm at it too
+- [x] todo semi-prod: supabase keepalive, and one for ohthatsuseful while i'm at it too
 - [ ] todo semi-prod: linktree -> web sec animation
 - [ ] todo semi-prod: make lang switcher change "original"
+- 
+- [ ] todo: other seg
+- [ ] fix very: footer shifts layout i think

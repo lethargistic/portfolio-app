@@ -22,6 +22,7 @@
     import SegFooter from "$lib/segments/SegFooter.svelte";
     import toast from 'svelte-french-toast'
     import ToastErrorCustom from "$lib/toasts/ToastErrorCustom.svelte";
+    import SegOther from "$lib/segments/SegOther.svelte";
 
     let {form, data} = $props();
 
@@ -264,6 +265,8 @@
     <SegAbout/>
     <SegLinktree socials={data.socials}/>
     <SegWeb webProj={data.web_projects} webProjDetails={data.web_projects_details}/>
+    <SegOther/>
+    <!-- TODO eventually: art sec -->
     <SegFooter/>
 </main>
 

@@ -15,7 +15,7 @@ export const GET: RequestHandler = async ({request: req, locals: {supabase}}) =>
     const shouldRun = dayOfMonth <= 3 || Math.floor(dayOfMonth / 2) % 2 === 0;
 
     if (!shouldRun) {
-        console.log('Skipping cronin this time');
+        console.info('Skipping cronin this time');
         return new Response('skipped');
     }
 
@@ -37,7 +37,7 @@ export const GET: RequestHandler = async ({request: req, locals: {supabase}}) =>
         }
     })
 
-    console.log(_,'Keeping alive!')
+    console.info(_,'Keeping alive!')
 
     return new Response('i am cronin');
 }
