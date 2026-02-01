@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: keepalives x2">
-      <change afterPath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: hopefully squished up a bit of performance from yuri + feat: cool shadow for text">
+      <change afterPath="$PROJECT_DIR$/src/lib/OtherCard.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/other-frame.webp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.server.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/api/v1/cron/+server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api/v1/cron/+server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +39,7 @@
         <option value="ErrorCustom" />
         <option value="+page.svelte" />
         <option value="SegOther" />
+        <option value="OtherCard" />
       </list>
     </option>
   </component>
@@ -300,39 +302,7 @@
       <workItem from="1769774486619" duration="29059000" />
       <workItem from="1769937298733" duration="878000" />
       <workItem from="1769938862496" duration="4676000" />
-      <workItem from="1769943582206" duration="7647000" />
-    </task>
-    <task id="LOCAL-00133" summary="chore: added anim to other text bits">
-      <option name="closed" value="true" />
-      <created>1769197622181</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1769197622181</updated>
-    </task>
-    <task id="LOCAL-00134" summary="fix: capped card header height to prevent flickering on animation">
-      <option name="closed" value="true" />
-      <created>1769245694204</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1769245694205</updated>
-    </task>
-    <task id="LOCAL-00135" summary="fix: text updates were not live anymore due to anim">
-      <option name="closed" value="true" />
-      <created>1769249618484</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1769249618484</updated>
-    </task>
-    <task id="LOCAL-00136" summary="fix: made langs more editable">
-      <option name="closed" value="true" />
-      <created>1769251824127</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1769251824127</updated>
+      <workItem from="1769943582206" duration="26938000" />
     </task>
     <task id="LOCAL-00137" summary="fix: fallback icon">
       <option name="closed" value="true" />
@@ -694,7 +664,39 @@
       <option name="project" value="LOCAL" />
       <updated>1769807956735</updated>
     </task>
-    <option name="localTasksCounter" value="182" />
+    <task id="LOCAL-00182" summary="feat: yuru yuru yuri wait not yuri snow">
+      <option name="closed" value="true" />
+      <created>1769962046801</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1769962046801</updated>
+    </task>
+    <task id="LOCAL-00183" summary="fix: snow would take a while to start up properly">
+      <option name="closed" value="true" />
+      <created>1769962390169</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1769962390169</updated>
+    </task>
+    <task id="LOCAL-00184" summary="fix: shown the yuri to my mum">
+      <option name="closed" value="true" />
+      <created>1769963976734</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1769963976734</updated>
+    </task>
+    <task id="LOCAL-00185" summary="fix: hopefully squished up a bit of performance from yuri + feat: cool shadow for text">
+      <option name="closed" value="true" />
+      <created>1769972127760</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1769972127760</updated>
+    </task>
+    <option name="localTasksCounter" value="186" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -720,10 +722,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixes: from the pat yes" />
-    <MESSAGE value="fix: oh damn devtools had a screenshot feature all this time, then why did i make that really cool script" />
-    <MESSAGE value="fix: chimes centered for responsive zoom" />
-    <MESSAGE value="feat: performance setting" />
     <MESSAGE value="fix: no flashing option properly" />
     <MESSAGE value="feat: bullet train asmr.wav" />
     <MESSAGE value="fix: train sound is dimmer the further you go" />
@@ -745,6 +743,10 @@
     <MESSAGE value="feat: cron" />
     <MESSAGE value="chore: keepalives" />
     <MESSAGE value="chore: keepalives x2" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: keepalives x2" />
+    <MESSAGE value="feat: yuru yuru yuri wait not yuri snow" />
+    <MESSAGE value="fix: snow would take a while to start up properly" />
+    <MESSAGE value="fix: shown the yuri to my mum" />
+    <MESSAGE value="fix: hopefully squished up a bit of performance from yuri + feat: cool shadow for text" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: hopefully squished up a bit of performance from yuri + feat: cool shadow for text" />
   </component>
 </project>

@@ -55,7 +55,16 @@ export const load: PageServerLoad = async () => {
         .select()
         .order('read_num', {ascending: true})
 
-    if (sbwerr || !web_projects_details) error(500, `Failed to load web project details: ${sberr?.message}`)
+    if (sbwerr || !web_projects_details) error(500, `Failed to load web project details: ${sbwerr?.message}`)
 
-    return {socials, web_projects, web_projects_details};
+    //
+
+    const {data: others, error: sboerr} = await supabase
+        .from('other')
+        .select()
+        .order('order', {ascending: true})
+
+    if (sboerr || !others) error(500, `Failed to load other projects: ${sboerr?.message}`)
+
+    return {socials, web_projects, web_projects_details, others};
 }

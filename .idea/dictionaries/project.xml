@@ -34,6 +34,7 @@
       <w>sberr</w>
       <w>sbferr</w>
       <w>sbiderr</w>
+      <w>sboerr</w>
       <w>sbwerr</w>
       <w>schem</w>
       <w>snek</w>
@@ -45,6 +46,7 @@
       <w>verlet</w>
       <w>wberr</w>
       <w>wigglies</w>
+      <w>yuru</w>
     </words>
   </dictionary>
 </component>

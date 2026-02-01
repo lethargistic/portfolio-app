@@ -265,7 +265,7 @@
     <SegAbout/>
     <SegLinktree socials={data.socials}/>
     <SegWeb webProj={data.web_projects} webProjDetails={data.web_projects_details}/>
-    <SegOther/>
+    <SegOther others={data.others}/>
     <!-- TODO eventually: art sec -->
     <SegFooter/>
 </main>

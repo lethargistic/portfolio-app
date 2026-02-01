@@ -3,6 +3,9 @@
     import {untrack} from "svelte";
     import {Spring} from "svelte/motion";
     import {isEmptyArr} from "$lib/utils/utils";
+    import OtherCard from "$lib/OtherCard.svelte";
+
+    let {others} = $props();
 
     const MAX_SNOWFLAKE_COUNT = 500;
     let realSnowflakeCount = $derived(settings.performance.state && deviceMin.mobile ? MAX_SNOWFLAKE_COUNT / 5 : MAX_SNOWFLAKE_COUNT);
@@ -101,6 +104,8 @@
     const yuru = (e: PointerEvent) => {
         mouseOffset.target = e.clientX / -4;
     }
+
+    // TODO: hearder caret
 </script>
 
 <svelte:body bind:this={bodyElem}/>
@@ -127,6 +132,9 @@
                     {/if}
                 {/each}
             </div>
+            {#each others as other (other.name)}
+                <OtherCard {other}/>
+            {/each}
         </div>
     </section>
 
@@ -145,17 +153,13 @@
             0 3px 0 #bbb,
             0 4px 0 #b9b9b9,
             0 5px 0 #aaa,
-            0 6px 1px rgba(0,0,0,.1),
-            0 0 5px rgba(0,0,0,.1),
-            0 1px 3px rgba(0,0,0,.3),
-            0 3px 5px rgba(0,0,0,.2),
-            0 5px 10px rgba(0,0,0,.25),
-            0 10px 10px rgba(0,0,0,.2),
-            0 20px 20px rgba(0,0,0,.15);
-
-            & .caret {
-
-            }
+            0 6px 1px rgba(0, 0, 0, .1),
+            0 0 5px rgba(0, 0, 0, .1),
+            0 1px 3px rgba(0, 0, 0, .3),
+            0 3px 5px rgba(0, 0, 0, .2),
+            0 5px 10px rgba(0, 0, 0, .25),
+            0 10px 10px rgba(0, 0, 0, .2),
+            0 20px 20px rgba(0, 0, 0, .15);
         }
 
         .snow-cont {
