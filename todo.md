@@ -91,3 +91,4 @@
 - [ ] todo: other seg
 - [ ] fix very: footer shifts layout i think
 - [ ] fix minor: snow spawns a boinkie once in a blue moon
+- [ ] todo: test snow performance better

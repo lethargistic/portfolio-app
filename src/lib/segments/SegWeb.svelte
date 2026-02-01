@@ -151,7 +151,7 @@
                 --outer-height: 20vh;
                 --circle-diameter: calc(var(--guideline-width) * 10);
                 width: var(--circle-diameter);
-                height: 100%;
+                height: calc(100% + var(--outer-height));
                 display: flex;
                 flex-direction: column;
                 place-items: center start;
