@@ -66,13 +66,17 @@ export let editbar = $state<Record<string, any>>({
     holding: false,
     social_data: [] as Array<Record<string, any>>,
     proj_data: [] as Array<Record<string, any>>,
-    proj_details_data: [] as Array<Record<string, any>>
+    proj_details_data: [] as Array<Record<string, any>>,
+    other_data: [] as Array<Record<string, any>>
 });
 export let activeEditor = $state({state: ''});
 
 export let modal = $state<Record<string, any>>({
     open: false,
+    owner: 'web',
     selected: null,
+    selectedVal: null,
+    selectedValDetails: null,
     selectedIx: null,
     left: false,
     travel: false
@@ -92,7 +96,7 @@ export const handleItemEdit = (e: Event, name: string, editor: string) => {
 
 export let windowGlobals = $state({inner_width: 0, inner_height: 0, visual_viewport: 0});
 export let prevMousePos = $state<{ x: number, y: number }>({x: 0, y: 0});
-export const handlePositioning = (e: PointerEvent, item: Record<string, any>, name: string, editor: string) => {
+export const handlePositioning = (e: PointerEvent, item: Record<string, any>, name: string, editor: string, right: boolean = false) => {
     if (!activeEditor.state.startsWith(editor)) return;
     if (editbar.holding && name === editbar.focused) {
         // should ideally be adjusted for the size of what im moving being bigger
@@ -105,12 +109,20 @@ export const handlePositioning = (e: PointerEvent, item: Record<string, any>, na
         const leftVw = dx / windowGlobals.inner_width * 100;
         const topVh = dy / windowGlobals.inner_height * 100;
 
-        item.left_vw += leftVw;
+        if (right) {
+            item.right_vw -= leftVw;
+        } else {
+            item.left_vw += leftVw;
+        }
         item.top_vh += topVh;
 
 
         // rounding
-        item.left_vw = parseFloat(item.left_vw.toFixed(2));
+        if (right) {
+            item.right_vw = parseFloat(item.right_vw.toFixed(2));
+        } else {
+            item.left_vw = parseFloat(item.left_vw.toFixed(2));
+        }
         item.top_vh = parseFloat(item.top_vh.toFixed(2));
         prevMousePos.x = e.clientX;
         prevMousePos.y = e.clientY;
@@ -236,4 +248,24 @@ if (browser) {
             }
         });
     });
+}
+
+
+export const scrollToCard = (elem: HTMLElement) => {
+    if (!elem) return;
+    const rect = elem.getBoundingClientRect();
+
+    const elemBottom = rect.bottom + window.scrollY - window.innerHeight;
+    const scrollToY = elemBottom + window.innerHeight / 2.1 - elem.offsetHeight / 2;
+
+    // this is so it doesn't feel like a lag when you're really close to it anyway
+    const scrollDifference = Math.abs(window.scrollY - scrollToY);
+    // px
+    const SCROLL_THRESHOLD = 50;
+
+    if (scrollDifference > SCROLL_THRESHOLD) {
+        scrollTo({top: scrollToY, behavior: 'smooth'});
+    }
+
+    document.documentElement.classList.add('scroll-lock');
 }

@@ -23,6 +23,7 @@
     import toast from 'svelte-french-toast'
     import ToastErrorCustom from "$lib/toasts/ToastErrorCustom.svelte";
     import SegOther from "$lib/segments/SegOther.svelte";
+    import Modal from "$lib/Modal.svelte";
 
     let {form, data} = $props();
 
@@ -98,6 +99,7 @@
     }
     $effect(() => (updateFocused('lnkt', editbar.social_data)));
     $effect(() => (updateFocused('web', editbar.proj_data)));
+    $effect(() => (updateFocused('other', editbar.other_data)));
 
     //
 
@@ -268,6 +270,7 @@
     <SegOther others={data.others}/>
     <!-- TODO eventually: art sec -->
     <SegFooter/>
+    <Modal/>
 </main>
 
 <style>

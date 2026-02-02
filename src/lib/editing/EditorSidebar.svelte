@@ -29,6 +29,7 @@
     const socialInQuestion = $derived<Record<string, any>>(editbar.social_data[editbar.focusedIx]);
     const projInQuestion = $derived<Record<string, any>>(editbar.proj_data[editbar.focusedIx]);
     const projDetailsInQuestion = $derived<Record<string, any>>(editbar.proj_details_data[modal.selectedIx]);
+    const otherInQuestion = $derived<Record<string, any>>(editbar.other_data[editbar.focusedIx]);
 
     const isNumberInvalid = (key: string, trueKey: string, value: any, upperBound: number) => {
         return key === trueKey && (value > upperBound || isNaN(value))
@@ -50,7 +51,8 @@
 
         const curData = activeEditor.state.startsWith('lnkt') ? socialInQuestion :
             activeEditor.state.startsWith('web') ? projInQuestion :
-                activeEditor.state.startsWith('wb-inn') ? projDetailsInQuestion : null;
+                activeEditor.state.startsWith('wb-inn') ? projDetailsInQuestion :
+                    activeEditor.state.startsWith('other') ? otherInQuestion : null;
         if (curData === null) {
             cancel();
             throw new Error('Current data is off');
@@ -141,9 +143,34 @@
         projDetailsInQuestion[key] = key.startsWith('type_') ? v : convertSimpleDataTypesImplicitly(v);
     }
 
+    const assignOtherBindingsWithExceptions = (v: any, key: string) => {
+        if (key === 'langs') {
+            let parsed = null;
+            try {
+                parsed = JSON.parse(v);
+            } catch (err) {
+                otherInQuestion[key] = v;
+                return;
+            }
+            otherInQuestion[key] = parsed;
+            return null;
+        }
+        if (key === 'name') {
+            if (v === '') {
+                v = 'none';
+            }
+
+            otherInQuestion[key] = v;
+            editbar.focused = v;
+            return;
+        }
+        otherInQuestion[key] = key.startsWith('type_') ? v : convertSimpleDataTypesImplicitly(v);
+    }
+
     const isLnktMod = $derived(activeEditor.state === 'lnkt-modifying' && !isEmptyArr(editbar.social_data));
     const isWebMod = $derived(activeEditor.state === 'web-modifying' && !isEmptyArr(editbar.proj_data));
     const isWbInnMod = $derived(activeEditor.state === 'wb-inn-modifying' && !isEmptyArr(editbar.proj_details_data));
+    const isOther = $derived(activeEditor.state === 'other-modifying' && !isEmptyArr(editbar.other_data));
 </script>
 
 <svelte:window onclick={checkIfClose}/>
@@ -239,6 +266,30 @@
                 {@render sendingBloc(action)}
                 {@render deletionBloc(action)}
             </form>
+        {:else if isOther}
+            {@const action = "Other"}
+            <form method="POST" use:enhance={handleSubmit}>
+                {#each Object.entries(otherInQuestion) as [key, value] (key)}
+                    <label>
+                        {key}
+                        {#if key === 'display_name'}
+                                <textarea
+                                        bind:value={() => otherInQuestion[key], (v) => assignOtherBindingsWithExceptions(v, key)}
+                                        placeholder={value}></textarea>
+                        {:else if key.startsWith('long_desc') || key === 'langs'}
+                                <textarea bind:value={() => key === 'langs' ? typeof otherInQuestion[key] === 'object' ? JSON.stringify(otherInQuestion[key], null ,2) : otherInQuestion[key] : otherInQuestion[key],
+                                         (v) => assignOtherBindingsWithExceptions(v, key)}
+                                          placeholder={value}></textarea>}
+                        {:else}
+                            <input bind:value={() => otherInQuestion[key], (v) => assignOtherBindingsWithExceptions(v, key)}
+                                   placeholder={value}>
+                        {/if}
+                    </label>
+                {/each}
+
+                {@render sendingBloc(action)}
+                {@render deletionBloc(action)}
+            </form>
         {/if}
     {/if}
 </aside>
@@ -283,7 +334,7 @@
         overflow-y: auto;
         overflow-x: hidden;
 
-        @media(max-width: 767px) {
+        @media (max-width: 767px) {
             width: 70vw;
         }
 

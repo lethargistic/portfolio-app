@@ -8,9 +8,6 @@ import {convertSimpleDataTypesImplicitly} from '$lib/utils/utils';
 const removeReassigned = (obj: Record<string, any>) => {
     delete obj.id;
     delete obj.created_at;
-
-    delete obj.blurb;
-    delete obj.display_name;
 }
 
 const defaultSocialFlags = (obj: Record<string, any>) => {
@@ -173,6 +170,37 @@ export const actions = {
 
         return {success: true, message: "Posted! Now double check or else."}
     },
+    postOther: async ({locals: {safeGetSession}, request}) => {
+        const {session, user} = await safeGetSession();
+
+        if (!session || !user) {
+            console.warn(`Unauthorized data submission attempt!!!, ${Date.now()}`)
+            return fail(401, {success: false, message: "Who are you? The geese will get you, soon enough. Run."})
+        }
+
+        const data = await request.formData();
+        const other = Object.fromEntries(data.entries());
+
+        const supabase = getAdminClient();
+
+        removeReassigned(other);
+
+        const { data: pong, error: sberr } = await supabase
+            .from('other')
+            .upsert(
+                { ...(other) },
+                { onConflict: 'name' })
+            .select()
+            .limit(1)
+            .single()
+
+        if (!pong || sberr) {
+            if (PUBLIC_DEV) {console.error(sberr)}
+            return fail(400, { success: false, message: "Db fail" })
+        }
+
+        return {success: true, message: "Posted! Now double check or else."}
+    },
     deleteProject: async ({locals: {safeGetSession}, request}) => {
         const {session, user} = await safeGetSession();
 
@@ -220,5 +248,29 @@ export const actions = {
         }
 
         return {success: true, message: "Deleted!", toDelete: {name: details.name, type: 'proj'}}
+    },
+    deleteOther: async ({locals: {safeGetSession}, request}) => {
+        const {session, user} = await safeGetSession();
+
+        if (!session || !user) {
+            console.warn(`Unauthorized data submission attempt!!!, ${Date.now()}`)
+            return fail(401, {success: false, message: "Who are you? The geese will get you, soon enough. Run."})
+        }
+
+        const data = await request.formData();
+        const other = Object.fromEntries(data.entries());
+
+        const supabase = getAdminClient();
+        const { error: sberr } = await supabase
+            .from('other')
+            .delete()
+            .eq('name', other.name)
+
+        if (sberr) {
+            if (PUBLIC_DEV) {console.error(sberr)}
+            return fail(400, { success: false, message: "Db fail" })
+        }
+
+        return {success: true, message: "Deleted!", toDelete: {name: other.name, type: 'other'}}
     }
 } satisfies Actions

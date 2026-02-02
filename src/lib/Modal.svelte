@@ -4,8 +4,7 @@
         editing,
         hackeryTextAnim,
         handleItemEdit,
-        positionTooltip,
-        modal, deviceMin, t, currentLang
+        modal, deviceMin, t, currentLang, editbar
     } from "$lib/shared.svelte";
     import Icon from "$lib/Icon.svelte";
     import {blur} from "svelte/transition";
@@ -13,7 +12,10 @@
     import EditorTools from "$lib/editing/EditorTools.svelte";
     import {untrack} from "svelte";
 
-    const {selectedDetails: details, selectedProj: proj, webProjDetails: allDetails} = $props();
+    let owner = $derived(modal.owner);
+    let details = $derived(owner === 'web' ? modal.selectedValDetails : modal.selectedVal);
+    let proj = $derived(owner === 'web' ? modal.selectedVal : modal.selectedVal);
+    let allDetails = $derived(owner === 'web' ? editbar.proj_details_data : editbar.other_data);
 
     const closeModal = () => {
         modal.open = false;
@@ -61,7 +63,7 @@
 
     let longDesc = $derived(details ? details[`long_desc_${currentLang.lang}`] : '');
 
-    let displayName = $derived(proj ? t[`web_card_${(proj.name).replaceAll('-', '_')}_display`]() : '');
+    let displayName = $derived(proj && proj?.owner === owner ? t[`${owner}_card_${(proj.name).replaceAll('-', '_')}_display`]() : '');
     let cleanupH: (() => void) | null = null;
     let cleanupDesc: (() => void) | null = null;
     let isOpen = $derived(!!details && modal.open);
@@ -119,7 +121,9 @@
                     {/each}==
                 </div>
                 <div class="info-props">
-                    <p class="num">#{proj.read_num.toString().padStart(2, '0')}</p>
+                    {#if owner === 'web'}
+                        <p class="num">#{proj?.read_num.toString().padStart(2, '0')}</p>
+                    {/if}
                     <ul class="langs">
                         {t.web_modal_text_tech_used()}
                         {#each details.langs as lang}

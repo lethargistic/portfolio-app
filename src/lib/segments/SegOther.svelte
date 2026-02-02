@@ -1,11 +1,13 @@
 <script lang="ts">
-    import {currentLang, deviceMin, settings, windowGlobals} from "$lib/shared.svelte";
-    import {untrack} from "svelte";
+    import {currentLang, deviceMin, editbar, modal, settings, windowGlobals} from "$lib/shared.svelte";
+    import {onMount, untrack} from "svelte";
     import {Spring} from "svelte/motion";
     import {isEmptyArr} from "$lib/utils/utils";
     import OtherCard from "$lib/OtherCard.svelte";
+    import EditorTools from "$lib/editing/EditorTools.svelte";
 
-    let {others} = $props();
+    let {others: othersProp} = $props();
+    const others: Array<Record<string, any>> = $derived(editbar.other_data);
 
     const MAX_SNOWFLAKE_COUNT = 500;
     let realSnowflakeCount = $derived(settings.performance.state && deviceMin.mobile ? MAX_SNOWFLAKE_COUNT / 5 : MAX_SNOWFLAKE_COUNT);
@@ -105,12 +107,32 @@
         mouseOffset.target = e.clientX / -4;
     }
 
-    // TODO: hearder caret
+    // TODO: header caret
+
+    onMount(() => {
+        editbar.other_data = othersProp;
+        modal.selected = editbar.other_data[0].name;
+    })
+
+
+    const findSelectedOther = () => {
+        if (!others) return null;
+
+        const sel = others.find(p => p.name === modal.selected)
+        if (sel === null) return null;
+
+        return sel;
+    }
+    let selectedOther = $derived.by(findSelectedOther);
+    $effect(() => {
+        modal.selectedVal = selectedOther;
+    })
 </script>
 
 <svelte:body bind:this={bodyElem}/>
 {#key currentLang.lang}
     <section class="other-seg" id="other">
+        <EditorTools seg={'other'} left={true} light={true}/>
         <div class="pit"></div>
         <div class="snowy" onpointermove={yuru}>
             <h2 class="other-txt">

@@ -7,7 +7,8 @@
         handleItemEdit,
         handleItemHolding,
         handleItemLeaving,
-        handlePositioning, isHackeryAnimating, modal, pxToVh, pxToVw, settings, t, vhToPx, vwToPx, windowGlobals
+        handlePositioning, isHackeryAnimating, modal, pxToVh, pxToVw,
+        scrollToCard, settings, t, vhToPx, vwToPx, windowGlobals
     } from "$lib/shared.svelte";
     import {onMount, untrack} from "svelte";
     import {expoOut} from "svelte/easing";
@@ -92,24 +93,11 @@
         } else {
             modal.selected = proj.name;
             modal.open = true;
+            modal.owner = 'web';
             modal.left = vwToPx(proj.left_vw) > windowGlobals.inner_width / 4
 
             if (!rotatie) return;
-            const rect = rotatie.getBoundingClientRect();
-
-            const elemBottom = rect.bottom + window.scrollY - window.innerHeight;
-            const scrollToY = elemBottom + window.innerHeight / 2.1 - rotatie.offsetHeight / 2;
-
-            // this is so it doesn't feel like a lag when you're really close to it anyway
-            const scrollDifference = Math.abs(window.scrollY - scrollToY);
-            // px
-            const SCROLL_THRESHOLD = 50;
-
-            if (scrollDifference > SCROLL_THRESHOLD) {
-                scrollTo({top: scrollToY, behavior: 'smooth'});
-            }
-
-            document.documentElement.classList.add('scroll-lock');
+            scrollToCard(rotatie);
         }
     }
 

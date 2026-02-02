@@ -150,5 +150,10 @@
   "#details_comment": "these are stored in the db for visual editing",
   "web_modal_text_tech_used": "tech used:",
   "web_modal_button_take_a_look": "take&nbsp;a&nbsp;look",
-  "web_modal_button_github": "github"
+  "web_modal_button_github": "github",
+
+  "#s5": "/",
+  "other_text_other": "#",
+  "other_card_yuashi_display": "kaishiua 1.5k",
+  "other_card_twig_display": "twigonometry"
 }

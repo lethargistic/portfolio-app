@@ -75,6 +75,29 @@
             }));
             editbar.proj_data.push(defaultProj);
             activeEditor.state = '';
+        } else if (activeEditor.state === 'other-adding') {
+            const otherSchem = Object.entries(editbar.other_data[0])
+            const defaultOther = Object.fromEntries(otherSchem.map(([key, value]) => {
+                if (key === 'img') {
+                    value = 'https://picsum.photos/1920/1080';
+                    return [key, value];
+                }
+
+                // defaulting
+                if (typeof value === "string") {
+
+                    value = 'non';
+                }
+                if (typeof value === "number") {
+                    // exceptions
+                    if (key === 'width_vw') return [key, 24];
+
+                    value = 1;
+                }
+                return [key, value];
+            }));
+            editbar.other_data.push(defaultOther);
+            activeEditor.state = '';
         }
     }
     $effect(trackPreprocessEditorAdding);
@@ -111,6 +134,8 @@
             <button onclick={() => {changeEditor(`wb-inn-modifying`)}}>
                 <img class={light ? 'light' : ''} src={modifyIconPath} alt="edit">
             </button>
+        {:else if seg === 'other'}
+            {@render genericItemEditors('other')}
         {/if}
     </div>
 

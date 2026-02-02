@@ -3,7 +3,6 @@
     import RotatieCard from "$lib/RotatieCard.svelte";
     import EditorTools from "$lib/editing/EditorTools.svelte";
     import {onMount} from "svelte";
-    import WebProjModal from "$lib/WebProjModal.svelte";
 
     const {webProj: webProjProp, webProjDetails: webProjDetailsProp} = $props();
 
@@ -18,16 +17,21 @@
         return sel;
     }
     const selectedProj = $derived.by(findSelectedProj);
+    $effect(() => {
+        modal.selectedVal = selectedProj;
+    })
     const findSelectedDetails = () => {
         if (!webProjDetails) return null;
 
         const sel = webProjDetails.find(p => p.name === modal.selected)
         if (sel === undefined) return null;
 
-
         return sel;
     }
     const selectedDetails = $derived.by(findSelectedDetails);
+    $effect(() => {
+        modal.selectedValDetails = selectedDetails;
+    })
     const findSelectedIx = () => {
         if (!webProjDetails) {
             modal.selectedIx = -1;
@@ -66,7 +70,6 @@
 </script>
 
 {#key currentLang.lang}
-    <WebProjModal {selectedDetails} {selectedProj} {webProjDetails}/>
     <section class="web-seg" id="web">
         <EditorTools seg={'web'} light={true}/>
         <div class="web-txt-cont">
