@@ -91,4 +91,5 @@
 - [ ] todo: other seg
 - [ ] fix very: footer shifts layout i think
 - [ ] fix minor: snow spawns a boinkie once in a blue moon
+- [ ] fix minor: web seg anim headers should come pre backed with their line count
 - [ ] todo: test snow performance better

@@ -116,3 +116,7 @@ html.scroll-lock {
     scrollbar-gutter: stable;
     background: #333333;
 }
+
+.over-modal {
+    z-index: 100001 !important;
+}

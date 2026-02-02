@@ -181,6 +181,14 @@ export const actions = {
         const data = await request.formData();
         const other = Object.fromEntries(data.entries());
 
+        const langsJSON = JSON.parse(other.langs as string)
+
+        for (const lang of langsJSON) {
+            defaultProjectDetailsFlags(lang);
+        }
+
+        delete other.langs;
+
         const supabase = getAdminClient();
 
         removeReassigned(other);
@@ -188,7 +196,7 @@ export const actions = {
         const { data: pong, error: sberr } = await supabase
             .from('other')
             .upsert(
-                { ...(other) },
+                { langs: langsJSON, ...other },
                 { onConflict: 'name' })
             .select()
             .limit(1)

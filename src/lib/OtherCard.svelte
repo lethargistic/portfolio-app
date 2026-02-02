@@ -1,12 +1,16 @@
 <script lang="ts">
     import {
+        deviceMin,
         editbar,
         editing,
         handleItemEdit,
         handleItemHolding,
         handleItemLeaving,
-        handlePositioning, modal, scrollToCard, vwToPx, windowGlobals
+        handlePositioning, modal, pxToVh, pxToVw, scrollToCard, vhToPx, vwToPx, windowGlobals
     } from "$lib/shared.svelte";
+    import {untrack} from "svelte";
+    import {Tween} from "svelte/motion";
+    import {expoOut} from "svelte/easing";
 
     let {other} = $props();
 
@@ -26,7 +30,7 @@
             modal.owner = 'other';
             modal.selected = other.name;
             modal.open = true;
-            modal.right = vwToPx(other.right_vw) > windowGlobals.inner_width / 4
+            modal.left = vwToPx(other.right_vw) < windowGlobals.inner_width / 4
 
             if (!card) return;
             scrollToCard(card);
@@ -39,15 +43,39 @@
             modal.travel = false;
         }
     })
+
+    let offset = new Tween({x: 0, y: 0}, {
+        duration: 800,
+        easing: expoOut
+    });
+    let top = $derived(deviceMin.mobile ? offset.current.y : other.top_vh);
+
+    let cardHeight = $state(0);
+
+    $effect(() => {
+        if (modal.open && selected) {
+            untrack(() => {
+                offset.target = {
+                    x: (pxToVw(windowGlobals.inner_width * (modal.left ? 0.25 : 0.75) - vwToPx(other.width_vw / 2))) - other.right_vw,
+                    y: deviceMin.mobile ? (pxToVh(windowGlobals.inner_height * 0.635 - vhToPx(cardHeight / 2))) : 0
+                }
+            })
+        } else {
+            untrack(() => {
+                offset.target = {x: 0, y: 0}
+            })
+        }
+    });
 </script>
 
-<div bind:this={card} style={`
+<div bind:this={card} bind:clientHeight={cardHeight} style={`
     width: ${other.width_vw}vw;
-    right: ${other.right_vw}vw;
-    top: ${other.top_vh}vh;
-    `} class="other-card"
+    right: ${deviceMin.mobile ? 0 : other.right_vw + offset.current.x}vw;
+    top: ${top}vh;
+    `} class={`other-card ${selected ? 'over-modal' : ''}`}
      onpointerdown={handleItemHolding}
-     onpointermove={(e) => handlePositioning(e, otherInQuestion, other.name, 'other', true)} onpointerup={handleItemLeaving}
+     onpointermove={(e) => handlePositioning(e, otherInQuestion, other.name, 'other', true)}
+     onpointerup={handleItemLeaving}
      onpointerout={(e) => {handleItemLeaving(e)}}
      onclick={handleOtherInteraction} onkeydown={handleOtherInteraction}
      role="button"
@@ -55,15 +83,21 @@
     <img class="frame" src="/img/other-frame.webp" alt="a frame">
     <h3 class="display">{other.display_name}</h3>
     <div class="img-wrap">
-        <img src={other.img} alt={other.display_name}>
+        <img class={`${selected && modal.open ? 'selected' : ''}`} src={other.img} alt={other.display_name}>
     </div>
 </div>
 
 <style>
+    .selected {
+        filter: grayscale(0) !important;
+    }
+
     .other-card {
         width: 24vw;
         position: absolute;
         top: 30vw;
+
+        z-index: 1;
 
         & .display {
             position: absolute;

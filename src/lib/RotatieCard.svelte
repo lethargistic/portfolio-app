@@ -216,7 +216,7 @@
 </script>
 
 <svelte:window/>
-<div bind:this={rotatie} class={`card ${ix === 0 ? 'first-card' : ''} ${selected ? 'selected' : ''}
+<div bind:this={rotatie} class={`card ${ix === 0 ? 'first-card' : ''} ${selected ? 'over-modal' : ''}
             ${activeEditor.state === 'web-modifying'
             || activeEditor.state === 'web-positioning' ? 'hover-focus-light' : ''}
             ${editbar.holding ? 'prevent-select' : ''}`}
@@ -253,10 +253,6 @@
      class="shadow-clone"></div>
 
 <style>
-    .selected {
-        z-index: 100001 !important;
-    }
-
     .shadow-clone {
         position: absolute;
         background: rgba(0, 0, 0, 0.3);

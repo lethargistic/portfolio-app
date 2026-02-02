@@ -154,10 +154,11 @@
                     {/if}
                 {/each}
             </div>
-            {#each others as other (other.name)}
-                <OtherCard {other}/>
-            {/each}
         </div>
+
+        {#each others as other (other.name)}
+            <OtherCard {other}/>
+        {/each}
     </section>
 
     <style>

@@ -99,8 +99,8 @@
                 <button onclick={() => rotateSelected(false)}>&lt;--</button>
                 /
                 <button onclick={() => rotateSelected(true)}>--&gt;</button>
-                <!-- putting it here is a dumb idea but it works lol -->
-                <EditorTools seg={'wb-inn'} light={true}/>
+                <EditorTools seg={owner === 'web' ? 'wb-inn' :
+                 owner === 'other' ? 'other' : null} light={true}/>
             </div>
 
             <button class="cross" onclick={closeModal}>
