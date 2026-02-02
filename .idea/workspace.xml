@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: hopefully squished up a bit of performance from yuri + feat: cool shadow for text">
-      <change afterPath="$PROJECT_DIR$/src/lib/OtherCard.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/other-frame.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: same thing again">
+      <change afterPath="$PROJECT_DIR$/static/img/other-frame.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/OtherCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/OtherCard.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/other-frame.webp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,15 +299,8 @@
       <workItem from="1769774486619" duration="29059000" />
       <workItem from="1769937298733" duration="878000" />
       <workItem from="1769938862496" duration="4676000" />
-      <workItem from="1769943582206" duration="26938000" />
-    </task>
-    <task id="LOCAL-00137" summary="fix: fallback icon">
-      <option name="closed" value="true" />
-      <created>1769254006647</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1769254006647</updated>
+      <workItem from="1769943582206" duration="27020000" />
+      <workItem from="1770024469679" duration="1404000" />
     </task>
     <task id="LOCAL-00138" summary="refactor: more sophisticated icon system">
       <option name="closed" value="true" />
@@ -696,7 +686,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769972127760</updated>
     </task>
-    <option name="localTasksCounter" value="186" />
+    <task id="LOCAL-00186" summary="chore: same thing again">
+      <option name="closed" value="true" />
+      <created>1769978130169</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1769978130169</updated>
+    </task>
+    <option name="localTasksCounter" value="187" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -722,7 +720,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: no flashing option properly" />
     <MESSAGE value="feat: bullet train asmr.wav" />
     <MESSAGE value="fix: train sound is dimmer the further you go" />
     <MESSAGE value="feat: chrome boinked my sounds toast, also this lib is ridiculous in the best way possible" />
@@ -747,6 +744,7 @@
     <MESSAGE value="fix: snow would take a while to start up properly" />
     <MESSAGE value="fix: shown the yuri to my mum" />
     <MESSAGE value="fix: hopefully squished up a bit of performance from yuri + feat: cool shadow for text" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: hopefully squished up a bit of performance from yuri + feat: cool shadow for text" />
+    <MESSAGE value="chore: same thing again" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: same thing again" />
   </component>
 </project>
