@@ -125,7 +125,11 @@
     }
     let selectedOther = $derived.by(findSelectedOther);
     $effect(() => {
-        modal.selectedVal = selectedOther;
+        if (selectedOther) {
+            untrack(() => {
+                modal.selectedVal = selectedOther;
+            })
+        }
     })
 </script>
 

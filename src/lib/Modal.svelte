@@ -17,6 +17,9 @@
     let proj = $derived(owner === 'web' ? modal.selectedVal : modal.selectedVal);
     let allDetails = $derived(owner === 'web' ? editbar.proj_details_data : editbar.other_data);
 
+    let isWeb = $derived(owner === 'web');
+    let isOther = $derived(owner === 'other');
+
     const closeModal = () => {
         modal.open = false;
     }
@@ -63,7 +66,9 @@
 
     let longDesc = $derived(details ? details[`long_desc_${currentLang.lang}`] : '');
 
+    $inspect('proj', proj)
     let displayName = $derived(proj && proj?.owner === owner ? t[`${owner}_card_${(proj.name).replaceAll('-', '_')}_display`]() : '');
+    $inspect(`owner: ${owner} \n proj: ${proj} \n `, displayName)
     let cleanupH: (() => void) | null = null;
     let cleanupDesc: (() => void) | null = null;
     let isOpen = $derived(!!details && modal.open);
@@ -92,19 +97,26 @@
 {#if isOpen}
     <div transition:blur={{duration: modal.open ? 500 : 400, easing: modal.open ? expoIn : expoOut}}
          style={`justify-content: ${modal.left || deviceMin.mobile ? 'flex-start' : 'flex-end'};`}
-         class="modal" onclick={handleModalCloseCheck} onkeydown={handleModalCloseCheck}
+         class={`modal ${isWeb ? 'modal-web' : 'modal-other'}`} onclick={handleModalCloseCheck}
+         onkeydown={handleModalCloseCheck}
          role="button" tabindex="-1">
         <div bind:this={controls} class="controls">
             <div class="arrows">
                 <button onclick={() => rotateSelected(false)}>&lt;--</button>
                 /
                 <button onclick={() => rotateSelected(true)}>--&gt;</button>
-                <EditorTools seg={owner === 'web' ? 'wb-inn' :
-                 owner === 'other' ? 'other' : null} light={true}/>
+                <EditorTools seg={isWeb ? 'wb-inn' :
+                 isOther ? 'other' : null} light={true}/>
             </div>
 
             <button class="cross" onclick={closeModal}>
-                <Icon name={'cross'} width={24} height={24} currentColor={'#fff'}/>
+                {#if isWeb}
+                    <Icon name={'cross'} width={24} height={24} currentColor={'#fff'}/>
+                {:else if isOther}
+                    <img src="/img/icons/pixel-cross.webp" alt="exit modal (pixelated)">
+                {:else}
+                    oh no
+                {/if}
             </button>
         </div>
         <div bind:this={dialog} class={`dialog ${modal.left ? 'dialog-left' : 'dialog-right'}`}>
@@ -150,7 +162,21 @@
                     </ul>
                 </div>
                 <p bind:this={descElem} class="desc">&nbsp;-> {longDesc}</p>
-                <div class="button-wrap">
+                <div class="button-wrap" style={`
+                ${isOther ? `
+                color: black;
+                --shadowed-github-btn-color: #a4a3a6;
+                --shadowed-link-btn-color: rgba(246, 245, 245, 0.7);
+                --cta-github-hover-btn-color: #100e13;
+                --cta-github-hover-before-btn-color: #0a060e;
+                --cta-link-hover-btn-color: #f2f3fa;
+                --cta-link-hover-before-btn-color: #3a1c5c;
+                --cta-github-background-btn-color: #19141e;
+                --cta-github-border-btn-color: #ecebf6;
+                --cta-link-background-btn-color: #f7f6f8;
+                --cta-link-border-btn-color: #353535;
+                ` : ''}
+                `}>
                     {#if details.link}
                         <a href={details.link} class="cta cta-link" target="_blank">
                             {@html t.web_modal_button_take_a_look()}
@@ -174,6 +200,34 @@
         margin-bottom: 0.1rem;
     }
 
+    .modal-other {
+        & * {
+            font-family: 'Tiny5', monospace;
+        }
+
+        & .dialog {
+            & .info {
+                & h2 {
+                    font-family: Tiny5, monospace;
+                }
+            }
+        }
+    }
+
+    .modal-web {
+        & * {
+            font-family: 'Fira Code', monospace;
+        }
+
+        & .dialog {
+            & .info {
+                & h2 {
+                    font-family: 'Fira Code', monospace;
+                }
+            }
+        }
+    }
+
     .modal {
         position: fixed;
         top: 0;
@@ -191,10 +245,6 @@
         @media (max-width: 767px) {
             display: flex;
             align-items: end;
-        }
-
-        & * {
-            font-family: 'Fira Code', monospace;
         }
 
         ::selection {
@@ -249,7 +299,6 @@
                 }
 
                 & h2 {
-                    font-family: 'Fira Code', monospace;
                     font-weight: normal;
                     font-size: 2.5rem;
 
@@ -328,6 +377,12 @@
                 pointer-events: all;
                 margin-left: auto;
                 margin-right: 2rem;
+
+                & img {
+                    width: 12px;
+                    height: 12px;
+                    image-rendering: pixelated;
+                }
             }
 
             & .arrows {
@@ -344,44 +399,55 @@
     .button-wrap {
         display: flex;
 
+        --cta-github-color: white;
+        --shadowed-github-btn-color: #1b1820;
+        --shadowed-link-btn-color: #3e2471;
+        --cta-github-hover-btn-color: #100e13;
+        --cta-github-hover-before-btn-color: #0a060e;
+        --cta-link-hover-btn-color: #6c35af;
+        --cta-link-hover-before-btn-color: #3a1c5c;
+        --cta-github-background-btn-color: #19141e;
+        --cta-github-border-btn-color: #4d2387;
+        --cta-link-background-btn-color: #6728b3;
+        --cta-link-border-btn-color: #3b225a;
+
         & .cta-github:before {
-            --shadowed-btn-color: #1b1820;
-            background: var(--shadowed-btn-color);
-            box-shadow: 0 0 0 1px var(--shadowed-btn-color);
+            background: var(--shadowed-github-btn-color);
+            box-shadow: 0 0 0 1px var(--shadowed-github-btn-color);
         }
 
         & .cta-link:before {
-            --shadowed-btn-color: #3e2471;
-            background: var(--shadowed-btn-color);
-            box-shadow: 0 0 0 1px var(--shadowed-btn-color);
+            background: var(--shadowed-link-btn-color);
+            box-shadow: 0 0 0 1px var(--shadowed-link-btn-color);
         }
 
         & .cta-github:hover {
-            background-color: #100e13;
+            background-color: var(--cta-github-hover-btn-color);
         }
 
         & .cta-github:hover::before {
-            box-shadow: 0 0 0 1px #0a060e;
+            box-shadow: 0 0 0 1px var(--cta-github-hover-before-btn-color);
         }
 
         & .cta-link:hover {
-            background-color: #6c35af;
+            background-color: var(--cta-link-hover-btn-color);
         }
 
         & .cta-link:hover::before {
-            box-shadow: 0 0 0 1px #3a1c5c;
+            box-shadow: 0 0 0 1px var(--cta-link-hover-before-btn-color);
         }
 
         & .cta-github {
             all: unset;
-            background-color: #19141e;
-            border: 2px solid #4d2387;
+            color: var(--cta-github-color);
+            background-color: var(--cta-github-background-btn-color);
+            border: 2px solid var(--cta-github-border-btn-color);
         }
 
         & .cta-link {
             all: unset;
-            background-color: #6728b3;
-            border: 2px solid #3b225a;
+            background-color: var(--cta-link-background-btn-color);
+            border: 2px solid var(--cta-link-border-btn-color);
         }
 
         & .cta {

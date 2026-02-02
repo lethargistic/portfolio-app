@@ -2,7 +2,7 @@
     import {currentLang, editbar, modal, hackeryAnimObserver, t} from "$lib/shared.svelte";
     import RotatieCard from "$lib/RotatieCard.svelte";
     import EditorTools from "$lib/editing/EditorTools.svelte";
-    import {onMount} from "svelte";
+    import {onMount, untrack} from "svelte";
 
     const {webProj: webProjProp, webProjDetails: webProjDetailsProp} = $props();
 
@@ -12,13 +12,17 @@
         if (!webProj) return null;
 
         const sel = webProj.find(p => p.name === modal.selected)
-        if (sel === null) return null;
+        if (sel === undefined) return null;
 
         return sel;
     }
     const selectedProj = $derived.by(findSelectedProj);
     $effect(() => {
-        modal.selectedVal = selectedProj;
+        if (selectedProj) {
+            untrack(() => {
+                modal.selectedVal = selectedProj;
+            })
+        }
     })
     const findSelectedDetails = () => {
         if (!webProjDetails) return null;

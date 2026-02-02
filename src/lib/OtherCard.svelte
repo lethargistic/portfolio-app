@@ -6,7 +6,7 @@
         handleItemEdit,
         handleItemHolding,
         handleItemLeaving,
-        handlePositioning, modal, pxToVh, pxToVw, scrollToCard, vhToPx, vwToPx, windowGlobals
+        handlePositioning, modal, pxToVh, pxToVw, scrollToCard, t, vhToPx, vwToPx, windowGlobals
     } from "$lib/shared.svelte";
     import {untrack} from "svelte";
     import {Tween} from "svelte/motion";
@@ -66,6 +66,9 @@
             })
         }
     });
+
+    let displayName = $derived(t[`other_card_${(other.name).replaceAll('-', '_')}_display`]());
+
 </script>
 
 <div bind:this={card} bind:clientHeight={cardHeight} style={`
@@ -80,8 +83,11 @@
      onclick={handleOtherInteraction} onkeydown={handleOtherInteraction}
      role="button"
      tabindex="0">
-    <img class="frame" src="/img/other-frame.webp" alt="a frame">
-    <h3 class="display">{other.display_name}</h3>
+    <img class="frame" src="/img/other-frame.webp" alt="a frame with a cat">
+    {#if other.cat}
+        <img class="frame cat" src="/img/car.webp" alt="a very cute and silly cat (he lives here rent free)">
+    {/if}
+    <h3 class="display">{displayName}</h3>
     <div class="img-wrap">
         <img class={`${selected && modal.open ? 'selected' : ''}`} src={other.img} alt={other.display_name}>
     </div>
@@ -140,19 +146,27 @@
 
         & .frame {
             image-rendering: pixelated;
-            width: 125%;
+            width: 122.7%;
             position: absolute;
             transform: translate(-50%, -50%);
-            z-index: 2;
+            z-index: 3;
             pointer-events: none;
             left: 50%;
-            top: 48%;
+            top: 48.2%;
             filter: drop-shadow(0 1px 0 #ccc) drop-shadow(0 3.8px 0 #c9c9c9);
 
             user-select: none;
             user-drag: none;
             -webkit-user-drag: none;
 
+        }
+
+        & .cat {
+            width: 20%;
+            z-index: 2;
+            left: 20%;
+            top: -22%;
+            filter: drop-shadow(0 0px 0 #ccc) drop-shadow(0 0px 0 #c9c9c9);
         }
     }
 </style>
