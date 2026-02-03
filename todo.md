@@ -81,12 +81,12 @@
 - [x] todo semi-prod: error page
 - [x] todo semi-prod: title anim
 - [x] todo semi-prod: og
-- [ ] todo semi-prod: diplomas ; make them available only with key from resume,
+- [x] todo semi-prod: diplomas ; make them available only with key from resume,
   and filter commit history for them too, they're not really private and the resume is public anyway,
   but hell knows yer stalkere
 - [x] todo semi-prod: supabase keepalive, and one for ohthatsuseful while i'm at it too
 - [ ] todo semi-prod: linktree -> web sec animation
-- [ ] todo semi-prod: make lang switcher change "original"
+- [x] todo semi-prod: make lang switcher change "original" ; did something better
 
 - [x] todo: other seg
 - [x] todo: other responsive

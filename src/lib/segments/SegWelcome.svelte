@@ -8,7 +8,7 @@
     let seeLang = $state(false);
     let seeSettings = $state(false);
 
-    const languages = ["English (original)", "日本語", "Українська"];
+    const languages = ["English (recommended)", "日本語", "Українська"];
     let langButton: HTMLElement | null = $state(null);
     let settingsButton: HTMLElement | null = $state(null);
     let langSelectors: HTMLElement | null = $state(null);
@@ -35,7 +35,7 @@
     }
 
     const mapLang = {
-        "English (original)": "en",
+        "English (recommended)": "en",
         "日本語": "jp",
         "Українська": "uk",
     } as const;
@@ -379,7 +379,7 @@
                     }
 
                     & button {
-                        padding: 0.6rem 0 0.6rem 0.8rem;
+                        padding: 0.6rem 1rem 0.6rem 0.8rem;
                         width: 100%;
                         height: 100%;
                     }

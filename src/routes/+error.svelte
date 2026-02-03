@@ -7,8 +7,9 @@
         <h1>{page.status} {page.error?.message}</h1>
         <p class="quote">
             Rest in spaghetti,<br>
-            Never forgetti<br><span class="tini"> - HGModernism, 2025</span>
+            Never forgetti<br>
         </p>
+        <!-- HGModernism, 2025 -->
     </div>
     <div class="img-cont">
         <img src="/img/rest-in-spaghetti.svg" alt="rest in spaghetti">
