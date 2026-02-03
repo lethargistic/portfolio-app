@@ -259,7 +259,6 @@
             0 10px 10px rgba(0, 0, 0, .2),
             0 20px 20px rgba(0, 0, 0, .15);
 
-
             @media (max-width: 1023px) {
                 right: 0.4rem;
                 top: calc(var(--snowy-top-offset) + 22rem);

@@ -95,5 +95,6 @@
 - [ ] fix minor: snow spawns a boinkie once in a blue moon
 - [ ] todo: test snow performance better
 - [ ] todo: more minor things like the cat, they just add a lot of purple to the scene
-- [ ] todo: readme
+- [x] todo: readme
 - [x] fix very: web sec edit is borken
+- [ ] tod very very: train working inconsistently (remake from the ground up)

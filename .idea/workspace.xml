@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: thy do not own words, i own all words">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: readme">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.inlang/cache/plugins/2sy648wh9sugi" beforeDir="false" afterPath="$PROJECT_DIR$/project.inlang/cache/plugins/2sy648wh9sugi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.inlang/cache/plugins/ygx0uiahq6uw" beforeDir="false" afterPath="$PROJECT_DIR$/project.inlang/cache/plugins/ygx0uiahq6uw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWelcome.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+error.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+error.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/OtherCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/OtherCard.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -184,9 +182,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.localhost:5173" />
         <item itemvalue="JavaScript Debug.localhost:5174" />
         <item itemvalue="Node.js.convertSVGToJson.ts" />
-        <item itemvalue="JavaScript Debug.localhost:5173" />
       </list>
     </recent_temporary>
   </component>
@@ -311,14 +309,7 @@
       <workItem from="1769943582206" duration="27020000" />
       <workItem from="1770024469679" duration="32619000" />
       <workItem from="1770109239499" duration="15078000" />
-    </task>
-    <task id="LOCAL-00148" summary="chore: web seg responsive, once again a bit of real-phone jank rip">
-      <option name="closed" value="true" />
-      <created>1769367703179</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1769367703179</updated>
+      <workItem from="1770141984149" duration="1515000" />
     </task>
     <task id="LOCAL-00149" summary="fix: borken tablet by wrong media query + fix: nit">
       <option name="closed" value="true" />
@@ -704,7 +695,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770129119910</updated>
     </task>
-    <option name="localTasksCounter" value="197" />
+    <task id="LOCAL-00197" summary="chore: thy do not own words, i own all words">
+      <option name="closed" value="true" />
+      <created>1770139838873</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1770139838873</updated>
+    </task>
+    <option name="localTasksCounter" value="198" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -730,7 +729,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: 5% charge left. seems like this the end. if anyone can hear me on the other side, it's been a good run, o7. Anyway silly error page oh fck we had lights for 20 minutes now i just my charger did not plug itself in im i was about to commit this and it's off realization hit ohmygod what a twist" />
     <MESSAGE value="feat: error page" />
     <MESSAGE value="feat: cert page" />
     <MESSAGE value="fix: cert tweaks" />
@@ -755,6 +753,7 @@
     <MESSAGE value="chore: web sec tweaks and responsive" />
     <MESSAGE value="chore: footer responsive" />
     <MESSAGE value="feat: blizzard, not that blizzard, blizzard sound" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: blizzard, not that blizzard, blizzard sound" />
+    <MESSAGE value="chore: thy do not own words, i own all words" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: thy do not own words, i own all words" />
   </component>
 </project>

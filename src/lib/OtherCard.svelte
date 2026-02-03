@@ -68,7 +68,6 @@
     });
 
     let displayName = $derived(t[`other_card_${(other.name).replaceAll('-', '_')}_display`]());
-
 </script>
 
 <div bind:this={card} bind:clientHeight={cardHeight} style={`
@@ -170,7 +169,7 @@
             image-rendering: pixelated;
             width: 121.8%;
             position: absolute;
-            transform: translate(-50%, -50%) scaleX(1.02);
+            transform: translate(-50%, -50%) scale(1.02, 1);
             will-change: transform;
             z-index: 3;
             pointer-events: none;
@@ -181,6 +180,10 @@
             user-select: none;
             user-drag: none;
             -webkit-user-drag: none;
+
+            @media (min-width: 1600px) {
+                transform: translate(-50%, -50%) scale(1.02, 0.98);
+            }
         }
 
         & .cat {
@@ -188,7 +191,12 @@
             z-index: 2;
             left: 20%;
             top: -22%;
+
             filter: drop-shadow(0 0px 0 #ccc) drop-shadow(0 0px 0 #c9c9c9);
+
+            @media (min-width: 1600px) {
+                top: -21%;
+            }
         }
     }
 </style>
