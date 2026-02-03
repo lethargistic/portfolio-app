@@ -4,29 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: cat">
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/fabric.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/maven.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/neoforge.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/amaranth.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/mdcap.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/moyai_bot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/small/amaranth.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/small/mdcap.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/small/moyai_bot.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/small/twig.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/small/yuashi.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/twig.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/yuashi.png" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: other seg mostly">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Modal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Modal.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/OtherCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/OtherCard.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/icons/icons.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/icons/icons.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -327,15 +308,7 @@
       <workItem from="1769938862496" duration="4676000" />
       <workItem from="1769943582206" duration="27020000" />
       <workItem from="1770024469679" duration="32619000" />
-      <workItem from="1770109239499" duration="5984000" />
-    </task>
-    <task id="LOCAL-00143" summary="fix: all card info blocks would disappear + fix: nav was in db order and borken">
-      <option name="closed" value="true" />
-      <created>1769330603947</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1769330603949</updated>
+      <workItem from="1770109239499" duration="9929000" />
     </task>
     <task id="LOCAL-00144" summary="chore: minor thumbnail edit">
       <option name="closed" value="true" />
@@ -721,7 +694,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770055224291</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="feat: other seg mostly">
+      <option name="closed" value="true" />
+      <created>1770121410408</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1770121410408</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -747,7 +728,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: translated toast + fix: train anim could break because of lang reupdate" />
     <MESSAGE value="feat: chime sounds" />
     <MESSAGE value="feat: subtle wind sound + feat: card sound this is adhd sounds now" />
     <MESSAGE value="chore: sound tweaks" />
@@ -772,6 +752,7 @@
     <MESSAGE value="chore: more cards x2" />
     <MESSAGE value="fix: tooltips werwe borken" />
     <MESSAGE value="chore: cat" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: cat" />
+    <MESSAGE value="feat: other seg mostly" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: other seg mostly" />
   </component>
 </project>

@@ -133,6 +133,7 @@
     })
 
     const findSelectedIx = () => {
+        if (!(modal.owner === 'other')) return;
         if (!others) {
             modal.selectedIx = -1;
             return;

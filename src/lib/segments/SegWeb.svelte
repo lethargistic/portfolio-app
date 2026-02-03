@@ -37,6 +37,7 @@
         modal.selectedValDetails = selectedDetails;
     })
     const findSelectedIx = () => {
+        if (!(modal.owner === 'web')) return;
         if (!webProjDetails) {
             modal.selectedIx = -1;
             return;
