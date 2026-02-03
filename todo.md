@@ -89,10 +89,11 @@
 - [ ] todo semi-prod: make lang switcher change "original"
 
 - [x] todo: other seg
-- [ ] todo: other responsive
+- [x] todo: other responsive
 - [ ] fix minor-ish: footer shifts layout i think ; it was the display name animation of the rotatie card, 
       not sure why it happens since it's all absolute but demoting this since it's really hard to trigger for a normal user
 - [ ] fix minor: snow spawns a boinkie once in a blue moon
 - [ ] todo: test snow performance better
 - [ ] todo: more minor things like the cat, they just add a lot of purple to the scene
+- [ ] todo: readme
 - [x] fix very: web sec edit is borken
