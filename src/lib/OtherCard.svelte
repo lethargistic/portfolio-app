@@ -12,7 +12,7 @@
     import {Tween} from "svelte/motion";
     import {expoOut} from "svelte/easing";
 
-    let {other} = $props();
+    let {other, ix} = $props();
 
     let otherInQuestion = $derived<Record<string, any>>(editbar.other_data[editbar.focusedIx]);
     let selected = $derived(modal.selected === other.name);
@@ -57,7 +57,7 @@
             untrack(() => {
                 offset.target = {
                     x: (pxToVw(windowGlobals.inner_width * (modal.left ? 0.25 : 0.75) - vwToPx(other.width_vw / 2))) - other.right_vw,
-                    y: deviceMin.mobile ? (pxToVh(windowGlobals.inner_height * 0.635 - vhToPx(cardHeight / 2))) : 0
+                    y: deviceMin.mobile ? (pxToVh(windowGlobals.inner_height * 0.58 - vhToPx(cardHeight / 2))) : 0
                 }
             })
         } else {
@@ -75,7 +75,7 @@
     width: ${other.width_vw}vw;
     right: ${deviceMin.mobile ? 0 : other.right_vw + offset.current.x}vw;
     top: ${top}vh;
-    `} class={`other-card ${selected ? 'over-modal' : ''}`}
+    `} class={`other-card ${selected ? 'over-modal' : ''} ${ix === 0 ? 'first-card' : ''}`}
      onpointerdown={handleItemHolding}
      onpointermove={(e) => handlePositioning(e, otherInQuestion, other.name, 'other', true)}
      onpointerup={handleItemLeaving}
@@ -90,7 +90,8 @@
     <h3 class="display">{displayName}</h3>
     <div class="img-wrap">
         <img class={`${selected && modal.open ? 'selected' : ''}`}
-             src={other.img.startsWith('https') ? other.img : `/img/other-thumbnails/small/${other.img}`} alt={other.name}>
+             src={other.img.startsWith('https') ? other.img : `/img/other-thumbnails/small/${other.img}`}
+             alt={other.name}>
     </div>
 </div>
 
@@ -99,12 +100,24 @@
         filter: grayscale(0) !important;
     }
 
+    .first-card {
+        @media (max-width: 767px) {
+            margin-top: 10vh;
+        }
+    }
+
     .other-card {
         width: 24vw;
         position: absolute;
         top: 30vw;
 
         z-index: 1;
+
+        @media (max-width: 767px) {
+            position: relative;
+            width: 80% !important;
+            margin-right: 6%
+        }
 
         & .display {
             position: absolute;
@@ -120,6 +133,10 @@
             font-weight: normal;
             font-size: 2rem;
             letter-spacing: 0.6rem;
+
+            @media (max-width: 767px) {
+                left: -10%;
+            }
         }
 
         & .img-wrap {
@@ -141,6 +158,10 @@
 
                 &:hover {
                     filter: grayscale(0)
+                }
+
+                @media (max-width: 767px) {
+                    transform: translate(0, -50%);
                 }
             }
         }

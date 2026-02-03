@@ -178,8 +178,8 @@
             </div>
         </div>
 
-        {#each others as other (other.name)}
-            <OtherCard {other}/>
+        {#each others as other, ix (other.name)}
+            <OtherCard {other} {ix}/>
         {/each}
     </section>
 
@@ -205,6 +205,18 @@
             0 5px 10px rgba(0, 0, 0, .25),
             0 10px 10px rgba(0, 0, 0, .2),
             0 20px 20px rgba(0, 0, 0, .15);
+
+
+            @media (max-width: 1023px) {
+                right: 0.4rem;
+                top: calc(var(--snowy-top-offset) + 22rem);
+                font-size: 7rem;
+            }
+            @media (max-width: 767px) {
+                right: 0.4rem;
+                top: calc(var(--snowy-top-offset) + 14rem);
+                font-size: 7rem;
+            }
         }
 
         .snow-cont {
@@ -229,7 +241,7 @@
         }
 
         .other-seg {
-            --other-seg-height: 300vh;
+            --other-seg-height: 220vh;
 
             width: 100vw;
             height: var(--other-seg-height);
@@ -240,12 +252,25 @@
             color: white;
             display: flex;
 
+            @media (max-width: 1023px) {
+                flex-direction: column;
+                align-items: flex-end;
+
+                gap: 12vh;
+            }
+
+            --pit-width: 7%;
             & .pit {
-                width: 7%;
+                width: var(--pit-width);
                 height: var(--other-seg-height);
 
                 background-color: #191919;
                 box-shadow: inset black 0 0 60px -12px;
+
+                @media (max-width: 1023px) {
+                    position: absolute;
+                    left: 0;
+                }
             }
 
             & .snowy {
@@ -259,6 +284,11 @@
 
                 background: linear-gradient(to bottom, #141414, #0e0e0e);
                 box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px, rgba(0, 0, 0, 0.22) 0 15px 12px;
+
+                @media (max-width: 1023px) {
+                    position: absolute;
+                    left: var(--pit-width);
+                }
             }
         }
 

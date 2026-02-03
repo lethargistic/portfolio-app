@@ -88,7 +88,8 @@
 - [ ] todo semi-prod: linktree -> web sec animation
 - [ ] todo semi-prod: make lang switcher change "original"
 
-- [ ] todo: other seg
+- [x] todo: other seg
+- [ ] todo: other responsive
 - [ ] fix minor-ish: footer shifts layout i think ; it was the display name animation of the rotatie card, 
       not sure why it happens since it's all absolute but demoting this since it's really hard to trigger for a normal user
 - [ ] fix minor: snow spawns a boinkie once in a blue moon

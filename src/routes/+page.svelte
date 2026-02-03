@@ -269,7 +269,7 @@
     <SegWeb webProj={data.web_projects} webProjDetails={data.web_projects_details}/>
     <SegOther others={data.others}/>
     <!-- TODO eventually: art sec -->
-<!--    <SegFooter/>-->
+    <SegFooter/>
     <Modal/>
 </main>
 

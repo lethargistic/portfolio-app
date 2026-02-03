@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: other seg mostly">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: web sec edit borken">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorSidebar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/OtherCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/OtherCard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -308,15 +309,7 @@
       <workItem from="1769938862496" duration="4676000" />
       <workItem from="1769943582206" duration="27020000" />
       <workItem from="1770024469679" duration="32619000" />
-      <workItem from="1770109239499" duration="9929000" />
-    </task>
-    <task id="LOCAL-00144" summary="chore: minor thumbnail edit">
-      <option name="closed" value="true" />
-      <created>1769334813152</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL-00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1769334813152</updated>
+      <workItem from="1770109239499" duration="11803000" />
     </task>
     <task id="LOCAL-00145" summary="chore: welcome seg responsive">
       <option name="closed" value="true" />
@@ -702,7 +695,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770121410408</updated>
     </task>
-    <option name="localTasksCounter" value="193" />
+    <task id="LOCAL-00193" summary="fix: web sec edit borken">
+      <option name="closed" value="true" />
+      <created>1770126050491</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1770126050491</updated>
+    </task>
+    <option name="localTasksCounter" value="194" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -728,7 +729,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: chime sounds" />
     <MESSAGE value="feat: subtle wind sound + feat: card sound this is adhd sounds now" />
     <MESSAGE value="chore: sound tweaks" />
     <MESSAGE value="chore: started on certificates but no lights and mobile data can't handle imgs" />
@@ -753,6 +753,7 @@
     <MESSAGE value="fix: tooltips werwe borken" />
     <MESSAGE value="chore: cat" />
     <MESSAGE value="feat: other seg mostly" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: other seg mostly" />
+    <MESSAGE value="fix: web sec edit borken" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: web sec edit borken" />
   </component>
 </project>
