@@ -19,6 +19,12 @@
 
         color: white;
 
+        @media (max-width: 767px) {
+            padding: 1rem;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
         ::selection {
             color: black;
             background-color: white;
@@ -27,6 +33,10 @@
         & a {
             cursor: pointer;
             margin-left: 3vw;
+
+            @media (max-width: 767px) {
+                margin-left: 0;
+            }
 
             & .check {
                 position: relative;
