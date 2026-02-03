@@ -4,19 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: tooltips werwe borken">
-      <change afterPath="$PROJECT_DIR$/static/img/car.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/car.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icons/pixel-cross.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icons/pixel-cross.webp" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: cat">
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/fabric.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/maven.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/neoforge.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/amaranth.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/mdcap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/moyai_bot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/small/amaranth.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/small/mdcap.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/small/moyai_bot.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/small/twig.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/small/yuashi.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/twig.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/other-thumbnails/yuashi.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Modal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Modal.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/OtherCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/OtherCard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/RotatieCard.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/editing/EditorTools.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/icons/icons.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/icons/icons.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/other-frame.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/other-frame.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/other-frame.webp" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/other-frame.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +109,7 @@
     "JavaScript Debug.localhost:5173.executor": "Debug",
     "JavaScript Debug.localhost:5174.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.convertSVGToJson.ts.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -107,7 +119,7 @@
     "Shell Script.やばそうなの.executor": "Run",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/static/img",
+    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/static/img/other-thumbnails",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -126,25 +138,28 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\static\img\other-thumbnails" />
+      <recent name="D:\Docs\webstormproj\sustenant\src\lib\icons\svgs" />
+      <recent name="D:\Docs\webstormproj\sustenant\static\img\other-thumbnails\small" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img" />
       <recent name="D:\Docs\webstormproj\sustenant\static" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img\icons" />
-      <recent name="D:\Docs\webstormproj\sustenant" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\lib\cert" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\static\img\other-thumbnails\small" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\assets" />
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\certificates" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\lib\screenshots" />
     </key>
   </component>
-  <component name="RunManager" selected="Shell Script.Host">
+  <component name="RunManager" selected="Node.js.convertSVGToJson.ts">
     <configuration name="localhost:5173" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:5173/">
       <method v="2" />
     </configuration>
     <configuration name="localhost:5174" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:5174/">
+      <method v="2" />
+    </configuration>
+    <configuration name="convertSVGToJson.ts" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/lib/icons/convertSVGToJson.ts" typescript-loader="bundled" working-dir="$PROJECT_DIR$/src/lib/icons">
       <method v="2" />
     </configuration>
     <configuration name="やばそうなの" type="ShConfigurationType">
@@ -180,11 +195,13 @@
     <list>
       <item itemvalue="JavaScript Debug.localhost:5173" />
       <item itemvalue="JavaScript Debug.localhost:5174" />
+      <item itemvalue="Node.js.convertSVGToJson.ts" />
       <item itemvalue="Shell Script.Host" />
       <item itemvalue="Shell Script.やばそうなの" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.convertSVGToJson.ts" />
         <item itemvalue="JavaScript Debug.localhost:5174" />
         <item itemvalue="JavaScript Debug.localhost:5173" />
       </list>
@@ -309,15 +326,8 @@
       <workItem from="1769937298733" duration="878000" />
       <workItem from="1769938862496" duration="4676000" />
       <workItem from="1769943582206" duration="27020000" />
-      <workItem from="1770024469679" duration="24057000" />
-    </task>
-    <task id="LOCAL-00142" summary="chore: you can never draw something this well when you actually try to">
-      <option name="closed" value="true" />
-      <created>1769286841696</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1769286841696</updated>
+      <workItem from="1770024469679" duration="32619000" />
+      <workItem from="1770109239499" duration="5984000" />
     </task>
     <task id="LOCAL-00143" summary="fix: all card info blocks would disappear + fix: nav was in db order and borken">
       <option name="closed" value="true" />
@@ -703,7 +713,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770039342449</updated>
     </task>
-    <option name="localTasksCounter" value="191" />
+    <task id="LOCAL-00191" summary="chore: cat">
+      <option name="closed" value="true" />
+      <created>1770055224291</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1770055224291</updated>
+    </task>
+    <option name="localTasksCounter" value="192" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -729,7 +747,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: better sound setting detection + chore: styled the toast&#10;mmm toast&#10;my mind drifts towards a sandwich but i resist" />
     <MESSAGE value="fix: translated toast + fix: train anim could break because of lang reupdate" />
     <MESSAGE value="feat: chime sounds" />
     <MESSAGE value="feat: subtle wind sound + feat: card sound this is adhd sounds now" />
@@ -754,6 +771,7 @@
     <MESSAGE value="chore: same thing again" />
     <MESSAGE value="chore: more cards x2" />
     <MESSAGE value="fix: tooltips werwe borken" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: tooltips werwe borken" />
+    <MESSAGE value="chore: cat" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: cat" />
   </component>
 </project>

@@ -91,7 +91,6 @@
         } else if (modal.open && !skip) {
             modal.open = false;
         } else {
-            console.log('hi i am seleted', proj.name)
             modal.selected = proj.name;
             modal.open = true;
             modal.owner = 'web';

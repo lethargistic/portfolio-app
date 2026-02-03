@@ -89,7 +89,9 @@
 - [ ] todo semi-prod: make lang switcher change "original"
 
 - [ ] todo: other seg
-- [ ] fix very: footer shifts layout i think
+- [ ] fix minor-ish: footer shifts layout i think ; it was the display name animation of the rotatie card, 
+      not sure why it happens since it's all absolute but demoting this since it's really hard to trigger for a normal user
 - [ ] fix minor: snow spawns a boinkie once in a blue moon
 - [ ] fix minor: web seg anim headers should come pre backed with their line count
 - [ ] todo: test snow performance better
+- [ ] todo: more minor things like the cat, they just add a lot of purple to the scene

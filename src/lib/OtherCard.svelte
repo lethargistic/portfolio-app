@@ -89,7 +89,8 @@
     {/if}
     <h3 class="display">{displayName}</h3>
     <div class="img-wrap">
-        <img class={`${selected && modal.open ? 'selected' : ''}`} src={other.img} alt={other.display_name}>
+        <img class={`${selected && modal.open ? 'selected' : ''}`}
+             src={other.img.startsWith('https') ? other.img : `/img/other-thumbnails/small/${other.img}`} alt={other.name}>
     </div>
 </div>
 
@@ -136,7 +137,7 @@
                 width: 100%;
 
                 transition: filter 0.25s ease;
-                filter: grayscale(50%);
+                filter: grayscale(10%);
 
                 &:hover {
                     filter: grayscale(0)
@@ -146,9 +147,10 @@
 
         & .frame {
             image-rendering: pixelated;
-            width: 122.7%;
+            width: 121.8%;
             position: absolute;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) scaleX(1.02);
+            will-change: transform;
             z-index: 3;
             pointer-events: none;
             left: 50%;
@@ -158,7 +160,6 @@
             user-select: none;
             user-drag: none;
             -webkit-user-drag: none;
-
         }
 
         & .cat {

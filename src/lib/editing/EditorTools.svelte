@@ -62,6 +62,7 @@
 
                 // defaulting
                 if (typeof value === "string") {
+                    if (key === 'owner') return [key, 'web'];
 
                     value = 'non';
                 }
@@ -85,6 +86,7 @@
 
                 // defaulting
                 if (typeof value === "string") {
+                    if (key === 'owner') return [key, 'other'];
 
                     value = 'non';
                 }

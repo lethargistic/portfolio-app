@@ -154,6 +154,10 @@
 
   "#s5": "/",
   "other_text_other": "#",
+  "other_card_non_display": "non",
   "other_card_yuashi_display": "kaishiua 1.5k",
-  "other_card_twig_display": "twigonometry"
+  "other_card_twig_display": "twigonometry",
+  "other_card_amaranth_display": "amaranth",
+  "other_card_mdcap_display": "md-it img caption",
+  "other_card_moyai_bot_display": "moyai bot"
 }

@@ -66,9 +66,7 @@
 
     let longDesc = $derived(details ? details[`long_desc_${currentLang.lang}`] : '');
 
-    $inspect('proj', proj)
     let displayName = $derived(proj && proj?.owner === owner ? t[`${owner}_card_${(proj.name).replaceAll('-', '_')}_display`]() : '');
-    $inspect(`owner: ${owner} \n proj: ${proj} \n `, displayName)
     let cleanupH: (() => void) | null = null;
     let cleanupDesc: (() => void) | null = null;
     let isOpen = $derived(!!details && modal.open);
@@ -203,12 +201,14 @@
     .modal-other {
         & * {
             font-family: 'Tiny5', monospace;
+            font-size: 1.3rem;
         }
 
         & .dialog {
             & .info {
                 & h2 {
                     font-family: Tiny5, monospace;
+                    font-size: 3.5rem;
                 }
             }
         }
@@ -223,6 +223,7 @@
             & .info {
                 & h2 {
                     font-family: 'Fira Code', monospace;
+                    font-size: 2.5rem;
                 }
             }
         }
@@ -300,7 +301,6 @@
 
                 & h2 {
                     font-weight: normal;
-                    font-size: 2.5rem;
 
                     @media (max-width: 767px) {
                         width: 60%;

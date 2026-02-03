@@ -131,6 +131,23 @@
             })
         }
     })
+
+    const findSelectedIx = () => {
+        if (!others) {
+            modal.selectedIx = -1;
+            return;
+        }
+
+        const ix = others.findIndex(p => p.name === modal.selected)
+        if (ix === undefined) {
+            modal.selectedIx = -1;
+            return;
+        }
+
+        modal.selectedIx = ix;
+    }
+    $effect(findSelectedIx);
+
 </script>
 
 <svelte:body bind:this={bodyElem}/>
@@ -173,7 +190,7 @@
 
             font-family: Tiny5, sans-serif;
             font-weight: normal;
-            font-size: 10rem;
+            font-size: 9rem;
             letter-spacing: 0.6rem;
             text-shadow: 0 1px 0 #ccc,
             0 2px 0 #c9c9c9,
@@ -192,7 +209,7 @@
         .snow-cont {
             width: 100%;
             height: 100%;
-            position: relative;
+            position: absolute;
 
             & .snowflake {
                 /* js mostly */
