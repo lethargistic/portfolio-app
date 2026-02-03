@@ -1,6 +1,6 @@
 <script lang="ts">
     import {currentLang, deviceMin, editbar, modal, settings, windowGlobals} from "$lib/shared.svelte";
-    import {onMount, untrack} from "svelte";
+    import {onDestroy, onMount, untrack} from "svelte";
     import {Spring} from "svelte/motion";
     import {isEmptyArr} from "$lib/utils/utils";
     import OtherCard from "$lib/OtherCard.svelte";
@@ -149,11 +149,64 @@
     }
     $effect(findSelectedIx);
 
+    //
+
+    let segElem: HTMLElement | null = $state(null);
+    let ambientBlizzardAudio: HTMLAudioElement | null = $state(null);
+    onMount(() => {
+        ambientBlizzardAudio = new Audio('/audio/snow/cold-snowfall-ambience.mp3');
+        ambientBlizzardAudio.loop = true;
+        ambientBlizzardAudio.volume = 0;
+
+        if (segElem && ambientBlizzardAudio) {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (!ambientBlizzardAudio) return;
+
+                        const ratio = entry.intersectionRatio;
+
+                        if (ratio > 0) {
+                            if (ambientBlizzardAudio.paused) {
+                                if (settings.sounds.state) {
+                                    ambientBlizzardAudio.play();
+                                }
+                            }
+
+                            let targetVolume = 0.6;
+                            if (ratio < 0.1) {
+                                targetVolume = (ratio / 0.1) * 0.6;
+                            } else if (ratio > 0.6) {
+                                targetVolume = ((1 - ratio) / 0.1) * 0.6;
+                            }
+
+                            ambientBlizzardAudio.volume = targetVolume;
+                        } else {
+                            ambientBlizzardAudio.pause();
+                            ambientBlizzardAudio.volume = 0;
+                        }
+                    });
+                },
+                {threshold: Array.from({length: 101}, (_, i) => i / 100)}
+            );
+
+            observer.observe(segElem);
+
+            return () => observer.disconnect();
+        }
+    })
+
+    onDestroy(() => {
+        if (ambientBlizzardAudio) {
+            ambientBlizzardAudio.pause();
+            ambientBlizzardAudio = null;
+        }
+    });
 </script>
 
 <svelte:body bind:this={bodyElem}/>
 {#key currentLang.lang}
-    <section class="other-seg" id="other">
+    <section bind:this={segElem} class="other-seg" id="other">
         <EditorTools seg={'other'} left={true} light={true}/>
         <div class="pit"></div>
         <div class="snowy" onpointermove={yuru}>

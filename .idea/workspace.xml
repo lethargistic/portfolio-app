@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: web sec edit borken">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: footer responsive">
+      <change afterPath="$PROJECT_DIR$/static/audio/snow/cold-snowfall-ambience.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/OtherCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/OtherCard.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegLinktree.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegWeb.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +101,7 @@
     "Shell Script.やばそうなの.executor": "Run",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/static/img/other-thumbnails",
+    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/static/audio/snow",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -120,18 +120,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\static\audio\snow" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\other-thumbnails" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\icons\svgs" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\other-thumbnails\small" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img" />
-      <recent name="D:\Docs\webstormproj\sustenant\static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\static\audio" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\other-thumbnails\small" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\assets" />
-      <recent name="D:\Docs\webstormproj\sustenant\src\routes\certificates" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.convertSVGToJson.ts">
@@ -309,23 +309,7 @@
       <workItem from="1769938862496" duration="4676000" />
       <workItem from="1769943582206" duration="27020000" />
       <workItem from="1770024469679" duration="32619000" />
-      <workItem from="1770109239499" duration="11803000" />
-    </task>
-    <task id="LOCAL-00145" summary="chore: welcome seg responsive">
-      <option name="closed" value="true" />
-      <created>1769347994524</created>
-      <option name="number" value="00145" />
-      <option name="presentableId" value="LOCAL-00145" />
-      <option name="project" value="LOCAL" />
-      <updated>1769347994524</updated>
-    </task>
-    <task id="LOCAL-00146" summary="chore: about seg responsive">
-      <option name="closed" value="true" />
-      <created>1769352847220</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1769352847220</updated>
+      <workItem from="1770109239499" duration="12939000" />
     </task>
     <task id="LOCAL-00147" summary="chore: ok this one was really fun, tho it's kinda wonky on a real phone">
       <option name="closed" value="true" />
@@ -703,7 +687,23 @@
       <option name="project" value="LOCAL" />
       <updated>1770126050491</updated>
     </task>
-    <option name="localTasksCounter" value="194" />
+    <task id="LOCAL-00194" summary="chore: web sec tweaks and responsive">
+      <option name="closed" value="true" />
+      <created>1770127948514</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1770127948514</updated>
+    </task>
+    <task id="LOCAL-00195" summary="chore: footer responsive">
+      <option name="closed" value="true" />
+      <created>1770128130077</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1770128130077</updated>
+    </task>
+    <option name="localTasksCounter" value="196" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -729,8 +729,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: subtle wind sound + feat: card sound this is adhd sounds now" />
-    <MESSAGE value="chore: sound tweaks" />
     <MESSAGE value="chore: started on certificates but no lights and mobile data can't handle imgs" />
     <MESSAGE value="feat: 5% charge left. seems like this the end. if anyone can hear me on the other side, it's been a good run, o7. Anyway silly error page oh fck we had lights for 20 minutes now i just my charger did not plug itself in im i was about to commit this and it's off realization hit ohmygod what a twist" />
     <MESSAGE value="feat: error page" />
@@ -754,6 +752,8 @@
     <MESSAGE value="chore: cat" />
     <MESSAGE value="feat: other seg mostly" />
     <MESSAGE value="fix: web sec edit borken" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: web sec edit borken" />
+    <MESSAGE value="chore: web sec tweaks and responsive" />
+    <MESSAGE value="chore: footer responsive" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: footer responsive" />
   </component>
 </project>

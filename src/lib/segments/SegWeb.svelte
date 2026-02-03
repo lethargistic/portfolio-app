@@ -94,7 +94,7 @@
 
     <style>
         .web-seg {
-            height: 300vh;
+            height: 310vh;
             width: 100vw;
             position: relative;
 

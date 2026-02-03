@@ -102,7 +102,6 @@
         lerpParallaxScroll();
         animateWindBlur();
 
-
         ambientWindAudio = new Audio('/audio/chime/ambient-wind.mp3');
         ambientWindAudio.loop = true;
         ambientWindAudio.volume = 0;
