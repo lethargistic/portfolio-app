@@ -175,7 +175,7 @@
                 --cta-link-border-btn-color: #353535;
                 ` : ''}
                 `}>
-                    {#if details.link.startsWith("modrinth-")}
+                    {#if details.link?.startsWith("modrinth-")}
                         <a href={details.link.replace("modrinth-","")}
                            class="cta cta-link cta-modrinth" target="_blank">
                             {@html t.web_modal_button_modrinth()}

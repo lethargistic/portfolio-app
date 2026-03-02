@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: adjusted frame scaling for browser zoom">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.inlang/cache/plugins/2sy648wh9sugi" beforeDir="false" afterPath="$PROJECT_DIR$/project.inlang/cache/plugins/2sy648wh9sugi" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: modrinth button">
       <change beforePath="$PROJECT_DIR$/src/lib/Modal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Modal.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
@@ -318,15 +314,7 @@
       <workItem from="1770909488731" duration="261000" />
       <workItem from="1771167636334" duration="84000" />
       <workItem from="1771168261167" duration="655000" />
-      <workItem from="1772445068986" duration="2859000" />
-    </task>
-    <task id="LOCAL-00150" summary="chore: translation keys up to web seg">
-      <option name="closed" value="true" />
-      <created>1769428258411</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1769428258411</updated>
+      <workItem from="1772445068986" duration="3225000" />
     </task>
     <task id="LOCAL-00151" summary="chore: web seg translation keys">
       <option name="closed" value="true" />
@@ -712,7 +700,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770143514652</updated>
     </task>
-    <option name="localTasksCounter" value="199" />
+    <task id="LOCAL-00199" summary="feat: modrinth button">
+      <option name="closed" value="true" />
+      <created>1772448016620</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1772448016620</updated>
+    </task>
+    <option name="localTasksCounter" value="200" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -738,7 +734,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: cert page" />
     <MESSAGE value="fix: cert tweaks" />
     <MESSAGE value="feat: title animation" />
     <MESSAGE value="fix: title animation setting translations" />
@@ -763,6 +758,7 @@
     <MESSAGE value="feat: blizzard, not that blizzard, blizzard sound" />
     <MESSAGE value="chore: thy do not own words, i own all words" />
     <MESSAGE value="chore: adjusted frame scaling for browser zoom" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: adjusted frame scaling for browser zoom" />
+    <MESSAGE value="feat: modrinth button" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: modrinth button" />
   </component>
 </project>
