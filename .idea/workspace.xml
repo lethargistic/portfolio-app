@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: modrinth button">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="hotfix: fixed section switching due to undefined in startsWith">
       <change beforePath="$PROJECT_DIR$/src/lib/Modal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Modal.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -314,15 +313,7 @@
       <workItem from="1770909488731" duration="261000" />
       <workItem from="1771167636334" duration="84000" />
       <workItem from="1771168261167" duration="655000" />
-      <workItem from="1772445068986" duration="3225000" />
-    </task>
-    <task id="LOCAL-00151" summary="chore: web seg translation keys">
-      <option name="closed" value="true" />
-      <created>1769432463794</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1769432463794</updated>
+      <workItem from="1772445068986" duration="3558000" />
     </task>
     <task id="LOCAL-00152" summary="chore: translated everything to japanese, oh my god am i tried">
       <option name="closed" value="true" />
@@ -708,7 +699,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772448016620</updated>
     </task>
-    <option name="localTasksCounter" value="200" />
+    <task id="LOCAL-00200" summary="hotfix: fixed section switching due to undefined in startsWith">
+      <option name="closed" value="true" />
+      <created>1772448441628</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1772448441628</updated>
+    </task>
+    <option name="localTasksCounter" value="201" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -734,7 +733,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: cert tweaks" />
     <MESSAGE value="feat: title animation" />
     <MESSAGE value="fix: title animation setting translations" />
     <MESSAGE value="chore: open graph and minor seo" />
@@ -759,6 +757,7 @@
     <MESSAGE value="chore: thy do not own words, i own all words" />
     <MESSAGE value="chore: adjusted frame scaling for browser zoom" />
     <MESSAGE value="feat: modrinth button" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: modrinth button" />
+    <MESSAGE value="hotfix: fixed section switching due to undefined in startsWith" />
+    <option name="LAST_COMMIT_MESSAGE" value="hotfix: fixed section switching due to undefined in startsWith" />
   </component>
 </project>

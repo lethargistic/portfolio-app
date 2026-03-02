@@ -4,7 +4,9 @@
         editing,
         hackeryTextAnim,
         handleItemEdit,
-        modal, deviceMin, t, currentLang, editbar
+        modal, deviceMin, t, currentLang, editbar,
+        // Jetbrains fix, when?
+        positionTooltip
     } from "$lib/shared.svelte";
     import Icon from "$lib/Icon.svelte";
     import {blur} from "svelte/transition";
