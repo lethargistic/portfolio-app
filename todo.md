@@ -97,4 +97,7 @@
 - [ ] todo: more minor things like the cat, they just add a lot of purple to the scene
 - [x] todo: readme
 - [x] fix very: web sec edit is borken
-- [ ] tod very very: train working inconsistently (remake from the ground up)
+- [ ] todo very very: train working inconsistently (remake from the ground up)
+- [ ] fix: might be worth putting a few more concrete results on each project like core features or rough timelines so people see you actually ship
+- [ ] fix: web sec arrow only ever appears for the first time you click a project
+- [ ] todo: make buttons data driven

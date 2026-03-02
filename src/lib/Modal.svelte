@@ -4,7 +4,7 @@
         editing,
         hackeryTextAnim,
         handleItemEdit,
-        modal, deviceMin, t, currentLang, editbar, positionTooltip
+        modal, deviceMin, t, currentLang, editbar
     } from "$lib/shared.svelte";
     import Icon from "$lib/Icon.svelte";
     import {blur} from "svelte/transition";
@@ -175,7 +175,12 @@
                 --cta-link-border-btn-color: #353535;
                 ` : ''}
                 `}>
-                    {#if details.link}
+                    {#if details.link.startsWith("modrinth-")}
+                        <a href={details.link.replace("modrinth-","")}
+                           class="cta cta-link cta-modrinth" target="_blank">
+                            {@html t.web_modal_button_modrinth()}
+                        </a>
+                    {:else if details.link}
                         <a href={details.link} class="cta cta-link" target="_blank">
                             {@html t.web_modal_button_take_a_look()}
                         </a>
@@ -399,17 +404,23 @@
     .button-wrap {
         display: flex;
 
+        /* TODO: make buttons data driven (why arent they??) */
         --cta-github-color: white;
+        --cta-modrinth-color: #252527;
+        --cta-modrinth-shadowed-text-color: #0b0c0b;
         --shadowed-github-btn-color: #1b1820;
         --shadowed-link-btn-color: #3e2471;
+        --shadowed-modrinth-btn-color: #1e5936;
         --cta-github-hover-btn-color: #100e13;
         --cta-github-hover-before-btn-color: #0a060e;
         --cta-link-hover-btn-color: #6c35af;
+        --cta-modrinth-hover-btn-color: #52ed96;
         --cta-link-hover-before-btn-color: #3a1c5c;
         --cta-github-background-btn-color: #19141e;
         --cta-github-border-btn-color: #4d2387;
         --cta-link-background-btn-color: #6728b3;
         --cta-link-border-btn-color: #3b225a;
+        --cta-modrinth-background-btn-color: #43ec86;
 
         & .cta-github:before {
             background: var(--shadowed-github-btn-color);
@@ -419,6 +430,11 @@
         & .cta-link:before {
             background: var(--shadowed-link-btn-color);
             box-shadow: 0 0 0 1px var(--shadowed-link-btn-color);
+        }
+
+        & .cta-modrinth:before {
+            background: var(--shadowed-modrinth-btn-color);
+            box-shadow: 0 0 0 1px var(--shadowed-modrinth-btn-color);
         }
 
         & .cta-github:hover {
@@ -448,6 +464,16 @@
             all: unset;
             background-color: var(--cta-link-background-btn-color);
             border: 2px solid var(--cta-link-border-btn-color);
+        }
+
+        & .cta-modrinth {
+            color: var(--cta-modrinth-color);
+            background-color: var(--cta-modrinth-background-btn-color);
+        }
+
+        & .cta-modrinth:hover {
+            color: var(--cta-modrinth-shadowed-text-color);
+            background-color: var(--cta-modrinth-hover-btn-color);
         }
 
         & .cta {

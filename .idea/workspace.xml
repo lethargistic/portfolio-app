@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: readme">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: adjusted frame scaling for browser zoom">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/OtherCard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/OtherCard.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.inlang/cache/plugins/2sy648wh9sugi" beforeDir="false" afterPath="$PROJECT_DIR$/project.inlang/cache/plugins/2sy648wh9sugi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Modal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Modal.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,39 +86,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;JavaScript Debug.localhost:5173.executor&quot;: &quot;Debug&quot;,
-    &quot;JavaScript Debug.localhost:5174.executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Node.js.convertSVGToJson.ts.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Shell Script.Host.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.やばそうなの.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Docs/webstormproj/sustenant/static/audio/snow&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "JavaScript Debug.localhost:5173.executor": "Debug",
+    "JavaScript Debug.localhost:5174.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.convertSVGToJson.ts.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Shell Script.Host.executor": "Run",
+    "Shell Script.やばそうなの.executor": "Debug",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/static/audio/snow",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "editor.preferences.tabs",
+    "ts.external.directory.path": "D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;JSON&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JSON"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Docs\webstormproj\sustenant\static\audio\snow" />
@@ -133,7 +135,7 @@
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.convertSVGToJson.ts">
+  <component name="RunManager" selected="Shell Script.やばそうなの">
     <configuration name="localhost:5173" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:5173/">
       <method v="2" />
     </configuration>
@@ -309,15 +311,14 @@
       <workItem from="1769943582206" duration="27020000" />
       <workItem from="1770024469679" duration="32619000" />
       <workItem from="1770109239499" duration="15078000" />
-      <workItem from="1770141984149" duration="1515000" />
-    </task>
-    <task id="LOCAL-00149" summary="fix: borken tablet by wrong media query + fix: nit">
-      <option name="closed" value="true" />
-      <created>1769368086548</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1769368086548</updated>
+      <workItem from="1770141984149" duration="2170000" />
+      <workItem from="1770313418354" duration="713000" />
+      <workItem from="1770372556417" duration="1216000" />
+      <workItem from="1770621231358" duration="250000" />
+      <workItem from="1770909488731" duration="261000" />
+      <workItem from="1771167636334" duration="84000" />
+      <workItem from="1771168261167" duration="655000" />
+      <workItem from="1772445068986" duration="2859000" />
     </task>
     <task id="LOCAL-00150" summary="chore: translation keys up to web seg">
       <option name="closed" value="true" />
@@ -703,7 +704,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770139838873</updated>
     </task>
-    <option name="localTasksCounter" value="198" />
+    <task id="LOCAL-00198" summary="chore: adjusted frame scaling for browser zoom">
+      <option name="closed" value="true" />
+      <created>1770143514652</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1770143514652</updated>
+    </task>
+    <option name="localTasksCounter" value="199" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -729,7 +738,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: error page" />
     <MESSAGE value="feat: cert page" />
     <MESSAGE value="fix: cert tweaks" />
     <MESSAGE value="feat: title animation" />
@@ -754,6 +762,7 @@
     <MESSAGE value="chore: footer responsive" />
     <MESSAGE value="feat: blizzard, not that blizzard, blizzard sound" />
     <MESSAGE value="chore: thy do not own words, i own all words" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: thy do not own words, i own all words" />
+    <MESSAGE value="chore: adjusted frame scaling for browser zoom" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: adjusted frame scaling for browser zoom" />
   </component>
 </project>

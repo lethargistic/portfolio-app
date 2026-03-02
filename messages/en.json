@@ -150,6 +150,7 @@
   "#details_comment": "these are stored in the db for visual editing",
   "web_modal_text_tech_used": "tech used:",
   "web_modal_button_take_a_look": "take&nbsp;a&nbsp;look",
+  "web_modal_button_modrinth": "modrinth",
   "web_modal_button_github": "github",
 
   "#s5": "/",
