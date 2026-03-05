@@ -4,7 +4,7 @@
   "sound_setting_toast": "Your browser's policy disabled sounds before interaction. \nYou can re-enable in settings!",
 
   "#s1": "/",
-  "welcome_button_maksiks": "Maksiks",
+  "welcome_button_me": "lethargistic",
   "welcome_button_is": "is a dev",
 
   "~settings": "/",
@@ -22,7 +22,7 @@
   "settings_editor_mode_desc": "The geese give you the pen admiring your sheer presence.",
 
   "#s2": "/",
-  "about_info_upper": "Hi, I’m Maksiks<br> I'm a full-stack developer and designer from Ukraine :flag_ua:",
+  "about_info_upper": "Hi, I’m Leth<br> I'm a full-stack developer and designer from Ukraine :flag_ua:",
 
   "~about": "/",
   "#about lower": "parsed by prefix ! /",
@@ -36,7 +36,7 @@
   "about_l_info_8": "<b>Random:</b><br>Ask me about the Gandalf incident",
   "about_l_info_9": "<b>Lifeline:</b><br> Coffee/Tea",
   "about_l_info_10": "<b>Spell:</b><br> I cast: - a little shadow with my hat!",
-  "about_pfp_hp": "maksiks | hp: 85% | mana: 15%",
+  "about_pfp_hp": "Lethargistic | hp: 85% | mana: 15%",
   "about_pfp_info": "<b>class:</b> wizard extraordinaire<br> <b>alignment:</b> chaotic evil<br> <b>elements:</b> glyphs, shadow, light<br><b>status effects:</b> sleepy",
 
   "#s3": "/",
@@ -87,7 +87,7 @@
   "chime_bluesky_fold_likes_tooltip": "total likes on all of my posts",
 
   "chime_contact_fold_email_display": "",
-  "chime_contact_fold_email_tooltip": "click to mail (maksiks.touch@gmail.com)",
+  "chime_contact_fold_email_tooltip": "click to mail (lethargistic.touch@gmail.com)",
   "chime_contact_fold_discord_display": "Discord",
   "chime_contact_fold_discord_tooltip": "click to copy",
   "chime_contact_fold_alternatively_display": "or (hover)",
@@ -137,7 +137,7 @@
   "web_card_lit_wrld_q_blurb": "competition winner",
   "web_card_ceto_display": "ceto",
   "web_card_ceto_blurb": "cheerfully mundane",
-  "web_card_this_display": "maksiks is\n a dev",
+  "web_card_this_display": "portfolio",
   "web_card_this_blurb": "this very place",
   "web_card_swish_display": "swish",
   "web_card_swish_blurb": "it sees your hands",

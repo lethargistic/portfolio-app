@@ -522,7 +522,7 @@
         if (fold_link?.startsWith('copy_')) {
             const toCopy = fold_link.replace('copy_', '');
             navigator.clipboard.writeText(toCopy);
-            foldTooltipOverride = `${t.linktree_copy_text()}"${toCopy}!"`;
+            foldTooltipOverride = `${t.linktree_copy_text()}"${toCopy}"!`;
 
             setTimeout(() => {
                 foldTooltipOverride = null;
@@ -682,7 +682,7 @@
                             <svelte:boundary>
                                 {@html t[display]() ? t[display]() : fold.slug}
                                 {#snippet failed(error, reset)}
-                                    <p>maksiks is a stupid aho and made a typo please report this to me thank you</p>
+                                    <p>i'm a stupid aho and made a typo please report this to me thank you</p>
                                     <p>{error}</p>
                                 {/snippet}
                             </svelte:boundary>

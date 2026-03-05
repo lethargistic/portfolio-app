@@ -4,7 +4,7 @@
   "sound_setting_toast": "Твій браузер вимкнув звуки до взаємодії. \nЇх можна ввімкнути знову в налаштуваннях！",
 
   "#s1": "/",
-  "welcome_button_maksiks": "Maksiks",
+  "welcome_button_me": "lethargistic",
   "welcome_button_is": "- це розробник",
 
   "~settings": "/",
@@ -22,7 +22,7 @@
   "settings_editor_mode_desc": "Гуси з вусами на тебе зиркають.",
 
   "#s2": "/",
-  "about_info_upper": "Привіт, я Maksiks!<br> full-stack розробник та дизайнер з України :flag_ua:",
+  "about_info_upper": "Привіт, я Leth!<br> full-stack розробник та дизайнер з України :flag_ua:",
 
   "~about": "/",
   "#about lower": "parsed by prefix ! /",
@@ -36,7 +36,7 @@
   "about_l_info_8": "<b>Шось:</b><br>Спитай мене про Гендальфів",
   "about_l_info_9": "<b>Ессенція життя:</b><br> Кофе/Чай",
   "about_l_info_10": "<b>Заклинання:</b><br> Я призиваю вибухового пацюка",
-  "about_pfp_hp": "maksiks | hp: 85% | mana: 15%",
+  "about_pfp_hp": "Lethargistic | hp: 85% | mana: 15%",
   "about_pfp_info": "<b>клас:</b> надзвичайний чарівник <br> <b>роль:</b> хаотичне зло<br> <b>елементи:</b> гліфи, тінь, світло<br><b>ефекти:</b> сонливість",
 
   "#s3": "/",
@@ -87,7 +87,7 @@
   "chime_bluesky_fold_likes_tooltip": "загальна кількість лайків на усіх постах",
 
   "chime_contact_fold_email_display": "email",
-  "chime_contact_fold_email_tooltip": "клацни щоб написати (maksiks.touch@gmail.com)",
+  "chime_contact_fold_email_tooltip": "клацни щоб написати (lethargistic.touch@gmail.com)",
   "chime_contact_fold_discord_display": "Discord",
   "chime_contact_fold_discord_tooltip": "клацни щоб скопіювати",
   "chime_contact_fold_alternatively_display": "або... (наведи курсор)",
@@ -138,7 +138,7 @@
   "web_card_lit_wrld_q_blurb": "переможець конкурсу",
   "web_card_ceto_display": "ceto",
   "web_card_ceto_blurb": "життєрадісно і просто",
-  "web_card_this_display": "maksiks is\n a dev",
+  "web_card_this_display": "portfolio",
   "web_card_this_blurb": "злам 4-ої стіни",
   "web_card_swish_display": "swish",
   "web_card_swish_blurb": "бачить руки/рухи",

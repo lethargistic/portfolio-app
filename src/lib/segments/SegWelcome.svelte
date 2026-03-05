@@ -76,7 +76,7 @@
 
     //
 
-    const floatieMaksiksCoords = new Spring({x: 0, y: 0}, {
+    const floatieMeCoords = new Spring({x: 0, y: 0}, {
         stiffness: 0.01,
         damping: 0.08
     });
@@ -179,12 +179,12 @@
         {/if}
 
         <!--TODO: maybe use grabbing cursor-->
-        <div style={`transform: translate(${floatieMaksiksCoords.current.x}px, ${floatieMaksiksCoords.current.y}px)`}
-             onmousemove={() => {runAway(floatieMaksiksCoords, 125, 25)}}
-             class="floatie floatie-maksiks" onmousedown={() => {hold(floatieMaksiksCoords)}} onmouseup={unHold}
+        <div style={`transform: translate(${floatieMeCoords.current.x}px, ${floatieMeCoords.current.y}px)`}
+             onmousemove={() => {runAway(floatieMeCoords, 125, 25)}}
+             class="floatie floatie-me" onmousedown={() => {hold(floatieMeCoords)}} onmouseup={unHold}
              onmouseout={unHold} onblur={unHold} tabindex="0" role="button"
              aria-label="header text that runs away">
-            <h1>{t.welcome_button_maksiks()}</h1>
+            <h1>{t.welcome_button_me()}</h1>
         </div>
 
         <!--TODO: maybe think up something better-->
@@ -394,7 +394,7 @@
 
         .welcome-seg {
             /* ref in code above ! */
-            --floatie-font-size: 4.5rem;
+            --floatie-font-size: 4rem;
 
             width: 100vw;
             height: 105vh;
@@ -406,7 +406,7 @@
             /* super duper precise positioning ! */
 
             @media (max-width: 767px) {
-                --floatie-font-size: 4rem;
+                --floatie-font-size: 3.5rem;
             }
 
             & .illu {
@@ -469,7 +469,7 @@
                 box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px, rgb(51, 51, 51) 0 0 0 3px;
             }
 
-            & .floatie-maksiks {
+            & .floatie-me {
                 position: absolute;
 
                 left: 13%;

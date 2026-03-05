@@ -136,11 +136,11 @@
     onMount(validateSoundSetting);
 
 
-    // what a slightly dumb way to do this 2024 maksiks
-    let title = $state('maksiks');
+    // what a slightly dumb way to do this 2024 me
+    let title = $state('lethargistic');
     let titleIx = 0;
     let curTitle = '';
-    const initSubName = 'maksiksq';
+    const initSubName = 'lethargisticc';
     let switcher = false;
 
     const animateTitle = () => {
@@ -189,10 +189,10 @@
         animateTitleOverride.state = !(scrollY > windowGlobals.inner_height);
     })
 
-    const iniTitle = 'maksiks ';
-    const desc = "Maksiks's personal void, come grab a tea.";
-    const canonUrl = "https://maksiks.is-a.dev/";
-    const ogImgPath = "https://maksiks.is-a.dev/img/ogimg.png";
+    const iniTitle = 'lethargistic ';
+    const desc = "Lethargistic's personal void, come grab a tea.";
+    const canonUrl = "https://lethargistic.is-a.dev/";
+    const ogImgPath = "https://lethargistic.is-a.dev/img/ogimg.png";
 
     const metaNamed = [
         { name: "description", content:  desc},
@@ -200,7 +200,7 @@
         { name: "twitter:title", content: iniTitle },
         { name: "twitter:description", content: desc },
         { name: "twitter:image", content: ogImgPath },
-        { name: "author", content: "Maksiks" }
+        { name: "author", content: "Lethargistic" }
     ];
 
     const metaProperty = [
@@ -214,13 +214,13 @@
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Maksiks",
-        "url": "https://maksiks.is-a.dev/",
-        "email": "maksiks.touch@gmail.com",
+        "name": "Lethargistic",
+        "url": "https://lethargistic.is-a.dev/",
+        "email": "lethargistic.touch@gmail.com",
         "sameAs": [
-            "https://github.com/maksiksq",
-            "https://www.linkedin.com/in/maksiksq/",
-            "https://bsky.app/profile/maksiks.bsky.social"
+            "https://github.com/lethargistic",
+            "https://www.linkedin.com/in/lethargistic/",
+            "https://bsky.app/profile/lethargistic.bsky.social"
         ],
         "jobTitle": "Software Developer",
         "knowsAbout": [
@@ -232,8 +232,8 @@
             "Web dev"
         ],
         "alumniOf": "Vifc NUFT",
-        "description": "Maksiks is a self-taught software developer with a passion for Japanese, games, media, and design.",
-        "image": "https://maksiks.is-a.dev/img/pfp.webp"
+        "description": "Lethargistic is a self-taught software developer with a passion for Japanese, games, media, and design.",
+        "image": "https://lethargistic.is-a.dev/img/pfp.webp"
     };
 </script>
 

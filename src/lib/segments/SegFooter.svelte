@@ -3,9 +3,9 @@
 
 <footer class="footer">
     <p class="did-you">Did you like it here?&nbsp; ☘</p>
-    <a href="mailto:maksiks.touch@gmail.com" target="_blank">
-        maksiks.touch@gmail.com <span class=check>✔️</span></a>
-    <p class="footer-right">made by Maksiks ☕</p>
+    <a href="mailto:lethargistic.touch@gmail.com" target="_blank">
+        lethargistic.touch@gmail.com <span class=check>✔️</span></a>
+    <p class="footer-right">made by Lethargistic ☕</p>
 </footer>
 
 <style>

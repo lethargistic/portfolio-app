@@ -7,19 +7,19 @@ export const fetchGithubFoldData = async () => {
         'X-GitHub-Api-Version': '2022-11-28'
     }
 
-    const profileRes = await fetch('https://api.github.com/users/maksiksq', {headers: headers});
+    const profileRes = await fetch('https://api.github.com/users/lethargistic', {headers: headers});
     const profileData = await profileRes.json();
 
     // kind of lame using someone's wrapper for this but scraping the ui response myself seems even less reliable
     // and their graphql api probably requires some extra setup
-    const commitsRes = await fetch('https://github-contributions-api.jogruber.de/v4/maksiksq', {headers});
+    const commitsRes = await fetch('https://github-contributions-api.jogruber.de/v4/lethargistic', {headers});
     const commitsData = await commitsRes.json();
     const totalCommits = commitsData.contributions.length;
 
     let totalStars = 0;
     let page = 1;
     while (true) {
-        const reposRes = await fetch(`https://api.github.com/users/maksiksq/repos?per_page=100&page=${page}`, {headers});
+        const reposRes = await fetch(`https://api.github.com/users/lethargistic/repos?per_page=100&page=${page}`, {headers});
         const repos = await reposRes.json();
 
         if (!reposRes.ok || reposRes.status === 403 || reposRes.status === 429) {
@@ -35,7 +35,7 @@ export const fetchGithubFoldData = async () => {
     }
 
     return {
-        github: "maksiksq",
+        github: "lethargistic",
         commits: totalCommits,
         followed: profileData.followers,
         repos: profileData.public_repos,
@@ -69,7 +69,7 @@ export const fetchChaosAbyssFoldData = async () => {
 
 export const fetchBlueskyFoldData = async () => {
     const headers = { "Content-Type": "application/json" };
-    const handle = 'maksiks.bsky.social'
+    const handle = 'lethargistic.bsky.social'
 
     const profileRes = await fetch(`https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor=${handle}`, {headers});
 
@@ -124,7 +124,7 @@ export const fetchBlueskyFoldData = async () => {
 
 export const fetchHackatimeFoldData = async () => {
     const headers = { "Content-Type": "application/json" };
-    const username = 'maksiks';
+    const username = 'lethargistic';
 
     const profileRes = await fetch(`https://hackatime.hackclub.com/api/v1/users/${username}/stats`, {headers});
 
@@ -185,7 +185,7 @@ export const fetchInstagramFoldData = async () => {
 }
 
 export const fetchNpmFoldData = async () => {
-    const username = 'maksiks';
+    const username = 'lethargistic';
 
     const packageRes = await fetch(
         `https://registry.npmjs.org/-/v1/search?text=author:${username}`

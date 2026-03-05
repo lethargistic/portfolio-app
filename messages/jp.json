@@ -3,7 +3,7 @@
   "sound_setting_toast": "ブラウザの設定により操作前は音声オフ。\n設定で変更可能！",
 
   "#s1": "/",
-  "welcome_button_maksiks": "Maksiks",
+  "welcome_button_me": "lethargistic",
   "welcome_button_is": "はエンジニア",
 
   "~settings": "/",
@@ -21,7 +21,7 @@
   "settings_editor_mode_desc": "ガチョウがあなたの存在を感心してペンをくれる",
 
   "#s2": "/",
-  "about_info_upper": "こんにちは！Maksiksです。<br>ウクライナ :flag_ua: のフルスタックエンジニア兼デザイナー。",
+  "about_info_upper": "こんにちは！Lethです。<br>ウクライナ :flag_ua: のフルスタックエンジニア兼デザイナー。",
 
   "~about": "/",
   "#about lower": "parsed by prefix ! /",
@@ -35,7 +35,7 @@
   "about_l_info_8": "<b>ランダム:</b><br>ガンダルフの事件について聞いてみて",
   "about_l_info_9": "<b>生命線:</b><br> コーヒー/お茶",
   "about_l_info_10": "<b>魔法:</b><br> コーヒーを...コーヒーにする魔法！",
-  "about_pfp_hp": "maksiks | HP: 85% | MP: 15%",
+  "about_pfp_hp": "Lethargistic | HP: 85% | MP: 15%",
   "about_pfp_info": "<b>クラス:</b> どや顔魔法使い<br> <b>属性:</b> 混沌にして悪<br> <b>エレメント:</b> 文字、 影、 光<br><b>ステータス効果:</b> 眠気",
 
   "#s3": "/",
@@ -86,7 +86,7 @@
   "chime_bluesky_fold_likes_tooltip": "全ポストの総いいね数",
 
   "chime_contact_fold_email_display": "メール",
-  "chime_contact_fold_email_tooltip": "クリックしてメール(maksiks.touch@gmail.com)",
+  "chime_contact_fold_email_tooltip": "クリックしてメール(lethargistic.touch@gmail.com)",
   "chime_contact_fold_discord_display": "Discord",
   "chime_contact_fold_discord_tooltip": "クリックしてコピー",
   "chime_contact_fold_alternatively_display": "それとも&nbsp;(ホバー)",
@@ -136,7 +136,7 @@
   "web_card_lit_wrld_q_blurb": "コンペ優秀作",
   "web_card_ceto_display": "ceto",
   "web_card_ceto_blurb": "陽気に平凡",
-  "web_card_this_display": "maksiks は\n エンジニア",
+  "web_card_this_display": "portfolio",
   "web_card_this_blurb": "まさにここ",
   "web_card_swish_display": "swish",
   "web_card_swish_blurb": "手が見える",

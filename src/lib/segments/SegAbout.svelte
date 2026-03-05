@@ -206,7 +206,7 @@
             </div>
             <div style={passingBy ? `animation: shake 0.5s infinite ease-in-out` : ``} class="pfpbloc-cont">
                 <div class="pfpbloc">
-                    <img class="pfp" src="img/pfp.webp" alt="maksiks profile pic, an overloaded letter M mostly">
+                    <img class="pfp" src="img/pfp.webp" alt="profile pic, a moon">
                     <div class="pfp-info">
                         <img class="status-scrollwork" src="/img/wigglies.webp" alt="wiggly fantasy scrollwork">
                         <p class="status-hp">{m.about_pfp_hp()}</p>
