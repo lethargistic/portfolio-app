@@ -2259,13 +2259,26 @@ function parseDeclaration(value) {
   } else if (value.startsWith("local")) {
     const match = value.match(/local (\w+) = (\w+): (\w+)(.*)/);
     const [, name, ref, fn, optionsString] = match;
-    const options = optionsString?.trim().split(/\s+/).map((pair) => {
-      const [key, value2] = pair.split("=");
-      return key && value2 ? {
-        name: key,
-        value: { type: "literal", value: value2 }
-      } : null;
-    }).filter(Boolean);
+    const options = [];
+    for (const optionMatch of (optionsString ?? "").matchAll(
+      /(\w+)\s*=\s*([^\s]+)/g
+    )) {
+      const optionName = optionMatch[1];
+      const optionValue = optionMatch[2];
+      if (!optionName || !optionValue) {
+        continue;
+      }
+      options.push({
+        name: optionName,
+        value: optionValue.startsWith("$") && optionValue.length > 1 ? {
+          type: "variable-reference",
+          name: optionValue.slice(1)
+        } : {
+          type: "literal",
+          value: optionValue
+        }
+      });
+    }
     return {
       type: "local-variable",
       name: name.trim(),
@@ -2487,10 +2500,15 @@ function serializeDeclaration(declaration) {
     }
     if (declaration.value.annotation?.options) {
       for (const option of declaration.value?.annotation?.options ?? []) {
-        if (option.value.type !== "literal") {
-          throw new Error("Unsupported option type");
+        if (option.value.type === "literal") {
+          result += ` ${option.name}=${option.value.value}`;
+          continue;
         }
-        result += ` ${option.name}=${option.value.value}`;
+        if (option.value.type === "variable-reference") {
+          result += ` ${option.name}=$${option.value.name}`;
+          continue;
+        }
+        throw new Error("Unsupported option type");
       }
     }
     return result;

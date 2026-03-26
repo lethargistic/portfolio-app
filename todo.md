@@ -3,7 +3,7 @@
 - [ ] todo pain: no time right now but more art, like i want hollow knight type decor things (yes im crazy)
 - [x] todo: outline a shinkansen because art suffering
 - [ ] todo: particles and actual decor for about section
-- [ ] cfg: lang all
+- [x] cfg: lang all
 - [ ] todo maybe: status effect and mana changes based on time of day
 - [ ] todo maybe: maybe make status scale in
 - [ ] todo maybe: ambient sounds
@@ -101,3 +101,4 @@
 - [ ] fix: might be worth putting a few more concrete results on each project like core features or rough timelines so people see you actually ship
 - [ ] fix: web sec arrow only ever appears for the first time you click a project
 - [ ] todo: make buttons data driven
+- [ ] todo very: sort certificates by group and relevancy, in reverse historical/relevancy order 
