@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: changed nickname everywhere + fix: copy text inserted ! before the quote">
-      <change afterPath="$PROJECT_DIR$/src/lib/icons/svgs/umami.svg" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: added umami icon">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/icons/icons.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/icons/icons.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/certificates/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/certificates/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +95,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Shell Script.Host.executor": "Run",
-    "Shell Script.やばそうなの.executor": "Run",
+    "Shell Script.やばそうなの.executor": "Debug",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/Docs/webstormproj/sustenant/src/lib/icons/svgs",
@@ -331,15 +329,12 @@
       <workItem from="1772716512260" duration="6543000" />
       <workItem from="1774369362280" duration="239000" />
       <workItem from="1774420401114" duration="33000" />
-      <workItem from="1774544278025" duration="235000" />
-    </task>
-    <task id="LOCAL-00155" summary="fix: fold translations have borken">
-      <option name="closed" value="true" />
-      <created>1769544454062</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1769544454062</updated>
+      <workItem from="1774544278025" duration="651000" />
+      <workItem from="1774683822094" duration="54000" />
+      <workItem from="1774860347217" duration="261000" />
+      <workItem from="1774894468503" duration="2000" />
+      <workItem from="1774935473034" duration="1535000" />
+      <workItem from="1774966259978" duration="7276000" />
     </task>
     <task id="LOCAL-00156" summary="feat: mini footer throwback from the pat">
       <option name="closed" value="true" />
@@ -725,7 +720,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772724347952</updated>
     </task>
-    <option name="localTasksCounter" value="204" />
+    <task id="LOCAL-00204" summary="feat: added umami icon">
+      <option name="closed" value="true" />
+      <created>1774544583261</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1774544583261</updated>
+    </task>
+    <option name="localTasksCounter" value="205" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -751,7 +754,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: raw publish" />
     <MESSAGE value="feat: cron" />
     <MESSAGE value="chore: keepalives" />
     <MESSAGE value="chore: keepalives x2" />
@@ -776,6 +778,7 @@
     <MESSAGE value="hotfix: accidentally optimized imports, when are we getting Svelte attachment support Jetbrains???" />
     <MESSAGE value="fix: changed bluesky handle" />
     <MESSAGE value="fix: changed nickname everywhere + fix: copy text inserted ! before the quote" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: changed nickname everywhere + fix: copy text inserted ! before the quote" />
+    <MESSAGE value="feat: added umami icon" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: added umami icon" />
   </component>
 </project>
