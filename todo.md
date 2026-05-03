@@ -101,4 +101,5 @@
 - [ ] fix: might be worth putting a few more concrete results on each project like core features or rough timelines so people see you actually ship
 - [ ] fix: web sec arrow only ever appears for the first time you click a project
 - [ ] todo: make buttons data driven
-- [ ] todo very: sort certificates by group and relevancy, in reverse historical/relevancy order 
+- [x] todo very: sort certificates by group and relevancy, in reverse historical/relevancy order 
+- [ ] todo minor: cert watermark still says Maksiks www
