@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: sorted out certificates for readability (didn't do reverse date order tho because irrelevance)">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: changed ogimg nickname to current">
+      <change afterPath="$PROJECT_DIR$/src/lib/galleries/Gallery.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/galleries/gallleries.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/mc/+page.server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/mc/+page.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/certificates/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/certificates/+page.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/certificates/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/certificates/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +45,7 @@
         <option value="SegOther" />
         <option value="OtherCard" />
         <option value="OtherModal" />
+        <option value="Gallery" />
       </list>
     </option>
   </component>
@@ -55,7 +61,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/maksiksq/portfolio-app.git&quot;,
-    &quot;accountId&quot;: &quot;57716451-51f8-41da-81c3-b94ff2fdc5d6&quot;
+    &quot;accountId&quot;: &quot;48f3f4a6-2bc4-4a4f-8185-58151dcb9583&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -78,6 +84,65 @@
     <commands />
     <urls />
   </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000046077331193" />
+      <entry key="MS500" value="1.2042061550689585" />
+      <entry key="S2" value="4.331911409283184" />
+      <entry key="S5" value="8.020776240043025" />
+      <entry key="S10" value="10.425381832262593" />
+      <entry key="S30" value="14.007608503073914" />
+      <entry key="S60" value="16.62054889177525" />
+      <entry key="M2" value="20.896107800322675" />
+      <entry key="M5" value="31.825515497665275" />
+      <entry key="M10" value="42.32571370359637" />
+      <entry key="M15" value="47.810916309821295" />
+      <entry key="M30" value="54.85695708934956" />
+      <entry key="H1" value="59.12569312981821" />
+      <entry key="H2" value="61.481318822681395" />
+      <entry key="H4" value="62.7194955703034" />
+      <entry key="D1" value="63.78357417677861" />
+      <entry key="W1" value="63.96900743170629" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="2.832078743994034E-141" />
+      <entry key="MS500" value="7.770000824561717E-29" />
+      <entry key="S2" value="9.388695793384571E-8" />
+      <entry key="S5" value="0.0015460114334321072" />
+      <entry key="S10" value="0.040090840251095966" />
+      <entry key="S30" value="0.4320688861130063" />
+      <entry key="S60" value="0.8967341952363501" />
+      <entry key="M2" value="1.567173763181853" />
+      <entry key="M5" value="3.782382854339362" />
+      <entry key="M10" value="6.328961324986833" />
+      <entry key="M15" value="7.729275723318546" />
+      <entry key="M30" value="9.568480924908503" />
+      <entry key="H1" value="10.698588673909306" />
+      <entry key="H2" value="11.326218445188152" />
+      <entry key="H4" value="11.657117454712454" />
+      <entry key="D1" value="11.942001068709684" />
+      <entry key="W1" value="11.991693315602085" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.83509163834041" />
+      <entry key="MS500" value="1.1604202608760403" />
+      <entry key="S2" value="4.286719939682637" />
+      <entry key="S5" value="7.987479300276467" />
+      <entry key="S10" value="10.440135442985532" />
+      <entry key="S30" value="14.41382119251592" />
+      <entry key="S60" value="17.492443759746802" />
+      <entry key="M2" value="22.441013752552415" />
+      <entry key="M5" value="35.58581308259589" />
+      <entry key="M10" value="48.63590890279298" />
+      <entry key="M15" value="55.52480537026003" />
+      <entry key="M30" value="64.41583716350341" />
+      <entry key="H1" value="69.81889084195859" />
+      <entry key="H2" value="72.80467715301647" />
+      <entry key="H4" value="74.37513948113984" />
+      <entry key="D1" value="75.7253234072473" />
+      <entry key="W1" value="75.9606646146331" />
+    </decayedShown>
+  </component>
   <component name="ProblemsViewState">
     <option name="groupByToolId" value="true" />
     <option name="selectedTabId" value="CurrentFile" />
@@ -90,50 +155,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;JavaScript Debug.localhost:5173.executor&quot;: &quot;Debug&quot;,
-    &quot;JavaScript Debug.localhost:5174.executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Node.js.convertSVGToJson.ts.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Shell Script.Host.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.やばそうなの.executor&quot;: &quot;Debug&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Docs/webstormproj/sustenant&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "JavaScript Debug.localhost:5173.executor": "Debug",
+    "JavaScript Debug.localhost:5174.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.convertSVGToJson.ts.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Shell Script.Host.executor": "Run",
+    "Shell Script.やばそうなの.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "javascript.preferred.runtime.type.id": "node",
+    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/src/routes/mc",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "ts.external.directory.path": "D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;JSON&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JSON"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Docs\webstormproj\sustenant\src\routes\mc" />
+      <recent name="D:\Docs\webstormproj\sustenant\static\img" />
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\icons\svgs" />
       <recent name="D:\Docs\webstormproj\sustenant\static\img\cert" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img" />
       <recent name="D:\Docs\webstormproj\sustenant\static\audio\snow" />
-      <recent name="D:\Docs\webstormproj\sustenant\static\img\other-thumbnails" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Docs\webstormproj\sustenant\static\audio" />
@@ -192,8 +257,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.localhost:5173" />
         <item itemvalue="JavaScript Debug.localhost:5174" />
+        <item itemvalue="JavaScript Debug.localhost:5173" />
         <item itemvalue="Node.js.convertSVGToJson.ts" />
       </list>
     </recent_temporary>
@@ -201,7 +266,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.23567.141" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.24374.125" />
       </set>
     </attachedChunks>
   </component>
@@ -365,15 +430,14 @@
       <workItem from="1777638092812" duration="3226000" />
       <workItem from="1777715853590" duration="2456000" />
       <workItem from="1777740971033" duration="3773000" />
-      <workItem from="1777833534666" duration="423000" />
-    </task>
-    <task id="LOCAL-00157" summary="fixes: from the pat yes">
-      <option name="closed" value="true" />
-      <created>1769591488230</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1769591488230</updated>
+      <workItem from="1777833534666" duration="1223000" />
+      <workItem from="1777880934070" duration="148000" />
+      <workItem from="1777985545512" duration="21000" />
+      <workItem from="1778055680400" duration="5000" />
+      <workItem from="1779121535912" duration="611000" />
+      <workItem from="1779208202286" duration="11000" />
+      <workItem from="1779265215727" duration="10000" />
+      <workItem from="1779960877052" duration="3246000" />
     </task>
     <task id="LOCAL-00158" summary="fix: oh damn devtools had a screenshot feature all this time, then why did i make that really cool script">
       <option name="closed" value="true" />
@@ -759,7 +823,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774973942524</updated>
     </task>
-    <option name="localTasksCounter" value="206" />
+    <task id="LOCAL-00206" summary="fix: changed ogimg nickname to current">
+      <option name="closed" value="true" />
+      <created>1777835768769</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1777835768769</updated>
+    </task>
+    <option name="localTasksCounter" value="207" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -785,7 +857,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: keepalives" />
     <MESSAGE value="chore: keepalives x2" />
     <MESSAGE value="feat: yuru yuru yuri wait not yuri snow" />
     <MESSAGE value="fix: snow would take a while to start up properly" />
@@ -810,6 +881,7 @@
     <MESSAGE value="fix: changed nickname everywhere + fix: copy text inserted ! before the quote" />
     <MESSAGE value="feat: added umami icon" />
     <MESSAGE value="feat: sorted out certificates for readability (didn't do reverse date order tho because irrelevance)" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: sorted out certificates for readability (didn't do reverse date order tho because irrelevance)" />
+    <MESSAGE value="fix: changed ogimg nickname to current" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: changed ogimg nickname to current" />
   </component>
 </project>

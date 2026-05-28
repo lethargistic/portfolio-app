@@ -1,7 +1,7 @@
 import type {PageServerLoad} from "./$types";
 import {getImageGallery} from "$lib/galleries/gallleries";
-import {SECRET_CERT_KEY} from "$env/static/private";
+import {SECRET_MC_KEY} from "$env/static/private";
 
 export const load: PageServerLoad = async ({url}) => {
-    return await getImageGallery('cert', url, SECRET_CERT_KEY);
+    return await getImageGallery('mc', url, SECRET_MC_KEY);
 }
