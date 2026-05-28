@@ -8,4 +8,4 @@
     }
 </script>
 
-<Gallery {groups} {data}/>
+<Gallery {groups} title={'Builds'} {data}/>

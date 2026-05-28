@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: changed ogimg nickname to current">
-      <change afterPath="$PROJECT_DIR$/src/lib/galleries/Gallery.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/galleries/gallleries.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/mc/+page.server.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/mc/+page.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: mc build gallery for a thing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/certificates/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/certificates/+page.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/galleries/Gallery.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/galleries/Gallery.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/certificates/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/certificates/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/mc/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/mc/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,61 +83,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000046077331193" />
-      <entry key="MS500" value="1.2042061550689585" />
-      <entry key="S2" value="4.331911409283184" />
-      <entry key="S5" value="8.020776240043025" />
-      <entry key="S10" value="10.425381832262593" />
-      <entry key="S30" value="14.007608503073914" />
-      <entry key="S60" value="16.62054889177525" />
-      <entry key="M2" value="20.896107800322675" />
-      <entry key="M5" value="31.825515497665275" />
-      <entry key="M10" value="42.32571370359637" />
-      <entry key="M15" value="47.810916309821295" />
-      <entry key="M30" value="54.85695708934956" />
-      <entry key="H1" value="59.12569312981821" />
-      <entry key="H2" value="61.481318822681395" />
-      <entry key="H4" value="62.7194955703034" />
-      <entry key="D1" value="63.78357417677861" />
-      <entry key="W1" value="63.96900743170629" />
+      <entry key="MS100" value="6.942353167944523E-8" />
+      <entry key="MS500" value="0.03714549132278648" />
+      <entry key="S2" value="0.6337061220207405" />
+      <entry key="S5" value="1.7967025363773215" />
+      <entry key="S10" value="3.113001261857213" />
+      <entry key="S30" value="8.337933284254026" />
+      <entry key="S60" value="15.200945144600562" />
+      <entry key="M2" value="23.25285202153969" />
+      <entry key="M5" value="35.90728599716672" />
+      <entry key="M10" value="51.0529261288551" />
+      <entry key="M15" value="62.24649021917428" />
+      <entry key="M30" value="81.00616029405855" />
+      <entry key="H1" value="95.10802058312643" />
+      <entry key="H2" value="103.85325598419702" />
+      <entry key="H4" value="108.73667836383748" />
+      <entry key="D1" value="113.09503772309928" />
+      <entry key="W1" value="113.87002176916819" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="2.832078743994034E-141" />
-      <entry key="MS500" value="7.770000824561717E-29" />
-      <entry key="S2" value="9.388695793384571E-8" />
-      <entry key="S5" value="0.0015460114334321072" />
-      <entry key="S10" value="0.040090840251095966" />
-      <entry key="S30" value="0.4320688861130063" />
-      <entry key="S60" value="0.8967341952363501" />
-      <entry key="M2" value="1.567173763181853" />
-      <entry key="M5" value="3.782382854339362" />
-      <entry key="M10" value="6.328961324986833" />
-      <entry key="M15" value="7.729275723318546" />
-      <entry key="M30" value="9.568480924908503" />
-      <entry key="H1" value="10.698588673909306" />
-      <entry key="H2" value="11.326218445188152" />
-      <entry key="H4" value="11.657117454712454" />
-      <entry key="D1" value="11.942001068709684" />
-      <entry key="W1" value="11.991693315602085" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0000000055784057" />
+      <entry key="S5" value="1.0004995788426438" />
+      <entry key="S10" value="1.0223512604262883" />
+      <entry key="S30" value="1.281687347043592" />
+      <entry key="S60" value="1.530743212929346" />
+      <entry key="M2" value="1.7301357355164049" />
+      <entry key="M5" value="2.122549159289404" />
+      <entry key="M10" value="3.5379943070111044" />
+      <entry key="M15" value="5.048120951020522" />
+      <entry key="M30" value="8.02855462440341" />
+      <entry key="H1" value="10.49623267952647" />
+      <entry key="H2" value="12.094310955750167" />
+      <entry key="H4" value="13.005157570762538" />
+      <entry key="D1" value="13.828031555149554" />
+      <entry key="W1" value="13.975277709553305" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.83509163834041" />
-      <entry key="MS500" value="1.1604202608760403" />
-      <entry key="S2" value="4.286719939682637" />
-      <entry key="S5" value="7.987479300276467" />
-      <entry key="S10" value="10.440135442985532" />
-      <entry key="S30" value="14.41382119251592" />
-      <entry key="S60" value="17.492443759746802" />
-      <entry key="M2" value="22.441013752552415" />
-      <entry key="M5" value="35.58581308259589" />
-      <entry key="M10" value="48.63590890279298" />
-      <entry key="M15" value="55.52480537026003" />
-      <entry key="M30" value="64.41583716350341" />
-      <entry key="H1" value="69.81889084195859" />
-      <entry key="H2" value="72.80467715301647" />
-      <entry key="H4" value="74.37513948113984" />
-      <entry key="D1" value="75.7253234072473" />
-      <entry key="W1" value="75.9606646146331" />
+      <entry key="MS100" value="3.5992900877979746E-4" />
+      <entry key="MS500" value="0.20850722300018756" />
+      <entry key="S2" value="1.0832062787129169" />
+      <entry key="S5" value="2.420855255149735" />
+      <entry key="S10" value="3.8817933203725903" />
+      <entry key="S30" value="9.484168437478472" />
+      <entry key="S60" value="16.643227182949293" />
+      <entry key="M2" value="24.92981038525707" />
+      <entry key="M5" value="38.003540710501305" />
+      <entry key="M10" value="54.57277610578935" />
+      <entry key="M15" value="67.2792630018955" />
+      <entry key="M30" value="89.02389781330933" />
+      <entry key="H1" value="105.59755251964846" />
+      <entry key="H2" value="115.94379879599315" />
+      <entry key="H4" value="121.73983284780492" />
+      <entry key="D1" value="126.92271751214754" />
+      <entry key="W1" value="127.84524876838285" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -437,15 +434,7 @@
       <workItem from="1779121535912" duration="611000" />
       <workItem from="1779208202286" duration="11000" />
       <workItem from="1779265215727" duration="10000" />
-      <workItem from="1779960877052" duration="3246000" />
-    </task>
-    <task id="LOCAL-00158" summary="fix: oh damn devtools had a screenshot feature all this time, then why did i make that really cool script">
-      <option name="closed" value="true" />
-      <created>1769593491648</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1769593491648</updated>
+      <workItem from="1779960877052" duration="3962000" />
     </task>
     <task id="LOCAL-00159" summary="fix: chimes centered for responsive zoom">
       <option name="closed" value="true" />
@@ -831,7 +820,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777835768769</updated>
     </task>
-    <option name="localTasksCounter" value="207" />
+    <task id="LOCAL-00207" summary="feat: mc build gallery for a thing">
+      <option name="closed" value="true" />
+      <created>1779966345062</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1779966345062</updated>
+    </task>
+    <option name="localTasksCounter" value="208" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -857,7 +854,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: keepalives x2" />
     <MESSAGE value="feat: yuru yuru yuri wait not yuri snow" />
     <MESSAGE value="fix: snow would take a while to start up properly" />
     <MESSAGE value="fix: shown the yuri to my mum" />
@@ -882,6 +878,7 @@
     <MESSAGE value="feat: added umami icon" />
     <MESSAGE value="feat: sorted out certificates for readability (didn't do reverse date order tho because irrelevance)" />
     <MESSAGE value="fix: changed ogimg nickname to current" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: changed ogimg nickname to current" />
+    <MESSAGE value="feat: mc build gallery for a thing" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: mc build gallery for a thing" />
   </component>
 </project>

@@ -1,7 +1,7 @@
 <script lang="ts">
     import {blur} from "svelte/transition";
 
-    const {groups, data} = $props();
+    const {groups, title, data} = $props();
     const imgs = $derived(data.signedUrls)
 
     let open = $state(false);
@@ -18,7 +18,7 @@
 </script>
 
 <svelte:head>
-    <title>Certificates</title>
+    <title>{title}</title>
     <meta name="robots" content="noindex, nofollow">
 </svelte:head>
 
@@ -46,7 +46,7 @@
                     <div onclick={() => {open = true; selected = img.obj;}}
                          onkeydown={() => {open = true; selected = img.obj;}}
                          role="button" tabindex="0">
-                        <img src={img.obj.src} alt={"certificate image: " + img.obj.name}/>
+                        <img src={img.obj.src} alt={`${title.toLowerCase()} image: ` + img.obj.name}/>
                     </div>
                 {/if}
             {/each}
