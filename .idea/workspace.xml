@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: mc build gallery for a thing">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: gallery title was static">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/galleries/Gallery.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/galleries/Gallery.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/certificates/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/certificates/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/mc/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/mc/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/uk.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/uk.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="323" />
+    <option name="cachedIndexableFilesCount" value="330" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -83,61 +82,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="6.942353167944523E-8" />
-      <entry key="MS500" value="0.03714549132278648" />
-      <entry key="S2" value="0.6337061220207405" />
-      <entry key="S5" value="1.7967025363773215" />
-      <entry key="S10" value="3.113001261857213" />
-      <entry key="S30" value="8.337933284254026" />
-      <entry key="S60" value="15.200945144600562" />
-      <entry key="M2" value="23.25285202153969" />
-      <entry key="M5" value="35.90728599716672" />
-      <entry key="M10" value="51.0529261288551" />
-      <entry key="M15" value="62.24649021917428" />
-      <entry key="M30" value="81.00616029405855" />
-      <entry key="H1" value="95.10802058312643" />
-      <entry key="H2" value="103.85325598419702" />
-      <entry key="H4" value="108.73667836383748" />
-      <entry key="D1" value="113.09503772309928" />
-      <entry key="W1" value="113.87002176916819" />
+      <entry key="MS100" value="1.4509371682657752" />
+      <entry key="MS500" value="2.1854885464665204" />
+      <entry key="S2" value="3.8670413786362787" />
+      <entry key="S5" value="7.254837474899617" />
+      <entry key="S10" value="11.4041860595" />
+      <entry key="S30" value="17.31000996278916" />
+      <entry key="S60" value="20.446383060856846" />
+      <entry key="M2" value="26.776977428817823" />
+      <entry key="M5" value="46.44606652031555" />
+      <entry key="M10" value="69.6928411314892" />
+      <entry key="M15" value="85.6915256062626" />
+      <entry key="M30" value="112.38029281884536" />
+      <entry key="H1" value="132.83947297785468" />
+      <entry key="H2" value="145.7637991665379" />
+      <entry key="H4" value="153.06415202546955" />
+      <entry key="D1" value="159.63053373342038" />
+      <entry key="W1" value="160.80317826407853" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000000055784057" />
-      <entry key="S5" value="1.0004995788426438" />
-      <entry key="S10" value="1.0223512604262883" />
-      <entry key="S30" value="1.281687347043592" />
-      <entry key="S60" value="1.530743212929346" />
-      <entry key="M2" value="1.7301357355164049" />
-      <entry key="M5" value="2.122549159289404" />
-      <entry key="M10" value="3.5379943070111044" />
-      <entry key="M15" value="5.048120951020522" />
-      <entry key="M30" value="8.02855462440341" />
-      <entry key="H1" value="10.49623267952647" />
-      <entry key="H2" value="12.094310955750167" />
-      <entry key="H4" value="13.005157570762538" />
-      <entry key="D1" value="13.828031555149554" />
-      <entry key="W1" value="13.975277709553305" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="1.7350978801634475E-264" />
+      <entry key="S2" value="1.1477069121539647E-66" />
+      <entry key="S5" value="4.208712967736558E-27" />
+      <entry key="S10" value="6.630806212723046E-14" />
+      <entry key="S30" value="5.149568385924697E-5" />
+      <entry key="S60" value="0.009702791722053404" />
+      <entry key="M2" value="0.13774548093774625" />
+      <entry key="M5" value="0.7713591415428245" />
+      <entry key="M10" value="2.1328315989308133" />
+      <entry key="M15" value="3.6024340839001785" />
+      <entry key="M30" value="6.78219874416736" />
+      <entry key="H1" value="9.647172014622367" />
+      <entry key="H2" value="11.594830837928795" />
+      <entry key="H4" value="12.733777634998129" />
+      <entry key="D1" value="13.779516180794191" />
+      <entry key="W1" value="13.968262585085812" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="3.5992900877979746E-4" />
-      <entry key="MS500" value="0.20850722300018756" />
-      <entry key="S2" value="1.0832062787129169" />
-      <entry key="S5" value="2.420855255149735" />
-      <entry key="S10" value="3.8817933203725903" />
-      <entry key="S30" value="9.484168437478472" />
-      <entry key="S60" value="16.643227182949293" />
-      <entry key="M2" value="24.92981038525707" />
-      <entry key="M5" value="38.003540710501305" />
-      <entry key="M10" value="54.57277610578935" />
-      <entry key="M15" value="67.2792630018955" />
-      <entry key="M30" value="89.02389781330933" />
-      <entry key="H1" value="105.59755251964846" />
-      <entry key="H2" value="115.94379879599315" />
-      <entry key="H4" value="121.73983284780492" />
-      <entry key="D1" value="126.92271751214754" />
-      <entry key="W1" value="127.84524876838285" />
+      <entry key="MS100" value="1.3985076301634334" />
+      <entry key="MS500" value="2.1692883680326545" />
+      <entry key="S2" value="3.8598007813171735" />
+      <entry key="S5" value="7.249088051822383" />
+      <entry key="S10" value="11.399438392042333" />
+      <entry key="S30" value="17.30752292393913" />
+      <entry key="S60" value="20.453917812626997" />
+      <entry key="M2" value="26.90922040440666" />
+      <entry key="M5" value="47.20688707442532" />
+      <entry key="M10" value="71.81406833353267" />
+      <entry key="M15" value="89.28251102542394" />
+      <entry key="M30" value="119.15307578400358" />
+      <entry key="H1" value="142.480338955983" />
+      <entry key="H2" value="157.3549416039921" />
+      <entry key="H4" value="165.79592986568346" />
+      <entry key="D1" value="173.4096928841918" />
+      <entry key="W1" value="174.7713892339978" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -152,43 +151,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "JavaScript Debug.localhost:5173.executor": "Debug",
-    "JavaScript Debug.localhost:5174.executor": "Debug",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Node.js.convertSVGToJson.ts.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Shell Script.Host.executor": "Run",
-    "Shell Script.やばそうなの.executor": "Run",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.preferred.runtime.type.id": "node",
-    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/src/routes/mc",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "ts.external.directory.path": "D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;JavaScript Debug.localhost:5173.executor&quot;: &quot;Debug&quot;,
+    &quot;JavaScript Debug.localhost:5174.executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Node.js.convertSVGToJson.ts.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Shell Script.Host.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.やばそうなの.executor&quot;: &quot;Run&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Docs/webstormproj/sustenant/src/routes/mc&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "JSON"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JSON&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\mc" />
@@ -434,15 +433,9 @@
       <workItem from="1779121535912" duration="611000" />
       <workItem from="1779208202286" duration="11000" />
       <workItem from="1779265215727" duration="10000" />
-      <workItem from="1779960877052" duration="3962000" />
-    </task>
-    <task id="LOCAL-00159" summary="fix: chimes centered for responsive zoom">
-      <option name="closed" value="true" />
-      <created>1769614155387</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1769614155389</updated>
+      <workItem from="1779960877052" duration="4277000" />
+      <workItem from="1780398317952" duration="536000" />
+      <workItem from="1780924361810" duration="498000" />
     </task>
     <task id="LOCAL-00160" summary="feat: performance setting">
       <option name="closed" value="true" />
@@ -828,7 +821,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779966345062</updated>
     </task>
-    <option name="localTasksCounter" value="208" />
+    <task id="LOCAL-00208" summary="fix: gallery title was static">
+      <option name="closed" value="true" />
+      <created>1779966848320</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1779966848320</updated>
+    </task>
+    <option name="localTasksCounter" value="209" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -854,7 +855,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: yuru yuru yuri wait not yuri snow" />
     <MESSAGE value="fix: snow would take a while to start up properly" />
     <MESSAGE value="fix: shown the yuri to my mum" />
     <MESSAGE value="fix: hopefully squished up a bit of performance from yuri + feat: cool shadow for text" />
@@ -879,6 +879,7 @@
     <MESSAGE value="feat: sorted out certificates for readability (didn't do reverse date order tho because irrelevance)" />
     <MESSAGE value="fix: changed ogimg nickname to current" />
     <MESSAGE value="feat: mc build gallery for a thing" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: mc build gallery for a thing" />
+    <MESSAGE value="fix: gallery title was static" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: gallery title was static" />
   </component>
 </project>
