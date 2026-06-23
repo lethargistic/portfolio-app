@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="fix: gallery title was static">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: added UI/UX explicitly in about info">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/uk.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/uk.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="330" />
+    <option name="cachedIndexableFilesCount" value="331" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -82,61 +81,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.4509371682657752" />
-      <entry key="MS500" value="2.1854885464665204" />
-      <entry key="S2" value="3.8670413786362787" />
-      <entry key="S5" value="7.254837474899617" />
-      <entry key="S10" value="11.4041860595" />
-      <entry key="S30" value="17.31000996278916" />
-      <entry key="S60" value="20.446383060856846" />
-      <entry key="M2" value="26.776977428817823" />
-      <entry key="M5" value="46.44606652031555" />
-      <entry key="M10" value="69.6928411314892" />
-      <entry key="M15" value="85.6915256062626" />
-      <entry key="M30" value="112.38029281884536" />
-      <entry key="H1" value="132.83947297785468" />
-      <entry key="H2" value="145.7637991665379" />
-      <entry key="H4" value="153.06415202546955" />
-      <entry key="D1" value="159.63053373342038" />
-      <entry key="W1" value="160.80317826407853" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="9.118371864727218E-103" />
+      <entry key="S5" value="8.201732478536786E-41" />
+      <entry key="S10" value="4.4238753527605386E-20" />
+      <entry key="S30" value="3.3160718072158657E-6" />
+      <entry key="S60" value="0.010288615369254269" />
+      <entry key="M2" value="0.661035006921195" />
+      <entry key="M5" value="11.153001824590216" />
+      <entry key="M10" value="35.16047750317353" />
+      <entry key="M15" value="55.22543425194917" />
+      <entry key="M30" value="92.42069827414932" />
+      <entry key="H1" value="123.40418789646196" />
+      <entry key="H2" value="143.9317162329393" />
+      <entry key="H4" value="155.82961776740555" />
+      <entry key="D1" value="166.70999368699782" />
+      <entry key="W1" value="168.6704397676144" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="1.7350978801634475E-264" />
-      <entry key="S2" value="1.1477069121539647E-66" />
-      <entry key="S5" value="4.208712967736558E-27" />
-      <entry key="S10" value="6.630806212723046E-14" />
-      <entry key="S30" value="5.149568385924697E-5" />
-      <entry key="S60" value="0.009702791722053404" />
-      <entry key="M2" value="0.13774548093774625" />
-      <entry key="M5" value="0.7713591415428245" />
-      <entry key="M10" value="2.1328315989308133" />
-      <entry key="M15" value="3.6024340839001785" />
-      <entry key="M30" value="6.78219874416736" />
-      <entry key="H1" value="9.647172014622367" />
-      <entry key="H2" value="11.594830837928795" />
-      <entry key="H4" value="12.733777634998129" />
-      <entry key="D1" value="13.779516180794191" />
-      <entry key="W1" value="13.968262585085812" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0000000000066593" />
+      <entry key="S60" value="1.0000034892110308" />
+      <entry key="M2" value="1.002612116987772" />
+      <entry key="M5" value="1.1579147642745005" />
+      <entry key="M10" value="1.9650273438840582" />
+      <entry key="M15" value="3.1231698815768274" />
+      <entry key="M30" value="6.2067276685162485" />
+      <entry key="H1" value="9.452733911361047" />
+      <entry key="H2" value="11.853329913142622" />
+      <entry key="H4" value="13.319882209197209" />
+      <entry key="D1" value="14.703837015145483" />
+      <entry key="W1" value="14.957277302589707" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.3985076301634334" />
-      <entry key="MS500" value="2.1692883680326545" />
-      <entry key="S2" value="3.8598007813171735" />
-      <entry key="S5" value="7.249088051822383" />
-      <entry key="S10" value="11.399438392042333" />
-      <entry key="S30" value="17.30752292393913" />
-      <entry key="S60" value="20.453917812626997" />
-      <entry key="M2" value="26.90922040440666" />
-      <entry key="M5" value="47.20688707442532" />
-      <entry key="M10" value="71.81406833353267" />
-      <entry key="M15" value="89.28251102542394" />
-      <entry key="M30" value="119.15307578400358" />
-      <entry key="H1" value="142.480338955983" />
-      <entry key="H2" value="157.3549416039921" />
-      <entry key="H4" value="165.79592986568346" />
-      <entry key="D1" value="173.4096928841918" />
-      <entry key="W1" value="174.7713892339978" />
+      <entry key="MS100" value="0.004128976720942891" />
+      <entry key="MS500" value="0.3335557924194422" />
+      <entry key="S2" value="0.7599624282007579" />
+      <entry key="S5" value="0.8960182361210097" />
+      <entry key="S10" value="0.946582397956464" />
+      <entry key="S30" value="0.9818706405201248" />
+      <entry key="S60" value="1.001181718225178" />
+      <entry key="M2" value="1.6589317562285162" />
+      <entry key="M5" value="12.306730724435653" />
+      <entry key="M10" value="37.119119138621244" />
+      <entry key="M15" value="58.34105542276283" />
+      <entry key="M30" value="98.61976789996983" />
+      <entry key="H1" value="132.85117300190376" />
+      <entry key="H2" value="155.7814794333191" />
+      <entry key="H4" value="169.14750745197094" />
+      <entry key="D1" value="181.41346592015705" />
+      <entry key="W1" value="183.62766410581781" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -151,43 +150,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;JavaScript Debug.localhost:5173.executor&quot;: &quot;Debug&quot;,
-    &quot;JavaScript Debug.localhost:5174.executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Node.js.convertSVGToJson.ts.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Shell Script.Host.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.やばそうなの.executor&quot;: &quot;Run&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Docs/webstormproj/sustenant/src/routes/mc&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "JavaScript Debug.localhost:5173.executor": "Debug",
+    "JavaScript Debug.localhost:5174.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.convertSVGToJson.ts.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Shell Script.Host.executor": "Run",
+    "Shell Script.やばそうなの.executor": "Debug",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "javascript.preferred.runtime.type.id": "node",
+    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/src/routes/mc",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "ts.external.directory.path": "D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;JSON&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JSON"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\mc" />
@@ -204,7 +202,7 @@
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Shell Script.やばそうなの">
+  <component name="RunManager" selected="JavaScript Debug.localhost:5174">
     <configuration name="localhost:5173" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:5173/">
       <method v="2" />
     </configuration>
@@ -435,15 +433,9 @@
       <workItem from="1779265215727" duration="10000" />
       <workItem from="1779960877052" duration="4277000" />
       <workItem from="1780398317952" duration="536000" />
-      <workItem from="1780924361810" duration="498000" />
-    </task>
-    <task id="LOCAL-00160" summary="feat: performance setting">
-      <option name="closed" value="true" />
-      <created>1769616036194</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1769616036195</updated>
+      <workItem from="1780924361810" duration="3383000" />
+      <workItem from="1781011445860" duration="1803000" />
+      <workItem from="1782215537185" duration="2055000" />
     </task>
     <task id="LOCAL-00161" summary="fix: no flashing option properly">
       <option name="closed" value="true" />
@@ -829,7 +821,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779966848320</updated>
     </task>
-    <option name="localTasksCounter" value="209" />
+    <task id="LOCAL-00209" summary="chore: added UI/UX explicitly in about info">
+      <option name="closed" value="true" />
+      <created>1780924866327</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1780924866327</updated>
+    </task>
+    <option name="localTasksCounter" value="210" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -855,7 +855,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: snow would take a while to start up properly" />
     <MESSAGE value="fix: shown the yuri to my mum" />
     <MESSAGE value="fix: hopefully squished up a bit of performance from yuri + feat: cool shadow for text" />
     <MESSAGE value="chore: frame" />
@@ -880,6 +879,7 @@
     <MESSAGE value="fix: changed ogimg nickname to current" />
     <MESSAGE value="feat: mc build gallery for a thing" />
     <MESSAGE value="fix: gallery title was static" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: gallery title was static" />
+    <MESSAGE value="chore: added UI/UX explicitly in about info" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: added UI/UX explicitly in about info" />
   </component>
 </project>

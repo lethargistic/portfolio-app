@@ -48,10 +48,6 @@
                 clearTimeout(snowflakes[ix].timeout);
             }
             timeout = setTimeout(() => {
-                snowflakes[ix].name = 'none';
-                setTimeout(() => {
-                    snowflakes[ix].name = 'snow-drop';
-                }, 10)
                 toUpdate = ix;
             }, duration * 1000)
         }
@@ -63,7 +59,7 @@
             // rotation: getAbsRand(ROTATION_BASE_DEG, ROTATION_MIN_ADDED_DEG),
             right: Math.abs(Math.floor(Math.random() * windowGlobals.inner_width * 1.3)),
             blur: getAbsRand(BLUR_BASE),
-            name: initial ? 'snow-drop' : 'none',
+            name: 'snow-drop',
             duration: duration,
             timeout: timeout,
             offset: Math.floor(Math.random() * YURU_MAX_OFFSET),
@@ -77,11 +73,13 @@
     let snowflakes: Array<Record<string, any>> = $state([]);
     snowflakes = invalidateFlakes();
 
+    let mounted = false;
     $effect(() => {
         if (toUpdate) {
             // reactivity
         }
         untrack(() => {
+            if (!mounted) { mounted = true; return; }
             snowflakes[toUpdate] = startFreshFlake(toUpdate, false);
         })
     })
