@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="chore: added UI/UX explicitly in about info">
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="docs: occiboincal was n">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/segments/SegOther.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,61 +81,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="9.118371864727218E-103" />
-      <entry key="S5" value="8.201732478536786E-41" />
-      <entry key="S10" value="4.4238753527605386E-20" />
-      <entry key="S30" value="3.3160718072158657E-6" />
-      <entry key="S60" value="0.010288615369254269" />
-      <entry key="M2" value="0.661035006921195" />
-      <entry key="M5" value="11.153001824590216" />
-      <entry key="M10" value="35.16047750317353" />
-      <entry key="M15" value="55.22543425194917" />
-      <entry key="M30" value="92.42069827414932" />
-      <entry key="H1" value="123.40418789646196" />
-      <entry key="H2" value="143.9317162329393" />
-      <entry key="H4" value="155.82961776740555" />
-      <entry key="D1" value="166.70999368699782" />
-      <entry key="W1" value="168.6704397676144" />
+      <entry key="MS100" value="1.000226164825369" />
+      <entry key="MS500" value="1.3456351550428807" />
+      <entry key="S2" value="3.750257257040441" />
+      <entry key="S5" value="6.236513617629084" />
+      <entry key="S10" value="9.37488071487087" />
+      <entry key="S30" value="19.9800315222699" />
+      <entry key="S60" value="29.462428764297155" />
+      <entry key="M2" value="38.51561599057913" />
+      <entry key="M5" value="47.00474150626427" />
+      <entry key="M10" value="55.64079812247594" />
+      <entry key="M15" value="67.39349458081693" />
+      <entry key="M30" value="102.42551616417947" />
+      <entry key="H1" value="143.87498328475445" />
+      <entry key="H2" value="176.95274453077096" />
+      <entry key="H4" value="198.0544224651576" />
+      <entry key="D1" value="218.5450460660871" />
+      <entry key="W1" value="222.35586081080803" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0000000000066593" />
-      <entry key="S60" value="1.0000034892110308" />
-      <entry key="M2" value="1.002612116987772" />
-      <entry key="M5" value="1.1579147642745005" />
-      <entry key="M10" value="1.9650273438840582" />
-      <entry key="M15" value="3.1231698815768274" />
-      <entry key="M30" value="6.2067276685162485" />
-      <entry key="H1" value="9.452733911361047" />
-      <entry key="H2" value="11.853329913142622" />
-      <entry key="H4" value="13.319882209197209" />
-      <entry key="D1" value="14.703837015145483" />
-      <entry key="W1" value="14.957277302589707" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="9.774528132155186E-243" />
+      <entry key="S5" value="1.5705013728013901E-97" />
+      <entry key="S10" value="3.9629551761297894E-49" />
+      <entry key="S30" value="7.345246699885113E-17" />
+      <entry key="S60" value="8.570471374526167E-9" />
+      <entry key="M2" value="9.28184999847255E-5" />
+      <entry key="M5" value="0.028201826095435693" />
+      <entry key="M10" value="0.3066683223874546" />
+      <entry key="M15" value="0.9053068797883199" />
+      <entry key="M30" value="3.3416641291441707" />
+      <entry key="H1" value="6.9359744739977" />
+      <entry key="H2" value="10.153491249705198" />
+      <entry key="H4" value="12.327865787041713" />
+      <entry key="D1" value="14.515386325053486" />
+      <entry key="W1" value="14.929740120281462" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.004128976720942891" />
-      <entry key="MS500" value="0.3335557924194422" />
-      <entry key="S2" value="0.7599624282007579" />
-      <entry key="S5" value="0.8960182361210097" />
-      <entry key="S10" value="0.946582397956464" />
-      <entry key="S30" value="0.9818706405201248" />
-      <entry key="S60" value="1.001181718225178" />
-      <entry key="M2" value="1.6589317562285162" />
-      <entry key="M5" value="12.306730724435653" />
-      <entry key="M10" value="37.119119138621244" />
-      <entry key="M15" value="58.34105542276283" />
-      <entry key="M30" value="98.61976789996983" />
-      <entry key="H1" value="132.85117300190376" />
-      <entry key="H2" value="155.7814794333191" />
-      <entry key="H4" value="169.14750745197094" />
-      <entry key="D1" value="181.41346592015705" />
-      <entry key="W1" value="183.62766410581781" />
+      <entry key="MS100" value="0.9462700504400884" />
+      <entry key="MS500" value="1.3300532360545376" />
+      <entry key="S2" value="3.7386059709362462" />
+      <entry key="S5" value="6.228722326825731" />
+      <entry key="S10" value="9.368943888929513" />
+      <entry key="S30" value="19.96574295208103" />
+      <entry key="S60" value="29.43700951149906" />
+      <entry key="M2" value="38.49022191562674" />
+      <entry key="M5" value="47.01720350384346" />
+      <entry key="M10" value="55.93744128503194" />
+      <entry key="M15" value="68.29029789960711" />
+      <entry key="M30" value="105.75974386916354" />
+      <entry key="H1" value="150.8050424858277" />
+      <entry key="H2" value="187.1023217395806" />
+      <entry key="H4" value="210.3800121210791" />
+      <entry key="D1" value="233.05999992157" />
+      <entry key="W1" value="237.28553771777146" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -150,42 +150,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "JavaScript Debug.localhost:5173.executor": "Debug",
-    "JavaScript Debug.localhost:5174.executor": "Debug",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Node.js.convertSVGToJson.ts.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Shell Script.Host.executor": "Run",
-    "Shell Script.やばそうなの.executor": "Debug",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.preferred.runtime.type.id": "node",
-    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/src/routes/mc",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "ts.external.directory.path": "D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;JavaScript Debug.localhost:5173.executor&quot;: &quot;Debug&quot;,
+    &quot;JavaScript Debug.localhost:5174.executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Node.js.convertSVGToJson.ts.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Shell Script.Host.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.やばそうなの.executor&quot;: &quot;Debug&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Docs/webstormproj/sustenant/src/routes/mc&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "JSON"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JSON&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\mc" />
@@ -435,15 +435,11 @@
       <workItem from="1780398317952" duration="536000" />
       <workItem from="1780924361810" duration="3383000" />
       <workItem from="1781011445860" duration="1803000" />
-      <workItem from="1782215537185" duration="2055000" />
-    </task>
-    <task id="LOCAL-00161" summary="fix: no flashing option properly">
-      <option name="closed" value="true" />
-      <created>1769617430493</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL-00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1769617430493</updated>
+      <workItem from="1782215537185" duration="2846000" />
+      <workItem from="1782493455351" duration="1775000" />
+      <workItem from="1782497520176" duration="3000" />
+      <workItem from="1782978187518" duration="1131000" />
+      <workItem from="1783433898538" duration="166000" />
     </task>
     <task id="LOCAL-00162" summary="feat: bullet train asmr.wav">
       <option name="closed" value="true" />
@@ -829,7 +825,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780924866327</updated>
     </task>
-    <option name="localTasksCounter" value="210" />
+    <task id="LOCAL-00210" summary="fix: hopefully fixed occuboincal in SegOther">
+      <option name="closed" value="true" />
+      <created>1782217912711</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1782217912711</updated>
+    </task>
+    <option name="localTasksCounter" value="211" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -855,7 +859,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: shown the yuri to my mum" />
     <MESSAGE value="fix: hopefully squished up a bit of performance from yuri + feat: cool shadow for text" />
     <MESSAGE value="chore: frame" />
     <MESSAGE value="chore: same thing again" />
@@ -880,6 +883,7 @@
     <MESSAGE value="feat: mc build gallery for a thing" />
     <MESSAGE value="fix: gallery title was static" />
     <MESSAGE value="chore: added UI/UX explicitly in about info" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: added UI/UX explicitly in about info" />
+    <MESSAGE value="fix: hopefully fixed occuboincal in SegOther" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: hopefully fixed occuboincal in SegOther" />
   </component>
 </project>

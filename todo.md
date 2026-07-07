@@ -103,3 +103,5 @@
 - [ ] todo: make buttons data driven
 - [x] todo very: sort certificates by group and relevancy, in reverse historical/relevancy order 
 - [ ] todo minor: cert watermark still says Maksiks www
+
+- [ ] fix very: occuboincal is still there fuck ; guess i want to remake that animation from the ground up with no css, or state, just use motion ig
