@@ -1,17 +1,25 @@
 <script lang="ts">
     import {blur} from "svelte/transition";
 
-    const {groups, title, data} = $props();
+    const modes = ['img', 'yt-embed'] as const;
+    type Mode = typeof modes[number];
+
+    const {groups, title, data, mode = 'img'}: {
+        groups: Record<string, string>,
+        title: string,
+        data: { signedUrls: { name: string, src: string }[] },
+        mode: Mode
+    } = $props();
     const imgs = $derived(data.signedUrls)
 
     let open = $state(false);
-    let selected: typeof imgs[number] = $state(null);
+    let selected: typeof imgs[number] | null = $state(null);
 
-    let groupedImgs: Array<Record<string, any>> = [];
+    let groupedMedia: Array<Record<string, any>> = [];
     for (const img of imgs) {
         for (const [key, _] of Object.entries(groups)) {
             if (img.name.startsWith(key + "_")) {
-                groupedImgs.push({"group": key, "obj": img});
+                groupedMedia.push({"group": key, "obj": img});
             }
         }
     }
@@ -41,13 +49,22 @@
         {/if}
 
         <div class="gallery">
-            {#each groupedImgs as img}
-                {#if img.group === key}
-                    <div onclick={() => {open = true; selected = img.obj;}}
-                         onkeydown={() => {open = true; selected = img.obj;}}
-                         role="button" tabindex="0">
-                        <img src={img.obj.src} alt={`${title.toLowerCase()} image: ` + img.obj.name}/>
-                    </div>
+            {#each groupedMedia as media}
+                {#if media.group === key}
+                    {#if mode === "img"}
+                        <div onclick={() => {open = true; selected = media.obj;}}
+                             onkeydown={() => {open = true; selected = media.obj;}}
+                             role="button" tabindex="0">
+                            <img src={media.obj.src} alt={`${title.toLowerCase()} image: ` + media.obj.name}/>
+                        </div>
+                    {:else if mode === "yt-embed"}
+                        <iframe width="560" height="315"
+                                src={media.obj.src}
+                                title="YouTube video player"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    {/if}
+
                 {/if}
             {/each}
         </div>
@@ -106,7 +123,7 @@
 
         padding: 1rem 0.5rem 0 0.5rem;
 
-        & img {
+        & img, iframe {
             width: 100%;
             margin-bottom: 1rem;
             transition: filter 0.1s ease-in-out;
