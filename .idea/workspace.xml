@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="docs: occuboinckal is still there">
-      <change afterPath="$PROJECT_DIR$/src/routes/editing/+page.server.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/editing/+page.svelte" afterDir="false" />
+    <list default="true" id="8087dc89-2b6c-4b05-827a-ff05b3172daa" name="Changes" comment="feat: video editing portfolio page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/galleries/Gallery.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/galleries/Gallery.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/mc/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/mc/+page.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.inlang/cache/plugins/2sy648wh9sugi" beforeDir="false" afterPath="$PROJECT_DIR$/project.inlang/cache/plugins/2sy648wh9sugi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="331" />
+    <option name="cachedIndexableFilesCount" value="336" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -84,61 +85,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.008490116113485" />
-      <entry key="MS500" value="1.385285554179204" />
-      <entry key="S2" value="1.7878538860493463" />
-      <entry key="S5" value="1.9090301181774318" />
-      <entry key="S10" value="1.9534307096904269" />
-      <entry key="S30" value="1.9844799238476996" />
-      <entry key="S60" value="2.019481253721678" />
-      <entry key="M2" value="2.283489563044741" />
-      <entry key="M5" value="3.902886200798264" />
-      <entry key="M10" value="13.394238879740035" />
-      <entry key="M15" value="29.27863797266094" />
-      <entry key="M30" value="83.65949392392953" />
-      <entry key="H1" value="169.60968520841556" />
-      <entry key="H2" value="260.43557855889355" />
-      <entry key="H4" value="330.308318624869" />
-      <entry key="D1" value="407.82875783965045" />
-      <entry key="W1" value="423.3429173831344" />
+      <entry key="MS100" value="1.0563282908486937" />
+      <entry key="MS500" value="1.6067219146958645" />
+      <entry key="S2" value="2.9130672077377486" />
+      <entry key="S5" value="4.964953853133759" />
+      <entry key="S10" value="6.509260574711815" />
+      <entry key="S30" value="8.035519654148356" />
+      <entry key="S60" value="8.844475087533937" />
+      <entry key="M2" value="11.935004849384477" />
+      <entry key="M5" value="21.167883080847915" />
+      <entry key="M10" value="29.860228052063064" />
+      <entry key="M15" value="38.836434636689084" />
+      <entry key="M30" value="77.57477018502226" />
+      <entry key="H1" value="158.10285418027232" />
+      <entry key="H2" value="258.11874674425343" />
+      <entry key="H4" value="342.18296585847986" />
+      <entry key="D1" value="441.07531121962234" />
+      <entry key="W1" value="461.4851892239217" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="1.0254885206183634E-246" />
-      <entry key="S2" value="3.1822383175408314E-62" />
-      <entry key="S5" value="2.518216587602486E-25" />
-      <entry key="S10" value="5.018183523549619E-13" />
-      <entry key="S30" value="7.946615328551511E-5" />
-      <entry key="S60" value="0.008915773778070788" />
-      <entry key="M2" value="0.09570128145681019" />
-      <entry key="M5" value="0.5757444319730161" />
-      <entry key="M10" value="2.4914456026144816" />
-      <entry key="M15" value="5.2460974960268745" />
-      <entry key="M30" value="12.88710249394061" />
-      <entry key="H1" value="22.549164078770453" />
-      <entry key="H2" value="31.765947919443718" />
-      <entry key="H4" value="38.647568280158346" />
-      <entry key="D1" value="46.2249880094976" />
-      <entry key="W1" value="47.7404134955956" />
+      <entry key="MS500" value="1.570222395736858E-213" />
+      <entry key="S2" value="1.0369937794649073E-53" />
+      <entry key="S5" value="1.0351816549241876E-21" />
+      <entry key="S10" value="5.555500546508747E-11" />
+      <entry key="S30" value="9.191874289685272E-4" />
+      <entry key="S60" value="0.06026503828893933" />
+      <entry key="M2" value="0.4902212919585167" />
+      <entry key="M5" value="1.7370390318648425" />
+      <entry key="M10" value="2.9610355955733683" />
+      <entry key="M15" value="4.394543902638627" />
+      <entry key="M30" value="10.066830983590913" />
+      <entry key="H1" value="19.85378033380098" />
+      <entry key="H2" value="30.724287340387505" />
+      <entry key="H4" value="39.46995503385902" />
+      <entry key="D1" value="49.57188798296397" />
+      <entry key="W1" value="51.6435395547753" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.4855453283506511" />
-      <entry key="MS500" value="1.168085952406627" />
-      <entry key="S2" value="1.7065257235664752" />
-      <entry key="S5" value="1.8731606742088684" />
-      <entry key="S10" value="1.9348796493472096" />
-      <entry key="S30" value="1.9782242290966414" />
-      <entry key="S60" value="2.0247466578119013" />
-      <entry key="M2" value="2.3751190150212977" />
-      <entry key="M5" value="4.472361891642665" />
-      <entry key="M10" value="15.872983155882515" />
-      <entry key="M15" value="34.506980989599086" />
-      <entry key="M30" value="96.52473482380684" />
-      <entry key="H1" value="192.13987317642443" />
-      <entry key="H2" value="292.1883719252658" />
-      <entry key="H4" value="368.94799084365525" />
-      <entry key="D1" value="454.05219442114605" />
-      <entry key="W1" value="471.0831026209889" />
+      <entry key="MS100" value="0.9727438017142142" />
+      <entry key="MS500" value="1.5816786891196202" />
+      <entry key="S2" value="2.900670933232541" />
+      <entry key="S5" value="4.955573569423215" />
+      <entry key="S10" value="6.502803779236455" />
+      <entry key="S30" value="8.033648981888586" />
+      <entry key="S60" value="8.902013858804168" />
+      <entry key="M2" value="12.41930398802982" />
+      <entry key="M5" value="22.897179188156255" />
+      <entry key="M10" value="32.81382596546365" />
+      <entry key="M15" value="43.22194707214202" />
+      <entry key="M30" value="87.62790388800764" />
+      <entry key="H1" value="177.941715805974" />
+      <entry key="H2" value="288.8312119125816" />
+      <entry key="H4" value="381.64530456578035" />
+      <entry key="D1" value="490.6456092272814" />
+      <entry key="W1" value="513.128492372669" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -153,42 +154,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "JavaScript Debug.localhost:5173.executor": "Debug",
-    "JavaScript Debug.localhost:5174.executor": "Debug",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Node.js.convertSVGToJson.ts.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Shell Script.Host.executor": "Run",
-    "Shell Script.やばそうなの.executor": "Debug",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.preferred.runtime.type.id": "node",
-    "last_opened_file_path": "D:/Docs/webstormproj/sustenant/src/routes/editing",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "ts.external.directory.path": "D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;JavaScript Debug.localhost:5173.executor&quot;: &quot;Debug&quot;,
+    &quot;JavaScript Debug.localhost:5174.executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Node.js.convertSVGToJson.ts.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Shell Script.Host.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.やばそうなの.executor&quot;: &quot;Debug&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Docs/webstormproj/sustenant/src/routes/editing&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Docs\\webstormproj\\sustenant\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "JSON"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JSON&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Docs\webstormproj\sustenant\src\routes\editing" />
@@ -205,7 +206,7 @@
       <recent name="D:\Docs\webstormproj\sustenant\src\lib\assets" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.localhost:5174">
+  <component name="RunManager" selected="Shell Script.やばそうなの">
     <configuration name="localhost:5173" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:5173/">
       <method v="2" />
     </configuration>
@@ -263,7 +264,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.24374.125" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.27258.45" />
       </set>
     </attachedChunks>
   </component>
@@ -444,15 +445,10 @@
       <workItem from="1782978187518" duration="1131000" />
       <workItem from="1783433898538" duration="166000" />
       <workItem from="1783453208280" duration="24000" />
-      <workItem from="1784031962380" duration="6701000" />
-    </task>
-    <task id="LOCAL-00163" summary="fix: train sound is dimmer the further you go">
-      <option name="closed" value="true" />
-      <created>1769683667051</created>
-      <option name="number" value="00163" />
-      <option name="presentableId" value="LOCAL-00163" />
-      <option name="project" value="LOCAL" />
-      <updated>1769683667052</updated>
+      <workItem from="1784031962380" duration="7563000" />
+      <workItem from="1784046762541" duration="58000" />
+      <workItem from="1784201319972" duration="480000" />
+      <workItem from="1787431262128" duration="482000" />
     </task>
     <task id="LOCAL-00164" summary="feat: chrome boinked my sounds toast, also this lib is ridiculous in the best way possible">
       <option name="closed" value="true" />
@@ -838,7 +834,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783453226345</updated>
     </task>
-    <option name="localTasksCounter" value="212" />
+    <task id="LOCAL-00212" summary="feat: video editing portfolio page">
+      <option name="closed" value="true" />
+      <created>1784038984321</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1784038984321</updated>
+    </task>
+    <option name="localTasksCounter" value="213" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -864,7 +868,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: frame" />
     <MESSAGE value="chore: same thing again" />
     <MESSAGE value="chore: more cards x2" />
     <MESSAGE value="fix: tooltips werwe borken" />
@@ -889,6 +892,7 @@
     <MESSAGE value="chore: added UI/UX explicitly in about info" />
     <MESSAGE value="fix: hopefully fixed occuboincal in SegOther" />
     <MESSAGE value="docs: occuboinckal is still there" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: occuboinckal is still there" />
+    <MESSAGE value="feat: video editing portfolio page" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: video editing portfolio page" />
   </component>
 </project>

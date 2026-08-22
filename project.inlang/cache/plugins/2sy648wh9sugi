@@ -1749,6 +1749,9 @@ var maybeMigrateToV2 = async (args) => {
   }
 };
 
+// src/pluginKey.ts
+var PLUGIN_KEY = "plugin.inlang.messageFormat";
+
 // src/import-export/toBeImportedFiles.ts
 var toBeImportedFiles = async ({ settings }) => {
   const result = [];
@@ -1874,6 +1877,7 @@ var importFiles = async ({
   files
 }) => {
   const bundles = [];
+  const bundlesById = /* @__PURE__ */ new Map();
   const messages = [];
   const variants = [];
   for (const file of files) {
@@ -1886,9 +1890,10 @@ var importFiles = async ({
       const result = parseBundle(key, file.locale, flattened[key]);
       messages.push(result.message);
       variants.push(...result.variants);
-      const existingBundle = bundles.find((b) => b.id === result.bundle.id);
+      const existingBundle = bundlesById.get(result.bundle.id);
       if (existingBundle === void 0) {
         bundles.push(result.bundle);
+        bundlesById.set(result.bundle.id, result.bundle);
       } else {
         existingBundle.declarations = unique([
           ...existingBundle.declarations,
@@ -1902,6 +1907,7 @@ var importFiles = async ({
 function parseBundle(key, locale, value) {
   const parsed = parseVariants(key, locale, value);
   const declarations = unique(parsed.declarations);
+  addInputDeclarationsForLocalReferences(declarations);
   const selectors = unique(parsed.selectors);
   const undeclaredSelectors = selectors.filter(
     (selector) => declarations.find((d) => d.name === selector.name) === void 0
@@ -1924,6 +1930,32 @@ function parseBundle(key, locale, value) {
     },
     variants: parsed.variants
   };
+}
+function addInputDeclarationsForLocalReferences(declarations) {
+  const declaredNames = new Set(
+    declarations.map((declaration) => declaration.name)
+  );
+  for (const declaration of declarations) {
+    if (declaration.type !== "local-variable") {
+      continue;
+    }
+    const references = [];
+    if (declaration.value.arg.type === "variable-reference") {
+      references.push(declaration.value.arg.name);
+    }
+    for (const option of declaration.value.annotation?.options ?? []) {
+      if (option.value.type === "variable-reference") {
+        references.push(option.value.name);
+      }
+    }
+    for (const name of references) {
+      if (declaredNames.has(name)) {
+        continue;
+      }
+      declarations.push({ type: "input-variable", name });
+      declaredNames.add(name);
+    }
+  }
 }
 function parseVariants(bundleId, locale, value) {
   if (typeof value === "string") {
@@ -2517,7 +2549,6 @@ function serializeDeclaration(declaration) {
 }
 
 // src/plugin.ts
-var PLUGIN_KEY = "plugin.inlang.messageFormat";
 var plugin2 = {
   key: PLUGIN_KEY,
   // legacy v2 stuff for backwards compatibility

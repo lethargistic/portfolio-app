@@ -105,3 +105,6 @@
 - [ ] todo minor: cert watermark still says Maksiks www
 
 - [ ] fix very: occuboincal is still there fuck ; guess i want to remake that animation from the ground up with no css, or state, just use motion ig
+- [ ] fix very: attach search console so it shows up first in results
+- [ ] fix minor: make scrollbar look better
+- [ ] fix very: make art portfolio
