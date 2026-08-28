@@ -153,10 +153,12 @@
                 width: 100%;
 
                 transition: filter 0.25s ease;
-                filter: grayscale(10%);
+                filter: grayscale(20%);
+                /* to prevent y-fighting or sum on filter transition */
+                scale: 1.001;
 
                 &:hover {
-                    filter: grayscale(0)
+                    filter: grayscale(0);
                 }
 
                 @media (max-width: 767px) {

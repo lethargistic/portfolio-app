@@ -104,7 +104,8 @@
 - [x] todo very: sort certificates by group and relevancy, in reverse historical/relevancy order 
 - [ ] todo minor: cert watermark still says Maksiks www
 
-- [ ] fix very: occuboincal is still there fuck ; guess i want to remake that animation from the ground up with no css, or state, just use motion ig
+- [ ] fix very: occuboincal is still there fuck ; guess i want to remake that animation from the ground up with no css, or state, just use motion ig ; at this point from the ground up yeah
 - [ ] fix very: attach search console so it shows up first in results
 - [ ] fix minor: make scrollbar look better
 - [ ] fix very: make art portfolio
+- [ ] fix minor fix: twig square has a visual line
